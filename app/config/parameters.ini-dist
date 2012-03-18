@@ -5,9 +5,9 @@
     database_driver   = pdo_mysql
     database_host     = localhost
     database_port     =
-    database_name     = up2green2
-    database_user     = username
-    database_password = "sm@rTp0wereD!pwd"
+    database_name     = symfony
+    database_user     = root
+    database_password =
 
     mailer_transport  = smtp
     mailer_host       = localhost
@@ -16,4 +16,4 @@
 
     locale            = en
 
-    secret            = up2green2TokenSecret
+    secret            = ThisTokenIsNotSoSecretChangeIt
