@@ -64,3 +64,12 @@
 
 [propel]
     git=https://github.com/propelorm/Propel.git
+
+[MopaBootstrapBundle]
+    git=http://github.com/phiamo/MopaBootstrapBundle.git
+    target=/bundles/Mopa/BootstrapBundle
+
+[TwitterBootstrap2]
+    git=git://github.com/twitter/bootstrap.git
+    target=/twitter/bootstrap/v2/
+    version=v2.0.0
