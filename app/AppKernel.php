@@ -18,6 +18,9 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Propel\PropelBundle\PropelBundle(),
             new Mopa\BootstrapBundle\MopaBootstrapBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+
+            new Up2green\Bundle\BlogBundle\Up2greenBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

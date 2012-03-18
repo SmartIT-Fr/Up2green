@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+
+{% stylesheets filter='less,cssrewrite,?yui_css' 
+   '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+   '@Up2greenBlogBundle/Resources/public/less/*'
+%}
+<script type="text/javascript" src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block title %}Up2green Blog : {% block section %}Index{% endblock %}{% endblock %}
+
+{% block body %}
+
+{% include 'Up2greenBlogBundle::header.html.twig' %}
+
+<div id="content" role="main" class="container">
+    <div id="content-inner">
+        {% include ('Up2greenBlogBundle::notice.html.twig') %}
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+{% include 'Up2greenBlogBundle::footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+<!--[if lt IE 7 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+  <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+{% endblock %}

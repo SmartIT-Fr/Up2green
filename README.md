@@ -8,19 +8,50 @@ Up2green
 
 Run the following commands:
 
-    git clone git@github.com:SmartIT-Fr/Up2green.git
+``` bash
+git clone git@github.com:SmartIT-Fr/Up2green.git
+```
 
 ### b) Check your System Configuration
 
 Before you begin, make sure that your local system is properly configured
 for Symfony. To do this, execute the following:
 
-    php app/check.php
+``` bash
+php app/check.php
+```
 
 ### c) Install the Vendor Libraries
 
-    php bin/vendors install
+``` bash
+php bin/vendors install
+```
 
 ### d) Access the Application via the Browser and check the config
 
     http://localhost/Symfony/web/config.php
+
+### e) Install nodejs and less css
+
+ - node.js:
+
+``` bash
+git clone https://github.com/joyent/node.git
+cd node
+git checkout v0.6.7 //Try checking nodejs.org for what the stable version is
+./configure
+make
+sudo make install
+```
+
+ - npm: (node package manager) 
+ 
+``` bash
+curl http://npmjs.org/install.sh | sh
+```
+
+ - less css:
+
+``` bash
+npm install less -g
+```

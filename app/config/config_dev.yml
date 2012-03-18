@@ -24,9 +24,9 @@ assetic:
 
 propel:
     dbal:
-        driver:               %database_driver%
-        user:                 %database_user%
-        password:             %database_password%
-        dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
+        driver:               mysql
+        user:                 username
+        password:             "sm@rTp0wereD!pwd"
+        dsn:                  mysql:host=localhost;dbname=up2green2;charset=UTF8
         options:              {}
         attributes:           {}
