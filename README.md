@@ -50,8 +50,16 @@ sudo make install
 curl http://npmjs.org/install.sh | sh
 ```
 
- - less css:
+ - less css and uglify-js:
 
 ``` bash
 npm install less -g
+npm install uglify-js -g
+```
+
+### e) Checkout Mopa BootstrapBundle submodules
+
+``` bash
+cd vendor/bundles/Mopa/BootstrapBundle
+git submodule update --init
 ```

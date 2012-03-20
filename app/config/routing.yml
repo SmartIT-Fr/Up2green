@@ -1,3 +1,8 @@
+Up2greenCommonBundle:
+    resource: "@Up2greenCommonBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 Up2greenBlogBundle:
     resource: "@Up2greenBlogBundle/Controller/"
     type:     annotation

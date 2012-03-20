@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+
+{% stylesheets filter='less,cssrewrite,?yui_css' output='css/all.css'
+    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+    '@Up2greenCommonBundle/Resources/public/less/*'
+    '@Up2greenBlogBundle/Resources/public/less/*'
+%}
+<script type="text/javascript" src="{{ asset('bundles/up2greencommon/js/modernizr-2.5.3.js') }}"></script>
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block title %}Up2green {% block app %}Reforestation{% endblock %} : {% block section %}Index{% endblock %}{% endblock %}
+
+{% block body %}
+
+{% include 'Up2greenCommonBundle::header.html.twig' %}
+
+<div class="container">
+
+    <div id="content" role="main" class="container">
+        <div id="content-inner">
+            {% include ('Up2greenCommonBundle::notice.html.twig') %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    {% include 'Up2greenCommonBundle::footer.html.twig' %}
+
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% javascripts filter='?yui_js' output='js/all.js'
+    '@Up2greenCommonBundle/Resources/public/js/jquery-1.7.1.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alert.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-button.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-carousel.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-collapse.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tooltip.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tab.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-typeahead.js'
+    '@Up2greenBlogBundle/Resources/public/js/*'
+%}
+<!--[if lt IE 7 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+  <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% endblock %}
