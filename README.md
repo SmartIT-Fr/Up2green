@@ -63,3 +63,12 @@ npm install uglify-js -g
 cd vendor/bundles/Mopa/BootstrapBundle
 git submodule update --init
 ```
+
+### f) Configuration your database and build
+
+``` bash
+cp app/config/parameters.ini-dist app/config/parameters.ini
+vim app/config/parameters.ini
+php app/console propel:database:create
+php app/console propel:build --insert-sql
+```

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="Up2green\Bundle\BlogBundle\Model" defaultIdMethod="native">
+
+    <table name="category">
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        
+        <behavior name="activatable" />
+        <behavior name="sluggable" />
+        <behavior name="sortable" />
+        <behavior name="nested_set" />
+    </table>
+
+    <table name="article">
+        <column name="category_id" type="INTEGER" />
+
+        <column name="title" type="VARCHAR" size="255" required="true" />
+        <column name="summary" type="LONGVARCHAR" required="true"  />
+        <column name="description" type="LONGVARCHAR" required="true"  />
+        <column name="logo" type="VARCHAR" size="255"  />
+
+        <foreign-key foreignTable="category">
+            <reference local="category_id" foreign="id" />
+        </foreign-key>	
+
+        <behavior name="activatable" />
+        <behavior name="sluggable" />
+        <behavior name="timestampable" />
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="title, summary, description" />
+        </behavior>
+    </table>
+
+    <table name="mail">
+        <column name="category_id" type="INTEGER" />
+
+        <column name="title" type="VARCHAR" required="true" />
+        <column name="content" type="LONGVARCHAR" required="true" />
+        <column name="from" type="VARCHAR" required="true" defaultValue="Up2green" />
+        <column name="reply" type="VARCHAR" required="true" defaultValue="no-reply@up2green.com" />
+        <column name="sent_at" type="TIMESTAMP" required="true" />
+        <column name="is_forced" type="BOOLEAN" required="true" defaultValue="false" />
+
+        <foreign-key foreignTable="category">
+            <reference local="category_id" foreign="id" />
+        </foreign-key>	
+    </table>
+
+</database>

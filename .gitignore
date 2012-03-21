@@ -10,6 +10,11 @@ web/bundles/*
 web/css/
 web/js/
 
+# Propel 
+src/Up2green/Bundle/BlogBundle/Model/om/*
+src/Up2green/Bundle/BlogBundle/Model/map/*
+app/propel/
+
 # Configuration files
 app/config/parameters.ini
 /nbproject/

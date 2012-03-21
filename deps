@@ -81,3 +81,7 @@
 [TypehintableBehavior]
     git=http://github.com/willdurand/TypehintableBehavior.git
     target=/propel-behaviors/TypehintableBehavior
+
+[ActivatableBehavior]
+    git=http://github.com/ClementGautier/ActivatableBehavior.git
+    target=/propel-behaviors/ActivatableBehavior
