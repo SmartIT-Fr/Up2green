@@ -1,3 +1,8 @@
+Up2greenUserBundle:
+    resource: "@Up2greenUserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
 Up2greenCommonBundle:
     resource: "@Up2greenCommonBundle/Controller/"
     type:     annotation

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
 
             new Up2green\Bundle\BlogBundle\Up2greenBlogBundle(),
             new Up2green\Bundle\CommonBundle\Up2greenCommonBundle(),
+            new Up2green\Bundle\UserBundle\Up2greenUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

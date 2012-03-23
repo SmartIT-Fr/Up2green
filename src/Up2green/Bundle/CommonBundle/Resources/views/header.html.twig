@@ -4,27 +4,61 @@
     {% endif %}
 
     <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
+        <div class="navbar-inner">
+            <div class="container">
 
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </a>
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
 
-          <a class="brand" href="{{ path('homepage') }}">Up2green</a>
+                <a class="brand" href="{{ path('homepage') }}">Up2green</a>
 
-          <div class="nav-collapse">
-              <ul class="nav">
-                  <li{% if active is null or active == 'homepage' %} class="active"{% endif %}>
-                    <a href="{{ path('homepage') }}">{{ 'Home'|trans }}</a>
-                  </li>
-              </ul>
-          </div>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li{% if active is null or active == 'homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('homepage') }}">{{ 'Home'|trans }}</a>
+                        </li>
+                    </ul>
 
+                    <ul class="nav pull-right">
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-flag icon-white"></i> {{ "Language"|trans }}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('user_locale_change', {'locale': 'fr_FR'}) }}">{{ "French"|trans }}</a></li>
+                                <li><a href="{{ path('user_locale_change', {'locale': 'en_US'}) }}">{{ "English"|trans }}</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user icon-white"></i> 
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    {{ app.user.username }}
+                                {% else %}
+                                    {{ "Your account"|trans }}
+                                {% endif %}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'Profile'|trans }}</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                                {% else %}
+                                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'Register'|trans }}</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
 
 </header>

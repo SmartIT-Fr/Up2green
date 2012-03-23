@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
+    translator:      { fallback: en }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -13,7 +13,7 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     session:
-        default_locale: %locale%
+        default_locale: fr
         auto_start:     true
 
 # Twig Configuration
@@ -68,4 +68,4 @@ fos_user:
     db_driver: propel
     firewall_name: main
     user_class: FOS\UserBundle\Propel\UserProxy
-    propel_user_class: FOS\UserBundle\Propel\UserProxy
+    propel_user_class: FOS\UserBundle\Propel\User
