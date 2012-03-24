@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Up2green\UserBundle\Up2greenUserBundle(),
             new Up2green\SearchBundle\Up2greenSearchBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new Up2green\AdminBundle\Up2greenAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
