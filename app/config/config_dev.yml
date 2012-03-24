@@ -22,6 +22,9 @@ monolog:
 assetic:
     use_controller: true
 
+admingenerator_generator:
+    overwrite_if_exists: true
+
 propel:
     dbal:
         driver:               mysql
