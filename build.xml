@@ -4,7 +4,7 @@
     <property name="basedir" value="${project.basedir}"/>
     <property name="source" value="src"/>
     <property name="ignore.map" value="**/Model/map/*"/>
-    <property name="ignore.om" value="**/Model/map/*"/>
+    <property name="ignore.om" value="**/Model/om/*"/>
     <property name="ignore.build" value="build"/>
     <property name="ignore" value="${ignore.map},${ignore.om}"/>
 
