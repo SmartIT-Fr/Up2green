@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  
 <project name="${projectName}" default="build" basedir=".">
+    <property name="basedir" value="${project.basedir}"/>
     <property name="source" value="src"/>
     <property name="ignore" value="build"/>
  
@@ -20,10 +21,10 @@
  
     <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
         <exec executable="phpunit">
-            <arg line="-c app"/>
-            <arg line="--log-junit ${basedir}/build/logs/phpunit.xml"/>
-            <arg line="--coverage-clover ${basedir}/build/logs/coverage/clover.xml"/>
-            <arg line="--coverage-html ${basedir}/build/logs/coverage/ ${basedir}/tests"/>
+            <arg line="-c                 ${project.basedir}/app/
+                        --coverage-html    ${project.basedir}/build/coverage/
+                        --coverage-clover  ${project.basedir}/build/logs/clover.xml
+                        --log-junit        ${project.basedir}/build/logs/phpunit.xml" />
         </exec>
     </target>
  
