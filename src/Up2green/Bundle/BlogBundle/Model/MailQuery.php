@@ -4,18 +4,11 @@ namespace Up2green\Bundle\BlogBundle\Model;
 
 use Up2green\Bundle\BlogBundle\Model\om\BaseMailQuery;
 
-
 /**
- * Skeleton subclass for performing query and update operations on the 'mail' table.
+ * MailQuery class
  *
- * 
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- * @package    propel.generator.src.Up2green.Bundle.BlogBundle.Model
+ * @deprecated Never use Peer classes
  */
-class MailQuery extends BaseMailQuery {
-
-} // MailQuery
+class MailQuery extends BaseMailQuery
+{
+}
