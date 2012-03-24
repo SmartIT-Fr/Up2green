@@ -5,6 +5,9 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
+    'WhiteOctober\\PagerfantaBundle' => __DIR__.'/../vendor/bundles',
+    'Pagerfanta' => __DIR__.'/../vendor/pagerfanta/src',
+    'TwigGenerator' => __DIR__.'/../vendor/twig-generator/src',
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Sensio'           => __DIR__.'/../vendor/bundles',
     'JMS'              => __DIR__.'/../vendor/bundles',
@@ -15,7 +18,11 @@ $loader->registerNamespaces(array(
     'Propel'           => __DIR__.'/../vendor/bundles',
     'Mopa'             => __DIR__.'/../vendor/bundles',
     'FOS'              => __DIR__.'/../vendor/bundles',
+    'Admingenerator'   => array(__DIR__.'/../src', __DIR__.'/../vendor/bundles'),
+    'Knp\Bundle'       => __DIR__.'/../vendor/bundles',
+    'Knp\Menu'         => __DIR__.'/../vendor/KnpMenu/src',
 ));
+
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
     'Twig_'            => __DIR__.'/../vendor/twig/lib',

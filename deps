@@ -85,3 +85,27 @@
 [ActivatableBehavior]
     git=http://github.com/ClementGautier/ActivatableBehavior.git
     target=/propel-behaviors/ActivatableBehavior
+
+[KnpMenu]
+    git=https://github.com/KnpLabs/KnpMenu.git
+
+[KnpMenuBundle]
+    git=https://github.com/KnpLabs/KnpMenuBundle.git
+    target=bundles/Knp/Bundle/MenuBundle
+
+[AdmingeneratorGeneratorBundle]
+    git=git://github.com/cedriclombardot/AdmingeneratorGeneratorBundle.git
+    target=bundles/Admingenerator/GeneratorBundle
+    version=origin/master
+
+[TwigGenerator]
+    git=git://github.com/cedriclombardot/TwigGenerator.git
+    target=/twig-generator
+
+[PagerFanta]
+    git=git://github.com/whiteoctober/Pagerfanta.git
+    target=/pagerfanta
+
+[WhiteOctoberPagerfantaBundle]
+    git=git://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
+    target=/bundles/WhiteOctober/PagerfantaBundle
