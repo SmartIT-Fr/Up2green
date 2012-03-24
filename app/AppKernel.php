@@ -25,10 +25,10 @@ class AppKernel extends Kernel
             new Mopa\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
-            new Up2green\Bundle\BlogBundle\Up2greenBlogBundle(),
-            new Up2green\Bundle\CommonBundle\Up2greenCommonBundle(),
-            new Up2green\Bundle\UserBundle\Up2greenUserBundle(),
-            new Up2green\Bundle\SearchBundle\Up2greenSearchBundle(),
+            new Up2green\BlogBundle\Up2greenBlogBundle(),
+            new Up2green\CommonBundle\Up2greenCommonBundle(),
+            new Up2green\UserBundle\Up2greenUserBundle(),
+            new Up2green\SearchBundle\Up2greenSearchBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         );
 
