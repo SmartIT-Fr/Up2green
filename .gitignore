@@ -11,8 +11,8 @@ web/css/
 web/js/
 
 # Propel 
-src/Up2green/Bundle/BlogBundle/Model/om/*
-src/Up2green/Bundle/BlogBundle/Model/map/*
+src/Up2green/*Bundle/Model/om/*
+src/Up2green/*Bundle/Model/map/*
 app/propel/
 
 # Configuration files
