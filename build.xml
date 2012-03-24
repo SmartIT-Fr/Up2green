@@ -104,7 +104,7 @@
 
     <target name="propel" description="Propel build">
         <exec executable="app/console">
-            <arg value="propel:build --insert-sql" />
+            <arg line="propel:build --insert-sql" />
         </exec>
     </target>
 

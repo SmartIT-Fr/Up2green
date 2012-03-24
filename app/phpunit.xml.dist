@@ -24,15 +24,11 @@
         <whitelist>
             <directory>../src</directory>
             <exclude>
+                <directory>../src/Up2green/AdminBundle</directory>
                 <directory>../src/*/*Bundle/Resources</directory>
                 <directory>../src/*/*Bundle/Tests</directory>
                 <directory>../src/*/*Bundle/Model/om</directory>
                 <directory>../src/*/*Bundle/Model/map</directory>
-
-                <directory>../src/*/Bundle/*Bundle/Resources</directory>
-                <directory>../src/*/Bundle/*Bundle/Tests</directory>
-                <directory>../src/*/Bundle/*Bundle/Model/om</directory>
-                <directory>../src/*/Bundle/*Bundle/Model/map</directory>
             </exclude>
         </whitelist>
     </filter>
