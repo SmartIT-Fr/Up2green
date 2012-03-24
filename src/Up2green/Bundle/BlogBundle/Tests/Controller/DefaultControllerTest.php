@@ -2,16 +2,13 @@
 
 namespace Up2green\Bundle\BlogBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\Bundle\CommonBundle\Test\IsolatedWebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends IsolatedWebTestCase
 {
     public function testIndex()
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $this->client->request('GET', '/');
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }

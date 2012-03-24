@@ -2,15 +2,14 @@
 
 namespace Up2green\Bundle\UserBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\Bundle\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class LocaleControllerTest extends WebTestCase
+class LocaleControllerTest extends IsolatedWebTestCase
 {
     public function testChange()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/user/change-language/en');
-
-        $this->assertEquals(200, $client->getResponse()->getStatus());
+        $this->client->request('GET', '/user/change-language/en');
+        $this->assertTrue($this->client->getResponse() instanceof RedirectResponse);
     }
 }
