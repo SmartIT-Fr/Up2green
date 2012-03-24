@@ -97,5 +97,11 @@
         </exec>
     </target>
 
-    <target name="build" depends="clean,vendors,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpunit,phpcb"/>
+    <target name="propel" description="Propel build">
+        <exec executable="app/console">
+            <arg value="propel:build --insert-sql" />
+        </exec>
+    </target>
+
+    <target name="build" depends="clean,vendors,propel,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpunit,phpcb"/>
 </project>

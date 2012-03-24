@@ -1,11 +1,17 @@
 imports:
     - { resource: config.yml }
 
-#doctrine:
-#    orm:
-#        metadata_cache_driver: apc
-#        result_cache_driver: apc
-#        query_cache_driver: apc
+assetic:
+    use_controller: true
+
+propel:
+    dbal:
+        driver:               mysql
+        user:                 username
+        password:             "sm@rTp0wereD!pwd"
+        dsn:                  mysql:host=localhost;dbname=up2green2;charset=UTF8
+        options:              {}
+        attributes:           {}
 
 monolog:
     handlers:
