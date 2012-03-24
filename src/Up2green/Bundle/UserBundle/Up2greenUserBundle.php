@@ -5,7 +5,7 @@ namespace Up2green\Bundle\UserBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * @see Symfony\Component\HttpKernel\Bundle\Bundle 
+ * User Bundle 
  */
 class Up2greenUserBundle extends Bundle
 {

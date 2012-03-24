@@ -1,7 +1,5 @@
 <header>
-    {% if active is not defined %}
-        {% set active = null %}
-    {% endif %}
+    {% set route = app.request.attributes.get('_route') %}
 
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
@@ -13,12 +11,15 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <a class="brand" href="{{ path('homepage') }}">Up2green</a>
+                <a class="brand" href="{{ path('search_homepage') }}">Up2green</a>
 
                 <div class="nav-collapse">
                     <ul class="nav">
-                        <li{% if active is null or active == 'homepage' %} class="active"{% endif %}>
-                            <a href="{{ path('homepage') }}">{{ 'Home'|trans }}</a>
+                        <li{% if route == 'search_homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('search_homepage') }}">{{ 'Home'|trans }}</a>
+                        </li>
+                        <li{% if route == 'blog_homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('blog_homepage') }}">{{ 'Blog'|trans }}</a>
                         </li>
                     </ul>
 

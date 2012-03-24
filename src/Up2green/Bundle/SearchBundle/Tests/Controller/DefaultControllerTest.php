@@ -1,20 +1,20 @@
 <?php
 
-namespace Up2green\Bundle\BlogBundle\Tests\Controller;
+namespace Up2green\Bundle\SearchBundle\Tests\Controller;
 
 use Up2green\Bundle\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the DefaultController of the BlogBundle
+ * Test the Defaultcontroller 
  */
 class DefaultControllerTest extends IsolatedWebTestCase
 {
     /**
-     * Test indexAction
+     * Test the indexAction 
      */
     public function testIndex()
     {
-        $this->client->request('GET', '/blog/');
+        $this->client->request('GET', '/');
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }

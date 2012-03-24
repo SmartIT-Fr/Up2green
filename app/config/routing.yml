@@ -1,3 +1,8 @@
+Up2greenSearchBundle:
+    resource: "@Up2greenSearchBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 Up2greenUserBundle:
     resource: "@Up2greenUserBundle/Controller/"
     type:     annotation
@@ -11,7 +16,7 @@ Up2greenCommonBundle:
 Up2greenBlogBundle:
     resource: "@Up2greenBlogBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /blog
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
