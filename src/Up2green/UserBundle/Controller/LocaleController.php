@@ -16,6 +16,7 @@ class LocaleController extends Controller
      * Change the user current language
      *
      * @param string $locale
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @todo Redirect the user to the page where it comes
      *
