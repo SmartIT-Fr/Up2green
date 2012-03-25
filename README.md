@@ -57,6 +57,13 @@ npm install less -g
 npm install uglify-js -g
 ```
 
+ - compass and sass gems:
+
+``` bash
+gem install compass
+gem install sass
+```
+
 ### e) Checkout Mopa BootstrapBundle submodules
 
 ``` bash
