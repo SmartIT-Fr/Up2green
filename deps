@@ -83,7 +83,7 @@
     target=/propel-behaviors/TypehintableBehavior
 
 [ActivatableBehavior]
-    git=http://github.com/ClementGautier/ActivatableBehavior.git
+    git=git://github.com/ClementGautier/ActivatableBehavior.git
     target=/propel-behaviors/ActivatableBehavior
 
 [KnpMenu]
@@ -109,3 +109,10 @@
 [WhiteOctoberPagerfantaBundle]
     git=git://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
     target=/bundles/WhiteOctober/PagerfantaBundle
+
+[buzz]
+    git=http://github.com/kriswallsmith/Buzz.git
+
+[SensioBuzzBundle]
+    git=http://github.com/sensio/SensioBuzzBundle.git
+    target=bundles/Sensio/Bundle/BuzzBundle
