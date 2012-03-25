@@ -11,19 +11,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  */
 class LocaleController extends Controller
 {
+
     /**
      * Change the user current language
      *
-     * @Route("/change-language/{locale}", name="user_locale_change")
-     *
-     * @param string $locale 
+     * @param string $locale
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @todo Redirect the user to the page where it comes
+     *
+     * @Route("/change-language/{locale}", name="user_locale_change")
      */
     public function changeAction($locale)
     {
         $this->get('session')->setLocale($locale);
-        
+
         return $this->redirect($this->generateUrl('search_homepage'));
     }
 }
