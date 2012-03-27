@@ -16,5 +16,5 @@ src/Up2green/*Bundle/Model/map/*
 app/propel/
 
 # Configuration files
-app/config/parameters.ini
+app/config/parameters.yml
 /nbproject/

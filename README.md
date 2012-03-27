@@ -83,7 +83,7 @@ php app/console propel:database:create
 php app/console propel:build --insert-sql
 ```
 
-### f) Add bootstrap symlinks
+### g) Add bootstrap symlinks
 
 ``` bash
 php app/console mopa:bootstrap:install
