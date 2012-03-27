@@ -7,6 +7,7 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
+            
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -19,9 +20,13 @@ class AppKernel extends Kernel
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
             new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
 
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+
+//            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Propel\PropelBundle\PropelBundle(),
             new Mopa\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),

@@ -24,12 +24,3 @@ assetic:
 
 admingenerator_generator:
     overwrite_if_exists: true
-
-propel:
-    dbal:
-        driver:               mysql
-        user:                 username
-        password:             "sm@rTp0wereD!pwd"
-        dsn:                  mysql:host=localhost;dbname=up2green2;charset=UTF8
-        options:              {}
-        attributes:           {}

@@ -1,5 +1,5 @@
 imports:
-    - { resource: parameters.ini }
+    - { resource: parameters.yml }
     - { resource: security.yml }
 
 framework:
@@ -12,8 +12,8 @@ framework:
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  fr
     session:
-        default_locale: fr
         auto_start:     true
 
 # Twig Configuration
@@ -45,8 +45,15 @@ assetic:
         #     jar: %kernel.root_dir%/java/compiler.jar
 
 propel:
-    path:       "%kernel.root_dir%/../vendor/propel"
-    phing_path: "%kernel.root_dir%/../vendor/phing"
+    path:       "%kernel.root_dir%/../vendor/propel/propel1"
+    phing_path: "%kernel.root_dir%/../vendor/phing/phing"
+    dbal:
+        driver:               mysql
+        user:                 %database_user%
+        password:             %database_password%
+        dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
+        options:              {}
+        attributes:           {}
 
 mopa_bootstrap:
     form:
@@ -60,10 +67,7 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-
-jms_security_extra:
-    secure_controllers:  true
-    secure_all_services: false
+    spool:     { type: memory }
 
 fos_user:
     db_driver: propel

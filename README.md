@@ -21,17 +21,27 @@ for Symfony. To do this, execute the following:
 php app/check.php
 ```
 
-### c) Install the Vendor Libraries
+### c) Install Composer
 
 ``` bash
-php bin/vendors install
+sudo su
+cd /usr/bin/
+curl -s http://getcomposer.org/installer | php
+chmod a+x composer.phar
+```
+
+
+### d) Install the Vendor Libraries
+
+``` bash
+composer.phar install
 ```
 
 ### d) Access the Application via the Browser and check the config
 
     http://localhost/Symfony/web/config.php
 
-### e) Install nodejs and less css
+### e) Install tools for assetic
 
  - node.js:
 
@@ -62,13 +72,6 @@ npm install uglify-js -g
 ``` bash
 gem install compass
 gem install sass
-```
-
-### e) Checkout Mopa BootstrapBundle submodules
-
-``` bash
-cd vendor/bundles/Mopa/BootstrapBundle
-git submodule update --init
 ```
 
 ### f) Configuration your database and build
