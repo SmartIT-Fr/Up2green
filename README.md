@@ -77,8 +77,14 @@ gem install sass
 ### f) Configuration your database and build
 
 ``` bash
-cp app/config/parameters.ini-dist app/config/parameters.ini
-vim app/config/parameters.ini
+cp app/config/parameters.dist.yml app/config/parameters.yml
+vim app/config/parameters.yml
 php app/console propel:database:create
 php app/console propel:build --insert-sql
+```
+
+### f) Add bootstrap symlinks
+
+``` bash
+php app/console mopa:bootstrap:install
 ```

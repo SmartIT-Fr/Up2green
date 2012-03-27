@@ -99,8 +99,8 @@
     </target>
 
     <target name="vendors" description="Install vendors">
-        <exec executable="bin/vendors">
-            <arg value="install" />
+        <exec executable="composer.phar">
+            <arg value="update" />
         </exec>
     </target>
 
@@ -110,5 +110,11 @@
         </exec>
     </target>
 
-    <target name="build" depends="clean,vendors,propel,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpunit,phpcb"/>
+    <target name="symlinks" description="MopaBootstrap symlinks">
+        <exec executable="app/console">
+            <arg line="mopa:bootstrap:install" />
+        </exec>
+    </target>
+
+    <target name="build" depends="clean,vendors,propel,symlinks,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpunit,phpcb"/>
 </project>

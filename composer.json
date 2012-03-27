@@ -16,6 +16,7 @@
         "jms/security-extra-bundle": "1.1.0",
         "jms/di-extra-bundle": "1.0.1",
         "doctrine/common": "2.2-dev",
+        "doctrine/doctrine-bundle": "dev-master",
         "phing/phing": "dev-master",
         "propel/propel1": "dev-master",
         "propel/propel-bundle": "dev-master",
