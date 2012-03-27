@@ -31,8 +31,13 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('user_locale_change', {'locale': 'fr_FR'}) }}">{{ "French"|trans }}</a></li>
-                                <li><a href="{{ path('user_locale_change', {'locale': 'en_US'}) }}">{{ "English"|trans }}</a></li>
+                                {% set requestAttributes =  app.request.attributes.all() %}
+                                {% set route = requestAttributes._route %}
+                                {% if route == 'search_homepage' or route == 'blog_homepage' %}
+                                    {% set route = route~'_localized' %}
+                                {% endif %}
+                                <li><a href="{{ path(route, localeSwitch('fr', requestAttributes._route_params)) }}">{{ "French"|trans }}</a></li>
+                                <li><a href="{{ path(route, localeSwitch('en', requestAttributes._route_params)) }}">{{ "English"|trans }}</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

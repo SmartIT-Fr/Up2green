@@ -13,6 +13,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="search_homepage")
+     * @Route("/{_locale}", name="search_homepage_localized")
      * @Template()
      *
      * @return array
