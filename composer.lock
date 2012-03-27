@@ -82,7 +82,7 @@
         {
             "package": "mopa/bootstrap-bundle",
             "version": "dev-master",
-            "source-reference": "2aeb5a617fc9490d560e5558c7c84df70f83f62b"
+            "source-reference": "a121c026d7d9ad8c8c56842866a3fab64691ec2a"
         },
         {
             "package": "pagerfanta/pagerfanta",
