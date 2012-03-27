@@ -24,7 +24,7 @@ class LocaleController extends Controller
      */
     public function changeAction($locale)
     {
-        $this->get('session')->setLocale($locale);
+        $this->getRequest()->setLocale($locale);
 
         return $this->redirect($this->generateUrl('search_homepage'));
     }
