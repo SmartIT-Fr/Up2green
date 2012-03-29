@@ -28,7 +28,7 @@ class AppKernel extends Kernel
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Propel\PropelBundle\PropelBundle(),
-            new Mopa\BootstrapBundle\MopaBootstrapBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
             new Up2green\BlogBundle\Up2greenBlogBundle(),

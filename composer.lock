@@ -4,7 +4,7 @@
         {
             "package": "cedriclombardot/admingenerator-generator-bundle",
             "version": "dev-master",
-            "source-reference": "46102706de6eca5df709cd561cbfee892a37aaaf"
+            "source-reference": "ba6dd45057d9bab0f4df1e67a220008bdb03febf"
         },
         {
             "package": "cedriclombardot/twig-generator",
@@ -19,12 +19,12 @@
         {
             "package": "doctrine/dbal",
             "version": "dev-master",
-            "source-reference": "de9506c2b128ca2353ebc5be141e5b95c65a5fb2"
+            "source-reference": "930d786a62a43bea032560fc5f47d7140047fca5"
         },
         {
             "package": "doctrine/doctrine-bundle",
             "version": "dev-master",
-            "source-reference": "08f1764e860b684d7574448a6840b08804a516d9"
+            "source-reference": "50ee2c81bc7d0f413f402de46ecedfd98b79b4f3"
         },
         {
             "package": "friendsofsymfony/user-bundle",
@@ -82,7 +82,7 @@
         {
             "package": "mopa/bootstrap-bundle",
             "version": "dev-master",
-            "source-reference": "a121c026d7d9ad8c8c56842866a3fab64691ec2a"
+            "source-reference": "fcae1762a3cba35fe03a0756ed9c7819fc054efd"
         },
         {
             "package": "pagerfanta/pagerfanta",
@@ -112,7 +112,7 @@
         {
             "package": "propel/propel1",
             "version": "dev-master",
-            "source-reference": "89d686ed21eede552e5a6d3ceb45813bb3dd24ea"
+            "source-reference": "ac4eb5014d9997d56287bce8e23670399e394235"
         },
         {
             "package": "sensio/buzz-bundle",
@@ -127,7 +127,7 @@
         {
             "package": "sensio/framework-extra-bundle",
             "version": "dev-master",
-            "source-reference": "18884a8851df5ea5a77dcd816b97d9e67e28579e"
+            "source-reference": "7e1e52a241558264253179bb790f4c5d25544fb4"
         },
         {
             "package": "sensio/generator-bundle",
@@ -161,7 +161,7 @@
         {
             "package": "symfony/symfony",
             "version": "dev-master",
-            "source-reference": "1bb6e0de4d2edfc84c8229ab05fb2f15d9e3c069",
+            "source-reference": "a7a696fc5a28e12871073fb0f5ecb163b450e86a",
             "alias": "2.1.9999999.9999999-dev"
         },
         {

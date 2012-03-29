@@ -31,18 +31,19 @@ class TwigLocaleExtension extends \Twig_Extension
     /**
      * Prepare route parameters for language switch.
      *
-     * @param $newLocale
-     * @param $requestAttributes
+     * @param string $newLocale
+     * @param array $requestAttributes
      *
      * @return array
      */
-    public function localeSwitch($newLocale, $requestAttributes)
+    public function localeSwitch($newLocale, array $requestAttributes)
     {
         unset(
             $requestAttributes['_controller'],
             $requestAttributes['_route']
         );
         $requestAttributes['_locale'] = $newLocale;
+
         return $requestAttributes;
     }
 }  
