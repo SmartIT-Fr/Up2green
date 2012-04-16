@@ -12,16 +12,7 @@ Run the following commands:
 git clone git@github.com:SmartIT-Fr/Up2green.git
 ```
 
-### b) Check your System Configuration
-
-Before you begin, make sure that your local system is properly configured
-for Symfony. To do this, execute the following:
-
-``` bash
-php app/check.php
-```
-
-### c) Install Composer
+### b) Install Composer
 
 ``` bash
 sudo su
@@ -30,11 +21,19 @@ curl -s http://getcomposer.org/installer | php
 chmod a+x composer.phar
 ```
 
-
-### d) Install the Vendor Libraries
+### c) Install the Vendor Libraries
 
 ``` bash
 composer.phar install
+```
+
+### d) Check your System Configuration
+
+After installing vendors, make sure that your local system is properly
+configured for Symfony. To do this, execute the following:
+
+``` bash
+php app/check.php
 ```
 
 ### d) Access the Application via the Browser and check the config
@@ -54,8 +53,8 @@ make
 sudo make install
 ```
 
- - npm: (node package manager) 
- 
+ - npm: (node package manager)
+
 ``` bash
 curl http://npmjs.org/install.sh | sh
 ```
