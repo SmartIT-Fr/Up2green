@@ -1,5 +1,8 @@
 # Bootstrap
-app/bootstrap*
+app/bootstrap.php.cache
+
+# Composer
+composer.lock
 
 # Symfony directories
 vendor/*

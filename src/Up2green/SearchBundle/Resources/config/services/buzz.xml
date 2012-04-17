@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="up2green_search.buzz.browser.yahoo.class">Up2green\SearchBundle\Buzz\Browser\YahooBrowser</parameter>
+    </parameters>
+
+    <services>
+        <service id="up2green_search.buzz.message.factory.yahoo" class="%up2green_oauth.buzz.message.factory.class%">
+            <argument type="service" id="up2green_search.oauth.consumer.yahoo" />
+            <argument type="service" id="up2green_oauth.oauth.method.hmac_sha1" />
+            <argument>%yahoo_oauth_version%</argument>
+        </service>
+
+        <service id="up2green_search.buzz.browser.yahoo" class="%up2green_search.buzz.browser.yahoo.class%">
+            <argument type="service" id="buzz.client" />
+            <argument type="service" id="up2green_search.buzz.message.factory.yahoo" />
+        </service>
+        
+    </services>
+</container>
+

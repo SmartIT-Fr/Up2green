@@ -7,7 +7,6 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-            
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
@@ -18,24 +17,24 @@ class AppKernel extends Kernel
 
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
-            new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
 
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
-//            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Propel\PropelBundle\PropelBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new Buzz\Bundle\ProfilerBundle\BuzzProfilerBundle(),
 
+            new Up2green\OAuthBundle\Up2greenOAuthBundle(),
             new Up2green\BlogBundle\Up2greenBlogBundle(),
             new Up2green\CommonBundle\Up2greenCommonBundle(),
             new Up2green\UserBundle\Up2greenUserBundle(),
             new Up2green\SearchBundle\Up2greenSearchBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Up2green\AdminBundle\Up2greenAdminBundle(),
         );
 

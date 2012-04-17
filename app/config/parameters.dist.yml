@@ -1,16 +1,24 @@
 parameters:
-    database_driver:    pdo_mysql
-    database_host:      localhost
-    database_port:      ~
-    database_name:      up2green2
-    database_user:      root
-    database_password:  ~
+  database_driver:    pdo_mysql
+  database_host:      localhost
+  database_port:      ~
+  database_name:      up2green2
+  database_user:      root
+  database_password:  ~
 
-    mailer_transport:   smtp
-    mailer_host:        localhost
-    mailer_user:        ~
-    mailer_password:    ~
+  mailer_transport:   smtp
+  mailer_host:        localhost
+  mailer_user:        ~
+  mailer_password:    ~
 
-    locale:             en
+  locale:             en
 
-    secret:             up2green2TokenSecret
+  secret:             up2green2TokenSecret
+
+  yahoo_oauth_key:            dj0yJmk9b3RGeE84YjBrTldnJmQ9WVdrOVUxSjZXR1ZtTlRJbWNHbzlNVFF4TmpZeU5EVTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYQ--
+  yahoo_oauth_secret:         71db0f552d398be0c9e60aab24da4f4bea4418cf
+  yahoo_oauth_version:        "1.0"
+  yahoo_engine_web:           http://yboss.yahooapis.com/ysearch/web
+  yahoo_engine_image:         http://yboss.yahooapis.com/ysearch/images
+  yahoo_engine_news:          http://yboss.yahooapis.com/ysearch/news
+  yahoo_engine_limitedweb:    http://yboss.yahooapis.com/ysearch/limitedweb

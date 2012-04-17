@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="up2green_search.engine_factory.class">Up2green\SearchBundle\Services\Engine\EngineFactory</parameter>
+        <parameter key="up2green_search.engine.class">Up2green\SearchBundle\Services\Engine\Engine</parameter>
+        <parameter key="up2green_search.engine.yahoo.class">Up2green\SearchBundle\Services\Engine\EngineYahoo</parameter>
+    </parameters>
+
+    <services>
+        <service id="up2green_search.engine_factory" class="%up2green_search.engine_factory.class%">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="up2green_search.engine" class="%up2green_search.engine.class%">
+            <argument type="service" id="security.context" />
+        </service>
+
+        <service id="up2green_search.engine.web" class="%up2green_search.engine.yahoo.class%" parent="up2green_search.engine">
+            <argument type="service" id="up2green_search.buzz.browser.yahoo" />
+            <argument>%yahoo_engine_web%</argument>
+        </service>
+        <service id="up2green_search.engine.image" class="%up2green_search.engine.yahoo.class%" parent="up2green_search.engine">
+            <argument type="service" id="up2green_search.buzz.browser.yahoo" />
+            <argument>%yahoo_engine_image%</argument>
+        </service>
+        <service id="up2green_search.engine.news" class="%up2green_search.engine.yahoo.class%" parent="up2green_search.engine">
+            <argument type="service" id="up2green_search.buzz.browser.yahoo" />
+            <argument>%yahoo_engine_news%</argument>
+        </service>
+    </services>
+
+</container>
+
