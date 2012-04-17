@@ -8,8 +8,17 @@ use Symfony\Component\Form\FormBuilder;
 use Up2green\SearchBundle\Services\Engine\EngineFactory;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Search Form Type class
+ */
 class SearchType extends AbstractType
 {
+    /**
+     * Inherited doc
+     *
+     * @param FormBuilder $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
@@ -19,10 +28,14 @@ class SearchType extends AbstractType
                 'required' => true,
                 'expanded' => true,
                 'data' => EngineFactory::TYPE_WEB,
-            ))
-        ;
+            ));
     }
 
+    /**
+     * Inherited doc
+     *
+     * @return array
+     */
     public function getDefaultOptions()
     {
         return array(
@@ -36,6 +49,11 @@ class SearchType extends AbstractType
         );
     }
 
+    /**
+     * Inherited doc
+     *
+     * @return string
+     */
     public function getName()
     {
         return 'search_form';

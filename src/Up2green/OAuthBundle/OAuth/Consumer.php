@@ -2,6 +2,9 @@
 
 namespace Up2green\OauthBundle\OAuth;
 
+/**
+ * Consumer class
+ */
 class Consumer
 {
     public $key;

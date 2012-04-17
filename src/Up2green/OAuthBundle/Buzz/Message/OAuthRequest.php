@@ -8,6 +8,9 @@ use Up2green\OAuthBundle\OAuth\Exception as OAuthException,
     Up2green\OAuthBundle\OAuth\Method\MethodInterface,
     Up2green\OAuthBundle\OAuth\Utils as OAuthUtils;
 
+/**
+ * OAuth Request class
+ */
 class OAuthRequest extends Request
 {
     /**
@@ -21,6 +24,7 @@ class OAuthRequest extends Request
      * @param string $method
      * @param string $resource
      * @param string $host
+     * @param array  $parameters
      */
     public function __construct($method = self::METHOD_GET, $resource = '/', $host = null, $parameters = array())
     {
@@ -58,6 +62,8 @@ class OAuthRequest extends Request
      * The base string defined as the method, the url
      * and the parameters (normalized), each urlencoded
      * and the concated with &.
+     *
+     * @return string
      */
     public function getSignatureBaseString()
     {
@@ -76,7 +82,7 @@ class OAuthRequest extends Request
      * Sign the Request with a signature method
      *
      * @param MethodInterface $method
-     * @param Consumer $consumer
+     * @param Consumer        $consumer
      */
     public function sign(MethodInterface $method, Consumer $consumer)
     {
@@ -88,7 +94,12 @@ class OAuthRequest extends Request
     }
 
     /**
-     * builds the Authorization: header
+     * Builds the Authorization: header
+     *
+     * @param array $parameters
+     *
+     * @return string
+     * @throws OAuthException
      */
     public function buildOAuthHeader(array $parameters)
     {
@@ -120,11 +131,10 @@ class OAuthRequest extends Request
      */
     public function __toString()
     {
-        $post_data = OAuthUtils::build_http_query($this->parameters);
+        $postData = OAuthUtils::build_http_query($this->parameters);
 
-        return $post_data
-                ? $this->getUrl() . '?' . $post_data
-                : $this->getUrl()
-        ;
+        return $postData
+                ? $this->getUrl() . '?' . $postData
+                : $this->getUrl();
     }
 }

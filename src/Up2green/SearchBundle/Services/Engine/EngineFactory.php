@@ -24,7 +24,7 @@ class EngineFactory
     protected $container;
 
     /**
-     * @param ContainerInterface $container 
+     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
@@ -35,10 +35,10 @@ class EngineFactory
      * Create an Engine service to retrieve datas
      *
      * @param string $query
-     * @param int $type
+     * @param int    $type
      *
      * @return \Up2green\SearchBundle\Services\SearchEngine\EngineInterface
-     * @throws \InvalidArgumentException 
+     * @throws \InvalidArgumentException
      */
     public function createEngine($query, $type)
     {

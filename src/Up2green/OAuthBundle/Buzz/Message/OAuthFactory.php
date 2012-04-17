@@ -10,6 +10,9 @@ use Up2green\OAuthBundle\OAuth\Consumer;
 use Up2green\OAuthBundle\OAuth\Method\MethodInterface;
 use Up2green\OAuthBundle\Buzz\Message\OAuthRequest;
 
+/**
+ * OAuth Message Factory class
+ */
 class OAuthFactory extends Factory
 {
     protected $consumer;
@@ -19,9 +22,9 @@ class OAuthFactory extends Factory
     /**
      * Constructor
      *
-     * @param Consumer $consumer
+     * @param Consumer        $consumer
      * @param MethodInterface $method
-     * @param type $version 
+     * @param type            $version
      */
     public function __construct(Consumer $consumer, MethodInterface $method, $version = "1.0")
     {
@@ -37,7 +40,7 @@ class OAuthFactory extends Factory
      * @param string $resource
      * @param string $host
      *
-     * @return \Buzz\Message\Request 
+     * @return \Buzz\Message\Request
      */
     public function createRequest($method = Request::METHOD_GET, $resource = '/', $host = null)
     {

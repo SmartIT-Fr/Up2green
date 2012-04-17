@@ -32,7 +32,7 @@ class TwigLocaleExtension extends \Twig_Extension
      * Prepare route parameters for language switch.
      *
      * @param string $newLocale
-     * @param array $requestAttributes
+     * @param array  $requestAttributes
      *
      * @return array
      */
@@ -46,4 +46,4 @@ class TwigLocaleExtension extends \Twig_Extension
 
         return $requestAttributes;
     }
-}  
+}

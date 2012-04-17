@@ -20,8 +20,8 @@ class EngineYahoo extends BaseEngine implements EngineInterface
      * Constructor
      *
      * @param SecurityContext $securityContext
-     * @param YahooBrowser $browser
-     * @param string $url
+     * @param YahooBrowser    $browser
+     * @param string          $url
      */
     public function __construct(SecurityContext $securityContext, YahooBrowser $browser, $url)
     {

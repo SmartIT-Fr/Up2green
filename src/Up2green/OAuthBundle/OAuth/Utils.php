@@ -55,8 +55,8 @@ class Utils
                 // Ref: Spec: 9.1.1 (1)
                 // June 12th, 2010 - changed to sort because of issue 164 by hidetaka
                 sort($value, SORT_STRING);
-                foreach ($value as $duplicate_value) {
-                    $pairs[] = $parameter . '=' . $duplicate_value;
+                foreach ($value as $duplicateValue) {
+                    $pairs[] = $parameter . '=' . $duplicateValue;
                 }
             } else {
                 $pairs[] = $parameter . '=' . $value;
