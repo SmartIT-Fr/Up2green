@@ -13,7 +13,7 @@ class Utils
      * @param mixed $input
      *
      * @todo Refactor this to use urlencode with the 4th parameter introduced by php5.4
-     * @return string 
+     * @return string
      */
     public static function urlencodeRfc3986($input)
     {
@@ -31,12 +31,13 @@ class Utils
      *
      * @param array $params
      *
-     * @return string 
+     * @return string
      */
     public static function buildHttpQuery(array $params)
     {
-        if (empty ($params))
+        if (empty($params)) {
             return '';
+        }
 
         // Urlencode both keys and values
         $keys   = static::urlencodeRfc3986(array_keys($params));

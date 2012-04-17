@@ -3,7 +3,6 @@
 namespace Up2green\OAuthBundle\Buzz\Message;
 
 use Buzz\Message\Request;
-
 use Up2green\OAuthBundle\OAuth\Exception as OAuthException,
     Up2green\OAuthBundle\OAuth\Consumer,
     Up2green\OAuthBundle\OAuth\Method\MethodInterface,
@@ -31,11 +30,12 @@ class OAuthRequest extends Request
         $this->parameters = array_merge(array(
             'oauth_nonce'     => OAuthUtils::getNonce(),
             'oauth_timestamp' => OAuthUtils::getTimestamp(),
-        ), $parameters);
+            ), $parameters);
     }
 
     /**
      * The request parameters, sorted and concatenated into a normalized string.
+     *
      * @return string
      */
     public function getSignableParameters()
@@ -75,7 +75,7 @@ class OAuthRequest extends Request
     /**
      * Sign the Request with a signature method
      *
-     * @param MethodInterface $method 
+     * @param MethodInterface $method
      * @param Consumer $consumer
      */
     public function sign(MethodInterface $method, Consumer $consumer)
@@ -113,13 +113,18 @@ class OAuthRequest extends Request
         return $out;
     }
 
+    /**
+     * to string
+     *
+     * @return string
+     */
     public function __toString()
     {
         $post_data = OAuthUtils::build_http_query($this->parameters);
 
         return $post_data
-            ? $this->getUrl() . '?' . $post_data
-            : $this->getUrl()
+                ? $this->getUrl() . '?' . $post_data
+                : $this->getUrl()
         ;
     }
 }

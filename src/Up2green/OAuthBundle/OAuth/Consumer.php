@@ -11,14 +11,14 @@ class Consumer
      * Constructor
      *
      * @param string $key
-     * @param string $secret 
+     * @param string $secret
      */
     public function __construct($key, $secret)
     {
         $this->key = $key;
         $this->secret = $secret;
     }
-    
+
     /**
      * Return the key
      *
@@ -28,7 +28,7 @@ class Consumer
     {
         return $this->key;
     }
-    
+
     /**
      * Return the key
      *
