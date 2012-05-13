@@ -17,7 +17,7 @@
         "jms/di-extra-bundle": "1.0.1",
         "phing/phing": "2.4.*",
         "propel/propel1": "1.6.*-dev",
-        "propel/propel-bundle": "dev-master",
+        "propel/propel-bundle": "1.1.*",
         "white-october/pagerfanta-bundle": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
         "knplabs/knp-components": "dev-master",
