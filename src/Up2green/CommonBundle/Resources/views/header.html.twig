@@ -21,6 +21,9 @@
                         <li{% if route == 'blog_homepage' %} class="active"{% endif %}>
                             <a href="{{ path('blog_homepage') }}">{{ 'Blog'|trans }}</a>
                         </li>
+                        <li{% if route == 'reforestation_homepage' %} class="active"{% endif %}>
+                            <a href="{{ path('reforestation_homepage') }}">{{ 'Reforestation'|trans }}</a>
+                        </li>
                     </ul>
 
                     <ul class="nav pull-right">

@@ -1,0 +1,15 @@
+{% extends 'Up2greenCommonBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+
+{% stylesheets filter='less,cssrewrite,?yui_css' output='css/blog_all.css'
+    '@Up2greenReforestationBundle/Resources/public/less/main.less'
+%}
+<script type="text/javascript" src="{{ asset('bundles/up2greencommon/js/modernizr-2.5.3.js') }}"></script>
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}

@@ -1,3 +1,8 @@
+Up2greenReforestationBundle:
+    resource: "@Up2greenReforestationBundle/Controller/"
+    type:     annotation
+    prefix:   /reforestation
+
 Up2greenAdminBundle_article:
     resource: "@Up2greenAdminBundle/Controller/Article/"
     type:     admingenerator
