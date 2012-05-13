@@ -27,7 +27,8 @@
         "propel-behaviors/TypehintableBehavior": "dev-master",
         "propel-behaviors/ActivatableBehavior": "dev-master",
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
-        "juliendidier/buzz-profiler-bundle": "dev-master"
+        "juliendidier/buzz-profiler-bundle": "dev-master",
+        "twitter/bootstrap": "master"
     },
     "repositories": [
         {
