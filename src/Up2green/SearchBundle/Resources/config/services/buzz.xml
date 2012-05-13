@@ -9,17 +9,16 @@
     </parameters>
 
     <services>
-        <service id="up2green_search.buzz.message.factory.yahoo" class="%up2green_oauth.buzz.message.factory.class%">
+        <service id="up2green_search.buzz.message.factory.yahoo" class="%up2green_oauth.buzz.message.factory.class%" />
+
+        <service id="up2green_search.buzz.browser.yahoo" class="%up2green_search.buzz.browser.yahoo.class%">
+            <argument type="service" id="buzz.client" />
+            <argument type="service" id="up2green_search.buzz.message.factory.yahoo" />
             <argument type="service" id="up2green_search.oauth.consumer.yahoo" />
             <argument type="service" id="up2green_oauth.oauth.method.hmac_sha1" />
             <argument>%yahoo_oauth_version%</argument>
         </service>
 
-        <service id="up2green_search.buzz.browser.yahoo" class="%up2green_search.buzz.browser.yahoo.class%">
-            <argument type="service" id="buzz.client" />
-            <argument type="service" id="up2green_search.buzz.message.factory.yahoo" />
-        </service>
-        
     </services>
 </container>
 

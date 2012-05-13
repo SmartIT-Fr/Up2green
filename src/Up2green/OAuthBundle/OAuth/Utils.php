@@ -84,6 +84,7 @@ class Utils
      */
     public static function getNonce()
     {
+        return 'f12cc33b168774514bbf92990f9c03f6';
         $mt   = microtime();
         $rand = mt_rand();
 

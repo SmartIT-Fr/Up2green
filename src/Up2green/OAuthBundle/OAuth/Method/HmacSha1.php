@@ -36,7 +36,6 @@ class HmacSha1 implements MethodInterface
                     ? $token->secret
                     : ""
         );
-
         $parts = OAuthUtils::urlencodeRfc3986($parts);
         $key   = implode('&', $parts);
 

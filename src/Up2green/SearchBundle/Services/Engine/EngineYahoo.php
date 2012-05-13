@@ -38,6 +38,8 @@ class EngineYahoo extends BaseEngine implements EngineInterface
      */
     public function getResults()
     {
-        return $this->browser->get($this->url);
+        $response = $this->browser->get($this->url);
+//        die(var_dump($response->getContent()));
+        return $response->getContent();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Up2green\OAuthBundle\Buzz\Message;
 
-use Buzz\Message\Request;
+use Buzz\Message\Request as BaseRequest;
 use Up2green\OAuthBundle\OAuth\Exception as OAuthException,
     Up2green\OAuthBundle\OAuth\Consumer,
     Up2green\OAuthBundle\OAuth\Method\MethodInterface,
@@ -11,7 +11,7 @@ use Up2green\OAuthBundle\OAuth\Exception as OAuthException,
 /**
  * OAuth Request class
  */
-class OAuthRequest extends Request
+class Request extends BaseRequest
 {
     /**
      * @var array
@@ -28,13 +28,13 @@ class OAuthRequest extends Request
      */
     public function __construct($method = self::METHOD_GET, $resource = '/', $host = null, $parameters = array())
     {
-        $this->method = strtoupper($method);
-        $this->resource = $resource;
-        $this->host = $host;
+        $this->method     = strtoupper($method);
+        $this->resource   = $resource;
+        $this->host       = $host;
         $this->parameters = array_merge(array(
             'oauth_nonce'     => OAuthUtils::getNonce(),
             'oauth_timestamp' => OAuthUtils::getTimestamp(),
-            ), $parameters);
+        ), $parameters);
     }
 
     /**
@@ -68,29 +68,14 @@ class OAuthRequest extends Request
     public function getSignatureBaseString()
     {
         $parts = array(
-            $this->getMethod(),
-            $this->getUrl(),
+            $this->method,
+            $this->resource,
             OAuthUtils::buildHttpQuery($this->getSignableParameters())
         );
 
         $parts = OAuthUtils::urlencodeRfc3986($parts);
 
         return implode('&', $parts);
-    }
-
-    /**
-     * Sign the Request with a signature method
-     *
-     * @param MethodInterface $method
-     * @param Consumer        $consumer
-     */
-    public function sign(MethodInterface $method, Consumer $consumer)
-    {
-        $this->setHeaders(array($this->buildOAuthHeader($this->getSignableParameters())));
-
-        $this->parameters['oauth_signature'] = $method->buildSignature($this, $consumer);
-
-        $this->setHeaders(array($this->buildOAuthHeader($this->parameters)));
     }
 
     /**
@@ -105,6 +90,7 @@ class OAuthRequest extends Request
     {
         $out = 'Authorization: OAuth ';
 
+        $first = true;
         foreach ($parameters as $k => $v) {
             if (substr($k, 0, 5) != "oauth") {
                 continue;
@@ -114,7 +100,12 @@ class OAuthRequest extends Request
                 throw new OAuthException('Arrays not supported in headers');
             }
 
-            $out .= ',';
+            if (!$first) {
+                $out .= ',';
+            } else {
+                $first = false;
+            }
+
             $out .= OAuthUtils::urlencodeRfc3986($k);
             $out .= '="';
             $out .= OAuthUtils::urlencodeRfc3986($v);
@@ -122,19 +113,5 @@ class OAuthRequest extends Request
         }
 
         return $out;
-    }
-
-    /**
-     * to string
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        $postData = OAuthUtils::build_http_query($this->parameters);
-
-        return $postData
-                ? $this->getUrl() . '?' . $postData
-                : $this->getUrl();
     }
 }
