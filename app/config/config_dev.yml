@@ -21,3 +21,6 @@ monolog:
 
 assetic:
     use_controller: true
+
+fos_user:
+    firewall_name: dev

@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Up2green\SearchBundle\Form\Type\SearchType;
 use Up2green\SearchBundle\Services\Engine\EngineFactory;
 /**
- * Default Controller class 
+ * Default Controller class
  */
 class DefaultController extends Controller
 {
@@ -18,7 +18,6 @@ class DefaultController extends Controller
      * Index Action
      *
      * @Route("/", name="search_homepage")
-     * @Route("/{_locale}", name="search_homepage_localized")
      * @Template()
      *
      * @return array
