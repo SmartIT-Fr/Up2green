@@ -22,8 +22,6 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
-            new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Propel\PropelBundle\PropelBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
@@ -35,7 +33,6 @@ class AppKernel extends Kernel
             new Up2green\CommonBundle\Up2greenCommonBundle(),
             new Up2green\UserBundle\Up2greenUserBundle(),
             new Up2green\SearchBundle\Up2greenSearchBundle(),
-            new Up2green\AdminBundle\Up2greenAdminBundle(),
             new Up2green\ReforestationBundle\Up2greenReforestationBundle(),
         );
 

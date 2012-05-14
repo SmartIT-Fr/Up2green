@@ -3,11 +3,6 @@ Up2greenReforestationBundle:
     type:     annotation
     prefix:   /reforestation
 
-Up2greenAdminBundle_article:
-    resource: "@Up2greenAdminBundle/Controller/Article/"
-    type:     admingenerator
-    prefix:   /admin/article
-
 Up2greenSearchBundle:
     resource: "@Up2greenSearchBundle/Controller/"
     type:     annotation

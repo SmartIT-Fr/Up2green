@@ -85,12 +85,3 @@ fos_user:
     firewall_name: main
     user_class: FOS\UserBundle\Propel\UserProxy
     propel_user_class: FOS\UserBundle\Propel\User
-
-knp_menu:
-    twig: true
-
-admingenerator_generator:
-    base_admin_template: AdmingeneratorGeneratorBundle::base_admin.html.twig
-    use_propel: true
-    use_doctrine_orm: false
-    use_doctrine_odm: false

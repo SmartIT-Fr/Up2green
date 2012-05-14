@@ -20,13 +20,9 @@
         "propel/propel-bundle": "1.1.*",
         "white-october/pagerfanta-bundle": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
-        "knplabs/knp-components": "dev-master",
-        "knplabs/knp-menu": "dev-master",
-        "knplabs/knp-menu-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "propel-behaviors/TypehintableBehavior": "dev-master",
         "propel-behaviors/ActivatableBehavior": "dev-master",
-        "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "juliendidier/buzz-profiler-bundle": "dev-master",
         "twitter/bootstrap": "master"
     },
