@@ -17,6 +17,7 @@ web/js/
 src/Up2green/*Bundle/Model/om/*
 src/Up2green/*Bundle/Model/map/*
 app/propel/
+bin/propel-gen*
 
 # Configuration files
 app/config/parameters.yml

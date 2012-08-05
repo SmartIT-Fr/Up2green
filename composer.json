@@ -5,7 +5,7 @@
     },
     "require": {
         "php": ">=5.3.2",
-        "symfony/symfony": "2.1.*",
+        "symfony/symfony": "2.1.x-dev",
         "twig/extensions": "dev-master",
         "symfony/assetic-bundle": "dev-master",
         "symfony/swiftmailer-bundle": "dev-master",
@@ -19,13 +19,20 @@
         "propel/propel1": "1.6.*-dev",
         "propel/propel-bundle": "1.1.*",
         "white-october/pagerfanta-bundle": "dev-master",
+        "pagerfanta/pagerfanta": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
+        "mopa/composer-bridge": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "propel-behaviors/TypehintableBehavior": "dev-master",
         "propel-behaviors/ActivatableBehavior": "dev-master",
         "juliendidier/buzz-profiler-bundle": "dev-master",
-        "twitter/bootstrap": "master",
-        "sonata-project/admin-bundle": "dev-master"
+        "kriswallsmith/buzz": "dev-master",
+        "kriswallsmith/assetic": "1.1.x-dev",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/exporter": "dev-master",
+        "sonata-project/cache-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master"
     },
     "repositories": [
         {
