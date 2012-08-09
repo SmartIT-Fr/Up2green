@@ -21,7 +21,6 @@ Up2greenCommonBundle:
 Up2greenBlogBundle:
     resource: "@Up2greenBlogBundle/Controller/"
     type:     annotation
-    prefix:   /
     prefix:   /blog
 
 admin:
