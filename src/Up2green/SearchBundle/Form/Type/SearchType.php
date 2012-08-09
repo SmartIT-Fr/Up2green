@@ -3,7 +3,8 @@
 namespace Up2green\SearchBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Up2green\SearchBundle\Services\Engine\EngineFactory;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,10 +17,10 @@ class SearchType extends AbstractType
     /**
      * Inherited doc
      *
-     * @param FormBuilder $builder
-     * @param array $options
+     * @param FormBuilderInterface $builder The form builder
+     * @param array                $options The options
      */
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('q', null, array('required' => true))
@@ -36,9 +37,9 @@ class SearchType extends AbstractType
      *
      * @return array
      */
-    public function getDefaultOptions()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+        $resolver->setDefaults(array(
             'csrf_protection'       => false,
             'validation_constraint' => new Assert\Collection(array(
                 'q'    => new Assert\NotBlank(),
@@ -46,7 +47,7 @@ class SearchType extends AbstractType
                     'choices' => array_keys(EngineFactory::$types)
                 )),
             )),
-        );
+        ));
     }
 
     /**

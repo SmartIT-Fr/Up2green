@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
+<!--     <parameters>
         <parameter key="up2green_search.buzz.browser.yahoo.class">Up2green\SearchBundle\Buzz\Browser\YahooBrowser</parameter>
     </parameters>
 
@@ -19,6 +19,6 @@
             <argument>%yahoo_oauth_version%</argument>
         </service>
 
-    </services>
+    </services> -->
 </container>
 

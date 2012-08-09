@@ -1,5 +1,4 @@
 {
-    "name": "symfony/framework-standard-edition",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -32,7 +31,8 @@
         "sonata-project/exporter": "dev-master",
         "sonata-project/cache-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
-        "sonata-project/jquery-bundle": "dev-master"
+        "sonata-project/jquery-bundle": "dev-master",
+        "twitter/bootstrap": "dev-master"
     },
     "repositories": [
         {
@@ -88,12 +88,14 @@
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
     "config": {

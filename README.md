@@ -85,5 +85,5 @@ php app/console propel:build --insert-sql
 ### g) Add bootstrap symlinks
 
 ``` bash
-php app/console mopa:bootstrap:install
+php app/console mopa:bootstrap:symlink:less
 ```

@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
+<!--     <parameters>
         <parameter key="up2green_search.engine_factory.class">Up2green\SearchBundle\Services\Engine\EngineFactory</parameter>
         <parameter key="up2green_search.engine.class">Up2green\SearchBundle\Services\Engine\Engine</parameter>
         <parameter key="up2green_search.engine.yahoo.class">Up2green\SearchBundle\Services\Engine\EngineYahoo</parameter>
@@ -32,6 +32,6 @@
             <argument>%yahoo_engine_news%</argument>
         </service>
     </services>
-
+ -->
 </container>
 
