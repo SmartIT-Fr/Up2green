@@ -2,16 +2,19 @@
 
 namespace Up2green\ReforestationBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+/**
+ * Test the Default controller
+ */
+class DefaultControllerTest extends IsolatedWebTestCase
 {
+    /**
+     * Test the indexAction
+     */
     public function testIndex()
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $this->client->request('GET', '/reforestation/');
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }
