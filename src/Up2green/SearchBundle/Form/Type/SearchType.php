@@ -35,7 +35,7 @@ class SearchType extends AbstractType
     /**
      * Inherited doc
      *
-     * @return array
+     * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {

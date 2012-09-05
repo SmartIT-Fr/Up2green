@@ -42,17 +42,6 @@ php app/check.php
 
 ### e) Install tools for assetic
 
- - node.js:
-
-``` bash
-git clone https://github.com/joyent/node.git
-cd node
-git checkout v0.6.7 //Try checking nodejs.org for what the stable version is
-./configure
-make
-sudo make install
-```
-
  - npm: (node package manager)
 
 ``` bash

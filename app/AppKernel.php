@@ -28,13 +28,6 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Buzz\Bundle\ProfilerBundle\BuzzProfilerBundle(),
 
-            // Admin
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\CacheBundle\SonataCacheBundle(),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-
             // Up2green
             // new Up2green\OAuthBundle\Up2greenOAuthBundle(),
             new Up2green\BlogBundle\Up2greenBlogBundle(),
