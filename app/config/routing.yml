@@ -23,6 +23,10 @@ Up2greenBlogBundle:
     type:     annotation
     prefix:   /blog
 
+_assetic:
+    resource: .
+    type:     assetic
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix: /
