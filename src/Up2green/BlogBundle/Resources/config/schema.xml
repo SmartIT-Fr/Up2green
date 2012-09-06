@@ -14,9 +14,9 @@
         <column name="category_id" type="INTEGER" />
 
         <column name="title" type="VARCHAR" size="255" required="true" />
-        <column name="summary" type="LONGVARCHAR" required="true"  />
-        <column name="description" type="LONGVARCHAR" required="true"  />
-        <column name="logo" type="VARCHAR" size="255"  />
+        <column name="summary" type="LONGVARCHAR" required="true" />
+        <column name="description" type="LONGVARCHAR" required="true" />
+        <column name="logo" type="VARCHAR" size="255" />
 
         <foreign-key foreignTable="category">
             <reference local="category_id" foreign="id" />
@@ -44,5 +44,25 @@
             <reference local="category_id" foreign="id" />
         </foreign-key>	
     </table>
+
+    <table name="gallery">
+        <column name="category_id" type="INTEGER" />
+        <column name="title" type="VARCHAR" size="255" required="true" />
+        <column name="description" type="LONGVARCHAR" />
+
+        <foreign-key foreignTable="category">
+            <reference local="category_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+    <table name="picture">
+        <column name="gallery_id" type="INTEGER" />
+        <column name="src" type="VARCHAR" size="255" required="true" />
+
+        <foreign-key foreignTable="gallery">
+            <reference local="gallery_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
 
 </database>

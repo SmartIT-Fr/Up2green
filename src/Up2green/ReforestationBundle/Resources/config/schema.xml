@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="Up2green\ReforestationBundle\Model" defaultIdMethod="native">
+
+    <table name="voucher_category">
+        <column name="price" type="FLOAT" required="true" />
+        <column name="credit" type="INTEGER" required="true" />
+        <column name="is_purchasable" type="BOOLEAN" defaultValue="true" />
+        <column name="is_partner_only" type="BOOLEAN" defaultValue="false" />
+    </table>
+
+    <table name="voucher">
+        
+        <column name="voucher_category_id" type="INTEGER" />
+        <column name="code" type="VARCHAR" size="128" required="true" />
+        <column name="used_by" type="INTEGER" />
+        <column name="log_ip" type="VARCHAR" size="15" />
+        <column name="log_email" type="VARCHAR" size="255" />
+        <column name="log_is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
+
+        <behavior name="activatable" />
+        <behavior name="timestampable" />
+        
+        <foreign-key foreignTable="voucher_category">
+            <reference local="voucher_category_id" foreign="id" />
+        </foreign-key>	
+
+        <foreign-key foreignTable="fos_user">
+            <reference local="used_by" foreign="id" />
+        </foreign-key>  
+
+        <unique>
+            <unique-column name="code" />
+        </unique>
+
+    </table>
+    
+    <table name="user_voucher" isCrossRef="true">
+        <column name="user_id" type="INTEGER" required="true" />
+        <column name="voucher_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="fos_user">
+            <reference local="user_id" foreign="id" />
+        </foreign-key>  
+        <foreign-key foreignTable="voucher">
+            <reference local="voucher_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+    <table name="partner_voucher" isCrossRef="true">
+        <column name="partner_id" type="INTEGER" required="true" />
+        <column name="voucher_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="partner">
+            <reference local="partner_id" foreign="id" />
+        </foreign-key>  
+        <foreign-key foreignTable="voucher">
+            <reference local="voucher_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+    <table name="voucher_tree" isCrossRef="true">
+        <column name="tree_id" type="INTEGER" required="true" />
+        <column name="voucher_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="tree">
+            <reference local="tree_id" foreign="id" />
+        </foreign-key>  
+        <foreign-key foreignTable="voucher">
+            <reference local="voucher_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+    <table name="organization">
+        <column name="url" type="VARCHAR" size="128" />
+        <column name="title" type="VARCHAR" size="128" />
+        <column name="slogan" type="LONGVARCHAR" />
+        <column name="description" type="LONGVARCHAR" />
+        <column name="logo" type="VARCHAR" size="128" />
+
+        <behavior name="activatable" />
+    </table>
+
+    <table name="program">
+        <column name="organization_id" type="INTEGER" />
+        <column name="title" type="VARCHAR" size="128" />
+        <column name="slogan" type="LONGVARCHAR" />
+        <column name="description" type="LONGVARCHAR" />
+        <column name="logo" type="VARCHAR" size="128" />
+        <column name="geoaddress" type="VARCHAR" size="255" />
+        <column name="max_tree" type="INTEGER" required="true" />
+        <column name="add_tree" type="INTEGER" required="true" defaultValue="0" />
+
+        <behavior name="activatable" />
+
+        <foreign-key foreignTable="organization">
+            <reference local="organization_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+    <table name="tree">
+        <column name="program_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="program">
+            <reference local="program_id" foreign="id" />
+        </foreign-key>  
+    </table>
+    
+    <table name="user_tree" isCrossRef="true">
+        <column name="user_id" type="INTEGER" required="true" />
+        <column name="tree_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="fos_user">
+            <reference local="user_id" foreign="id" />
+        </foreign-key>  
+        <foreign-key foreignTable="tree">
+            <reference local="tree_id" foreign="id" />
+        </foreign-key>  
+    </table>
+
+</database>

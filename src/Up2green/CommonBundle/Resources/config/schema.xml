@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="Up2green\CommonBundle\Model" defaultIdMethod="native">
+
+    <table name="mailingList">
+        <column name="email_address" type="VARCHAR" size="255" required="true" />
+        <column name="is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
+        
+        <unique>
+            <unique-column name="email_address" />
+        </unique>
+    </table>
+
+</database>
