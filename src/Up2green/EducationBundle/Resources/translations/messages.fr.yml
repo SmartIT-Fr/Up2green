@@ -1,0 +1,28 @@
+form:
+    account_type:
+        username:       Pseudonyme
+        fistname:       Prénom
+        lastname:       Nom de famille
+        email:          Email
+        password:       Mot de passe
+        re_password:    Répéter mot de passe
+
+    classroom_type:
+        name:           Nom
+        picture:        Photo de classe
+        description:    Description
+
+    school_type:
+        school:         Choisir une école ?
+        school_in:      Ecole existante
+        school_out:     Créer une école
+        school_list:    Choix de l'école
+        school_list_choice:
+            empty_value: Choisissez une école
+        name:           Nom
+        address:        Adresse
+
+    validation:
+        school_new:     Vous devez remplire des champs de création d'un école
+        school_name:    Le nom est obligatoire
+        school_address: L'adresse est obligatoire

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="Up2green\EducationBundle\Model" defaultIdMethod="native">
+
+    <table name="school">
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="address" type="VARCHAR" size="255" required="true" />
+
+
+        <behavior name="sluggable" />
+        <behavior name="sortable" />
+        <behavior name="geocodable">
+            <parameter name="geocode_address" value="true" />
+            <parameter name="address_columns" value="address" />
+            <parameter name="geocoder_api_key" value="APIKEY" />
+            <parameter name="geocoder_provider" value="\Geocoder\Provider\GoogleMapsProvider" />
+        </behavior>
+    </table>
+
+    <table name="classroom">
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="year" type="VARCHAR" size="255" required="true" />
+        <column name="picture" type="VARCHAR" size="255" />
+        <column name="description" type="VARCHAR" size="1024" />
+
+        <column name="school_id" type="INTEGER" required="true" />
+        <column name="user_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="school" onDelete="CASCADE" skipSql="true">
+            <reference local="school_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="fos_user" onDelete="CASCADE" skipSql="true">
+            <reference local="user_id" foreign="id"/>
+        </foreign-key>
+
+        <behavior name="sluggable" />
+        <behavior name="sortable" />
+    </table>
+
+</database>

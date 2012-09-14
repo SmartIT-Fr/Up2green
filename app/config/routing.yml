@@ -3,7 +3,7 @@ up2green_education:
     type:     annotation
     prefix:   /education
 
-up2green_reforestation:
+Up2green_reforestation:
     resource: "@Up2greenReforestationBundle/Controller/"
     type:     annotation
     prefix:   /reforestation

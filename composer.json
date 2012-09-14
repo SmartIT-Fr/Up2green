@@ -34,7 +34,9 @@
         "kriswallsmith/assetic": "1.1.x-dev",
         "twitter/bootstrap": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
-        "friendsofsymfony/jsrouting-bundle": "dev-master"
+        "friendsofsymfony/jsrouting-bundle": "dev-master",
+        "willdurand/geocoder": "dev-master",
+        "willdurand/propel-geocodable-behavior": "dev-master"
     },
     "repositories": [
         {
