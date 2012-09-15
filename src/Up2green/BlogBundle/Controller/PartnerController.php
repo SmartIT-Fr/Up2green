@@ -1,6 +1,6 @@
 <?php
 
-namespace Up2green\ReforestationBundle\Controller;
+namespace Up2green\BlogBundle\Controller;
 
 use Up2green\ReforestationBundle\Model\Partner;
 
