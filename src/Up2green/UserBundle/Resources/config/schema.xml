@@ -2,7 +2,7 @@
 <database name="default" namespace="Up2green\UserBundle\Model" defaultIdMethod="native">
 
     <table name="user_profile">
-        
+
         <column name="user_id" type="INTEGER" required="true" />
         <column name="credit" type="FLOAT" required="true" defaultValue="0" />
         <column name="accept_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
@@ -10,7 +10,7 @@
 
         <foreign-key foreignTable="fos_user">
             <reference local="user_id" foreign="id" />
-        </foreign-key>  
+        </foreign-key>
 
         <unique>
             <unique-column name="user_id" />
@@ -19,7 +19,7 @@
     </table>
 
     <table name="pre_registration">
-        
+
         <column name="first_name" type="VARCHAR" size="255" />
         <column name="last_name" type="VARCHAR" size="255" />
         <column name="email" type="VARCHAR" size="255" required="true" />
@@ -37,65 +37,18 @@
     </table>
 
     <table name="friend">
-        
+
         <column name="user_id" type="INTEGER" required="true" />
         <column name="email" type="VARCHAR" size="255" required="true" />
         <column name="is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
 
         <foreign-key foreignTable="fos_user">
             <reference local="user_id" foreign="id" />
-        </foreign-key>  
+        </foreign-key>
 
         <unique>
             <unique-column name="email" />
         </unique>
-
-    </table>
-
-    <table name="partner">
-        
-        <column name="user_id" type="INTEGER" required="true" />
-        <column name="title" type="LONGVARCHAR" />
-        <column name="slogan" type="LONGVARCHAR" />
-        <column name="description" type="LONGVARCHAR" />
-        <column name="page" type="LONGVARCHAR" />
-        <column name="page_title" type="VARCHAR" size="255" />
-        <column name="certificate" type="VARCHAR" size="128" />
-        <column name="url" type="VARCHAR" size="150" />
-
-        <foreign-key foreignTable="fos_user">
-            <reference local="user_id" foreign="id" />
-        </foreign-key>  
-
-        <unique>
-            <unique-column name="user_id" />
-        </unique>
-
-    </table>
-
-    <table name="partner_logo">
-        <column name="partner_id" type="INTEGER" required="true" />
-        <column name="src" type="VARCHAR" size="128" required="true" />
-        <column name="href" type="VARCHAR" size="128" />
-
-        <foreign-key foreignTable="partner">
-            <reference local="partner_id" foreign="id" />
-        </foreign-key>  
-    </table>
-
-    <table name="partner_program" isCrossRef="true">
-        <column name="partner_id" type="INTEGER" required="true" />
-        <column name="program_id" type="INTEGER" required="true" />
-        <column name="number" type="INTEGER" required="true" defaultValue="0" />
-        <column name="hardcode" type="INTEGER" required="true" defaultValue="0" />
-
-        <foreign-key foreignTable="partner">
-            <reference local="partner_id" foreign="id" />
-        </foreign-key>
-
-        <foreign-key foreignTable="program">
-            <reference local="program_id" foreign="id" />
-        </foreign-key>
 
     </table>
 
