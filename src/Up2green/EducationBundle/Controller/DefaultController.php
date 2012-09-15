@@ -1,6 +1,6 @@
 <?php
 
-namespace Up2green\ReforestationBundle\Controller;
+namespace Up2green\EducationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="reforestation_homepage")
+     * @Route("/", name="education_homepage")
      * @Template()
      *
      * @return array
