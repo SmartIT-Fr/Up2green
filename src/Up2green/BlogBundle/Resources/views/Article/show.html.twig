@@ -1,0 +1,10 @@
+{% extends 'Up2greenBlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+{{ article.title }}
+{{ article.description |raw }}
+
+{% endblock %}

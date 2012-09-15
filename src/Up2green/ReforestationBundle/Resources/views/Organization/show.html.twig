@@ -1,0 +1,10 @@
+{% extends 'Up2greenReforestationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+{{ organization.title }}
+{{ organization.description |raw }}
+
+{% endblock %}

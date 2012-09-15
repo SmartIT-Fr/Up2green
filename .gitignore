@@ -16,9 +16,13 @@ web/js/
 # Propel 
 src/Up2green/*Bundle/Model/om/*
 src/Up2green/*Bundle/Model/map/*
-app/propel/
+app/propel/*.*
+app/propel/sql/
 bin/propel-gen*
 
 # Configuration files
 app/config/parameters.yml
 /nbproject/
+.buildpath
+.project
+.settings/

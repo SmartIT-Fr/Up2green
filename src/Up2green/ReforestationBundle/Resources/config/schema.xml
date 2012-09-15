@@ -42,7 +42,7 @@
     <table name="organization">
         <column name="url" type="VARCHAR" size="128" />
         <column name="title" type="VARCHAR" size="128" />
-        <column name="slogan" type="LONGVARCHAR" />
+        <column name="summary" type="LONGVARCHAR" />
         <column name="description" type="LONGVARCHAR" />
         <column name="logo" type="VARCHAR" size="128" />
 
@@ -52,12 +52,12 @@
     <table name="program">
         <column name="organization_id" type="INTEGER" />
         <column name="title" type="VARCHAR" size="128" />
-        <column name="slogan" type="LONGVARCHAR" />
+        <column name="summary" type="LONGVARCHAR" />
         <column name="description" type="LONGVARCHAR" />
         <column name="logo" type="VARCHAR" size="128" />
         <column name="geoaddress" type="VARCHAR" size="255" />
         <column name="max_tree" type="INTEGER" required="true" />
-        <column name="add_tree" type="INTEGER" required="true" defaultValue="0" />
+        <column name="added_trees" type="INTEGER" required="true" defaultValue="0" />
 
         <behavior name="activatable" />
 
@@ -101,8 +101,8 @@
     <table name="partner">
 
         <column name="user_id" type="INTEGER" required="true" />
-        <column name="title" type="LONGVARCHAR" />
-        <column name="slogan" type="LONGVARCHAR" />
+        <column name="title" type="VARCHAR" size="255" />
+        <column name="summary" type="LONGVARCHAR" />
         <column name="description" type="LONGVARCHAR" />
         <column name="page" type="LONGVARCHAR" />
         <column name="page_title" type="VARCHAR" size="255" />
