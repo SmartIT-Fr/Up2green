@@ -1,0 +1,18 @@
+{% extends 'Up2greenCommonBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+    
+    <div class="error">
+        {{ form_errors(form) }}
+    </div>
+
+    {{ form_rest(form) }}
+
+    <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+</form>
+
+{% endblock %}

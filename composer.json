@@ -28,7 +28,8 @@
         "juliendidier/buzz-profiler-bundle": "dev-master",
         "kriswallsmith/buzz": "dev-master",
         "kriswallsmith/assetic": "1.1.x-dev",
-        "twitter/bootstrap": "dev-master"
+        "twitter/bootstrap": "dev-master",
+        "gregwar/captcha-bundle": "dev-master"
     },
     "repositories": [
         {

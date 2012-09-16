@@ -4,6 +4,7 @@
 
 {% stylesheets filter='less,cssrewrite,?yui_css' output='css/common_all.css'
     '@Up2greenCommonBundle/Resources/public/less/main.less'
+    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
 %}
 <script type="text/javascript" src="{{ asset('bundles/up2greencommon/js/modernizr-2.5.3.js') }}"></script>
 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
@@ -26,9 +27,9 @@
         </div>
     </div>
 
-    {% include 'Up2greenCommonBundle::footer.html.twig' %}
-
 </div>
+
+{% include 'Up2greenCommonBundle::footer.html.twig' %}
 
 
 {% endblock %}
