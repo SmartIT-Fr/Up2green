@@ -5,7 +5,7 @@ namespace Up2green\BlogBundle\Tests\Controller;
 use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the DefaultController of the BlogBundle
+ * test the ArticleController of the BlogBundle
  */
 class ArticleControllerTest extends IsolatedWebTestCase
 {
@@ -16,9 +16,10 @@ class ArticleControllerTest extends IsolatedWebTestCase
 			array(404, 5)
 		);
 	}
+
     /**
-     * Test indexAction
-     * 
+     * Test showAction
+     *
      * @dataProvider showProvider
      */
     public function testShow($httpStatus, $id)

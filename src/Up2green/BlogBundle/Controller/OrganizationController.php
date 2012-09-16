@@ -9,16 +9,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Default controller
+ * Organization controller
  */
 class OrganizationController extends Controller
 {
     /**
-     * @Route("/organization/{id}", name="reforestation_organization_show")
+     * Searches for the organization with {id}
      *
+     * @param Organization $organization
+     *
+     * @Route("/organization/{id}", name="reforestation_organization_show")
      * @Template(vars={"organization"})
+     * @return array
      */
     public function showAction(Organization $organization)
     {
+        $organization->setLocale($this->getRequest()->getLocale());
+
+        return array('organization' => $organization);
     }
 }

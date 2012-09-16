@@ -29,11 +29,13 @@ services:
         tags:
             - { name: 'twig.extension' }
 
-    twig.extension.locale:
-        class: Up2green\CommonBundle\Extension\TwigLocaleExtension
+    up2green.kernel.event_listener.locale:
+        class: Up2green\CommonBundle\HttpKernel\EventListener\LocaleListener
         tags:
-            -  { name: twig.extension }
-
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        @arguments:
+            - { defaultLocale: %default_locale% }
+        
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%

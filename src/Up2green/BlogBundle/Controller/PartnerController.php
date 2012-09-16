@@ -9,13 +9,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Default controller
+ * Partner controller
  */
 class PartnerController extends Controller
 {
     /**
-     * @Route("/partner/{id}", name="reforestation_partner_show")
+     * Searches for the partner with {id}
      *
+     * @param Partner $partner
+     *
+     * @Route("/partner/{id}", name="reforestation_partner_show")
      * @Template(vars={"partner"})
      */
     public function showAction(Partner $partner)

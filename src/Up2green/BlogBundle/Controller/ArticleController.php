@@ -11,16 +11,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Default controller
+ * Article controller
  */
 class ArticleController extends Controller
 {
     /**
-     * @Route("/article/{id}", name="blog_article_show")
+     * Searches for the article with {id}
      *
-     * @Template(vars={"article"})
+     * @param Article $article
+     *
+     * @Route("/article/{id}", name="blog_article_show")
+     * @Template()
+     * @return array
      */
     public function showAction(Article $article)
     {
+        $article->setLocale($this->getRequest()->getLocale());
+
+        return array('article' => $article);
     }
 }

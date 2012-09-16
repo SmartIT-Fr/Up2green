@@ -47,6 +47,9 @@
         <column name="logo" type="VARCHAR" size="128" />
 
         <behavior name="activatable" />
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="title, summary, description" />
+        </behavior>
     </table>
 
     <table name="program">
@@ -60,6 +63,9 @@
         <column name="added_trees" type="INTEGER" required="true" defaultValue="0" />
 
         <behavior name="activatable" />
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="title, summary, description" />
+        </behavior>
 
         <foreign-key foreignTable="organization">
             <reference local="organization_id" foreign="id" />

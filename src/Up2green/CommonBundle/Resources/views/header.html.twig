@@ -38,8 +38,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path(route, localeSwitch('fr', requestAttributes._route_params)) }}">{{ "French"|trans }}</a></li>
-                                <li><a href="{{ path(route, localeSwitch('en', requestAttributes._route_params)) }}">{{ "English"|trans }}</a></li>
+                                <li><a href="{{ path('common_switch_locale', {'_locale':'fr_FR'}) }}">{{ "French"|trans }}</a></li>
+                                <li><a href="{{ path('common_switch_locale', {'_locale':'en_US'}) }}">{{ "English"|trans }}</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

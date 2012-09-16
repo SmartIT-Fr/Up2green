@@ -9,16 +9,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * Default controller
+ * Program controller
  */
 class ProgramController extends Controller
 {
     /**
-     * @Route("/program/{id}", name="reforestation_program_show")
+     * Searches for the program with {id}
      *
+     * @param Program $program
+     *
+     * @Route("/program/{id}", name="reforestation_program_show")
      * @Template(vars={"program"})
+     * @return array
      */
     public function showAction(Program $program)
     {
+        $program->setLocale($this->getRequest()->getLocale());
+
+        return array('program' => $program);
     }
 }

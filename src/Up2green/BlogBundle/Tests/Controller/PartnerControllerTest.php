@@ -1,13 +1,13 @@
 <?php
 
-namespace Up2green\ReforestationBundle\Tests\Controller;
+namespace Up2green\BlogBundle\Tests\Controller;
 
 use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the DefaultController of the BlogBundle
+ * test the PartnerController of the BlogBundle
  */
-class ProgramControllerTest extends IsolatedWebTestCase
+class PartnerControllerTest extends IsolatedWebTestCase
 {
 	function showProvider()
 	{
@@ -15,15 +15,16 @@ class ProgramControllerTest extends IsolatedWebTestCase
 			array(200, 1),
 			array(404, 5)
 		);
-	}
+    }
+
     /**
-     * Test indexAction
-     * 
+     * Test showAction
+     *
      * @dataProvider showProvider
      */
     public function testShow($httpStatus, $id)
     {
-        $this->client->request('GET', '/reforestation/program/'.$id);
+        $this->client->request('GET', '/blog/partner/'.$id);
         $this->assertEquals($httpStatus, $this->client->getResponse()->getStatusCode());
     }
 }
