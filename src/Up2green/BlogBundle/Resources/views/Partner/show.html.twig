@@ -4,7 +4,8 @@
 
 {{ parent() }}
 
-{{ partner.title }}
-{{ partner.description |raw }}
+<h2>{{ partner.title }}</h2>
+<p>{{ partner.summary |raw }}</p>
+<p>{{ partner.description |raw }}</p>
 
 {% endblock %}

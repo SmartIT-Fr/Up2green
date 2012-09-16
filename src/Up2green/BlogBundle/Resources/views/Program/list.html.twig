@@ -1,0 +1,19 @@
+{% extends 'Up2greenBlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+{% for program in pager.currentPageResults %}
+    <div class="item">
+        <h2>{{ program.title }}</h2>
+        <p>{{ program.summary |raw }}</p>
+        <span class="pull-right"><a href="{{ path('blog_program_show', {'id': program.id}) }}">{{ "read_more"|trans }}</a></span>
+    </div>
+{% endfor %}
+
+<div class="pagerfanta">
+    {{ pagerfanta(pager) }}
+</div>
+
+{% endblock %}

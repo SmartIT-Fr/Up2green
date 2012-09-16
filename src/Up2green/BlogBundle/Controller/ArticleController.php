@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\PropelAdapter;
+
 /**
  * Article controller
  */
@@ -29,5 +32,23 @@ class ArticleController extends Controller
         $article->setLocale($this->getRequest()->getLocale());
 
         return array('article' => $article);
+    }
+
+    /**
+	 * Displays list of all articles
+	 *
+     * @Route("/article/", name="blog_article_list")
+     * @Template()
+     * @return array
+     */
+    public function listAction()
+    {
+        $adapter = new PropelAdapter(ArticleQuery::create()
+            ->joinWithI18n($this->getRequest()->getLocale()));
+
+        $pager = new Pagerfanta($adapter);
+        $pager->setCurrentPage($this->getRequest()->get('page', 1));
+
+        return array('pager' => $pager);
     }
 }

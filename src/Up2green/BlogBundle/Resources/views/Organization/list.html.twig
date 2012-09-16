@@ -1,0 +1,19 @@
+{% extends 'Up2greenBlogBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+{% for organization in pager.currentPageResults %}
+    <div class="item">
+        <h2>{{ organization.title }}</h2>
+        <p>{{ organization.summary |raw }}</p>
+        <span class="pull-right"><a href="{{ path('blog_organization_show', {'id': organization.id}) }}">{{ "read_more"|trans }}</a></span>
+    </div>
+{% endfor %}
+
+<div class="pagerfanta">
+    {{ pagerfanta(pager) }}
+</div>
+
+{% endblock %}

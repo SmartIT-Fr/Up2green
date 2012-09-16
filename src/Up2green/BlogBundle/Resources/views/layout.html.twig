@@ -13,6 +13,18 @@
 
 {% block content %}
 
-{% include 'Up2greenBlogBundle::banner.html.twig' %}
+{% render 'Up2greenBlogBundle:Default:banner' %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+{% javascripts filter='?yui_js' output='js/blog_all.js'
+    '@Up2greenBlogBundle/Resources/public/js/main.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 {% endblock %}

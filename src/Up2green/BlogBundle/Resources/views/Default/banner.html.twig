@@ -1,0 +1,48 @@
+<header id="overview" class="jumbotron subhead">
+    <h1>Up2green</h1>
+    <p class="lead">
+        {{ "Devenez actuer de la reforestation."|trans }}
+    </p>
+
+    <div id="blog-main-menu" class="subnav">
+        <ul class="nav nav-pills">
+            <li><a href="{{ path('blog_homepage') }}">{{ "Accueil"|trans }}</a></li>
+            <li><a href="{{ path('blog_article_list') }}">{{ "Articles"|trans }}</a></li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ "Programmes"|trans }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('blog_program_list') }}">{{ "all_programs"|trans }}</a></li>
+                    {% for program in programs %}
+                        <li><a href="{{ path('blog_program_show', {'id': program.id}) }}">{{ program.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ "Nos partenaires"|trans }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('blog_organization_list') }}">{{ "Les organismes planteurs"|trans }}</a></li>
+                    <li><a href="{{ path('blog_partner_list') }}">{{ "Partenariats entreprise"|trans }}</a></li>
+                    <li><a href="{{ path('blog_article_show', {'id':'3'}) }}">{{ "Nos solutions d'implication"|trans }}</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ "Thematiques"|trans }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('blog_article_show', {'id':'4'}) }}">{{ "La biodiversité"|trans }}</a></li>
+                    <li><a href="{{ path('blog_article_show', {'id':'5'}) }}">{{ "Communauté"|trans }}</a></li>
+                    <li><a href="{{ path('blog_article_show', {'id':'6'}) }}">{{ "Climat"|trans }}</a></li>
+                    <li><a href="{{ path('blog_article_show', {'id':'7'}) }}">{{ "Agroforesterie"|trans }}</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ "L'association"|trans }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('blog_article_show', {'id':'8'}) }}">{{ "Missions et objectifs"|trans }}</a></li>
+                    <li><a href="{{ path('blog_article_show', {'id':'9'}) }}">{{ "L'équipe"|trans }}</a></li>
+                    <li><a href="mailto:contact@up2green.com">{{ "Contactez nous"|trans }}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+

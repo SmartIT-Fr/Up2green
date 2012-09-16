@@ -5,6 +5,7 @@
 {{ parent() }}
 
 <h2>{{ article.title }}</h2>
-{{ article.description |raw }}
+<p>{{ article.summary |raw }}</p>
+<p>{{ article.description |raw }}</p>
 
 {% endblock %}

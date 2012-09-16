@@ -4,7 +4,8 @@
 
 {{ parent() }}
 
-{{ organization.title }}
-{{ organization.description |raw }}
+<h2>{{ organization.title }}</h2>
+<p>{{ organization.summary |raw }}</p>
+<p>{{ organization.description |raw }}</p>
 
 {% endblock %}
