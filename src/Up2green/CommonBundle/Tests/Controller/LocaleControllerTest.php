@@ -12,24 +12,26 @@ class LocaleControllerTest extends IsolatedWebTestCase
     /**
      * @return array
      */
-    function showProvider()
+    function languageProvider()
     {
         return array(
-            array('French', 1),
-            array('English', 1)
+            array('French'),
+            array('English')
         );
     }
 
     /**
-     * Test showAction on Article with locale switch
+     * Test locale switching
      *
-     * @dataProvider showProvider
+     * @param string $language Requested language
+     *
+     * @dataProvider languageProvider
      */
-    public function testShow($locale, $id)
+    public function testSwitchLocale($language)
     {
-        $crawler = $this->client->request('GET', '/blog/article/' . $id);
+        $crawler = $this->client->request('GET', '/blog/article/1');
 
-        $link    = $crawler->filter('a:contains("' . $locale . '")')->eq(0)->link();
+        $link    = $crawler->filter('a:contains("' . $language . '")')->eq(0)->link();
         $crawler = $this->client->click($link);
         $crawler = $this->client->followRedirect();
 

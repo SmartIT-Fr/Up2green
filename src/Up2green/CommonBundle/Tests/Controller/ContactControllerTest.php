@@ -6,6 +6,8 @@ use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Test the ContactControllerController of the CommonBundle
+ *
+ * @todo Find a way to pass the captcha validation
  */
 class ContactControllerTest extends IsolatedWebTestCase
 {
@@ -31,9 +33,11 @@ class ContactControllerTest extends IsolatedWebTestCase
     /**
      * Test defultAction of contact
      *
+     * @param array $data Post datas
+     *
      * @dataProvider contactProvider
      */
-    public function testDefault($data)
+    public function testDefault(array $data)
     {
         $crawler = $this->client->request('POST', '/contact/', $data);
         $this->assertGreaterThan(0, $crawler->filter('div.alert')->count());

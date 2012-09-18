@@ -23,6 +23,9 @@ class ProgramControllerTest extends IsolatedWebTestCase
     /**
      * Test showAction
      *
+     * @param integer $httpStatus Expected HTTP status code
+     * @param integer $id         Requested id
+     * 
      * @dataProvider showProvider
      */
     public function testShow($httpStatus, $id)
