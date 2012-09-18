@@ -5,16 +5,19 @@ namespace Up2green\BlogBundle\Tests\Controller;
 use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the PartnerController of the BlogBundle
+ * Test the PartnerController of the BlogBundle
  */
 class PartnerControllerTest extends IsolatedWebTestCase
 {
-	function showProvider()
-	{
-		return array(
-			array(200, 1),
-			array(404, 5)
-		);
+    /**
+     * @return array
+     */
+    function showProvider()
+    {
+        return array(
+            array(200, 1),
+            array(404, 5)
+        );
     }
 
     /**
@@ -24,7 +27,7 @@ class PartnerControllerTest extends IsolatedWebTestCase
      */
     public function testShow($httpStatus, $id)
     {
-        $this->client->request('GET', '/blog/partner/'.$id);
+        $this->client->request('GET', '/blog/partner/' . $id);
         $this->assertEquals($httpStatus, $this->client->getResponse()->getStatusCode());
     }
 

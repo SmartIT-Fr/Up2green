@@ -5,17 +5,20 @@ namespace Up2green\BlogBundle\Tests\Controller;
 use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the ProgramController of the BlogBundle
+ * Test the ProgramController of the BlogBundle
  */
 class ProgramControllerTest extends IsolatedWebTestCase
 {
-	function showProvider()
-	{
-		return array(
-			array(200, 1),
-			array(404, 5)
-		);
-	}
+    /**
+     * @return array
+     */
+    function showProvider()
+    {
+        return array(
+            array(200, 1),
+            array(404, 5)
+        );
+    }
 
     /**
      * Test showAction
@@ -24,7 +27,7 @@ class ProgramControllerTest extends IsolatedWebTestCase
      */
     public function testShow($httpStatus, $id)
     {
-        $this->client->request('GET', '/blog/program/'.$id);
+        $this->client->request('GET', '/blog/program/' . $id);
         $this->assertEquals($httpStatus, $this->client->getResponse()->getStatusCode());
     }
 

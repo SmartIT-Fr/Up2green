@@ -119,6 +119,10 @@
         <exec executable="app/console">
             <arg line="propel:database:create" />
         </exec>
+        <exec executable="rm">
+            <arg line="-Rf ${basedir}/src/Up2green/*Bundle/Model/om/" />
+            <arg line="-Rf ${basedir}/src/Up2green/*Bundle/Model/map/" />
+        </exec>
         <exec executable="app/console">
             <arg line="propel:build --insert-sql" />
         </exec>

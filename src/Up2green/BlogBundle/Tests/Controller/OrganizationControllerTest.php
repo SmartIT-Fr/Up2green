@@ -5,26 +5,29 @@ namespace Up2green\BlogBundle\Tests\Controller;
 use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
- * test the OrganizationController of the BlogBundle
+ * Test the OrganizationController of the BlogBundle
  */
 class OrganizationControllerTest extends IsolatedWebTestCase
 {
-	function showProvider()
-	{
-		return array(
-			array(200, 1),
-			array(404, 5)
-		);
-	}
+    /**
+     * @return array
+     */
+    function showProvider()
+    {
+        return array(
+            array(200, 1),
+            array(404, 5)
+        );
+    }
 
-	/**
+    /**
      * Test showAction
      *
      * @dataProvider showProvider
      */
     public function testShow($httpStatus, $id)
     {
-        $this->client->request('GET', '/blog/organization/'.$id);
+        $this->client->request('GET', '/blog/organization/' . $id);
         $this->assertEquals($httpStatus, $this->client->getResponse()->getStatusCode());
     }
 
