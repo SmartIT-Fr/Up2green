@@ -1,11 +1,13 @@
 {
     "name": "Up2green Reforestation project",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "": "src/" },
+        "classmap": ["vendor/oauth/oauth"]
     },
     "require": {
         "php": ">=5.3.3",
         "ext-gd": "*",
+        "oauth/oauth": "dev-master",
         "symfony/symfony": "2.1.*",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
@@ -78,6 +80,18 @@
                     "url": "https://github.com/Xosofox/phing",
                     "type": "git",
                     "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "version": "master",
+                "name": "oauth/oauth",
+                "source": {
+                    "url": "http://oauth.googlecode.com/svn/",
+                    "type": "svn",
+                    "reference": "code/php"
                 }
             }
         }

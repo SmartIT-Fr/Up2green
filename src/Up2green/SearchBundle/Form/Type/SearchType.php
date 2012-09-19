@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Up2green\SearchBundle\Services\Engine\EngineFactory;
+use Up2green\SearchBundle\Services\Engine\OAuthEngineFactory;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,10 +25,10 @@ class SearchType extends AbstractType
         $builder
             ->add('q', null, array('required' => true))
             ->add('type', 'choice', array(
-                'choices'  => EngineFactory::$types,
+                'choices'  => OAuthEngineFactory::$types,
                 'required' => true,
                 'expanded' => true,
-                'data' => EngineFactory::TYPE_WEB,
+                'data' => OAuthEngineFactory::TYPE_WEB,
             ));
     }
 
@@ -44,7 +44,7 @@ class SearchType extends AbstractType
             'validation_constraint' => new Assert\Collection(array(
                 'q'    => new Assert\NotBlank(),
                 'type' => new Assert\Choice(array(
-                    'choices' => array_keys(EngineFactory::$types)
+                    'choices' => array_keys(OAuthEngineFactory::$types)
                 )),
             )),
         ));

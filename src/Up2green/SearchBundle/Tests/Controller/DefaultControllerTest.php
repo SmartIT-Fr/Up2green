@@ -10,11 +10,28 @@ use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 class DefaultControllerTest extends IsolatedWebTestCase
 {
     /**
-     * Test the indexAction
+     * Test the index action
      */
     public function testIndex()
     {
         $this->client->request('GET', '/');
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
+    }
+
+    /**
+     * Test the search action
+     *
+     * @todo Test the displayed results
+     * @todo Test all the search engine type
+     * @todo Test GET action
+     */
+    public function testSearch()
+    {
+        $this->client->request('POST', '/', array(
+            'type' => 0,
+            'q' => 'test',
+        ));
+
         $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 }

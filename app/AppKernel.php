@@ -30,7 +30,6 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
             // Up2green
-            // new Up2green\OAuthBundle\Up2greenOAuthBundle(),
             new Up2green\BlogBundle\Up2greenBlogBundle(),
             new Up2green\CommonBundle\Up2greenCommonBundle(),
             new Up2green\UserBundle\Up2greenUserBundle(),

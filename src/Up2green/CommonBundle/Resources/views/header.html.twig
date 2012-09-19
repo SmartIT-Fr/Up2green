@@ -1,6 +1,6 @@
 <header>
     {% set requestAttributes =  app.request.attributes.all() %}
-    {% set route = requestAttributes._route %}
+    {% set route = requestAttributes._route is defined ? requestAttributes._route : '' %}
 
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">

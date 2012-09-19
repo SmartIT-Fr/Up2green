@@ -3,13 +3,11 @@
 namespace Up2green\SearchBundle\Services\Engine;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Up2green\SearchBundle\Services\SearchEngine\EngineInterface;
-use Up2green\SearchBundle\Services\SearchEngine\EngineWeb;
 
 /**
  * SearcheEngine factory class
  */
-class EngineFactory
+class OAuthEngineFactory
 {
     const TYPE_WEB   = 0;
     const TYPE_IMAGE = 1;
@@ -34,10 +32,10 @@ class EngineFactory
     /**
      * Create an Engine service to retrieve datas
      *
-     * @param string $query
-     * @param int    $type
+     * @param string $query The requested query string
+     * @param int    $type  The search type
      *
-     * @return \Up2green\SearchBundle\Services\SearchEngine\EngineInterface
+     * @return \Up2green\SearchBundle\Services\SearchEngine\OAuthEngineInterface
      * @throws \InvalidArgumentException
      */
     public function createEngine($query, $type)
@@ -56,13 +54,10 @@ class EngineFactory
 
         $service = $this->container->get($serviceName);
 
-        /**
-         * FIXME : This test never pass
-         */
-//        if (!$service instanceof EngineInterface) {
-//            $error = sprintf("Service '%s' must implement the EngineInterface", $serviceName);
-//            throw new \InvalidArgumentException($error);
-//        }
+        if (!$service instanceof OAuthEngineInterface) {
+            $error = sprintf("Service '%s' must implement the OAuthEngineInterface", $serviceName);
+            throw new \InvalidArgumentException($error);
+        }
 
         $service->setQuery($query);
 

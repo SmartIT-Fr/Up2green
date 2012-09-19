@@ -25,10 +25,15 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $form = $this->createForm(new SearchType());
-        $form->bindRequest($this->getRequest());
+        $request = $this->getRequest();
 
-        if ($form->isValid()) {
-            $this->forward('Up2greenSearchBundle:Default:search', $form->getData());
+        if ($request->getMethod() === 'POST') {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+
+                return $this->forward('Up2greenSearchBundle:Default:search', $form->getData());
+            }
         }
 
         return array(
@@ -47,20 +52,18 @@ class DefaultController extends Controller
     public function searchAction()
     {
         $form = $this->createForm(new SearchType());
-        $form->bindRequest($this->getRequest());
+        $form->bind($this->getRequest());
 
         if (!$form->isValid()) {
             return $this->redirect($this->generateUrl('search_homepage'));
         }
 
-        // FIXME errors throwed in this controller are not throwed
-        try {
-            $results = $this->get('up2green_search.engine_factory')
-                ->createEngine($form->get('q')->getData(), $form->get('type')->getData())
-                ->getResults();
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        }
+        $engine = $this->get('up2green_search.engine_factory')->createEngine(
+            $form->get('q')->getData(),
+            $form->get('type')->getData()
+        );
+
+        $results = $engine->getResults();
 
         return array(
             'form'    => $form->createView(),

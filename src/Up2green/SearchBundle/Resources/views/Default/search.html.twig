@@ -15,8 +15,11 @@
 <section class="center">
     {% for result in results %}
         <article>
-            <h2>{{ result }}</h2>
+            <h2>{{ result.title | raw }}</h2>
+            <p>{{ result.abstract | raw }}</p>
+            <a href="{{ result.clickurl }}">{{ result.dispurl | raw }}</a>
         </article>
+        <hr />
     {% endfor %}
 </section>
 
