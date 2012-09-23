@@ -28,7 +28,8 @@ class RegistrationController extends Controller
                 $registration = $form->getData();
                 $registration->save();
 
-                //return $this->redirect($this->generateUrl('education.login'));
+                // Todo Redirect to an other place
+                return $this->redirect($this->generateUrl('education.registration.new'));
             }
         }
 
