@@ -28,6 +28,9 @@ up2green_common:
     type:     annotation
     prefix:   /
 
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
 _assetic:
     resource: .
     type:     assetic

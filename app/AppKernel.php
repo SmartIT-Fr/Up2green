@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Buzz\Bundle\ProfilerBundle\BuzzProfilerBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             // Up2green
             new Up2green\BlogBundle\Up2greenBlogBundle(),

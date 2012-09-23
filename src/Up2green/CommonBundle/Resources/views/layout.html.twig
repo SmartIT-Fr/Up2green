@@ -27,10 +27,9 @@
         </div>
     </div>
 
-</div>
-
 {% include 'Up2greenCommonBundle::footer.html.twig' %}
 
+</div>
 
 {% endblock %}
 
@@ -40,6 +39,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
   <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
 <![endif]-->
+
+<script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
 {% javascripts filter='?yui_js' output='js/all.js'
     '@Up2greenCommonBundle/Resources/public/js/jquery-1.7.1.js'
@@ -58,5 +60,14 @@
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+
+<script>
+    var app = {
+        'request': {
+            '_route': '{{app.request.get('_route')}}',
+            '_route_params': '{{app.request.get('_route_params') | json_encode }}'
+        }
+    };
+</script>
 
 {% endblock %}

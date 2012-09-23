@@ -1,0 +1,17 @@
+
+
+{% for article in pager.currentPageResults %}
+    <div class="item">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.summary |raw }}</p>
+        <span class="pull-right"><a href="{{ path('blog_article_show', {'id': article.id}) }}">{{ "read_more"|trans }}</a></span>
+    </div>
+{% endfor %}
+
+{% if pager.hasPreviousPage %}
+<a href="#" class="previous"><<</a>
+{% endif %}
+
+{% if pager.hasNextPage %}
+<a href="#" class="next">>></a>
+{% endif %}

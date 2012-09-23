@@ -23,7 +23,7 @@ class ProgramController extends Controller
      *
      * @param Program $program
      *
-     * @Route("/program/{id}", name="blog_program_show")
+     * @Route("/program/{id}", name="blog_program_show", requirements={"id"= "\d+"})
      * @Template(vars={"program"})
      * @return array
      */
@@ -43,11 +43,46 @@ class ProgramController extends Controller
      */
     public function listAction()
     {
+        $pager = $this->getPager($this->getRequest()->get('page', 1), 10);
+
+        return $pager;
+    }
+
+    /**
+	 * Displays list of programs in ajax
+	 *
+	 * @param integer $page
+     *
+     * @Route("/program/listAjax/{page}", name="blog_program_list_ajax", defaults={"page"= 1}, options={"expose"=true})
+     * @Template()
+     * @return array
+	 */
+    public function listAjaxAction($page = 1)
+    {
+        $return = $this->getPager($page, $this->getRequest()->get('limit', 1));
+        $return['options']['routeName'] = $this->getRequest()->get('routeName', '');
+        $return['options']['routeParams'] = $this->getRequest()->get('routeParams', '');
+
+        return $return;
+    }
+
+    /**
+	 * Gets list of all programs
+	 *
+	 * @param integer $page  The page
+	 * @param integer $limit The limit
+     *
+     * @return array
+     */
+    private function getPager($page, $limit)
+    {
         $adapter = new PropelAdapter(ProgramQuery::create()
             ->joinWithI18n($this->getRequest()->getLocale()));
 
         $pager = new Pagerfanta($adapter);
-        $pager->setCurrentPage($this->getRequest()->get('page', 1));
+        $pager
+            ->setMaxPerPage($limit)
+            ->setCurrentPage($page);
 
         return array('pager' => $pager);
     }
