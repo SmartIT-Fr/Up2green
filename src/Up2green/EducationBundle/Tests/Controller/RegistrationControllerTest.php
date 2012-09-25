@@ -3,6 +3,7 @@
 namespace Up2green\EducationBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\EducationBundle\Model\SchoolQuery;
 
 class RegistrationControllerTest extends WebTestCase
 {
@@ -15,7 +16,7 @@ class RegistrationControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isOk());
     }
 
-    public function testNewRegistrationWithGoodData()
+    public function testNewRegistrationWithGoodDataAndANewSchool()
     {
         $client = static::createClient();
 
@@ -37,7 +38,32 @@ class RegistrationControllerTest extends WebTestCase
         ;
         $form['education_registration[school][school]']->select('school_out');
         $client->submit($form);
-        print($client->getResponse()->getContent());
+
+        $this->assertTrue($client->getResponse()->isRedirect());
+    }
+
+    public function testNewRegistrationWithGoodDataAndAnExistantSchool()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/education/registration/new');
+        $form = $crawler
+            ->selectButton('submit')
+            ->form(array(
+                'education_registration[school][school_list]'           => SchoolQuery::create()->findOneBySlug('school_1')->getId(),
+                'education_registration[account][username]'             => 'doe.john',
+                'education_registration[account][firstname]'            => 'Doe',
+                'education_registration[account][lastname]'             => 'John',
+                'education_registration[account][email]'                => 'doe.john@wherenofrom.out',
+                'education_registration[account][password][first]'      => 'ForMemyLiveIsASecret',
+                'education_registration[account][password][second]'     => 'ForMemyLiveIsASecret',
+                'education_registration[classroom][name]'               => '1PC',
+                'education_registration[classroom][description]'        => 'This is no one of the classroom'
+            ))
+        ;
+        $form['education_registration[school][school]']->select('school_in');
+        $client->submit($form);
+
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 }

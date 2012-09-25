@@ -40,10 +40,16 @@ class School implements DomainObjectInterface
     public function save()
     {
         // If school is true, it's because the customer choose a school in the list
-        // Else add this school
-        $this->schoolModel->setName($this->name);
-        $this->schoolModel->setAddress($this->address);
-        $this->schoolModel->save();
+        if (self::SCHOOL_IN === $this->school) {
+            $schoolModel = Model\SchoolQuery::create()->findOneById($this->school_list);
+            $this->schoolModel = $schoolModel;
+        }
+
+        if (self::SCHOOL_OUT === $this->school) {
+            $this->schoolModel->setName($this->name);
+            $this->schoolModel->setAddress($this->address);
+            $this->schoolModel->save();
+        }
     }
 
     public function getSchoolModel()

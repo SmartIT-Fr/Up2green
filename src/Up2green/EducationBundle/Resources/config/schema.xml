@@ -2,7 +2,7 @@
 <database name="default" namespace="Up2green\EducationBundle\Model" defaultIdMethod="native">
 
     <table name="school">
-        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="address" type="VARCHAR" size="255" required="true" />
 
 
@@ -17,7 +17,7 @@
     </table>
 
     <table name="classroom">
-        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="year" type="VARCHAR" size="255" required="true" />
         <column name="picture" type="VARCHAR" size="255" />
         <column name="description" type="VARCHAR" size="1024" />

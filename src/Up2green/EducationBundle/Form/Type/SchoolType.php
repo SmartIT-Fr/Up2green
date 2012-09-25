@@ -17,10 +17,15 @@ class SchoolType extends AbstractType
     {
         $this->schoolChoices = DomainObject\School::$schoolChoices;
 
-        $this->schoolList = SchoolQuery::create()
+        $schools = SchoolQuery::create()
             ->orderByName('ASC')
             ->find()
         ;
+
+        $this->schoolList = array();
+        foreach ($schools as $school) {
+            $this->schoolList[$school->getId()] = (string) $school;
+        }
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
