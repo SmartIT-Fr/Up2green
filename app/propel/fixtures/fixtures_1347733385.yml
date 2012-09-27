@@ -72,3 +72,25 @@ Up2green\ReforestationBundle\Model\Partner:
         summary: |
           <p>\r\n\t<span style="font-size: 14px;"><strong>DYRUP </strong>vous offre <strong>un arbre &agrave; planter </strong>sur la Plan&egrave;te parmi les programmes d&#39;<strong>agroforesterie</strong><strong> </strong>qu&#39;elle soutient en 2012 !</span></p>\r\n
         url: 'http://dyrup.fr/'
+Up2green\EducationBundle\Model\School:
+    School_1:
+        name: Ecole des fans
+        address: "55 rue des enfants, Paris, France"
+    School_2:
+        name: Ecole des clubs
+        address: "55 rue des clubs, Paris, France"
+Up2green\EducationBundle\Model\Classroom:
+    Classroom_1:
+        name: CE1 A
+        description: "La classe de bidule c'est trop beau la vie, nous sommes to cool ! youpi pouet"
+        school_id: School_1
+        picture: /uploads/default.jpg
+        user_id: User_1
+    Classroom_2:
+        name: CE1 B
+        description: "La classe de toto, c'est trop beau la vie, nous sommes to cool ! youpi pouet"
+        school_id: School_1
+        picture: /uploads/default.jpg
+        user_id: User_1
+
+
