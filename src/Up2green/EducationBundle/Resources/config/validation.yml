@@ -1,0 +1,10 @@
+Up2green\EducationBundle\Model\Classroom:
+    properties:
+        description:
+            - NotBlank: ~
+            - MaxLength: 2000
+        name:
+            - NotBlank: ~
+            - MaxLength: 30
+        pictureFile:
+            - Image: ~

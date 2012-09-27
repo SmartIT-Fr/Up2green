@@ -4,17 +4,43 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="up2green_education.example.class">Up2green\EducationBundle\Example</parameter>
+        <!-- FormType -->
+        <parameter key="up2green_education.form.type.registration.class">Up2green\EducationBundle\Form\Type\RegistrationType</parameter>
+        <parameter key="up2green_education.form.type.account.class">Up2green\EducationBundle\Form\Type\AccountType</parameter>
+        <parameter key="up2green_education.form.type.school.class">Up2green\EducationBundle\Form\Type\SchoolType</parameter>
+        <parameter key="up2green_education.form.type.classroom.class">Up2green\EducationBundle\Form\Type\ClassroomType</parameter>
+
+        <!-- GeoCoder -->
+        <parameter key="geocoder.class">Geocoder\Geocoder</parameter>
+        <parameter key="geocoder.provider.googlemaps.class">Geocoder\Provider\GoogleMapsProvider</parameter>
+        <parameter key="geocoder.adapter.curl.class">Geocoder\HttpAdapter\CurlHttpAdapter</parameter>
     </parameters>
 
     <services>
-        <service id="up2green_education.example" class="%up2green_education.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <!-- FormType -->
+        <service id="form.type.education.registration" class="%up2green_education.form.type.registration.class%">
+            <tag name="form.type" alias="education_registration" />
+        </service>
+        <service id="form.type.education.account" class="%up2green_education.form.type.account.class%">
+            <tag name="form.type" alias="education_account" />
+        </service>
+        <service id="form.type.education.school" class="%up2green_education.form.type.school.class%">
+            <tag name="form.type" alias="education_school" />
+        </service>
+        <service id="form.type.education.classroom" class="%up2green_education.form.type.classroom.class%">
+            <tag name="form.type" alias="education_classroom" />
+        </service>
+
+        <!-- GeoCoder -->
+        <service id="geocoder" class="%geocoder.class%">
+            <argument type="service" id="geocoder.provider.googlemaps" />
+        </service>
+        <service id="geocoder.provider.googlemaps" class="%geocoder.provider.googlemaps.class%">
+            <argument type="service" id="geocoder.adapter.curl" />
+        </service>
+        <service id="geocoder.adapter.curl" class="%geocoder.adapter.curl.class%">
         </service>
     </services>
-    -->
+
 </container>

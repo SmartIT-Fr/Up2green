@@ -1,11 +1,10 @@
 {% extends 'Up2greenCommonBundle::layout.html.twig' %}
 
 {% block stylesheets %}
-
+{{ parent() }}
 {% stylesheets filter='less,cssrewrite,?yui_css' output='css/education_all.css'
     '@Up2greenEducationBundle/Resources/public/less/main.less'
 %}
-<script type="text/javascript" src="{{ asset('bundles/up2greencommon/js/modernizr-2.5.3.js') }}"></script>
 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
 {% endstylesheets %}
 
