@@ -45,10 +45,12 @@ class SchoolType extends AbstractType
                 'empty_value'   => 'form.school_type.school_list_choice.empty_value'
             ))
             ->add('name', 'text', array(
-                'label' => 'form.school_type.name'
+                'label' => 'form.school_type.name',
+                'required'      => false,
             ))
             ->add('address', 'textarea', array(
-                'label' => 'form.school_type.address'
+                'label' => 'form.school_type.address',
+                'required'      => false,
             ))
         ;
     }

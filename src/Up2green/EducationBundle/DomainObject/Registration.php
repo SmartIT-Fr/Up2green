@@ -1,7 +1,6 @@
 <?php
 namespace Up2green\EducationBundle\DomainObject;
 
-use FOS\UserBundle\Util\UserManipulator;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,11 +24,8 @@ class Registration implements DomainObjectInterface
      */
     public $school;
 
-    public function __construct(UserManipulator $userManipulator, $account = null, $classroom = null, $school = null)
+    public function __construct($account = null, $classroom = null, $school = null)
     {
-        null !== $account   && $account     instanceof Account   ? $this->account    = $account      : $this->account    = new Account($userManipulator);
-        null !== $classroom && $classroom   instanceof Classroom ? $this->classroom  = $classroom    : $this->classroom  = new Classroom();
-        null !== $school    && $school      instanceof School    ? $this->school     = $school       : $this->school     = new School();
     }
 
     public function save()
@@ -38,10 +34,10 @@ class Registration implements DomainObjectInterface
         $school = $this->school->getSchoolModel();
 
         $this->account->save();
-        $user = $this->account->getUserModel();
+        $user = $this->account;
 
-        $this->classroom->setUserModel($user);
-        $this->classroom->setSchoolModel($school);
+        $this->classroom->setUser($user);
+        $this->classroom->setSchool($school);
         $this->classroom->save();
     }
 }

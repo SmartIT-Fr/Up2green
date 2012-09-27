@@ -1,12 +1,14 @@
 <?php
 namespace Up2green\EducationBundle\DomainObject;
 
+use Symfony\Component\Form\FormError;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContext;
 use Up2green\EducationBundle\Model;
 
 /**
  * @Assert\Callback(methods={
- *     { "Up2green\EducationBundle\Validation\ValidatorClass", "isSchoolValid"}
+ *     { "Up2green\EducationBundle\DomainObject\School", "isSchoolValid"}
  * })
  */
 class School implements DomainObjectInterface
@@ -55,5 +57,23 @@ class School implements DomainObjectInterface
     public function getSchoolModel()
     {
         return $this->schoolModel;
+    }
+
+    public static function isSchoolValid(School $school, ExecutionContext $context)
+    {
+        if (School::SCHOOL_IN === $school->school) {
+            if (null === $school->school_list) {
+                $context->addViolation( "form.validation.school_list", array(), null);
+            }
+        } elseif (School::SCHOOL_OUT === $school->school) {
+            if (null === $school->name) {
+                $context->getRoot()->get('school')->get('name')->addError(new FormError('form.validation.school_name'));
+            }
+            if (null === $school->address) {
+                $context->getRoot()->get('school')->get('address')->addError(new FormError('form.validation.school_address'));
+            }
+        }
+
+        return $context;
     }
 }

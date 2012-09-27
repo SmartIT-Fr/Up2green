@@ -74,7 +74,23 @@ Up2green\ReforestationBundle\Model\Partner:
         url: 'http://dyrup.fr/'
 Up2green\EducationBundle\Model\School:
     School_1:
-        name: School_1
-        address: France
+        name: Ecole des fans
+        address: "55 rue des enfants, Paris, France"
+    School_2:
+        name: Ecole des clubs
+        address: "55 rue des clubs, Paris, France"
+Up2green\EducationBundle\Model\Classroom:
+    Classroom_1:
+        name: CE1 A
+        description: "La classe de bidule c'est trop beau la vie, nous sommes to cool ! youpi pouet"
+        school_id: School_1
+        picture: /uploads/default.jpg
+        user_id: User_1
+    Classroom_2:
+        name: CE1 B
+        description: "La classe de toto, c'est trop beau la vie, nous sommes to cool ! youpi pouet"
+        school_id: School_1
+        picture: /uploads/default.jpg
+        user_id: User_1
 
 

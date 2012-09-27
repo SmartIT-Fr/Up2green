@@ -27,11 +27,9 @@ class RegistrationControllerTest extends WebTestCase
                 'education_registration[school][name]'                  => 'School of life',
                 'education_registration[school][address]'               => 'France, Paris',
                 'education_registration[account][username]'             => 'john.doe',
-                'education_registration[account][firstname]'            => 'John',
-                'education_registration[account][lastname]'             => 'Doe',
                 'education_registration[account][email]'                => 'john.doe@fromnowhere.out',
-                'education_registration[account][password][first]'      => 'myLiveIsASecretForMe',
-                'education_registration[account][password][second]'     => 'myLiveIsASecretForMe',
+                'education_registration[account][plainPassword][first]'      => 'myLiveIsASecretForMe',
+                'education_registration[account][plainPassword][second]'     => 'myLiveIsASecretForMe',
                 'education_registration[classroom][name]'               => 'CP1',
                 'education_registration[classroom][description]'        => 'This is the classroom of no one'
             ))
@@ -50,13 +48,11 @@ class RegistrationControllerTest extends WebTestCase
         $form = $crawler
             ->selectButton('submit')
             ->form(array(
-                'education_registration[school][school_list]'           => SchoolQuery::create()->findOneBySlug('school_1')->getId(),
+                'education_registration[school][school_list]'           => SchoolQuery::create()->findOneBySlug('ecole-des-fans')->getId(),
                 'education_registration[account][username]'             => 'doe.john',
-                'education_registration[account][firstname]'            => 'Doe',
-                'education_registration[account][lastname]'             => 'John',
                 'education_registration[account][email]'                => 'doe.john@wherenofrom.out',
-                'education_registration[account][password][first]'      => 'ForMemyLiveIsASecret',
-                'education_registration[account][password][second]'     => 'ForMemyLiveIsASecret',
+                'education_registration[account][plainPassword][first]'      => 'ForMemyLiveIsASecret',
+                'education_registration[account][plainPassword][second]'     => 'ForMemyLiveIsASecret',
                 'education_registration[classroom][name]'               => '1PC',
                 'education_registration[classroom][description]'        => 'This is no one of the classroom'
             ))

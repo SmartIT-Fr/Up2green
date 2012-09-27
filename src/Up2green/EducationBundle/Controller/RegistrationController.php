@@ -19,13 +19,12 @@ class RegistrationController extends Controller
     {
         // Call to a sevice to know if the voucher isValid
 
-        $userManipulator = $this->get('fos_user.util.user_manipulator');
-        $form = $this->createForm('education_registration', new DomainObject\Registration($userManipulator));
+        $registration = new DomainObject\Registration();
+        $form = $this->createForm('education_registration', $registration);
 
         if ('POST' === $request->getMethod()) {
             $form->bind($request);
             if (true === $form->isValid()) {
-                $registration = $form->getData();
                 $registration->save();
 
                 // Todo Redirect to an other place
@@ -39,7 +38,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * @Route("/registration/geoloc", name="education.registration.geoloc")
+     * @Route("/registration/geoloc", name="education.registration.geoloc", options={"expose"=true})
      */
     public function GeolocAction(Request $request)
     {

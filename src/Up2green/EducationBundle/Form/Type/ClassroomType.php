@@ -13,7 +13,7 @@ class ClassroomType extends AbstractType
             ->add('name', 'text', array(
                 'label' => 'form.classroom_type.name'
             ))
-            ->add('picture', 'file', array(
+            ->add('pictureFile', 'file', array(
                 'label' => 'form.classroom_type.picture'
             ))
             ->add('description', 'textarea', array(
@@ -25,7 +25,7 @@ class ClassroomType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\DomainObject\Classroom'
+            'data_class' => 'Up2green\EducationBundle\Model\Classroom'
         ));
     }
 
