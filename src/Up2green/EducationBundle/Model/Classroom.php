@@ -49,4 +49,9 @@ class Classroom extends BaseClassroom
 
         return sprintf('uploads/%s', $name);
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

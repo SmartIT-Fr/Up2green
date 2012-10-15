@@ -1,0 +1,63 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span7">
+            <div class="row">
+                <div class="classroom-player">
+                    <div class="span5 player-container">
+                        {% if classroom.classroomPictures|length > 0 %}
+                        <img class="img-polaroid" src="{{ asset(classroom.classroomPictures[0].picture) }}">
+                        {% else %}
+                        <img class="img-polaroid" src="{{ asset('images/sample.jpg') }}">
+                        {% endif %}
+                    </div>
+                    <div class="span2">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span7">
+                    <div class="classroom-pictures">
+                    {% for classroomPicture in classroom.getClassroomPictures %}
+                        <img class="img-polaroid" src="{{ asset(classroomPicture.picture) }}" alt="Up2green"/>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span5">
+            <div class="classroom-details">
+                <h1>{{ classroom.name }}</h1>
+                <div class="classroom-picture">
+                    <img class="img-polaroid" src="{{ asset(classroom.picture) }}" alt="{{ classroom.name }} Up2green" />
+                </div>
+                <div class="classroom-description">
+                    <p>
+                        {{ classroom.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<!-- Todo export it to an extern file -->
+<script type="text/javascript">
+    $(function() {
+        $('.classroom-pictures img').click(function(e) {
+            $('.player-container').html($(this).clone());
+        })
+    });
+</script>
+{% endblock %}
