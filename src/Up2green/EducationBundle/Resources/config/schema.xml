@@ -37,7 +37,7 @@
         <behavior name="sortable" />
     </table>
 
-    <table name="classroomPicture">
+    <table name="classroom_picture">
         <column name="picture" type="VARCHAR" size="255" required="true" />
 
         <column name="classroom_id" type="INTEGER" size="255" required="true" />

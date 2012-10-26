@@ -65,6 +65,7 @@ Up2green\ReforestationBundle\Model\Program:
         max_tree: '15000'
         added_trees: '5000'
         is_active: '1'
+
 Up2green\ReforestationBundle\Model\Partner:
     Partner_1:
         user_id: User_1
@@ -97,8 +98,8 @@ Up2green\EducationBundle\Model\Classroom:
 Up2green\EducationBundle\Model\ClassroomPicture:
     ClassroomPicture_1:
         classroom_id: Classroom_1
-        picture: uploads/default.jpg
+        picture: images/placeholder.jpg
     ClassroomPicture_2:
         classroom_id: Classroom_1
-        picture: uploads/default.jpg
+        picture: images/placeholder.jpg
 

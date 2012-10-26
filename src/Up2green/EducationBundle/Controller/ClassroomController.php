@@ -16,7 +16,7 @@ class ClassroomController extends Controller
 {
     /**
      * @Route("/school/{school_slug}/{classroom_slug}", name="education_classroom_show")
-     * @Template()
+     * @Template(vars={"school", "classroom"})
      * @ParamConverter("school", class="Up2green\EducationBundle\Model\School", options={"mapping"={"school_slug":"slug"}})
      * @ParamConverter("classroom", class="Up2green\EducationBundle\Model\Classroom", options={"mapping"={"classroom_slug":"slug"}})
      *
@@ -24,26 +24,5 @@ class ClassroomController extends Controller
      */
     public function showAction(Model\School $school, Model\Classroom $classroom)
     {
-        if (null === $classroom) {
-            throw new NotFoundHttpException();
-        }
-
-        return array('classroom' => $classroom);
-    }
-
-    /**
-     * @Route("/wall", name="education_classroom_wall")
-     * @Template()
-     *
-     * @return array
-     */
-    public function wallAction()
-    {
-        // Get the classroom
-        $classroomPictures = Model\ClassroomPictureQuery::create()
-            ->find()
-        ;
-
-        return array('classroomPictures' => $classroomPictures);
     }
 }
