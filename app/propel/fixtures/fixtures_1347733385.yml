@@ -72,6 +72,7 @@ Up2green\ReforestationBundle\Model\Partner:
         summary: |
           <p>\r\n\t<span style="font-size: 14px;"><strong>DYRUP </strong>vous offre <strong>un arbre &agrave; planter </strong>sur la Plan&egrave;te parmi les programmes d&#39;<strong>agroforesterie</strong><strong> </strong>qu&#39;elle soutient en 2012 !</span></p>\r\n
         url: 'http://dyrup.fr/'
+
 Up2green\EducationBundle\Model\School:
     School_1:
         name: Ecole des fans
@@ -93,4 +94,11 @@ Up2green\EducationBundle\Model\Classroom:
         picture: /uploads/default.jpg
         user_id: User_1
 
+Up2green\EducationBundle\Model\ClassroomPicture:
+    ClassroomPicture_1:
+        classroom_id: Classroom_1
+        picture: uploads/default.jpg
+    ClassroomPicture_2:
+        classroom_id: Classroom_1
+        picture: uploads/default.jpg
 

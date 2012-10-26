@@ -37,4 +37,14 @@
         <behavior name="sortable" />
     </table>
 
+    <table name="classroomPicture">
+        <column name="picture" type="VARCHAR" size="255" required="true" />
+
+        <column name="classroom_id" type="INTEGER" size="255" required="true" />
+
+        <foreign-key foreignTable="classroom" onDelete="CASCADE" skipSql="true">
+            <reference local="classroom_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
 </database>
