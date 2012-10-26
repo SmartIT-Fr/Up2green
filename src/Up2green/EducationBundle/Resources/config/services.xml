@@ -10,6 +10,7 @@
         <parameter key="up2green_education.form.type.account.class">Up2green\EducationBundle\Form\Type\AccountType</parameter>
         <parameter key="up2green_education.form.type.school.class">Up2green\EducationBundle\Form\Type\SchoolType</parameter>
         <parameter key="up2green_education.form.type.classroom.class">Up2green\EducationBundle\Form\Type\ClassroomType</parameter>
+        <parameter key="up2green_education.form.type.voucher.class">Up2green\EducationBundle\Form\Type\VoucherType</parameter>
 
         <!-- GeoCoder -->
         <parameter key="geocoder.class">Geocoder\Geocoder</parameter>
@@ -30,6 +31,9 @@
         </service>
         <service id="form.type.education.classroom" class="%up2green_education.form.type.classroom.class%">
             <tag name="form.type" alias="education_classroom" />
+        </service>
+        <service id="form.type.education.voucher" class="%up2green_education.form.type.voucher.class%">
+            <tag name="form.type" alias="education_voucher" />
         </service>
 
         <!-- GeoCoder -->

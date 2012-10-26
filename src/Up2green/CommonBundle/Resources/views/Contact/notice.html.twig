@@ -1,5 +1,0 @@
-{% for key, message in app.session.getFlashes() %}
-    <div class="alert alert-success">
-        <p>{{ message|trans({}, 'FOSUserBundle') }}</p>
-    </div>
-{% endfor %}

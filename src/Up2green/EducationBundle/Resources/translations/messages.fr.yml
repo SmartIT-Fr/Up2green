@@ -1,28 +1,46 @@
-form:
-    account_type:
-        username:       Pseudonyme
-        fistname:       Prénom
-        lastname:       Nom de famille
-        email:          Email
-        password:       Mot de passe
-        re_password:    Répéter mot de passe
-
-    classroom_type:
-        name:           Nom
-        picture:        Photo de classe
-        description:    Description
-
-    school_type:
-        school:         Choisir une école ?
-        school_in:      Ecole existante
-        school_out:     Créer une école
-        school_list:    Choix de l'école
-        school_list_choice:
-            empty_value: Choisissez une école
-        name:           Nom
-        address:        Adresse
-
-    validation:
-        school_new:     Vous devez remplire des champs de création d'un école
-        school_name:    Le nom est obligatoire
-        school_address: L'adresse est obligatoire
+home: Accueil
+the.project: 'Le projet'
+find.your.classroom: 'Trouver votre classe'
+participate.in.the.project: 'Participez au projet'
+are.you.a.teacher: 'Vous êtes enseignant ?'
+whant.to.sponsor.a.school: 'Vous souhaitez sponsoriser une classe ?'
+partners: Partenaires
+counter.tree: 'Déjà %count% arbres !'
+participate.donation.title: 'Vous souhaitez sponsoriser une ou plusieurs classes ?'
+participate.donation.paragraph.1: 'Vous êtes un particulier, une entreprise ou une collectivité et vous souhaitez participez au projet en soutenant une ou plusieurs classes ?'
+participate.donation.paragraph.2: 'Vous pouvez financer un ou plusieurs kit(s) complet(s) ou y participer en faisant un don (tous les 150 euros, un kit est attribué à l’une des classes candidates).'
+make.donation: 'Financer un ou plusieurs kits pédagogiques'
+participate.donation.paragraph.3: 'Pour plusieurs kits pédagogiques à livrer à différentes écoles (différentes adresses), nous vous invitons à nous contacter directement :'
+contact: Contactez-nous
+participate.teacher.leading: Up2green met à votre disposition un kit pédagogique
+participate.teacher.description.1: 'Ce kit contient :'
+participate.teacher.kit.content.1: ...
+participate.teacher.kit.content.2: ...
+participate.teacher.kit.content.3: ...
+participate.teacher.description.2: 'Votre code sécurisé vous donne accès à un espace personnalisé qui vous permet de :'
+participate.teacher.goal.1: Référencer votre classe
+participate.teacher.goal.2: Mettre en ligne les dessins de vos élèves qui seront accessibles dans la forêt de dessins et sur la page dédiée à votre classe.
+participate.teacher.voucher: Vous disposez de votre code d’accès
+buy.a.kit: Acheter
+get.free.kit: Bénéficiez d'un don
+submit: Soumettre
+project.description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet lectus dapibus enim sollicitudin tristique. Curabitur vel augue ligula. Aliquam erat volutpat. Praesent urna lacus, dictum nec laoreet hendrerit, volutpat auctor diam. Nullam elit est, condimentum at scelerisque et, blandit nec velit. Aenean rhoncus nibh aliquet enim imperdiet euismod. In sed nunc sed felis consequat interdum ut quis eros. Curabitur vel ligula orci. Nulla eu viverra neque. Suspendisse tincidunt dui molestie elit sollicitudin feugiat. Proin aliquet suscipit felis sit amet aliquam.'
+form.account_type.username: Pseudonyme
+form.account_type.fistname: Prénom
+form.account_type.lastname: 'Nom de famille'
+form.account_type.email: Email
+form.account_type.password: 'Mot de passe'
+form.account_type.re_password: 'Répéter mot de passe'
+form.classroom_type.name: Nom
+form.classroom_type.picture: 'Photo de classe'
+form.classroom_type.description: Description
+form.school_type.school: 'Choisir une école ?'
+form.school_type.school_in: 'Ecole existante'
+form.school_type.school_out: 'Créer une école'
+form.school_type.school_list: 'Choix de l''école'
+form.school_type.school_list_choice.empty_value: 'Choisissez une école'
+form.school_type.name: Nom
+form.school_type.address: Adresse
+form.validation.school_new: 'Vous devez remplire des champs de création d''un école'
+form.validation.school_name: 'Le nom est obligatoire'
+form.validation.school_address: 'L''adresse est obligatoire'

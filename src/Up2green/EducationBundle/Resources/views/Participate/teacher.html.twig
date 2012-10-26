@@ -1,0 +1,48 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="row-fluid">
+    <div class="span8 grey-box">
+
+        <p class="lead">{{ 'participate.teacher.leading'|trans }}</p>
+        <p>{{ 'participate.teacher.description.1'|trans }}</p>
+        <ul>
+            <li>{{ 'participate.teacher.kit.content.1'|trans }}</li>
+            <li>{{ 'participate.teacher.kit.content.2'|trans }}</li>
+            <li>{{ 'participate.teacher.kit.content.3'|trans }}</li>
+        </ul>
+
+        <p>{{ 'participate.teacher.description.2'|trans }}</p>
+        <ul>
+            <li>{{ 'participate.teacher.goal.1'|trans }}</li>
+            <li>{{ 'participate.teacher.goal.2'|trans }}</li>
+        </ul>
+
+        <p class="centerize">
+            <a href="#" class="btn btn-primary">{{ 'buy.a.kit'|trans }}</a>
+            <a href="#" class="btn btn-info">{{ 'get.free.kit'|trans }}</a>
+        </p>
+
+    </div>
+    <div class="span4 grey-box">
+        <p class="lead">{{ 'participate.teacher.voucher'|trans }}</p>
+
+        <form method="POST" {{ form_enctype(form) }} class="form-vertical">
+
+            <div class="error">
+                {{ form_errors(form) }}
+            </div>
+
+            {{ form_rest(form) }}
+
+            <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

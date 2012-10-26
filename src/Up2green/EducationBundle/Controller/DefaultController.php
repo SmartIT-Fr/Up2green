@@ -25,4 +25,15 @@ class DefaultController extends Controller
 
         return array('pictures' => $pictures);
     }
+
+    /**
+     * @Route("/the-project", name="education_the_project")
+     * @Template()
+     *
+     * @return array
+     */
+    public function theProjectAction()
+    {
+        return array();
+    }
 }

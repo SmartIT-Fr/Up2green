@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="default" namespace="Up2green\ReforestationBundle\Model" defaultIdMethod="native">
 
-    <table name="voucher_category">
-        <column name="price" type="FLOAT" required="true" />
-        <column name="credit" type="INTEGER" required="true" />
-        <column name="is_purchasable" type="BOOLEAN" defaultValue="true" />
-        <column name="is_partner_only" type="BOOLEAN" defaultValue="false" />
-    </table>
-
-    <table name="voucher">
-
-        <column name="category_id" type="INTEGER" />
-        <column name="code" type="VARCHAR" size="128" required="true" />
-        <column name="used_by" type="INTEGER" />
-        <column name="owner_id" type="INTEGER" />
-        <column name="log_ip" type="VARCHAR" size="15" />
-        <column name="log_email" type="VARCHAR" size="255" />
-        <column name="log_is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
-
-        <behavior name="activatable" />
-        <behavior name="timestampable" />
-
-        <foreign-key foreignTable="voucher_category">
-            <reference local="category_id" foreign="id" />
-        </foreign-key>
-
-        <foreign-key foreignTable="fos_user" phpName="user">
-            <reference local="used_by" foreign="id" />
-        </foreign-key>
-
-        <foreign-key foreignTable="fos_user" phpName="owner">
-            <reference local="owner_id" foreign="id" />
-        </foreign-key>
-
-        <unique>
-            <unique-column name="code" />
-        </unique>
-
-    </table>
-
     <table name="organization">
         <column name="url" type="VARCHAR" size="128" />
         <column name="title" type="VARCHAR" size="128" />

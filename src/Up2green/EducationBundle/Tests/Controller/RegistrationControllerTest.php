@@ -34,6 +34,7 @@ class RegistrationControllerTest extends WebTestCase
                 'education_registration[classroom][description]'        => 'This is the classroom of no one'
             ))
         ;
+
         $form['education_registration[school][school]']->select('school_out');
         $client->submit($form);
 

@@ -4,9 +4,15 @@ namespace Up2green\EducationBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Classroom controller test
+ */
 class ClassroomControllerTest extends WebTestCase
 {
-    public function testShowAClassroomPage()
+    /**
+     * test the show action
+     */
+    public function testShow()
     {
         $client = static::createClient();
 
@@ -15,7 +21,10 @@ class ClassroomControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isOk());
     }
 
-    public function testShowAnInexistantClassroomPage()
+    /**
+     * test the show page with an inexistant classroom
+     */
+    public function testShowClassroomNotFound()
     {
         $client = static::createClient();
 

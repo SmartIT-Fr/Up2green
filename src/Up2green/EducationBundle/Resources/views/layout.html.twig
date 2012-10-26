@@ -1,7 +1,6 @@
 {% extends 'Up2greenCommonBundle::layout.html.twig' %}
 
 {% block stylesheets %}
-{{ parent() }}
 {% stylesheets filter='less,cssrewrite,?yui_css' output='css/education_all.css'
     '@Up2greenEducationBundle/Resources/public/less/main.less'
 %}

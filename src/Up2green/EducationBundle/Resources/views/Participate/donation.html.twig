@@ -1,0 +1,23 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="hero-unit">
+    <h1>{{ 'participate.donation.title'|trans }}</h1>
+    <br />
+    <p>{{ 'participate.donation.paragraph.1'|trans }}</p>
+    <p>{{ 'participate.donation.paragraph.2'|trans }}</p>
+
+    <p class="centerize">
+        <a href="#" class="btn btn-primary">{{ 'make.donation'|trans }}</a>
+    </p>
+
+    <p>{{ 'participate.donation.paragraph.3'|trans }}</p>
+    <p class="centerize">
+        <a href="{{ path('contact') }}" class="btn btn-primary">{{ 'contact'|trans }}</a>
+    </p>
+</div>
+
+{% endblock %}
