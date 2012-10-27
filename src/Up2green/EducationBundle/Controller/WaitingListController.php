@@ -37,6 +37,7 @@ class WaitingListController extends Controller
             if ($form->isValid()) {
                 $waitingList->save();
                 $this->get('session')->setFlash('success', "waiting_list_joined");
+
                 return $this->redirect($this->generateUrl('education_homepage'));
             }
         }
