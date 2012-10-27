@@ -7,6 +7,8 @@ use Symfony\Component\Validator\ExecutionContext;
 use Up2green\EducationBundle\Model;
 
 /**
+ * School domain object
+ *
  * @Assert\Callback(methods={
  *     { "Up2green\EducationBundle\DomainObject\School", "isSchoolValid"}
  * })

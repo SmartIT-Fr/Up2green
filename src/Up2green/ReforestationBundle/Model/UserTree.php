@@ -4,6 +4,9 @@ namespace Up2green\ReforestationBundle\Model;
 
 use Up2green\ReforestationBundle\Model\om\BaseUserTree;
 
+/**
+ * UserTree entity
+ */
 class UserTree extends BaseUserTree
 {
 }

@@ -4,8 +4,8 @@ namespace Up2green\EducationBundle\DomainObject;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
-*
-*/
+ * Registration domain object
+ */
 class Registration implements DomainObjectInterface
 {
 

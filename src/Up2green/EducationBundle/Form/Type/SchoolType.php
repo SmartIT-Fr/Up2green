@@ -8,19 +8,24 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Up2green\EducationBundle\DomainObject;
 use Up2green\EducationBundle\Model\SchoolQuery;
 
+/**
+ * School type
+ */
 class SchoolType extends AbstractType
 {
     protected $schoolChoices;
     protected $schoolList;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->schoolChoices = DomainObject\School::$schoolChoices;
 
         $schools = SchoolQuery::create()
             ->orderByName('ASC')
-            ->find()
-        ;
+            ->find();
 
         $this->schoolList = array();
         foreach ($schools as $school) {
@@ -28,6 +33,10 @@ class SchoolType extends AbstractType
         }
     }
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -51,10 +60,12 @@ class SchoolType extends AbstractType
             ->add('address', 'textarea', array(
                 'label' => 'form.school_type.address',
                 'required'      => false,
-            ))
-        ;
+            ));
     }
 
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
@@ -62,6 +73,9 @@ class SchoolType extends AbstractType
         ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'education_school';

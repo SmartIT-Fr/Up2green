@@ -44,7 +44,6 @@ class WaitingListType extends AbstractType
     }
 
     /**
-     * (non-PHPdoc)
      * @see Symfony\Component\Form.FormTypeInterface::getName()
      * @return string
      */
@@ -54,8 +53,6 @@ class WaitingListType extends AbstractType
     }
 
     /**
-     * (non-PHPdoc)
-     *
      * @param OptionsResolverInterface $resolver
      *
      * @see Symfony\Component\Form.AbstractType::setDefaultOptions()

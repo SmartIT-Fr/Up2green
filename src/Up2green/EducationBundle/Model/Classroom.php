@@ -2,10 +2,12 @@
 
 namespace Up2green\EducationBundle\Model;
 
-use \PropelPDO;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Up2green\EducationBundle\Model\om\BaseClassroom;
 
+/**
+ * Classroom entity
+ */
 class Classroom extends BaseClassroom
 {
     public $pictureFile;
@@ -18,11 +20,15 @@ class Classroom extends BaseClassroom
         $this->year = date('Y');
     }
 
-    public function save(PropelPDO $con = null)
+    /**
+     * @param \PropelPDO $con
+     */
+    public function save(\PropelPDO $con = null)
     {
         if (null !== $this->pictureFile) {
             $this->picture = $this->upload($this->pictureFile);
         }
+
         parent::save($con);
     }
 
@@ -50,6 +56,9 @@ class Classroom extends BaseClassroom
         return sprintf('uploads/%s', $name);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->name;

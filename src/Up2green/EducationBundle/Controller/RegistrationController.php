@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Up2green\EducationBundle\DomainObject;
 
+/**
+ * Registration controller
+ */
 class RegistrationController extends Controller
 {
     /**
