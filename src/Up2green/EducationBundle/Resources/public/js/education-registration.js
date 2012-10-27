@@ -21,19 +21,21 @@ $(function() {
         $('#education_registration_school_school_list_control_group').show();
     }
 
-    function hideSelectionSchool() {
+    function hideSelectSchool() {
         $('#education_registration_school_school_list_control_group').hide();
     }
 
-    hideSelectionSchool();
+    hideSelectSchool();
     hideCreationSchool();
-    $('#education_registration_school_school_switch_0').click(function() {
+
+    $('#education_registration_school_school_0').click(function() {
         showSelectSchool();
         hideCreationSchool();
     });
-    $('#education_registration_school_school_switch_1').click(function() {
+
+    $('#education_registration_school_school_1').click(function() {
         showCreationSchool();
-        hideSelectionSchool();
+        hideSelectSchool();
 
         if (null == map) {
             map = new google.maps.Map(document.getElementById("googlemap"), mapOptions);
