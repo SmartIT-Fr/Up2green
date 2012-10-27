@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
+/**
+ * Admin menu
+ */
 class AdminMenu extends ContainerAware
 {
     protected $factory;

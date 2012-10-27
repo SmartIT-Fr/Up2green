@@ -47,7 +47,7 @@ class WaitingListControllerTest extends IsolatedWebTestCase
      */
     public function testJoin(array $data)
     {
-        $crawler = $this->client->request('POST', '/education/waitinglist/join', $data);
+        $this->client->request('POST', '/education/waitinglist/join', $data);
         $this->assertRegExp('/Bad code value/', $this->client->getResponse()->getContent());
     }
 }
