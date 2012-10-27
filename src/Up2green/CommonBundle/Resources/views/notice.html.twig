@@ -1,6 +1,6 @@
 {% for key, message in app.session.getFlashes() %}
     <div class="alert alert-{{ key }}">
         <button class="close" data-dismiss="alert" type="button">×</button>
-        <p>{{ message|trans({}, 'FOSUserBundle') }}</p>
+        <p>{{ message|trans }}</p>
     </div>
 {% endfor %}

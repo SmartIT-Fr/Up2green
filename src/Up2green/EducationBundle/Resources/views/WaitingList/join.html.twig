@@ -1,19 +1,20 @@
-{% extends 'Up2greenCommonBundle::layout.html.twig' %}
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
 
 {% block content %}
 
 {{ parent() }}
 
 <div class="grey-box">
-    <h2>{{ 'contact_us'|trans }}</h2>
-    <form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
-        
+    <h2>{{ 'waitinglist.join'|trans }}</h2>
+
+    <form action="{{ path('education_waitinglist_join') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+
         <div class="error">
             {{ form_errors(form) }}
         </div>
-    
+
         {{ form_rest(form) }}
-    
+
         <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
     </form>
 </div>

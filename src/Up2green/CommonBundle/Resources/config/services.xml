@@ -10,6 +10,13 @@
 
     <parameters>
         <parameter key="test.client.class">Up2green\CommonBundle\Test\Client</parameter>
+        <parameter key="up2green_common.form.type.address.class">Up2green\CommonBundle\Form\Type\AddressType</parameter>
     </parameters>
-
+    
+    <services>
+        <!-- FormType -->
+        <service id="form.type.common.address" class="%up2green_common.form.type.address.class%">
+            <tag name="form.type" alias="common_address" />
+        </service>
+    </services>
 </container>

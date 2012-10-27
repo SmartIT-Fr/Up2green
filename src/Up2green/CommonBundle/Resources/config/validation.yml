@@ -1,0 +1,17 @@
+Up2green\CommonBundle\Model\Address:
+    properties:
+        name:
+            - NotBlank: ~
+        street_line_1:
+            - NotBlank: ~
+            - MaxLength: 50
+        street_line_2:
+            - MaxLength: 50
+        zipcode:
+            - NotBlank: ~
+            - Type:
+                type: integer 
+        city:
+            - NotBlank: ~
+        country:
+            - NotBlank: ~

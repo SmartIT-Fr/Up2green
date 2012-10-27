@@ -54,5 +54,14 @@
             <unique-column name="email_address" />
         </unique>
     </table>
-
+    
+    <table name="address">
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="street_line_1" type="VARCHAR" size="50" required="true" />
+        <column name="street_line_2" type="VARCHAR" size="50" />
+        <column name="zipcode" type="INTEGER" size="255" required="true" />
+        <column name="city" type="VARCHAR" size="255" required="true" />
+        <column name="country" type="VARCHAR" size="255" required="true" />
+    </table>
+    
 </database>

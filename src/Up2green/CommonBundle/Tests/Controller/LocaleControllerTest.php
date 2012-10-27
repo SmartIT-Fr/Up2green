@@ -15,8 +15,8 @@ class LocaleControllerTest extends WebTestCase
     function languageProvider()
     {
         return array(
-            array('French'),
-            array('English')
+            array('Français'),
+            array('Anglais')
         );
     }
 

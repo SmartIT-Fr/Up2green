@@ -5,7 +5,6 @@
         <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="address" type="VARCHAR" size="255" required="true" />
 
-
         <behavior name="sluggable" />
         <behavior name="sortable" />
         <behavior name="geocodable">
@@ -44,6 +43,19 @@
 
         <foreign-key foreignTable="classroom" onDelete="CASCADE" skipSql="true">
             <reference local="classroom_id" foreign="id"/>
+        </foreign-key>
+    </table>
+    
+    <table name="waiting_list">
+        <column name="first_name" type="VARCHAR" size="255" required="true" />
+        <column name="last_name" type="VARCHAR" size="255" required="true" />
+        <column name="email" type="VARCHAR" size="255" required="true" />
+        <column name="phone_number" type="VARCHAR" size="255" required="true" />
+        <column name="kits_number" type="INTEGER" size="255" required="true" />
+        <column name="address_id" type="INTEGER" size="255" required="true" />
+
+        <foreign-key foreignTable="address" onDelete="CASCADE" skipSql="true">
+            <reference local="address_id" foreign="id"/>
         </foreign-key>
     </table>
 

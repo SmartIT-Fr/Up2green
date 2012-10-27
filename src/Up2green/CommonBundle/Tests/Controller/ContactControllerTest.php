@@ -40,6 +40,6 @@ class ContactControllerTest extends IsolatedWebTestCase
     public function testDefault(array $data)
     {
         $crawler = $this->client->request('POST', '/contact/', $data);
-        $this->assertGreaterThan(0, $crawler->filter('div.alert')->count());
+        $this->assertRegExp('/Bad code value/', $this->client->getResponse()->getContent());
     }
 }
