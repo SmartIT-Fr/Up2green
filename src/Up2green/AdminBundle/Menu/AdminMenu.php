@@ -24,7 +24,8 @@ class AdminMenu extends ContainerAware
 
     /**
      * @param Request $request
-     * @param Router  $router
+     *
+     * @return \Knp\Menu\MenuItem
      */
     public function createAdminMenu(Request $request)
     {

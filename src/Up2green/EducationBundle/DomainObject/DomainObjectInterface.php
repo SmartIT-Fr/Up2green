@@ -6,5 +6,8 @@ namespace Up2green\EducationBundle\DomainObject;
  */
 interface DomainObjectInterface
 {
+    /**
+     * Save the domain object
+     */
     public function save();
 }

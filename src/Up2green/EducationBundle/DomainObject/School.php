@@ -71,8 +71,8 @@ class School implements DomainObjectInterface
     }
 
     /**
-     * @param School           $school
-     * @param ExecutionContext $context
+     * @param School           $school  The school
+     * @param ExecutionContext $context The execution context
      *
      * @return \Symfony\Component\Validator\ExecutionContext
      */

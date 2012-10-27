@@ -33,8 +33,12 @@ class Classroom extends BaseClassroom
     }
 
     /**
+     * @param UploadedFile $file
+     *
      * For a good SEO the strategy is to use
      * something like this schoolName-className-userName-classYear.extension
+     *
+     * @return string
      */
     protected function upload(UploadedFile $file)
     {

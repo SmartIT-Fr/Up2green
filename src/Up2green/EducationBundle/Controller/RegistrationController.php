@@ -15,8 +15,12 @@ use Up2green\EducationBundle\DomainObject;
 class RegistrationController extends Controller
 {
     /**
+     * @param Request $request
+     *
      * @Route("/registration/new", name="education.registration.new")
      * @Template()
+     *
+     * @return array
      */
     public function newAction(Request $request)
     {
@@ -41,7 +45,11 @@ class RegistrationController extends Controller
     }
 
     /**
+     * @param Request $request
+     *
      * @Route("/registration/geoloc", name="education.registration.geoloc", options={"expose"=true})
+     *
+     * @return JsonResponse
      */
     public function GeolocAction(Request $request)
     {
