@@ -36,7 +36,10 @@
         "gregwar/captcha-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "willdurand/geocoder": "dev-master",
-        "willdurand/propel-geocodable-behavior": "dev-master"
+        "willdurand/propel-geocodable-behavior": "dev-master",
+        "cedriclombardot/admingenerator-generator-bundle": "dev-master",
+        "cedriclombardot/admingenerator-user-bundle": "dev-master",
+        "cedriclombardot/admingenerator-activeadmintheme-bundle": "dev-master"
     },
     "repositories": [
         {

@@ -1,0 +1,8 @@
+up2green_admin_homepage:
+    pattern:   /
+    defaults:  { _controller: Up2greenAdminBundle:Default:index }
+
+up2green_admin_school:
+    resource: "@Up2greenAdminBundle/Controller/School/"
+    type:     admingenerator
+    prefix:   /admin/school

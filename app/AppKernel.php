@@ -30,6 +30,13 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
+            // Admin Generator
+            new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
+            new Admingenerator\OldThemeBundle\AdmingeneratorOldThemeBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Admingenerator\UserBundle\AdmingeneratorUserBundle(),
+            new Admingenerator\ActiveAdminThemeBundle\AdmingeneratorActiveAdminThemeBundle(),
+
             // Up2green
             new Up2green\BlogBundle\Up2greenBlogBundle(),
             new Up2green\CommonBundle\Up2greenCommonBundle(),
@@ -37,6 +44,7 @@ class AppKernel extends Kernel
             new Up2green\SearchBundle\Up2greenSearchBundle(),
             new Up2green\ReforestationBundle\Up2greenReforestationBundle(),
             new Up2green\EducationBundle\Up2greenEducationBundle(),
+            new Up2green\AdminBundle\Up2greenAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,33 @@
+generator: admingenerator.generator.propel
+params:
+  model: Up2green\EducationBundle\Model\School
+  namespace_prefix: Up2green
+  bundle_name: AdminBundle
+  fields: ~
+
+builders:
+  list:
+    params:
+      title: List of schools
+      display: ~
+      actions:
+        new: ~
+      object_actions:
+        edit: ~
+        delete: ~
+  filters:
+    params:
+      display: ~
+  new:
+    params:
+      title: New school
+      display: ~
+      actions:
+        list: ~
+  edit:
+    params:
+      title: You're editing the school "%object%"
+      display: ~
+      actions:
+        list: ~
+  delete: ~

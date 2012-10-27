@@ -5,16 +5,16 @@ namespace Up2green\UserBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * User Bundle 
+ * User Bundle
  */
 class Up2greenUserBundle extends Bundle
 {
     /**
      * @see Symfony\Component\HttpKernel\Bundle\Bundle
-     * @return string 
+     * @return string
      */
     public function getParent()
     {
-        return 'FOSUserBundle';
+        return 'AdmingeneratorUserBundle';
     }
 }

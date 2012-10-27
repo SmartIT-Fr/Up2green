@@ -1,3 +1,7 @@
+up2green_admin:
+    resource: "@Up2greenAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
 up2green_education:
     resource: "@Up2greenEducationBundle/Controller/"
     type:     annotation
