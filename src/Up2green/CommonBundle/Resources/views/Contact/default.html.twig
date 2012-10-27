@@ -7,13 +7,13 @@
 <div class="grey-box">
     <h2>{{ 'contact_us'|trans }}</h2>
     <form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
-        
+
         <div class="error">
             {{ form_errors(form) }}
         </div>
-    
+
         {{ form_rest(form) }}
-    
+
         <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
     </form>
 </div>

@@ -8,7 +8,7 @@ Up2green\EducationBundle\Model\Classroom:
             - MaxLength: 30
         pictureFile:
             - Image: ~
-            
+
 Up2green\EducationBundle\Model\WaitingList:
     properties:
         first_name:
@@ -26,4 +26,3 @@ Up2green\EducationBundle\Model\WaitingList:
             - NotBlank: ~
             - Type:
                 type: integer
-       

@@ -45,7 +45,7 @@
             <reference local="classroom_id" foreign="id"/>
         </foreign-key>
     </table>
-    
+
     <table name="waiting_list">
         <column name="first_name" type="VARCHAR" size="255" required="true" />
         <column name="last_name" type="VARCHAR" size="255" required="true" />

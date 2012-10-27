@@ -6,16 +6,16 @@
 
 <div style="width: 300px; float: left" id="ajax_article">
 {% render 'Up2greenBlogBundle:Article:listAjax' with {
-    'limit': 1, 
-    'routeName': app.request.get('_route'), 
+    'limit': 1,
+    'routeName': app.request.get('_route'),
     'routeParams': app.request.get('_route_params')
 } %}
 </div>
 
 <div style="width: 300px; float: right" id="ajax_program">
 {% render 'Up2greenBlogBundle:Program:listAjax' with {
-    'limit': 1, 
-    'routeName': app.request.get('_route'), 
+    'limit': 1,
+    'routeName': app.request.get('_route'),
     'routeParams': app.request.get('_route_params')
 } %}
 </div>

@@ -10,7 +10,7 @@ Up2green\CommonBundle\Model\Address:
         zipcode:
             - NotBlank: ~
             - Type:
-                type: integer 
+                type: integer
         city:
             - NotBlank: ~
         country:

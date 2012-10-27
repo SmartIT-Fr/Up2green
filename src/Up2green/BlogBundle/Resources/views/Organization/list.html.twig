@@ -5,7 +5,7 @@
 {{ parent() }}
 
 <div class="items">
-        
+
     {% for organization in pager.currentPageResults %}
         <div class="item">
             <h2>{{ organization.title }}</h2>
@@ -13,17 +13,17 @@
             <span class="pull-right"><a href="{{ path('blog_organization_show', {'id': organization.id}) }}">{{ "read_more"|trans }}</a></span>
         </div>
     {% endfor %}
-    
+
     <div class="pagerfanta">
         {{ pagerfanta(pager) }}
     </div>
-    
+
 </div>
 
 <div style="width: 300px; float: right" id="ajax_article">
 {% render 'Up2greenBlogBundle:Article:listAjax' with {
-    'limit': 1, 
-    'routeName': app.request.get('_route'), 
+    'limit': 1,
+    'routeName': app.request.get('_route'),
     'routeParams': app.request.get('_route_params')
 } %}
 </div>
