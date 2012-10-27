@@ -2,7 +2,7 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\WebTestCase;
 
 /**
  * Participate controller test
@@ -10,26 +10,22 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ParticipateControllerTest extends WebTestCase
 {
     /**
-     * test the teacher action
+     * Test the teacher action
      */
     public function testTeacher()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/participate/teacher');
 
-        $crawler = $client->request('GET', '/education/participate/teacher');
-
-        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     /**
-     * test the donation action
+     * Test the donation action
      */
     public function testDonation()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/participate/donation');
 
-        $crawler = $client->request('GET', '/education/participate/donation');
-
-        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 }

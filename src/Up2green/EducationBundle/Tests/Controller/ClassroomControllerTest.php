@@ -2,7 +2,7 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\WebTestCase;
 
 /**
  * Classroom controller test
@@ -10,26 +10,22 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ClassroomControllerTest extends WebTestCase
 {
     /**
-     * test the show action
+     * Test the show action
      */
     public function testShow()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/school/ecole-des-fans/ce1-a');
 
-        $crawler = $client->request('GET', '/education/school/ecole-des-fans/ce1-a');
-
-        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     /**
-     * test the show page with an inexistant classroom
+     * Test the show page with an inexistant classroom
      */
     public function testShowClassroomNotFound()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/school/titi/classroom_from_nowhere');
 
-        $crawler = $client->request('GET', '/education/school/titi/classroom_from_nowhere');
-
-        $this->assertEquals(404, $client->getResponse()->getStatusCode());
+        $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
     }
 }

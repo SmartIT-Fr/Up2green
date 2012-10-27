@@ -7,4 +7,9 @@
     <imports>
         <import resource="services/buzz.xml" />
     </imports>
+
+    <parameters>
+        <parameter key="test.client.class">Up2green\CommonBundle\Test\Client</parameter>
+    </parameters>
+
 </container>

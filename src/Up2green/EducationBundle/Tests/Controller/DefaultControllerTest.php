@@ -2,7 +2,7 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\WebTestCase;
 
 /**
  * Default controller test
@@ -10,26 +10,22 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class DefaultControllerTest extends WebTestCase
 {
     /**
-     * test the index action
+     * Test the index action
      */
     public function testIndex()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/');
 
-        $crawler = $client->request('GET', '/education/');
-
-        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 
     /**
-     * test the theProject action
+     * Test the theProject action
      */
     public function testTheProject()
     {
-        $client = static::createClient();
+        $this->client->request('GET', '/education/the-project');
 
-        $crawler = $client->request('GET', '/education/the-project');
-
-        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertTrue($this->client->getResponse()->isOk());
     }
 }
