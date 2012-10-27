@@ -11,7 +11,7 @@ use Symfony\Component\Form\AbstractType;
  */
 class AddressType extends AbstractType
 {
-	/**
+    /**
      * @param FormBuilderInterface 	$builder
      * @param array                 $options
      *

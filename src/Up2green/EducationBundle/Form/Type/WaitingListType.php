@@ -11,7 +11,7 @@ use Symfony\Component\Form\AbstractType;
  */
 class WaitingListType extends AbstractType
 {
-	/**
+    /**
      * @param FormBuilderInterface 	$builder
      * @param array                 $options
      *
@@ -61,7 +61,7 @@ class WaitingListType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Up2green\EducationBundle\Model\WaitingList',
-        	'cascade_validation' => true
+            'cascade_validation' => true
         ));
     }
 }

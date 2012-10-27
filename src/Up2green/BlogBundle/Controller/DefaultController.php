@@ -25,8 +25,8 @@ class DefaultController extends Controller
     }
 
     /**
-	 * Displays programs in blog navigation menu
-	 *
+     * Displays programs in blog navigation menu
+     *
      * @Template()
      * @return array
      */

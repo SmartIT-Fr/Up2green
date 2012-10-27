@@ -34,8 +34,8 @@ class OrganizationController extends Controller
     }
 
     /**
-	 * Displays list of all organizations
-	 *
+     * Displays list of all organizations
+     *
      * @Route("/organization/", name="blog_organization_list")
      * @Template()
      * @return array

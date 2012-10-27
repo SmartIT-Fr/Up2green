@@ -30,8 +30,8 @@ class PartnerController extends Controller
     }
 
     /**
-	 * Displays list of all partners
-	 *
+     * Displays list of all partners
+     *
      * @Route("/partner/", name="blog_partner_list")
      * @Template()
      * @return array

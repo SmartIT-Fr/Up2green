@@ -28,12 +28,15 @@ class School implements DomainObjectInterface
      */
     public $school;
 
-    public $school_list;
+    public $schoolList;
     public $name;
     public $address;
 
     protected $schoolModel;
 
+    /**
+     * @param object $schoolModel
+     */
     public function __construct($schoolModel = null)
     {
         $this->schoolModel  = null === $schoolModel ? new Model\School() : $schoolModel;
@@ -41,11 +44,14 @@ class School implements DomainObjectInterface
         $this->address      = $this->schoolModel->getAddress();
     }
 
+    /**
+     * Save the domain object
+     */
     public function save()
     {
         // If school is true, it's because the customer choose a school in the list
         if (self::SCHOOL_IN === $this->school) {
-            $schoolModel = Model\SchoolQuery::create()->findOneById($this->school_list);
+            $schoolModel = Model\SchoolQuery::create()->findOneById($this->schoolList);
             $this->schoolModel = $schoolModel;
         }
 
@@ -56,15 +62,24 @@ class School implements DomainObjectInterface
         }
     }
 
+    /**
+     * @return object
+     */
     public function getSchoolModel()
     {
         return $this->schoolModel;
     }
 
+    /**
+     * @param School           $school
+     * @param ExecutionContext $context
+     *
+     * @return \Symfony\Component\Validator\ExecutionContext
+     */
     public static function isSchoolValid(School $school, ExecutionContext $context)
     {
         if (School::SCHOOL_IN === $school->school) {
-            if (null === $school->school_list) {
+            if (null === $school->schoolList) {
                 $context->addViolation( "form.validation.school_list", array(), null);
             }
         } elseif (School::SCHOOL_OUT === $school->school) {

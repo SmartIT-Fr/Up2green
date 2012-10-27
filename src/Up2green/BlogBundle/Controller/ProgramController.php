@@ -35,8 +35,8 @@ class ProgramController extends Controller
     }
 
     /**
-	 * Displays list of all programs
-	 *
+     * Displays list of all programs
+     *
      * @Route("/program/", name="blog_program_list")
      * @Template()
      * @return array
@@ -49,14 +49,14 @@ class ProgramController extends Controller
     }
 
     /**
-	 * Displays list of programs in ajax
-	 *
-	 * @param integer $page
+     * Displays list of programs in ajax
+     *
+     * @param integer $page
      *
      * @Route("/program/listAjax/{page}", name="blog_program_list_ajax", defaults={"page"= 1}, options={"expose"=true})
      * @Template()
      * @return array
-	 */
+     */
     public function listAjaxAction($page = 1)
     {
         $return = $this->getPager($page, $this->getRequest()->get('limit', 1));
@@ -67,10 +67,10 @@ class ProgramController extends Controller
     }
 
     /**
-	 * Gets list of all programs
-	 *
-	 * @param integer $page  The page
-	 * @param integer $limit The limit
+     * Gets list of all programs
+     *
+     * @param integer $page  The page
+     * @param integer $limit The limit
      *
      * @return array
      */

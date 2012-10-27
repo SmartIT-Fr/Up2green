@@ -35,8 +35,8 @@ class ArticleController extends Controller
     }
 
     /**
-	 * Displays list of all articles
-	 *
+     * Displays list of all articles
+     *
      * @Route("/article/", name="blog_article_list")
      * @Template()
      * @return array
@@ -49,14 +49,14 @@ class ArticleController extends Controller
     }
 
     /**
-	 * Displays list of articles in ajax
-	 *
-	 * @param integer $page
+     * Displays list of articles in ajax
+     *
+     * @param integer $page
      *
      * @Route("/article/listAjax/{page}", name="blog_article_list_ajax", defaults={"page"= 1}, options={"expose"=true})
      * @Template()
      * @return array
-	 */
+     */
     public function listAjaxAction($page = 1)
     {
         $return = $this->getPager($page, $this->getRequest()->get('limit', 1));
@@ -67,10 +67,10 @@ class ArticleController extends Controller
     }
 
     /**
-	 * Gets list of all articles
-	 *
-	 * @param integer $page  The page
-	 * @param integer $limit The limit
+     * Gets list of all articles
+     *
+     * @param integer $page  The page
+     * @param integer $limit The limit
      *
      * @return array
      */
