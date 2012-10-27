@@ -1,14 +1,10 @@
 imports:
     - { resource: config_dev.yml }
 
-propel:
-    build_properties:
-        propel.database.url: 'mysql:host=%database_host%;dbname=%database_name%_test;charset=UTF8'
-    dbal:
+#propel:
+#    dbal:
 #        driver:               pdo_sqlite
 #        dsn:                  'sqlite::memory:'
-        driver:               mysql
-        dsn:                  'mysql:host=%database_host%;dbname=%database_name%_test;charset=UTF8'
 
 framework:
     test: ~
