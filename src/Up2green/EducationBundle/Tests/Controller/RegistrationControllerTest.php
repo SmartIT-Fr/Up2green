@@ -29,14 +29,14 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $form = $crawler
             ->selectButton('submit')
             ->form(array(
-                'education_registration[school][name]'                  => 'School of life',
-                'education_registration[school][address]'               => 'France, Paris',
-                'education_registration[account][username]'             => 'john.doe',
-                'education_registration[account][email]'                => 'john.doe@fromnowhere.out',
-                'education_registration[account][plainPassword][first]'      => 'myLiveIsASecretForMe',
-                'education_registration[account][plainPassword][second]'     => 'myLiveIsASecretForMe',
-                'education_registration[classroom][name]'               => 'CP1',
-                'education_registration[classroom][description]'        => 'This is the classroom of no one'
+                'education_registration[school][name]'                   => 'School of life',
+                'education_registration[school][address]'                => 'France, Paris',
+                'education_registration[account][username]'              => 'john.doe',
+                'education_registration[account][email]'                 => 'john.doe@fromnowhere.out',
+                'education_registration[account][plainPassword][first]'  => 'myLiveIsASecretForMe',
+                'education_registration[account][plainPassword][second]' => 'myLiveIsASecretForMe',
+                'education_registration[classroom][name]'                => 'CP1',
+                'education_registration[classroom][description]'         => 'This is the classroom of no one'
             ));
 
         $form['education_registration[school][school]']->select('school_out');
@@ -55,13 +55,13 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $form = $crawler
             ->selectButton('submit')
             ->form(array(
-                'education_registration[school][school_list]'           => SchoolQuery::create()->findOneBySlug('ecole-des-fans')->getId(),
-                'education_registration[account][username]'             => 'doe.john',
-                'education_registration[account][email]'                => 'doe.john@wherenofrom.out',
-                'education_registration[account][plainPassword][first]'      => 'ForMemyLiveIsASecret',
-                'education_registration[account][plainPassword][second]'     => 'ForMemyLiveIsASecret',
-                'education_registration[classroom][name]'               => '1PC',
-                'education_registration[classroom][description]'        => 'This is no one of the classroom'
+                'education_registration[school][schoolList]'             => SchoolQuery::create()->findOneBySlug('ecole-des-fans')->getId(),
+                'education_registration[account][username]'              => 'doe.john',
+                'education_registration[account][email]'                 => 'doe.john@wherenofrom.out',
+                'education_registration[account][plainPassword][first]'  => 'ForMemyLiveIsASecret',
+                'education_registration[account][plainPassword][second]' => 'ForMemyLiveIsASecret',
+                'education_registration[classroom][name]'                => '1PC',
+                'education_registration[classroom][description]'         => 'This is no one of the classroom'
             ));
 
         $form['education_registration[school][school]']->select('school_in');

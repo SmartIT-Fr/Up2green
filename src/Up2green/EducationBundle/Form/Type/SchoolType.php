@@ -47,7 +47,7 @@ class SchoolType extends AbstractType
                 'required'          => true,
                 'preferred_choices' => array(current(array_keys($this->schoolChoices)))
             ))
-            ->add('school_list', 'choice', array(
+            ->add('schoolList', 'choice', array(
                 'label'         => 'form.school_type.school_list',
                 'choices'       => (array) $this->schoolList,
                 'required'      => false,
