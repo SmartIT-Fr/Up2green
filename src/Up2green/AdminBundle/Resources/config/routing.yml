@@ -10,4 +10,8 @@ up2green_admin_school:
 up2green_admin_classroom:
     resource: "@Up2greenAdminBundle/Controller/Classroom/"
     type:     admingenerator
-    prefix:   /admin/classroom
+
+up2green_admin_waitingList:
+    resource: "@Up2greenAdminBundle/Controller/WaitingList/"
+    type:     admingenerator
+    prefix:   /admin/waiting-list

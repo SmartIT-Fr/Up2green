@@ -1,0 +1,15 @@
+{% extends_admingenerated "Up2greenAdminBundle:WaitingListNew:index.html.twig" %}
+
+{% block form_address %}
+
+    <div class="error">
+        {{ form_errors(form['address']) }}
+    </div>
+
+    {% for key, item in form['address'] %}
+        <div class="form_row">
+            {{ form_row(form['address'][key]) }}
+        </div>
+    {% endfor %}
+
+{% endblock %}

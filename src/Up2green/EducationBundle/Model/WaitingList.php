@@ -9,4 +9,8 @@ use Up2green\EducationBundle\Model\om\BaseWaitingList;
  */
 class WaitingList extends BaseWaitingList
 {
+    public function __toString()
+    {
+        return (string)$this->getId();
+    }
 }

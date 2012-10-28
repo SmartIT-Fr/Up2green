@@ -1,0 +1,43 @@
+generator: admingenerator.generator.propel
+params:
+  model: Up2green\EducationBundle\Model\WaitingList
+  namespace_prefix: Up2green
+  bundle_name: AdminBundle
+  fields:
+    address:
+      formType: common_address
+      addFormOptions:
+        required: true
+
+builders:
+  list:
+    params:
+      title: Waiting list
+      display: ~
+      actions:
+        new: ~
+      object_actions:
+        edit: ~
+        delete: ~
+  filters:
+    params:
+      display: ~
+  new:
+    params:
+      title: New waiting list item
+      display:
+        General informations: [kits_number]
+        Contact informations: [first_name, last_name, email, phone_number]
+        Shipping address: [address]
+      actions:
+        list: ~
+  edit:
+    params:
+      title: You're editing the waiting list item "%WaitingList%"
+      display:
+        General informations: [kits_number]
+        Contact informations: [first_name, last_name, email, phone_number]
+        Shipping address: [address]
+      actions:
+        list: ~
+  delete: ~

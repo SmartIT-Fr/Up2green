@@ -27,7 +27,10 @@ class AddressType extends AbstractType
                 'label' => 'street_line_1'
             ))
             ->add('street_line_2', 'text', array(
-                'label' => 'street_line_2'
+                'label' => 'street_line_2',
+                // TODO : the required oprion seems to be useless but in
+                // the AdminBundle this field is required unless we set it here
+                'required' => false,
             ))
             ->add('zipcode', 'integer', array(
                 'label' => 'zipcode'
