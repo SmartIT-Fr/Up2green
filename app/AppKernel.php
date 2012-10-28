@@ -30,6 +30,10 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
+            // Payment
+            new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
+            new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
+
             // Admin Generator
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Admingenerator\OldThemeBundle\AdmingeneratorOldThemeBundle(),
@@ -45,6 +49,7 @@ class AppKernel extends Kernel
             new Up2green\ReforestationBundle\Up2greenReforestationBundle(),
             new Up2green\EducationBundle\Up2greenEducationBundle(),
             new Up2green\AdminBundle\Up2greenAdminBundle(),
+            new Up2green\PropelPaymentCoreBundle\Up2greenPropelPaymentCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

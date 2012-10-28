@@ -39,7 +39,10 @@
         "willdurand/propel-geocodable-behavior": "dev-master",
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "cedriclombardot/admingenerator-user-bundle": "dev-master",
-        "cedriclombardot/admingenerator-activeadmintheme-bundle": "dev-master"
+        "cedriclombardot/admingenerator-activeadmintheme-bundle": "dev-master",
+        "jms/payment-core-bundle": "master-dev",
+        "jms/payment-paypal-bundle": "master-dev",
+        "doctrine/dbal": ">=2.2.3,<2.4-dev"
     },
     "repositories": [
         {

@@ -24,3 +24,9 @@ assetic:
 
 fos_user:
     firewall_name: dev
+
+jms_payment_paypal:
+    username: 'test_1306521590_biz_api1.up2green.com'
+    signature: 'A.ZQCpvrRWwBbYXb9.MR7.zhHtKSA3R02020efHBK07kz.F.4nRihphP'
+    password: '1306521599'
+    debug: true

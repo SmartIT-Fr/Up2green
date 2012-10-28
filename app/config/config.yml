@@ -99,3 +99,12 @@ admingenerator_user:
 
 knp_menu:
     twig: true
+
+jms_payment_core:
+    secret: up2greenSup3erM3GAs2cret
+
+jms_payment_paypal:
+    username: 'antoine.gerigne_api1.up2green.com'
+    signature: 'AFbF3MLf8s8cAfgEC3-ZHq3jtLkAAg5billJSDcrHR0jhWshMoGmx3bP'
+    password: 'EH6S97W3Q2W7HTWR'
+    debug: false
