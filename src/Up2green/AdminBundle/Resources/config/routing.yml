@@ -6,3 +6,8 @@ up2green_admin_school:
     resource: "@Up2greenAdminBundle/Controller/School/"
     type:     admingenerator
     prefix:   /admin/school
+
+up2green_admin_classroom:
+    resource: "@Up2greenAdminBundle/Controller/Classroom/"
+    type:     admingenerator
+    prefix:   /admin/classroom

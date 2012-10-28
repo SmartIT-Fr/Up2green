@@ -34,9 +34,8 @@ class AdminMenu extends ContainerAware
         $help = $menu->addChild('Education', array('uri' => '#'));
         $help->setLinkAttributes(array('class'=>'sub main'));
 
-        $help->addChild('School', array(
-            'route' => 'Up2green_AdminBundle_School_list'
-        ));
+        $help->addChild('School', array('route' => 'Up2green_AdminBundle_School_list'));
+        $help->addChild('Classroom', array('route' => 'Up2green_AdminBundle_Classroom_list'));
 
         return $menu;
     }

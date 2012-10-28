@@ -21,13 +21,17 @@ builders:
   new:
     params:
       title: New school
-      display: ~
+      display:
+        General information: [name, address]
+        Geolocalisation: [latitude, longitude]
       actions:
         list: ~
   edit:
     params:
-      title: You're editing the school "%object%"
-      display: ~
+      title: You're editing the school "%School%"
+      display:
+        General information: [name, address]
+        Geolocalisation: [latitude, longitude]
       actions:
         list: ~
   delete: ~

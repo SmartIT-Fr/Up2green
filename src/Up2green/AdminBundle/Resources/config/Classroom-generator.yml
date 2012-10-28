@@ -1,0 +1,49 @@
+generator: admingenerator.generator.propel
+params:
+  model: Up2green\EducationBundle\Model\Classroom
+  namespace_prefix: Up2green
+  bundle_name: AdminBundle
+  fields:
+    user:
+      label: Contact name
+      sort_on: User.username
+      getter: username
+      addFormOptions:
+        property: username
+    school:
+      label: School name
+      sort_on: School.Name
+      getter: School
+      addFormOptions:
+        property: Name
+
+builders:
+  list:
+    params:
+      title: List of classrooms
+      display: ~
+      actions:
+        new: ~
+      object_actions:
+        edit: ~
+        delete: ~
+  filters:
+    params:
+      display: ~
+  new:
+    params:
+      title: New classroom
+      display:
+        Required: [name, year, user, school]
+        Optionals: [picture, description]
+      actions:
+        list: ~
+  edit:
+    params:
+      title: You're editing the classroom "%Classroom%"
+      display:
+        Required: [name, year, user, school]
+        Optionals: [picture, description]
+      actions:
+        list: ~
+  delete: ~
