@@ -121,37 +121,11 @@
 
         <behavior name="typehintable">
             <parameter name="credit" value="JMS\Payment\CoreBundle\Model\CreditInterface" />
-            <parameter name="extended_data" value="JMS\Payment\CoreBundle\Model\ExtendedDataInterface" />
             <parameter name="payment" value="JMS\Payment\CoreBundle\Model\PaymentInterface" />
+            <parameter name="extended_data" value="Up2green\PropelPaymentCoreBundle\Model\ExtendedDataInterface" />
         </behavior>
 
         <behavior name="timestampable" />
-    </table>
-
-    <table name="credit_transactions" isCrossRef="true">
-        <column name="credit_id" type="INTEGER" primaryKey="true"/>
-        <column name="financial_transaction_id" type="INTEGER" primaryKey="true"/>
-
-        <foreign-key foreignTable="credit">
-            <reference local="credit_id" foreign="id"/>
-        </foreign-key>
-
-        <foreign-key foreignTable="financial_transaction">
-            <reference local="financial_transaction_id" foreign="id"/>
-        </foreign-key>
-    </table>
-
-    <table name="payment_transactions" isCrossRef="true">
-        <column name="payment_id" type="INTEGER" primaryKey="true"/>
-        <column name="financial_transaction_id" type="INTEGER" primaryKey="true"/>
-
-        <foreign-key foreignTable="payment">
-            <reference local="payment_id" foreign="id"/>
-        </foreign-key>
-
-        <foreign-key foreignTable="financial_transaction">
-            <reference local="financial_transaction_id" foreign="id"/>
-        </foreign-key>
     </table>
 
 </database>
