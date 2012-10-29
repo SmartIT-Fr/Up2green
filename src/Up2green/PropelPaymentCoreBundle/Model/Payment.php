@@ -12,7 +12,7 @@ class Payment extends BasePayment implements PaymentInterface
      */
     public function getApproveTransaction()
     {
-        foreach ($this->transactions as $transaction) {
+        foreach ($this->getFinancialTransactions() as $transaction) {
             $type = $transaction->getTransactionType();
 
             if (FinancialTransactionInterface::TRANSACTION_TYPE_APPROVE === $type
@@ -30,9 +30,10 @@ class Payment extends BasePayment implements PaymentInterface
      */
     public function getDepositTransactions()
     {
-        return $this->transactions->filter(function($transaction) {
-           return FinancialTransactionInterface::TRANSACTION_TYPE_DEPOSIT === $transaction->getTransactionType();
-        });
+        $criteria = new \Criteria();
+        $criteria->add('transactionType', FinancialTransactionInterface::TRANSACTION_TYPE_DEPOSIT);
+
+        return $this->getFinancialTransactions($criteria);
     }
 
     /**
@@ -40,7 +41,7 @@ class Payment extends BasePayment implements PaymentInterface
      */
     public function getPendingTransaction()
     {
-        foreach ($this->transactions as $transaction) {
+        foreach ($this->getFinancialTransactions() as $transaction) {
             if (FinancialTransactionInterface::STATE_PENDING === $transaction->getState()) {
                 return $transaction;
             }
@@ -62,9 +63,10 @@ class Payment extends BasePayment implements PaymentInterface
      */
     public function getReverseApprovalTransactions()
     {
-        return $this->transactions->filter(function($transaction) {
-           return FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_APPROVAL === $transaction->getTransactionType();
-        });
+        $criteria = new \Criteria();
+        $criteria->add('transactionType', FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_APPROVAL);
+
+        return $this->getFinancialTransactions($criteria);
     }
 
     /**
@@ -72,9 +74,10 @@ class Payment extends BasePayment implements PaymentInterface
      */
     public function getReverseDepositTransactions()
     {
-        return $this->transactions->filter(function($transaction) {
-           return FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_DEPOSIT === $transaction->getTransactionType();
-        });
+        $criteria = new \Criteria();
+        $criteria->add('transactionType', FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_DEPOSIT);
+
+        return $this->getFinancialTransactions($criteria);
     }
 
     /**
@@ -93,4 +96,46 @@ class Payment extends BasePayment implements PaymentInterface
         return $this->getExpired();
     }
 
+    public function setState($state)
+    {
+        switch ($state) {
+            case PaymentInterface::STATE_APPROVED :
+                parent::setState('approved');
+                break;
+            case PaymentInterface::STATE_APPROVING :
+                parent::setState('approving');
+                break;
+            case PaymentInterface::STATE_CANCELED :
+                parent::setState('canceled');
+                break;
+            case PaymentInterface::STATE_DEPOSITED :
+                parent::setState('deposited');
+                break;
+            case PaymentInterface::STATE_DEPOSITING :
+                parent::setState('depositing');
+                break;
+            case PaymentInterface::STATE_EXPIRED :
+                parent::setState('expired');
+                break;
+            case PaymentInterface::STATE_FAILED :
+                parent::setState('failed');
+                break;
+            case PaymentInterface::STATE_NEW :
+                parent::setState('new');
+                break;
+            default:
+                parent::setState($state);
+                break;
+        }
+    }
+
+    public function addTransaction($transaction)
+    {
+        $this->addFinancialTransaction($transaction);
+    }
+
+    public function getState()
+    {
+        return constant('JMS\Payment\CoreBundle\Model\PaymentInterface::STATE_'.strtoupper(parent::getState()));
+    }
 }

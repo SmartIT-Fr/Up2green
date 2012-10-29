@@ -12,10 +12,10 @@ class Credit extends BaseCredit implements CreditInterface
 {
     /**
      * @return FinancialTransactionInterface
-     */    
+     */
     public function getCreditTransaction()
     {
-        foreach ($this->transactions as $transaction) {
+        foreach ($this->getFinancialTransactions() as $transaction) {
             if (FinancialTransactionInterface::TRANSACTION_TYPE_CREDIT === $transaction->getTransactionType()) {
                 return $transaction;
             }
@@ -29,7 +29,7 @@ class Credit extends BaseCredit implements CreditInterface
      */
     public function getPendingTransaction()
     {
-        foreach ($this->transactions as $transaction) {
+        foreach ($this->getFinancialTransactions() as $transaction) {
             if (FinancialTransactionInterface::STATE_PENDING === $transaction->getState()) {
                 return $transaction;
             }
@@ -43,11 +43,12 @@ class Credit extends BaseCredit implements CreditInterface
      */
     public function getReverseCreditTransactions()
     {
-        return $this->transactions->filter(function($transaction) {
-            return FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_CREDIT === $transaction->getTransactionType();
-        });
+        $criteria = new \Criteria();
+        $criteria->add('transactionType', FinancialTransactionInterface::TRANSACTION_TYPE_REVERSE_CREDIT);
+
+        return $this->getFinancialTransactions($criteria);
     }
-    
+
     /**
      * @return boolean
      */
@@ -70,5 +71,34 @@ class Credit extends BaseCredit implements CreditInterface
     public function isIndependent()
     {
         return null === $this->payment;
+    }
+
+    public function setState($state)
+    {
+        switch ($state) {
+            case CreditInterface::STATE_CANCELED :
+                parent::setState('canceled');
+                break;
+            case CreditInterface::STATE_CREDITED :
+                parent::setState('credited');
+                break;
+            case CreditInterface::STATE_CREDITING :
+                parent::setState('crediting');
+                break;
+            case CreditInterface::STATE_FAILED :
+                parent::setState('failed');
+                break;
+            case CreditInterface::STATE_NEW :
+                parent::setState('new');
+                break;
+            default:
+                parent::setState($state);
+                break;
+        }
+    }
+
+    public function getState()
+    {
+        return constant('JMS\Payment\CoreBundle\Model\CreditInterface::STATE_'.strtoupper(parent::getState()));
     }
 }

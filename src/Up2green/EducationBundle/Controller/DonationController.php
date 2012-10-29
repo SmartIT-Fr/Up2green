@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use JMS\Payment\CoreBundle\PluginController\Result;
+use Up2green\CommonBundle\Model\Order;
 use Up2green\EducationBundle\Model\Donation;
 
 /**
@@ -23,7 +24,7 @@ class DonationController extends Controller
     {
         $donation = new Donation();
 
-        $donation->setIdentifier('TEST');
+        $donation->setIdentifier('TEST2');
         $donation->setAmount(42.10);
 
         return $this->forward('Up2greenEducationBundle:Donation:show', array(
@@ -78,19 +79,20 @@ class DonationController extends Controller
 
     /**
      * @Route("/{identifier}/complete", name="up2green_education_donation_complete")
-     * @ParamConverter("donation", class="Up2green\EducationBundle\Model\Donation", options={"mapping"={"identifier":"identifier"}})
-     *
+     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"identifier":"identifier"}})
      */
-    public function completeAction(Request $request, Donation $donation)
+    public function completeAction(Request $request, Order $order)
     {
-        $instruction = $donation->getPaymentInstruction();
+        $ppc = $this->get('payment.plugin_controller');
+
+        $instruction = $order->getPaymentInstruction();
         if (null === $pendingTransaction = $instruction->getPendingTransaction()) {
-            $payment = $this->ppc->createPayment($instruction->getId(), $instruction->getAmount() - $instruction->getDepositedAmount());
+            $payment = $ppc->createPayment($instruction->getId(), $instruction->getAmount() - $instruction->getDepositedAmount());
         } else {
             $payment = $pendingTransaction->getPayment();
         }
 
-        $result = $this->ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
+        $result = $ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
         if (Result::STATUS_PENDING === $result->getStatus()) {
             $ex = $result->getPluginException();
 
@@ -112,10 +114,10 @@ class DonationController extends Controller
 
     /**
      * @Route("/{identifier}/cancel", name="up2green_education_donation_cancel")
-     * @ParamConverter("donation", class="Up2green\EducationBundle\Model\Donation", options={"mapping"={"identifier":"identifier"}})
+     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"identifier":"identifier"}})
      *
      */
-    public function cancelAction(Request $request, Donation $donation)
+    public function cancelAction(Request $request, Order $order)
     {
 
     }

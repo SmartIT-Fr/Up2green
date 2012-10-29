@@ -309,7 +309,8 @@ class PropelPluginController extends PluginController
     protected function buildCredit(PaymentInstructionInterface $paymentInstruction, $amount)
     {
         $class =& $this->options['credit_class'];
-        $credit = new $class($paymentInstruction, $amount);
+        $credit->setPaymentInstruction($paymentInstruction);
+        $credit->setTargetAmount($amount);
 
         return $credit;
     }
@@ -318,7 +319,7 @@ class PropelPluginController extends PluginController
     {
         $class =& $this->options['financial_transaction_class'];
 
-        return new $class;
+        return new $class();
     }
 
     protected function createFinancialTransaction(PaymentInterface $payment)
@@ -329,7 +330,7 @@ class PropelPluginController extends PluginController
 
         $class =& $this->options['financial_transaction_class'];
         $transaction = new $class();
-        $payment->addTransaction($transaction);
+        $payment->addFinancialTransaction($transaction);
 
         return $transaction;
     }
@@ -342,7 +343,11 @@ class PropelPluginController extends PluginController
 
         $class =& $this->options['payment_class'];
 
-        return new $class($instruction, $amount);
+        $payment = new $class();
+        $payment->setPaymentInstruction($instruction);
+        $payment->setTargetAmount($amount);
+
+        return $payment;
     }
 
     protected function doCreatePaymentInstruction(PaymentInstructionInterface $instruction)
@@ -367,6 +372,6 @@ class PropelPluginController extends PluginController
      */
     protected function getConnection()
     {
-        return \Propel::getConnection(\Up2green\PropelPyamentBundle\Model\PaymentPeer::DATABASE_NAME);
+        return \Propel::getConnection(\Up2green\PropelPaymentCoreBundle\Model\PaymentPeer::DATABASE_NAME);
     }
 }

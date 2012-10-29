@@ -11,6 +11,9 @@
         <parameter key="payment.plugin_controller.propel.options.payment_instruction_class">Up2green\PropelPaymentCoreBundle\Model\PaymentInstruction</parameter>
         <parameter key="payment.plugin_controller.propel.options.financial_transaction_class">Up2green\PropelPaymentCoreBundle\Model\FinancialTransaction</parameter>
         <parameter key="payment.plugin_controller.propel.options.credit_class">Up2green\PropelPaymentCoreBundle\Model\Credit</parameter>
+
+        <parameter key="payment.form.choose_payment_method_type.class">Up2green\PropelPaymentCoreBundle\Form\ChoosePaymentMethodType</parameter>
+
     </parameters>
 
     <services>

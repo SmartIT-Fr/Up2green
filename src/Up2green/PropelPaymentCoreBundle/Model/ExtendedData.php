@@ -43,7 +43,7 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
         if ($encrypt && !$persist) {
             throw new \InvalidArgumentException(sprintf('Non persisted field cannot be encrypted "%s".', $name));
         }
-        
+
         $this->data[$name] = array($value, $encrypt, $persist);
     }
 
