@@ -10,6 +10,22 @@ use Up2green\PropelPaymentCoreBundle\Model\om\BaseFinancialTransaction;
  */
 class FinancialTransaction extends BaseFinancialTransaction implements FinancialTransactionInterface
 {
+    public function getExtendedData(PropelPDO $con = null)
+    {
+
+        if (null !== ($data = parent::getExtendedData($con = null))) {
+            return $data;
+        }
+
+        if (null !== $this->getPayment()) {
+            return $this->getPayment()->getPaymentInstruction()->getExtendedData();
+        } else if (null !== $this->getCredit()) {
+            return $this->getCredit()->getPaymentInstruction()->getExtendedData();
+        }
+
+        return null;
+    }
+
     public function setTransactionType($transactionType)
     {
         switch ($transactionType) {

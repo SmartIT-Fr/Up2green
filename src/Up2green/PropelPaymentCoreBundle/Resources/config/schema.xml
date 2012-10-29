@@ -3,7 +3,7 @@
 
     <table name="extended_data">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="data" type="BLOB" required="true" />
+        <column name="datas" type="ARRAY" required="true" />
     </table>
 
     <table name="payment_instruction">

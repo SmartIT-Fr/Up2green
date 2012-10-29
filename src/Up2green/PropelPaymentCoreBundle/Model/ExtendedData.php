@@ -17,11 +17,13 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
      */
     public function isEncryptionRequired($name)
     {
-        if (!isset($this->data[$name])) {
+        if (!$this->has($name)) {
             throw new \InvalidArgumentException(sprintf('There is no data with key "%s".', $name));
         }
 
-        return $this->data[$name][1];
+        $datas = $this->all();
+
+        return $datas[$name][1];
     }
 
     /**
@@ -29,7 +31,13 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
      */
     public function remove($name)
     {
-        unset($this->data[$name]);
+        $datas = $this->all();
+        unset($datas[$name]);
+
+        $this->setDatas(array());
+        foreach ($datas as $key => $data) {
+            $this->addData(json_encode(array($key => $data), true));
+        }
     }
 
     /**
@@ -44,7 +52,8 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
             throw new \InvalidArgumentException(sprintf('Non persisted field cannot be encrypted "%s".', $name));
         }
 
-        $this->data[$name] = array($value, $encrypt, $persist);
+        $this->remove($name);
+        $this->addData(json_encode(array($name => array($value, $encrypt, $persist)), true));
     }
 
     /**
@@ -52,11 +61,13 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
      */
     public function get($name)
     {
-        if (!isset($this->data[$name])) {
+        if (!$this->has($name)) {
             throw new \InvalidArgumentException(sprintf('There is no data with key "%s".', $name));
         }
 
-        return $this->data[$name][0];
+        $datas = $this->all();
+
+        return $datas[$name][0];
     }
 
     /**
@@ -64,7 +75,16 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
      */
     public function has($name)
     {
-        return isset($this->data[$name]);
+        $datas = $this->getDatas();
+
+        foreach ($datas as $data) {
+            $decoded = json_decode($data, true);
+            if (isset($decoded[$name])) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -72,7 +92,15 @@ class ExtendedData extends BaseExtendedData implements ExtendedDataInterface
      */
     public function all()
     {
-        return $this->data;
+        $datas = $this->getDatas();
+        $return = array();
+
+        foreach ($datas as $data) {
+            $decoded = json_decode($data, true);
+            $return[key($decoded)] = current($decoded);
+        }
+
+        return $return;
     }
 
     /**

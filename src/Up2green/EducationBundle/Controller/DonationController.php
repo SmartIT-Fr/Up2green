@@ -24,7 +24,7 @@ class DonationController extends Controller
     {
         $donation = new Donation();
 
-        $donation->setIdentifier('TEST2');
+        $donation->setIdentifier('TEST3');
         $donation->setAmount(42.10);
 
         return $this->forward('Up2greenEducationBundle:Donation:show', array(
