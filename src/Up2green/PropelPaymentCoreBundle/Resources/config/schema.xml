@@ -127,7 +127,7 @@
         <behavior name="typehintable">
             <parameter name="credit" value="JMS\Payment\CoreBundle\Model\CreditInterface" />
             <parameter name="payment" value="JMS\Payment\CoreBundle\Model\PaymentInterface" />
-            <parameter name="extended_data" value="Up2green\PropelPaymentCoreBundle\Model\ExtendedDataInterface" />
+            <parameter name="extended_data" value="JMS\Payment\CoreBundle\Model\ExtendedDataInterface" />
         </behavior>
 
         <behavior name="timestampable" />

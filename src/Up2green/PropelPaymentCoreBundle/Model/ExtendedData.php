@@ -2,7 +2,7 @@
 
 namespace Up2green\PropelPaymentCoreBundle\Model;
 
-use Up2green\PropelPaymentCoreBundle\Model\ExtendedDataInterface;
+use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
 use Up2green\PropelPaymentCoreBundle\Model\om\BaseExtendedData;
 
 /**
