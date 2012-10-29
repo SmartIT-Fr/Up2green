@@ -71,12 +71,7 @@
     <table name="order">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="payment_instruction_id" type="INTEGER" required="true" />
-        <column name="identifier" type="VARCHAR" size="255" required="true" />
         <column name="amount" type="DECIMAL" scale="2" required="true" />
-
-        <unique>
-            <unique-column name="identifier" />
-        </unique>
 
         <foreign-key foreignTable="payment_instruction">
             <reference local="payment_instruction_id" foreign="id"/>

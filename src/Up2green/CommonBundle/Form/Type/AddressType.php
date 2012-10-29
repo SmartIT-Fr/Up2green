@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 
 /**
- * Waiting list form
+ * Address form
  */
 class AddressType extends AbstractType
 {

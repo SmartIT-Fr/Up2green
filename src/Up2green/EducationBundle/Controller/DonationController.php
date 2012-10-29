@@ -9,8 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use JMS\Payment\CoreBundle\PluginController\Result;
+
 use Up2green\CommonBundle\Model\Order;
 use Up2green\EducationBundle\Model\Donation;
+use Up2green\EducationBundle\Model\DonationQuery;
 
 /**
  * @Route("/donation")
@@ -18,38 +20,52 @@ use Up2green\EducationBundle\Model\Donation;
 class DonationController extends Controller
 {
     /**
-     * @Route("/new", name="up2green_donation_new")
+     * @Route("/new", name="up2green_education_donation_new")
+     * @Template
      */
     public function newAction(Request $request)
     {
         $donation = new Donation();
 
-        $donation->setIdentifier('TEST3');
-        $donation->setAmount(42.10);
+        $form = $this->createForm('education_donation', $donation);
 
-        return $this->forward('Up2greenEducationBundle:Donation:show', array(
-            'donation' => $donation
-        ));
+        if ('POST' === $request->getMethod()) {
+            $form->bindRequest($request);
+
+            if ($form->isValid()) {
+
+                die(var_dump($donation->getAmount()));
+                $donation->save();
+
+                return $this->redirect($this->generateUrl('up2green_education_donation_select_payment_method', array(
+                    'id' => $donation->getId()
+                )));
+            }
+        }
+
+        return array(
+            'form' => $form->createView()
+        );
     }
 
     /**
-     * @Route("/{identifier}/show", name="up2green_education_donation_show")
-     * @ParamConverter("donation", class="Up2green\EducationBundle\Model\Donation", options={"mapping"={"identifier":"identifier"}})
+     * @Route("/{id}/select-payment-method", name="up2green_education_donation_select_payment_method")
+     * @ParamConverter("donation", class="Up2green\EducationBundle\Model\Donation", options={"mapping"={"id":"id"}})
      * @Template
      */
-    public function showAction(Request $request, Donation $donation)
+    public function selectPaymentMethodAction(Request $request, Donation $donation)
     {
         $form = $this->createForm('jms_choose_payment_method', null, array(
             'amount'   => $donation->getAmount(),
             'currency' => 'EUR',
-            'default_method' => 'payment_paypal', // Optional
+            'default_method' => 'payment_paypal',
             'predefined_data' => array(
                 'paypal_express_checkout' => array(
                     'return_url' => $this->generateUrl('up2green_education_donation_complete', array(
-                        'identifier' => $donation->getIdentifier(),
+                        'id' => $donation->getOrder()->getId(),
                     ), true),
                     'cancel_url' => $this->generateUrl('up2green_education_donation_cancel', array(
-                        'identifier' => $donation->getIdentifier(),
+                        'id' => $donation->getOrder()->getId(),
                     ), true)
                 ),
             ),
@@ -66,8 +82,10 @@ class DonationController extends Controller
                 $donation->setPaymentInstruction($instruction);
                 $donation->save();
 
+                // FIXME Here we have to redirect to paypal ?
+
                 return $this->redirect($this->generateUrl('up2green_education_donation_complete', array(
-                    'identifier' => $donation->getIdentifier(),
+                    'id' => $donation->getOrder()->getId(),
                 )));
             }
         }
@@ -78,8 +96,8 @@ class DonationController extends Controller
     }
 
     /**
-     * @Route("/{identifier}/complete", name="up2green_education_donation_complete")
-     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"identifier":"identifier"}})
+     * @Route("/{id}/complete", name="up2green_education_donation_complete")
+     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"id":"id"}})
      */
     public function completeAction(Request $request, Order $order)
     {
@@ -109,16 +127,33 @@ class DonationController extends Controller
             throw new \RuntimeException('Transaction was not successful: '.$result->getReasonCode());
         }
 
-        // payment was successful, do something interesting with the order
+        $this->get('session')->setFlash('success', "donation_success");
+
+        return $this->redirect($this->generateUrl('up2green_education_donation_list'));
     }
 
     /**
-     * @Route("/{identifier}/cancel", name="up2green_education_donation_cancel")
-     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"identifier":"identifier"}})
-     *
+     * @Route("/{id}/cancel", name="up2green_education_donation_cancel")
+     * @ParamConverter("order", class="Up2green\CommonBundle\Model\Order", options={"mapping"={"id":"id"}})
+     * @todo
      */
     public function cancelAction(Request $request, Order $order)
     {
 
+    }
+
+    /**
+     * @Route("/list", name="up2green_education_donation_list")
+     * @Template
+     *
+     * @todo Fetch only the 20 greatest donation with a valid order status and order them
+     */
+    public function listAction()
+    {
+        $donations = DonationQuery::create()->find();
+
+        return array(
+            'donations' => $donations
+        );
     }
 }

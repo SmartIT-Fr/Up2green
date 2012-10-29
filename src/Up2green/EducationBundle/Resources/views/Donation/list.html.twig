@@ -1,0 +1,47 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div style="height: 140px;" class="alert alert-info">
+    <img style="margin-right: 10px; max-height: 140px; float: left;" class="img-rounded" src="{{ asset('images/placeholder.jpg') }}" />
+    <p class="lead">{{ 'up2green.need.donation'|trans }}</p>
+    <p>{{ 'participate.donation.paragraph.2'|trans }}</p>
+
+    <p class="centerize">
+        <a href="{{ path('up2green_education_donation_new') }}" class="btn btn-primary">{{ 'make.donation'|trans }}</a>
+    </p>
+</div>
+
+<div class="grey-box">
+    <h1>{{ 'donation.list.title'|trans }}</h1>
+
+    <table class="donations">
+        {% for donation in donations %}
+        <tr class="donation">
+            <td class="avatar">
+                <img src={{ asset('images/placeholder.jpg') }} />
+            </td>
+            <td class="name">
+                {% if donation.isAnonymous %}
+                    {{ 'anonymous'|trans }}
+                {% else %}
+                    {{ donation.name}}
+                {% endif %}
+            </td>
+            <td class="amount">
+                {{ donation.getAmount }}
+            </td>
+            <td class="comment">
+                {{ donation.commentPublic}}
+            </td>
+        </tr>
+        {% else %}
+        <tr><td>{{ 'no.donation'|trans }}</td></tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

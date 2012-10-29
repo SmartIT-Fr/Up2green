@@ -13,7 +13,11 @@
             {{ form_errors(form) }}
         </div>
 
-        {{ form_rest(form) }}
+        {{ form_row(form.method, {'label': 'form.label.payment_method'}) }}
+
+        <div style="display: none;">
+            {{ form_rest(form) }}
+        </div>
 
         <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
     </form>
