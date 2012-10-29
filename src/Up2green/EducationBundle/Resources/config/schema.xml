@@ -2,6 +2,7 @@
 <database name="default" namespace="Up2green\EducationBundle\Model" defaultIdMethod="native">
 
     <table name="school">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="address" type="VARCHAR" size="255" required="true" />
 
@@ -16,6 +17,7 @@
     </table>
 
     <table name="classroom">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="year" type="VARCHAR" size="255" required="true" />
         <column name="picture" type="VARCHAR" size="255" />
@@ -37,8 +39,8 @@
     </table>
 
     <table name="classroom_picture">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="picture" type="VARCHAR" size="255" required="true" />
-
         <column name="classroom_id" type="INTEGER" size="255" required="true" />
 
         <foreign-key foreignTable="classroom" onDelete="CASCADE" skipSql="true">
@@ -47,6 +49,7 @@
     </table>
 
     <table name="waiting_list">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="first_name" type="VARCHAR" size="255" required="true" />
         <column name="last_name" type="VARCHAR" size="255" required="true" />
         <column name="email" type="VARCHAR" size="255" required="true" />
@@ -57,6 +60,27 @@
         <foreign-key foreignTable="address" onDelete="CASCADE" skipSql="true">
             <reference local="address_id" foreign="id"/>
         </foreign-key>
+    </table>
+
+    <table name="donation">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="order_id" type="INTEGER" required="true" />
+
+        <column name="name" type="VARCHAR" size="255" required="true" />
+        <column name="email" type="VARCHAR" size="255" required="true" />
+        <column name="url" type="VARCHAR" size="255" required="false" />
+
+        <column name="is_anonymous" type="BOOLEAN" required="false" />
+        <column name="comment_public" type="VARCHAR" size="255" required="false" />
+        <column name="comment_private" type="VARCHAR" size="255" required="false" />
+
+        <foreign-key foreignTable="order">
+            <reference local="order_id" foreign="id" />
+        </foreign-key>
+
+        <behavior name="delegate">
+            <parameter name="to" value="order" />
+        </behavior>
     </table>
 
 </database>

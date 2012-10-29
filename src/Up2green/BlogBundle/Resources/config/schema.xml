@@ -2,8 +2,9 @@
 <database name="default" namespace="Up2green\BlogBundle\Model" defaultIdMethod="native">
 
     <table name="category">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" />
-        
+
         <behavior name="activatable" />
         <behavior name="sluggable" />
         <behavior name="sortable" />
@@ -11,6 +12,7 @@
     </table>
 
     <table name="article">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="category_id" type="INTEGER" />
 
         <column name="title" type="VARCHAR" size="255" required="true" />
@@ -20,7 +22,7 @@
 
         <foreign-key foreignTable="category">
             <reference local="category_id" foreign="id" />
-        </foreign-key>	
+        </foreign-key>
 
         <behavior name="activatable" />
         <behavior name="sluggable" />
@@ -31,6 +33,7 @@
     </table>
 
     <table name="mail">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="category_id" type="INTEGER" />
 
         <column name="title" type="VARCHAR" required="true" />
@@ -42,26 +45,28 @@
 
         <foreign-key foreignTable="category">
             <reference local="category_id" foreign="id" />
-        </foreign-key>	
+        </foreign-key>
     </table>
 
     <table name="gallery">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="category_id" type="INTEGER" />
         <column name="title" type="VARCHAR" size="255" required="true" />
         <column name="description" type="LONGVARCHAR" />
 
         <foreign-key foreignTable="category">
             <reference local="category_id" foreign="id" />
-        </foreign-key>  
+        </foreign-key>
     </table>
 
     <table name="picture">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="gallery_id" type="INTEGER" />
         <column name="src" type="VARCHAR" size="255" required="true" />
 
         <foreign-key foreignTable="gallery">
             <reference local="gallery_id" foreign="id" />
-        </foreign-key>  
+        </foreign-key>
     </table>
 
 

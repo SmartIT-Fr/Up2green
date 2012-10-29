@@ -2,6 +2,7 @@
 <database name="default" namespace="Up2green\ReforestationBundle\Model" defaultIdMethod="native">
 
     <table name="organization">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="url" type="VARCHAR" size="128" />
         <column name="title" type="VARCHAR" size="128" />
         <column name="summary" type="LONGVARCHAR" />
@@ -15,6 +16,7 @@
     </table>
 
     <table name="program">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="organization_id" type="INTEGER" />
         <column name="title" type="VARCHAR" size="128" />
         <column name="summary" type="LONGVARCHAR" />
@@ -35,6 +37,7 @@
     </table>
 
     <table name="tree">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="program_id" type="INTEGER" required="true" />
 
         <foreign-key foreignTable="program">
@@ -43,6 +46,7 @@
     </table>
 
     <table name="voucher_tree" isCrossRef="true">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="voucher_id" type="INTEGER" primaryKey="true" />
         <column name="tree_id" type="INTEGER" primaryKey="true" />
 
@@ -55,6 +59,7 @@
     </table>
 
     <table name="user_tree" isCrossRef="true">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="user_id" type="INTEGER" primaryKey="true" />
         <column name="tree_id" type="INTEGER" primaryKey="true" />
 
@@ -68,6 +73,7 @@
 
     <table name="partner">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="user_id" type="INTEGER" required="true" />
         <column name="title" type="VARCHAR" size="255" />
         <column name="summary" type="LONGVARCHAR" />
@@ -88,6 +94,7 @@
     </table>
 
     <table name="partner_logo">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="partner_id" type="INTEGER" required="true" />
         <column name="src" type="VARCHAR" size="128" required="true" />
         <column name="href" type="VARCHAR" size="128" />
@@ -98,6 +105,7 @@
     </table>
 
     <table name="partner_voucher" isCrossRef="true">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="partner_id" type="INTEGER" primaryKey="true" />
         <column name="voucher_id" type="INTEGER" primaryKey="true" />
 
@@ -110,6 +118,7 @@
     </table>
 
     <table name="partner_program" isCrossRef="true">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="partner_id" type="INTEGER" primaryKey="true" />
         <column name="program_id" type="INTEGER" primaryKey="true" />
 

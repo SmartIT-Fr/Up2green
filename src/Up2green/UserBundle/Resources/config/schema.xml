@@ -3,6 +3,7 @@
 
     <table name="user_profile">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="user_id" type="INTEGER" required="true" />
         <column name="credit" type="FLOAT" required="true" defaultValue="0" />
         <column name="accept_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
@@ -20,6 +21,7 @@
 
     <table name="pre_registration">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="first_name" type="VARCHAR" size="255" />
         <column name="last_name" type="VARCHAR" size="255" />
         <column name="email" type="VARCHAR" size="255" required="true" />
@@ -38,6 +40,7 @@
 
     <table name="friend">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="user_id" type="INTEGER" required="true" />
         <column name="email" type="VARCHAR" size="255" required="true" />
         <column name="is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />

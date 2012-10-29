@@ -2,6 +2,7 @@
 <database name="default" namespace="Up2green\CommonBundle\Model" defaultIdMethod="native">
 
     <table name="voucher_category">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="price" type="FLOAT" required="true" />
         <column name="credit" type="INTEGER" required="true" />
         <column name="is_purchasable" type="BOOLEAN" defaultValue="true" />
@@ -10,6 +11,7 @@
 
     <table name="voucher" abstract="true">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="category_id" type="INTEGER" />
         <column name="code" type="VARCHAR" size="128" required="true" />
         <column name="used_by" type="INTEGER" />
@@ -47,6 +49,7 @@
     </table>
 
     <table name="mailingList">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="email_address" type="VARCHAR" size="255" required="true" />
         <column name="is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
 
@@ -54,8 +57,9 @@
             <unique-column name="email_address" />
         </unique>
     </table>
-    
+
     <table name="address">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="name" type="VARCHAR" size="255" required="true" />
         <column name="street_line_1" type="VARCHAR" size="50" required="true" />
         <column name="street_line_2" type="VARCHAR" size="50" />
@@ -63,5 +67,20 @@
         <column name="city" type="VARCHAR" size="255" required="true" />
         <column name="country" type="VARCHAR" size="255" required="true" />
     </table>
-    
+
+    <table name="order">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="payment_instruction_id" type="INTEGER" required="true" />
+        <column name="identifier" type="VARCHAR" size="255" required="true" />
+        <column name="amount" type="DECIMAL" scale="2" required="true" />
+
+        <unique>
+            <unique-column name="identifier" />
+        </unique>
+
+        <foreign-key foreignTable="payment_instruction">
+            <reference local="payment_instruction_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
 </database>

@@ -1,0 +1,22 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="grey-box">
+    <h2>{{ 'make.a.donation'|trans }}</h2>
+
+    <form method="POST" {{ form_enctype(form) }} class="form-horizontal">
+
+        <div class="error">
+            {{ form_errors(form) }}
+        </div>
+
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+    </form>
+</div>
+
+{% endblock %}

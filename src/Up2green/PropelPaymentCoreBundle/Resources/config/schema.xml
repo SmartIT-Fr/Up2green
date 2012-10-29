@@ -2,11 +2,13 @@
 <database name="default" namespace="Up2green\PropelPaymentCoreBundle\Model" defaultIdMethod="native">
 
     <table name="extended_data">
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="data" type="BLOB" required="true" />
     </table>
 
     <table name="payment_instruction">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="amount" type="DECIMAL" required="true" scale="5" />
         <column name="approved_amount" type="DECIMAL" required="true" scale="5" />
         <column name="approving_amount" type="DECIMAL" required="true" scale="5" />
@@ -33,6 +35,7 @@
 
     <table name="payment">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="approved_amount" type="DECIMAL" required="true" scale="5" />
         <column name="approving_amount" type="DECIMAL" required="true" scale="5" />
         <column name="credited_amount" type="DECIMAL" required="true" scale="5" />
@@ -64,6 +67,7 @@
 
     <table name="credit">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="attention_required" type="BOOLEAN" required="true" />
         <column name="credited_amount" type="DECIMAL" required="true" scale="5"  />
         <column name="crediting_amount" type="DECIMAL" required="true" scale="5" />
@@ -92,6 +96,7 @@
 
     <table name="financial_transaction">
 
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="credit_id" type="INTEGER" required="false" />
         <column name="payment_id" type="INTEGER" required="false" />
         <column name="extended_data_id" type="INTEGER" required="true" />
