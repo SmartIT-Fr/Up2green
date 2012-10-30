@@ -22,16 +22,23 @@
                 {{ form_widget(form.isAnonymous) }}
             </div>
         </div>
+
         {{ form_row(form.email) }}
         {{ form_row(form.url) }}
+
+        <hr />
+
         {{ form_row(form.order.amount) }}
+        {{ form_row(form.order.payment_instruction.method, {'label': 'form.label.payment_method'}) }}
 
         <hr />
 
         {{ form_row(form.comment_public) }}
         {{ form_row(form.comment_private) }}
 
-        {{ form_rest(form) }}
+        <div style="display: none;">
+            {{ form_rest(form) }}
+        </div>
 
         <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
     </form>

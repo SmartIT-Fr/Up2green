@@ -28,60 +28,31 @@ class DonationController extends Controller
     {
         $donation = new Donation();
 
-        $form = $this->createForm('education_donation', $donation);
-
-        if ('POST' === $request->getMethod()) {
-            $form->bindRequest($request);
-
-            if ($form->isValid()) {
-
-                $donation->save();
-
-                return $this->redirect($this->generateUrl('up2green_education_donation_select_payment_method', array(
-                    'id' => $donation->getId()
-                )));
-            }
-        }
-
-        return array(
-            'form' => $form->createView()
-        );
-    }
-
-    /**
-     * @Route("/{id}/select-payment-method", name="up2green_education_donation_select_payment_method")
-     * @Template
-     */
-    public function selectPaymentMethodAction(Request $request, Donation $donation)
-    {
-        $form = $this->createForm('jms_choose_payment_method', null, array(
-            'amount'   => $donation->getAmount(),
-            'currency' => 'EUR',
-            'default_method' => 'payment_paypal',
-            'predefined_data' => array(
-                'paypal_express_checkout' => array(
-                    'return_url' => $this->generateUrl('up2green_education_donation_complete', array(
-                        'id' => $donation->getOrder()->getId(),
-                    ), true),
-                    'cancel_url' => $this->generateUrl('up2green_education_donation_cancel', array(
-                        'id' => $donation->getOrder()->getId(),
-                    ), true)
-                ),
-            ),
+        $form = $this->createForm('education_donation', $donation, array(
+            'payment_return_route' => 'up2green_education_donation_complete',
+            'payment_cancel_route' => 'up2green_education_donation_cancel',
         ));
 
         if ('POST' === $request->getMethod()) {
-            $form->bindRequest($request);
+            $form->bind($request);
 
             if ($form->isValid()) {
-                $instruction = $form->getData();
-                $this->get('payment.plugin_controller')
-                    ->createPaymentInstruction($instruction);
+
+                $donation->save();
+
+                // We have to regenerate the form to includ the donation id to
+                // the payment_instruction routes
+                $form = $this->createForm('education_donation', $donation, array(
+                    'payment_return_route' => 'up2green_education_donation_complete',
+                    'payment_cancel_route' => 'up2green_education_donation_cancel',
+                ));
+                $form->bind($request);
+
+                $instruction = $form->get('order')->get('payment_instruction')->getData();
+                $this->get('payment.plugin_controller')->createPaymentInstruction($instruction);
 
                 $donation->setPaymentInstruction($instruction);
                 $donation->save();
-
-                // FIXME Here we have to redirect to paypal ?
 
                 return $this->redirect($this->generateUrl('up2green_education_donation_complete', array(
                     'id' => $donation->getOrder()->getId(),
