@@ -43,7 +43,7 @@ class LocaleListener implements EventSubscriberInterface
      * Gets the caller
      * @return array()
      */
-    static public function getSubscribedEvents()
+    public static function getSubscribedEvents()
     {
         return array(
             // must be registered before the default Locale listener

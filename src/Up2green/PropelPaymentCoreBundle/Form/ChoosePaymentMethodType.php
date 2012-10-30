@@ -4,24 +4,20 @@ namespace Up2green\PropelPaymentCoreBundle\Form;
 
 use Up2green\PropelPaymentCoreBundle\Model\ExtendedData;
 use Up2green\PropelPaymentCoreBundle\Model\PaymentInstruction;
-use JMS\Payment\CoreBundle\PluginController\PluginControllerInterface;
-use JMS\Payment\CoreBundle\PluginController\Result;
 use JMS\Payment\CoreBundle\Form\ChoosePaymentMethodType as BaseChoosePaymentMethodType;
-
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Form Type for Choosing a Payment Method.
  */
 class ChoosePaymentMethodType extends BaseChoosePaymentMethodType
 {
+    /**
+     * @param PaymentInstruction $data
+     * @param array              $options
+     *
+     * @return null
+     * @throws \RuntimeException
+     */
     public function transform($data, array $options)
     {
         if (null === $data) {
@@ -44,6 +40,13 @@ class ChoosePaymentMethodType extends BaseChoosePaymentMethodType
         throw new \RuntimeException(sprintf('Unsupported data of type "%s".', ('object' === $type = gettype($data)) ? get_class($data) : $type));
     }
 
+    /**
+     * @param array $data
+     * @param array $options
+     *
+     * @return \Up2green\PropelPaymentCoreBundle\Model\PaymentInstruction
+     * @throws \RuntimeException
+     */
     public function reverseTransform($data, array $options)
     {
         $method = isset($data['method']) ? $data['method'] : null;

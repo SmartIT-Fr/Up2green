@@ -18,7 +18,6 @@ class Payment extends BasePayment implements PaymentInterface
 
             if (FinancialTransactionInterface::TRANSACTION_TYPE_APPROVE === $type
                 || FinancialTransactionInterface::TRANSACTION_TYPE_APPROVE_AND_DEPOSIT === $type) {
-
                 return $transaction;
             }
         }

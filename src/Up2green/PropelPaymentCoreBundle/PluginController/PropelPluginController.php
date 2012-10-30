@@ -3,7 +3,6 @@
 namespace Up2green\PropelPaymentCoreBundle\PluginController;
 
 use Up2green\PropelPaymentCoreBundle\Model\Payment;
-use Up2green\PropelPaymentCoreBundle\Model\FinancialTransaction;
 use Up2green\PropelPaymentCoreBundle\Model\PaymentInstruction;
 
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
@@ -14,8 +13,6 @@ use JMS\Payment\CoreBundle\PluginController\Exception\Exception;
 use JMS\Payment\CoreBundle\PluginController\Exception\PaymentNotFoundException;
 use JMS\Payment\CoreBundle\PluginController\Exception\PaymentInstructionNotFoundException;
 use JMS\Payment\CoreBundle\Plugin\Exception\FunctionNotSupportedException as PluginFunctionNotSupportedException;
-
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * A concrete plugin controller implementation using the Propel ORM.

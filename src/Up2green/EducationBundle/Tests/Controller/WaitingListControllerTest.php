@@ -14,7 +14,7 @@ class WaitingListControllerTest extends IsolatedWebTestCase
     /**
      * @return array
      */
-    function waitingListProvider()
+    public function waitingListProvider()
     {
         return array(
             array(

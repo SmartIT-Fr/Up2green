@@ -25,8 +25,8 @@ class OrderType extends AbstractType
         $this->paymentInstructionSubscriber = $paymentInstructionSubscriber;
     }
     /**
-     * @param FormBuilderInterface 	$builder
-     * @param array                 $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      *
      * @see Symfony\Component\Form.AbstractType::buildForm()
      */

@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Up2green\SearchBundle\Form\Type\SearchType;
-use Up2green\SearchBundle\Services\Engine\EngineFactory;
 /**
  * Default Controller class
  */
@@ -31,7 +30,6 @@ class DefaultController extends Controller
             $form->bind($request);
 
             if ($form->isValid()) {
-
                 return $this->forward('Up2greenSearchBundle:Default:search', $form->getData());
             }
         }

@@ -12,7 +12,7 @@ class ArticleControllerTest extends IsolatedWebTestCase
     /**
      * @return array
      */
-    function showProvider()
+    public function showProvider()
     {
         return array(
             array(200, 1),

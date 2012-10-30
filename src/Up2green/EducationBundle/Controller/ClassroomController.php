@@ -14,7 +14,7 @@ use Up2green\EducationBundle\Model;
 class ClassroomController extends Controller
 {
     /**
-     * @param Model\School $school
+     * @param Model\School    $school
      * @param Model\Classroom $classroom
      *
      * @Route("/school/{school_slug}/{classroom_slug}", name="education_classroom_show")

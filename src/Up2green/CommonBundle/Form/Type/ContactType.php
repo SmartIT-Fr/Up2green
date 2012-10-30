@@ -2,7 +2,6 @@
 
 namespace Up2green\CommonBundle\Form\Type;
 
-
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -20,8 +19,8 @@ class ContactType extends AbstractType
     /**
      * (non-PHPdoc)
      *
-     * @param FormBuilderInterface 	$builder
-     * @param array                 $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      *
      * @see Symfony\Component\Form.AbstractType::buildForm()
      */

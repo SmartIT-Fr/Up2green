@@ -12,7 +12,7 @@ class LocaleControllerTest extends WebTestCase
     /**
      * @return array
      */
-    function languageProvider()
+    public function languageProvider()
     {
         return array(
             array('Français'),

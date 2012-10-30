@@ -19,7 +19,7 @@ class FinancialTransaction extends BaseFinancialTransaction implements Financial
 
         if (null !== $this->getPayment()) {
             return $this->getPayment()->getPaymentInstruction()->getExtendedData();
-        } else if (null !== $this->getCredit()) {
+        } elseif (null !== $this->getCredit()) {
             return $this->getCredit()->getPaymentInstruction()->getExtendedData();
         }
 

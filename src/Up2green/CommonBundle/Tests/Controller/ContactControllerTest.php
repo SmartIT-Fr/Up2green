@@ -14,7 +14,7 @@ class ContactControllerTest extends IsolatedWebTestCase
     /**
      * @return array
      */
-    function contactProvider()
+    public function contactProvider()
     {
         return array(
             array(
