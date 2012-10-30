@@ -17,21 +17,33 @@
 <div class="grey-box">
     <h1>{{ 'donation.list.title'|trans }}</h1>
 
-    <table class="donations">
+    <br />
+
+    <table class="donations table table-striped table-condensed">
         {% for donation in donations %}
         <tr class="donation">
             <td class="avatar">
-                <img src={{ asset('images/placeholder.jpg') }} />
+                {% if donation.isAnonymous or not gravatar_exists(donation.email) %}
+                    <img src="{{ asset('images/avatar-placeholder-40.png') }}" />
+                {% else %}
+                    <img src="{{ gravatar(donation.email, 40) }}" />
+                {% endif %}
             </td>
             <td class="name">
-                {% if donation.isAnonymous %}
-                    {{ 'anonymous'|trans }}
-                {% else %}
-                    {{ donation.name}}
+                {% if donation.url is not empty %}
+                    <a href="{{ donation.url }}">
+                {% endif %}
+                    {% if donation.isAnonymous %}
+                        {{ 'anonymous'|trans }}
+                    {% else %}
+                        {{ donation.name}}
+                    {% endif %}
+                {% if donation.url is not empty %}
+                    </a>
                 {% endif %}
             </td>
             <td class="amount">
-                {{ donation.getAmount }}
+                {{ donation.order.amount | craue_currency(donation.order.paymentInstruction.currency) }}
             </td>
             <td class="comment">
                 {{ donation.commentPublic}}

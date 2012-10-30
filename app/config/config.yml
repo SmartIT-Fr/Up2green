@@ -10,7 +10,9 @@ framework:
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    templating:
+      engines: ['twig']
+      assets_version: 2
     default_locale:  fr
     trust_proxy_headers: false
     session:         ~
@@ -108,3 +110,9 @@ jms_payment_paypal:
     signature: 'AFbF3MLf8s8cAfgEC3-ZHq3jtLkAAg5billJSDcrHR0jhWshMoGmx3bP'
     password: 'EH6S97W3Q2W7HTWR'
     debug: false
+
+craue_twig_extensions: ~
+
+ornicar_gravatar:
+    rating: g
+    size: 80

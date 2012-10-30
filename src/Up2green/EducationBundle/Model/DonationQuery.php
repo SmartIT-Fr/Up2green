@@ -10,6 +10,7 @@ class DonationQuery extends BaseDonationQuery
     {
         return $this
             ->useOrderQuery()
+                ->orderByAmount(\Criteria::DESC)
                 ->usePaymentInstructionQuery()
                     ->usePaymentQuery()
                         ->filterByState('deposited')
@@ -17,7 +18,6 @@ class DonationQuery extends BaseDonationQuery
                     ->filterByState('valid')
                     ->orderByCreatedAt(\Criteria::DESC)
                 ->endUse()
-                ->orderByAmount(\Criteria::DESC)
             ->endUse()
             ->limit(20)
             ->find();

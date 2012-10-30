@@ -29,6 +29,8 @@ class AppKernel extends Kernel
             new Buzz\Bundle\ProfilerBundle\BuzzProfilerBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
+            new Craue\TwigExtensionsBundle\CraueTwigExtensionsBundle(),
 
             // Payment
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
