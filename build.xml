@@ -107,6 +107,9 @@
     </target>
 
     <target name="vendors" description="Install vendors">
+        <exec executable="rm">
+            <arg line="-Rf ${basedir}/vendor/*" />
+        </exec>
         <exec executable="composer.phar">
             <arg value="update" />
         </exec>
