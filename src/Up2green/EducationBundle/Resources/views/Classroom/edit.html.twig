@@ -1,0 +1,57 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="row-fluid">
+    <div class="span6 grey-box">
+
+        <p class="lead">{{ 'classroom.edit.general'|trans }}</p>
+
+        <form method="POST" {{ form_enctype(formGeneral) }} class="form-horizontal">
+
+            <div class="error">
+                {{ form_errors(formGeneral) }}
+            </div>
+
+            {{ form_rest(formGeneral) }}
+
+            <button type="submit" class="pull-right btn btn-info">{{ 'submit'|trans }}</button>
+        </form>
+    </div>
+
+    <div class="grey-box span6">
+
+        <p class="lead">{{ 'classroom.edit.add.picture'|trans }}</p>
+
+        <form method="POST" {{ form_enctype(formPicture) }} class="form-horizontal">
+
+            <div class="error">
+                {{ form_errors(formPicture) }}
+            </div>
+
+            {{ form_rest(formPicture) }}
+
+            <button type="submit" class="pull-right btn btn-primary">{{ 'add'|trans }}</button>
+        </form>
+    </div>
+</div>
+
+<div class="grey-box">
+
+    <h3>{{ 'pictures'|trans }}</h3>
+
+    <table class="table table-striped table-condensed">
+        {% for picture in pictures %}
+        <tr>
+            <td><img src="{{ asset(picture.picture) }}" /></td>
+            <td>{{ picture.student|capitalize }}</td>
+            <td>{{ picture.program|capitalize }}</td>
+        </tr>
+        {% else %}
+        <tr><td>{{ 'no.picture'|trans }}</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
