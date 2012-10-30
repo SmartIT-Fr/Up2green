@@ -3,6 +3,8 @@ namespace Up2green\EducationBundle\DomainObject;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
+use FOS\UserBundle\Propel\User;
+
 /**
  * Registration domain object
  */
@@ -28,7 +30,7 @@ class Registration implements DomainObjectInterface
      * @param Classroom $classroom The classroom
      * @param School    $school    The school
      */
-    public function __construct($account = null, $classroom = null, $school = null)
+    public function __construct(User $account = null, $classroom = null, $school = null)
     {
         $this->account   = $account;
         $this->classroom = $classroom;
@@ -43,6 +45,7 @@ class Registration implements DomainObjectInterface
         $this->school->save();
         $school = $this->school->getSchoolModel();
 
+        $this->account->addRole('ROLE_TEACHER');
         $this->account->save();
         $user = $this->account;
 

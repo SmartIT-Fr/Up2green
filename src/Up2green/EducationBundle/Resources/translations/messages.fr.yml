@@ -58,3 +58,10 @@ donation.list.title: Merci à vous !
 up2green.need.donation: Pour aider les écoles à participer au projet, faites un don !
 donation_success: Votre don a bien été prit en compte, merci !
 anonymous: Anonyme
+form.classroom_picture_type.student: Nom de l'élève
+form.classroom_picture_type.picture: Dessin
+form.classroom_picture_type.program: Programme soutenu
+pictures: Dessins
+no.picture: Aucun dessin
+classroom.edit.general: Modifiez les informations générales de votre classe
+classroom.edit.add.picture: Ou ajoutez les photos de vos élèves

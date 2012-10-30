@@ -43,6 +43,7 @@
         "jms/payment-core-bundle": "master-dev",
         "jms/payment-paypal-bundle": "master-dev",
         "doctrine/dbal": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.0.*",
         "ornicar/gravatar-bundle" : "dev-master",
         "craue/twigextensions-bundle": "dev-master"
     },

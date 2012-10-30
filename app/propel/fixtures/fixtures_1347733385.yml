@@ -94,12 +94,18 @@ Up2green\EducationBundle\Model\Classroom:
         school_id: School_1
         picture: /uploads/default.jpg
         user_id: User_1
-
 Up2green\EducationBundle\Model\ClassroomPicture:
     ClassroomPicture_1:
         classroom_id: Classroom_1
+        program_id: Program_1
         picture: images/placeholder.jpg
+        student: Girawyr Ethilawyn
     ClassroomPicture_2:
         classroom_id: Classroom_1
+        program_id: Program_1
         picture: images/placeholder.jpg
-
+        student: Seron Wiciratlan
+Up2green\ReforestationBundle\Model\Program:
+    Program_1:
+        title: Mali
+        added_trees: 0

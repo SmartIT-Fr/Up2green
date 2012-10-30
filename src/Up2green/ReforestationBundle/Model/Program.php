@@ -9,4 +9,11 @@ use Up2green\ReforestationBundle\Model\om\BaseProgram;
  */
 class Program extends BaseProgram
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getTitle();
+    }
 }

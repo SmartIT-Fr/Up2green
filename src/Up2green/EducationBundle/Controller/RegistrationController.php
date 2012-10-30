@@ -7,7 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+
 use Up2green\EducationBundle\DomainObject;
+
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * Registration controller
@@ -20,12 +27,11 @@ class RegistrationController extends Controller
      * @Route("/registration/new", name="education.registration.new")
      * @Template()
      *
+     * @todo Validate that the voucher isValid
      * @return array
      */
     public function newAction(Request $request)
     {
-        // Call to a sevice to know if the voucher isValid
-
         $registration = new DomainObject\Registration();
         $form = $this->createForm('education_registration', $registration);
 
@@ -34,8 +40,29 @@ class RegistrationController extends Controller
             if (true === $form->isValid()) {
                 $registration->save();
 
+                // creating the ACL
+                $aclProvider = $this->get('security.acl.provider');
+                $acl = $aclProvider->createAcl(ObjectIdentity::fromDomainObject($registration->classroom));
+                $securityIdentity = UserSecurityIdentity::fromAccount($registration->account);
+
+                // grant owner access
+                $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_EDIT);
+                $aclProvider->updateAcl($acl);
+
+                $registration->account->setEnabled(true);
+                $registration->account->setLastLogin(new \DateTime());
+
+                $this->container->get('fos_user.user_manager')->updateUser($registration->account);
+
+                $this->get('session')->setFlash('fos_user_success', 'registration.flash.user_created');
+                $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
+
+                $this->authenticateUser($registration->account, $response);
+
                 // Todo Redirect to an other place
-                return $this->redirect($this->generateUrl('education.registration.new'));
+                return $this->redirect($this->generateUrl('education_classroom_edit', array(
+                    'slug' => $registration->classroom->getSlug()
+                )));
             }
         }
 
@@ -60,5 +87,24 @@ class RegistrationController extends Controller
         $geocoded = $this->get('geocoder')->geocode($address);
 
         return new JsonResponse($geocoded->toArray());
+    }
+
+    /**
+     * Authenticate a user with Symfony Security
+     *
+     * @param \FOS\UserBundle\Model\UserInterface        $user
+     * @param \Symfony\Component\HttpFoundation\Response $response
+     */
+    protected function authenticateUser(UserInterface $user, Response $response)
+    {
+        try {
+            $this->container->get('fos_user.security.login_manager')->loginUser(
+                $this->container->getParameter('fos_user.firewall_name'),
+                $user,
+                $response);
+        } catch (AccountStatusException $ex) {
+            // We simply do not authenticate users which do not pass the user
+            // checker (not enabled, expired, etc.).
+        }
     }
 }

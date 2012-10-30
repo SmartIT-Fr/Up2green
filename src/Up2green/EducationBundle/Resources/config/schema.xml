@@ -40,11 +40,16 @@
 
     <table name="classroom_picture">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="student" type="VARCHAR" size="255" required="true" />
         <column name="picture" type="VARCHAR" size="255" required="true" />
         <column name="classroom_id" type="INTEGER" size="255" required="true" />
+        <column name="program_id" type="INTEGER" size="255" required="true" />
 
         <foreign-key foreignTable="classroom" onDelete="CASCADE" skipSql="true">
             <reference local="classroom_id" foreign="id"/>
+        </foreign-key>
+        <foreign-key foreignTable="program" onDelete="CASCADE" skipSql="true">
+            <reference local="program_id" foreign="id"/>
         </foreign-key>
     </table>
 

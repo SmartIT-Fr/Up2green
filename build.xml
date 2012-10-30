@@ -119,8 +119,13 @@
         <exec executable="app/console">
             <arg line="propel:database:drop --force" />
         </exec>
+
         <exec executable="app/console">
             <arg line="propel:database:create" />
+        </exec>
+
+        <exec executable="app/console">
+            <arg line="propel:acl:init --force" />
         </exec>
 
         <exec executable="rm">
@@ -131,6 +136,7 @@
         <exec executable="app/console">
             <arg line="propel:build --insert-sql" />
         </exec>
+
         <exec executable="app/console">
             <arg line="propel:fixtures:load" />
         </exec>

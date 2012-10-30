@@ -31,6 +31,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Craue\TwigExtensionsBundle\CraueTwigExtensionsBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
 
             // Payment
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
