@@ -58,7 +58,10 @@ class FinancialTransaction extends BaseFinancialTransaction implements Financial
 
     public function getTransactionType()
     {
-        return constant('JMS\Payment\CoreBundle\Model\FinancialTransactionInterface::TRANSACTION_TYPE_'.strtoupper(parent::getTransactionType()));
+        $constantName = strtoupper(parent::getTransactionType());
+        $constantName = str_replace('-', '_', $constantName);
+
+        return constant('JMS\Payment\CoreBundle\Model\FinancialTransactionInterface::TRANSACTION_TYPE_' . $constantName);
     }
 
     public function setState($state)

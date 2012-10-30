@@ -9,16 +9,16 @@
     <table name="payment_instruction">
 
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="amount" type="DECIMAL" required="true" scale="5" />
-        <column name="approved_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="approving_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="credited_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="crediting_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="deposited_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="depositing_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="reversing_approved_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="reversing_credited_amount" type="DECIMAL" required="true" scale="5" />
-        <column name="reversing_deposited_amount" type="DECIMAL" required="true" scale="5" />
+        <column name="amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="approved_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="approving_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="credited_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="crediting_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="deposited_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="depositing_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="reversing_approved_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="reversing_credited_amount" type="DECIMAL" required="true" size="10"  scale="5" />
+        <column name="reversing_deposited_amount" type="DECIMAL" required="true" size="10"  scale="5" />
 
         <column name="payment_system_name" type="VARCHAR" required="true" size="100" />
         <column name="currency" type="VARCHAR" required="true" size="3" />
@@ -36,16 +36,16 @@
     <table name="payment">
 
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="approved_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="approving_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="credited_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="crediting_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="deposited_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="depositing_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="reversing_approved_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="reversing_credited_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="reversing_deposited_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="target_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
+        <column name="approved_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="approving_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="credited_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="crediting_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="deposited_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="depositing_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="reversing_approved_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="reversing_credited_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="reversing_deposited_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="target_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
 
         <column name="expiration_date" type="FLOAT" required="false" />
         <column name="state" type="ENUM" valueSet="approved, approving, canceled, expired, failed, new, depositing, deposited" required="true" default="new" />
@@ -69,10 +69,10 @@
 
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="attention_required" type="BOOLEAN" required="true" default="false" />
-        <column name="credited_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="crediting_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="reversing_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="target_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
+        <column name="credited_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="crediting_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="reversing_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="target_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
 
         <column name="payment_id" type="INTEGER" required="false" />
         <column name="payment_instruction_id" type="INTEGER" required="true" />
@@ -101,8 +101,8 @@
         <column name="payment_id" type="INTEGER" required="false" />
         <column name="extended_data_id" type="INTEGER" required="true" />
 
-        <column name="processed_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
-        <column name="requested_amount" type="DECIMAL" required="true" scale="5" default="0.0" />
+        <column name="processed_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
+        <column name="requested_amount" type="DECIMAL" required="true" size="10"  scale="5" default="0.0" />
 
         <column name="reason_code" type="VARCHAR" required="false" size="100" />
         <column name="response_code" type="VARCHAR" required="false" size="100" />
