@@ -2,6 +2,9 @@
 
 namespace Up2green\EducationBundle\Controller;
 
+use Up2green\CommonBundle\Model\EducationVoucher;
+use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -17,9 +20,20 @@ class ParticipateController extends Controller
      *
      * @return array
      */
-    public function teacherAction()
+    public function teacherAction(Request $request)
     {
-        $form = $this->createForm('education_voucher');
+        $voucher = new EducationVoucher();
+        $form = $this->createForm('education_voucher', $voucher, array('validation_groups' => array('use')));
+
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                return $this->redirect($this->generateUrl('education.registration.new', array(
+                	'token' => $form->get('code')->getData()
+                )));
+            }
+        }
 
         return array(
             'form' => $form->createView()

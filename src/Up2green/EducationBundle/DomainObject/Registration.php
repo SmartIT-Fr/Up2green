@@ -7,6 +7,10 @@ use FOS\UserBundle\Propel\User;
 
 /**
  * Registration domain object
+ *
+ * @Assert\Callback(methods={
+ * 	{"Up2green\CommonBundle\Model\Voucher", "isValid"}
+ * })
  */
 class Registration implements DomainObjectInterface
 {
@@ -24,6 +28,8 @@ class Registration implements DomainObjectInterface
      * @Assert\Valid()
      */
     public $school;
+
+    protected $code;
 
     /**
      * @param User      $account   The account
@@ -52,5 +58,15 @@ class Registration implements DomainObjectInterface
         $this->classroom->setUser($user);
         $this->classroom->setSchool($school);
         $this->classroom->save();
+    }
+
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
     }
 }

@@ -24,15 +24,16 @@ class RegistrationController extends Controller
     /**
      * @param Request $request
      *
-     * @Route("/registration/new", name="education.registration.new")
+     * @Route("/registration/new/{token}", name="education.registration.new")
      * @Template()
      *
-     * @todo Validate that the voucher isValid
      * @return array
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $token)
     {
         $registration = new DomainObject\Registration();
+        $registration->setCode($token);
+
         $form = $this->createForm('education_registration', $registration);
 
         if ('POST' === $request->getMethod()) {

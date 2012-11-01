@@ -15,3 +15,15 @@ Up2green\CommonBundle\Model\Address:
             - NotBlank: ~
         country:
             - NotBlank: ~
+
+Up2green\CommonBundle\Model\Voucher:
+    properties:
+        code:
+            - NotBlank: { groups: [use] }
+        used_by:
+            - 'Null': { groups: [use] }
+    constraints:
+        - Callback:
+            methods:
+                - [Up2green\CommonBundle\Model\Voucher, isValid]
+            groups: [use]

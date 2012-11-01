@@ -26,3 +26,9 @@ Up2green\EducationBundle\Model\WaitingList:
             - NotBlank: ~
             - Type:
                 type: integer
+
+Up2green\EducatuinBundle\DomainObject\Registration:
+    constraints:
+        - Callback:
+            methods:
+                - [Up2green\CommonBundle\Model\Voucher, isValid]
