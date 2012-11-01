@@ -10,7 +10,7 @@ use Up2green\EducationBundle\Model\om\BaseClassroom;
  */
 class Classroom extends BaseClassroom
 {
-    public $pictureFile;
+    public $uploadedFile;
 
     /**
      * When a school is created, we set the year property to the actual year
@@ -21,43 +21,62 @@ class Classroom extends BaseClassroom
     }
 
     /**
-     * @param \PropelPDO $con
+     * @return UploadedFile
      */
-    public function save(\PropelPDO $con = null)
+    public function getUploadedFile()
     {
-        if (null !== $this->pictureFile) {
-            $this->picture = $this->upload($this->pictureFile);
-        }
-
-        parent::save($con);
+        return $this->uploadedFile;
     }
 
     /**
-     * @param UploadedFile $file
-     *
-     * For a good SEO the strategy is to use
-     * something like this schoolName-className-userName-classYear.extension
-     *
-     * @return string
+     * @param UploadedFile $uploadedFile
      */
-    protected function upload(UploadedFile $file)
+    public function setUploadedFile(UploadedFile $uploadedFile)
     {
-        $schoolName = $this->getSchool()->getName();
-        $className  = $this->getName();
-        $userName   = $this->getUser()->getUsername();
-        $classYear  = $this->getYear();
-        $extension  = $file->guessExtension();
+        $this->uploadedFile = $uploadedFile;
+    }
 
-        $name = sprintf('%s-%s-%s-%s.%s', $schoolName, $className, $userName, $classYear, $extension);
-        $directory = __DIR__.'/../../../../web/uploads';
-        $file->move($directory, $file->getClientOriginalName());
+    /**
+     * @param PropelPDO $con
+     *
+     * @return int
+     */
+    public function save(PropelPDO $con = null)
+    {
+        $this->upload();
 
-        $oldName = $directory.'/'. $file->getClientOriginalName();
-        $newName = $directory.'/'. $name;
+        return parent::save($con);
+    }
 
-        rename($oldName, $newName);
+    /**
+     * @return null
+     */
+    public function upload()
+    {
+        if (!$this->uploadedFile instanceof UploadedFile) {
+            return;
+        }
 
-        return sprintf('uploads/%s', $name);
+        $webDirectory = __DIR__.'/../../../../web';
+
+        // Purge old picture file
+        if (!empty($this->picture)) {
+            @unlink($webDirectory . $this->picture);
+        }
+
+        $path      = sprintf('/uploads/classrooms/%d/', $this->getClassroom()->getId());
+        $extension = $this->uploadedFile->guessExtension();
+
+        if (!$extension) {
+            // extension cannot be guessed
+            $extension = 'bin';
+        }
+
+        $filename = sprintf('photo.%s', $extension);
+
+        $this->uploadedFile->move($webDirectory . $path, $filename);
+
+        $this->setPicture($path . $filename);
     }
 
     /**

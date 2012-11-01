@@ -17,7 +17,16 @@
 
             {{ form_rest(formGeneral) }}
 
-            <button type="submit" class="pull-right btn btn-info">{{ 'submit'|trans }}</button>
+            <span class="pull-right">
+                <a class="btn btn-info" href="{{ path('education_classroom_show', {
+                    'classroom_slug': classroom.slug,
+                    'school_slug': classroom.school.slug
+                }) }}">
+                    {{ 'classroom.view.public'|trans }}
+                </a>
+                &nbsp;
+                <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+            </span>
         </form>
     </div>
 
@@ -42,16 +51,22 @@
 
     <h3>{{ 'pictures'|trans }}</h3>
 
-    <table class="table table-striped table-condensed">
+    {% if pictures is not empty %}
+        <ul class="thumbnails">
         {% for picture in pictures %}
-        <tr>
-            <td><img src="{{ asset(picture.picture) }}" /></td>
-            <td>{{ picture.student|capitalize }}</td>
-            <td>{{ picture.program|capitalize }}</td>
-        </tr>
-        {% else %}
-        <tr><td>{{ 'no.picture'|trans }}</td></tr>
+            <li class="span2">
+                <div class="thumbnail">
+                    <img src="{{ asset(picture.picture) }}" alt="">
+                    <h5>{{ picture.student|capitalize }}</h5>
+                    <p>{{ picture.program|capitalize }}</p>
+                    <a class="btn btn-danger" href="{{ path('education_classroom_picture_delete', {'id': picture.id}) }}">{{ 'delete'|trans }}</a>
+                </div>
+            </li>
         {% endfor %}
-    </table>
+        </ul>
+    {% else %}
+        <p>{{ 'no.picture'|trans }}</p>
+    {% endif %}
+
 </div>
 {% endblock %}

@@ -65,3 +65,7 @@ pictures: Dessins
 no.picture: Aucun dessin
 classroom.edit.general: Modifiez les informations générales de votre classe
 classroom.edit.add.picture: Ou ajoutez les photos de vos élèves
+classroom.view.public: Voir la page public de la classe
+classroom.updated: La classe a été mise à jour
+classroom.picture.added: Le dessin a été publié
+classroom.picture.deleted: Le dessin a été supprimé

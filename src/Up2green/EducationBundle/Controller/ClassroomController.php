@@ -8,6 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use JMS\SecurityExtraBundle\Annotation\SecureParam;
 
@@ -53,7 +57,7 @@ class ClassroomController extends Controller
 
                 if ($formGeneral->isValid()) {
                     $classroom->save();
-                    $this->get('session')->setFlash('success', "classroom_updated");
+                    $this->get('session')->setFlash('success', "classroom.updated");
                 }
             }
 
@@ -61,8 +65,18 @@ class ClassroomController extends Controller
                 $formPicture->bind($request);
 
                 if ($formPicture->isValid()) {
-                    $classroom->save();
-                    $this->get('session')->setFlash('success', "classroom_updated");
+
+                    $classroomPicture->save();
+
+                    // creating the ACL
+                    $aclProvider = $this->get('security.acl.provider');
+                    $acl = $aclProvider->createAcl(ObjectIdentity::fromDomainObject($classroomPicture));
+                    $securityIdentity = UserSecurityIdentity::fromAccount($this->getUser());
+                    // grant owner access
+                    $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_DELETE);
+                    $aclProvider->updateAcl($acl);
+
+                    $this->get('session')->setFlash('success', "classroom.picture.added");
                 }
             }
         }
