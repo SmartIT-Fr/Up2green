@@ -81,12 +81,8 @@ class ClassroomController extends Controller
             }
         }
 
-        $classroomPictures = Model\ClassroomPictureQuery::create()
-            ->findByClassroomId($classroom->getId());
-
         return array(
             'classroom'   => $classroom,
-            'pictures'    => $classroomPictures,
             'formGeneral' => $formGeneral->createView(),
             'formPicture' => $formPicture->createView(),
         );

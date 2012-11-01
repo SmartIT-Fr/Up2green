@@ -1,7 +1,10 @@
 Up2green\EducationBundle\Model\Classroom:
     properties:
-        description:
+        year:
             - NotBlank: ~
+            - Type:
+                type: integer
+        description:
             - MaxLength: 2000
         name:
             - NotBlank: ~

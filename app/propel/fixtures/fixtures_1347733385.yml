@@ -84,15 +84,17 @@ Up2green\EducationBundle\Model\School:
 Up2green\EducationBundle\Model\Classroom:
     Classroom_1:
         name: CE1 A
+        year: 2012
         description: "La classe de bidule c'est trop beau la vie, nous sommes to cool ! youpi pouet"
         school_id: School_1
-        picture: /uploads/default.jpg
+        picture: /images/placeholder.jpg
         user_id: User_1
     Classroom_2:
         name: CE1 B
+        year: 2012
         description: "La classe de toto, c'est trop beau la vie, nous sommes to cool ! youpi pouet"
         school_id: School_1
-        picture: /uploads/default.jpg
+        picture: /images/placeholder.jpg
         user_id: User_1
 Up2green\EducationBundle\Model\ClassroomPicture:
     ClassroomPicture_1:

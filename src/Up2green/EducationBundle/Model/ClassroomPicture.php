@@ -33,7 +33,7 @@ class ClassroomPicture extends BaseClassroomPicture
      *
      * @return int
      */
-    public function save(PropelPDO $con = null)
+    public function save(\PropelPDO $con = null)
     {
         $this->upload();
 

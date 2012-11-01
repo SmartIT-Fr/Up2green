@@ -41,7 +41,7 @@ class Classroom extends BaseClassroom
      *
      * @return int
      */
-    public function save(PropelPDO $con = null)
+    public function save(\PropelPDO $con = null)
     {
         $this->upload();
 

@@ -51,22 +51,10 @@
 
     <h3>{{ 'pictures'|trans }}</h3>
 
-    {% if pictures is not empty %}
-        <ul class="thumbnails">
-        {% for picture in pictures %}
-            <li class="span2">
-                <div class="thumbnail">
-                    <img src="{{ asset(picture.picture) }}" alt="">
-                    <h5>{{ picture.student|capitalize }}</h5>
-                    <p>{{ picture.program|capitalize }}</p>
-                    <a class="btn btn-danger" href="{{ path('education_classroom_picture_delete', {'id': picture.id}) }}">{{ 'delete'|trans }}</a>
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>{{ 'no.picture'|trans }}</p>
-    {% endif %}
+    {% include 'Up2greenEducationBundle:ClassroomPicture:_list.html.twig' with {
+        'pictures': classroom.classroomPictures,
+        'withActions': 'true'
+    } only %}
 
 </div>
 {% endblock %}

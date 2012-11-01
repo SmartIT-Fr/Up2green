@@ -1,63 +1,49 @@
 {% extends 'Up2greenEducationBundle::layout.html.twig' %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="span7">
-            <div class="row">
-                <div class="classroom-player">
-                    <div class="span5 player-container">
-                        {% if classroom.classroomPictures|length > 0 %}
-                        <img class="img-polaroid" src="{{ asset(classroom.classroomPictures[0].picture) }}">
-                        {% else %}
-                        <img class="img-polaroid" src="{{ asset('images/sample.jpg') }}">
-                        {% endif %}
-                    </div>
-                    <div class="span2">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span7">
-                    <div class="classroom-pictures">
-                    {% for classroomPicture in classroom.getClassroomPictures %}
-                        <img class="img-polaroid" src="{{ asset(classroomPicture.picture) }}" alt="Up2green"/>
-                    {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="span5">
-            <div class="classroom-details">
-                <h1>{{ classroom.name }}</h1>
-                <div class="classroom-picture">
-                    <img class="img-polaroid" src="{{ asset(classroom.picture) }}" alt="{{ classroom.name }} Up2green" />
-                </div>
-                <div class="classroom-description">
-                    <p>
-                        {{ classroom.description }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
 
-{% block javascripts %}
 {{ parent() }}
 
-<!-- Todo export it to an extern file -->
-<script type="text/javascript">
-    $(function() {
-        $('.classroom-pictures img').click(function(e) {
-            $('.player-container').html($(this).clone());
-        })
-    });
-</script>
+<div class="row-fluid">
+    <div class="grey-box span4">
+        <h4>{{ 'school.informations'|trans }}</h4>
+
+        <dl class="dl-horizontal">
+            <dt>{{ 'name'|trans }}</dt>
+            <dd>{{ classroom.school.name }}</dd>
+            <dt>{{ 'address'|trans }}</dt>
+            <dd>{{ classroom.school.address }}</dd>
+        </dl>
+    </div>
+
+    <div class="grey-box span8">
+        <h4>{{ 'classroom.informations'|trans }}</h4>
+
+        {% if classroom.picture is not empty %}
+            <img src="{{ asset(classroom.picture) }}" alt="{{ 'classroom.picture.alt'|trans }}" />
+        {% endif %}
+
+        <dl class="dl-horizontal">
+            <dt>{{ 'name'|trans }}</dt>
+            <dd>{{ classroom.name }}</dd>
+            <dt>{{ 'year'|trans }}</dt>
+            <dd>{{ classroom.year }}</dd>
+            {% if classroom.description is not empty %}
+            <dt>{{ 'description'|trans }}</dt>
+            <dd>{{ classroom.description }}</dd>
+            {% endif %}
+        </dl>
+    </div>
+</div>
+
+<div class="grey-box">
+
+    <h3>{{ 'pictures'|trans }}</h3>
+
+    {% include 'Up2greenEducationBundle:ClassroomPicture:_list.html.twig' with {
+        'pictures': classroom.classroomPictures
+    } only %}
+
+</div>
+
 {% endblock %}
