@@ -1,0 +1,48 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="grey-box">
+    <h2>{{ 'search_classroom'|trans }}</h2>
+
+    <form method="get" {{ form_enctype(form) }} class="form-horizontal">
+
+        <div class="error">
+            {{ form_errors(form) }}
+        </div>
+
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+    </form>
+</div>
+
+
+<ul class="thumbnails">
+    {% for classroom in pager.currentPageResults %}
+        <li class="span3">
+            {% if classroom.picture is not empty %}
+                <img src="{{ asset(classroom.picture) }}" alt="{{ 'classroom.picture.alt'|trans }}" />
+            {% endif %}
+            <div class="caption">
+                <h3>{{ classroom.name }}</h3>
+                <p><i>{{ classroom.school.name }}<br/>{{ classroom.school.address }}</i></p>
+                <p>{{ classroom.description |raw }}</p>
+                <p>
+                    <a class="btn btn-primary" href="{{ path('education_classroom_show', {'classroom_slug': classroom.slug, 'school_slug': classroom.school.slug }) }}">
+                        {{ 'read_more'|trans }}
+                    </a>
+                </p>
+            </div>
+        </li>
+    {% endfor %}
+
+    <div class="pagerfanta">
+        {{ pagerfanta(pager) }}
+    </div>
+
+</ul>
+
+{% endblock %}
