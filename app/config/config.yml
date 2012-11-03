@@ -127,3 +127,7 @@ craue_twig_extensions: ~
 ornicar_gravatar:
     rating: g
     size: 80
+
+up2green_education:
+    trees_by_kit: 30
+    kit_price: 150

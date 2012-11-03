@@ -4,6 +4,25 @@
 
 {{ parent() }}
 
-{{ 'project.description'|trans }}
+<div class="grey-box">
+
+    <h1>{{ 'education.slogan'|trans }}</h1>
+    <p class="lead">{{ 'education.slogan2'|trans }}</p>
+    
+    <p><i>{{ 'education.goal'|trans }}</i></p>
+    <h3>{{ 'education.children.actors'|trans }}</h3>
+    
+    <p>{{ 'education.desc.p1'|trans|raw }}</p>
+    <p>{{ 'education.desc.p2'|trans|raw }}</p>
+    
+    <ul>
+        <li>
+            {{ 'education.desc.p3'|trans|raw }}
+            <img src="{{ asset('bundles/up2greeneducation/images/picturesByChildren.png') }}" class="pull-right"/>
+        </li>
+        <li>{{ 'education.desc.p4'|trans|raw }}</li>
+    </ul>
+    <div class="clear"></div>
+</div>
 
 {% endblock %}

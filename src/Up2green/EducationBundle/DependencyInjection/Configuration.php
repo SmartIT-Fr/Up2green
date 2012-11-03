@@ -20,9 +20,16 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('up2green_education');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+           ->children()
+           ->scalarNode('trees_by_kit')
+               ->defaultValue('30')
+               ->end()
+           ->scalarNode('kit_price')
+               ->defaultValue('150')
+               ->end()
+           ->end();
+
         return $treeBuilder;
     }
 }

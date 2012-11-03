@@ -18,7 +18,7 @@
                 </ul>
             </li>
             <li><a href="{{ path('up2green_education_donation_list') }}">{{ "donations"|trans }}</a></li>
-            <li class="pull-right">{{ "counter.tree"|trans }}</li>
+            <li class="pull-right"><span style="line-height: 34px; padding: 0 10px">{{ "counter.tree"|transchoice(count, {'%count%': count}) }}</span></li>
         </ul>
     </div>
 </header>

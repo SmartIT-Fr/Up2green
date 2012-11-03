@@ -5,7 +5,7 @@ participate.in.the.project: 'Participez au projet'
 are.you.a.teacher: 'Vous êtes enseignant ?'
 whant.to.sponsor.a.school: 'Vous souhaitez sponsoriser une classe ?'
 donations: Donateurs
-counter.tree: 'Déjà %count% arbres !'
+counter.tree: 'Déjà un arbre planté !|Déjà %count% arbres plantés !'
 submit: Soumettre
 project.description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet lectus dapibus enim sollicitudin tristique. Curabitur vel augue ligula. Aliquam erat volutpat. Praesent urna lacus, dictum nec laoreet hendrerit, volutpat auctor diam. Nullam elit est, condimentum at scelerisque et, blandit nec velit. Aenean rhoncus nibh aliquet enim imperdiet euismod. In sed nunc sed felis consequat interdum ut quis eros. Curabitur vel ligula orci. Nulla eu viverra neque. Suspendisse tincidunt dui molestie elit sollicitudin feugiat. Proin aliquet suscipit felis sit amet aliquam.'
 participate.donation.title: 'Vous souhaitez sponsoriser une ou plusieurs classes ?'
@@ -15,10 +15,13 @@ make.donation: 'Financer un ou plusieurs kits pédagogiques'
 participate.donation.paragraph.3: 'Pour plusieurs kits pédagogiques à livrer à différentes écoles (différentes adresses), nous vous invitons à nous contacter directement :'
 contact: Contactez-nous
 participate.teacher.leading: 'Up2green met à votre disposition un kit pédagogique'
-participate.teacher.description.1: 'Ce kit contient :'
-participate.teacher.kit.content.1: ...
-participate.teacher.kit.content.2: ...
-participate.teacher.kit.content.3: ...
+participate.teacher.description.1: 'La mallette pédagogique « Une classe, une forêt » comprend :'
+participate.teacher.kit.content.1: 'La présentation du projet « Une classe – une forêt » et le mode d''emploi de l''interface en ligne dédiée à l''instituteur.'
+participate.teacher.kit.content.2: 'La présentation des programmes de reforestation communautaire soutenus par le projet'
+participate.teacher.kit.content.3: 'Une affiche présentant la mappemonde et les programmes de reforestation, et permettant aux élèves de choisir leur programme de façon interactive avec une figurine d''arbre à coller.'
+participate.teacher.kit.content.4: 'Un code sécurisé pour valider la réception de la mallette et assurer l''accès de l''instituteur à son espace en ligne de saisie des dessins et d''administration de la page de sa classe.'
+participate.teacher.kit.content.5: 'Le guide « Bâtir la forêt » de l''association Forestiers du Monde et préfacer de Philippe Meirieu.'
+participate.teacher.kit.content.6: '35 attestations de plantation, à personnaliser pour chaque enfant en y inscrivant simplement son prénom, son nom et le programme de reforestation qu''il a choisi.'
 participate.teacher.description.2: 'Votre code sécurisé vous donne accès à un espace personnalisé qui vous permet de :'
 participate.teacher.goal.1: 'Référencer votre classe'
 participate.teacher.goal.2: 'Mettre en ligne les dessins de vos élèves qui seront accessibles dans la forêt de dessins et sur la page dédiée à votre classe.'
@@ -80,3 +83,11 @@ search_school: 'Chercher une école'
 schoolname: 'Nom de l''école'
 classname: Classe
 classroom.edit: Modifier cette classe
+education.slogan: 'Opération « Une Classe, une forêt »'
+education.slogan2: 'Une forêt de dessins pour des miliers d''arbres plantés sur la planète'
+education.goal: 'Objectif : sensibiliser et faire participer les élèves des écoles primaires à la préservation des forêts et la reforestation dans le monde.'
+education.children.actors: 'Nos enfants deviennent des acteurs de la reforestation dans le monde'
+education.desc.p1: 'Le fonctionnement des écosystèmes forestiers et leurs interactions avec la biodiversité, les cycles de l''eau et du carbone font partie des programmes pédagogiques des classes de primaire (du CP au CM2).'
+education.desc.p2: 'L’association Up2green Reforestation a élaboré pour les classes du primaire un <b>kit pédagogique «clé en main»</b> permettant à l’enseignant d’intéresser ses élèves et de les impliquer concrètement.'
+education.desc.p3: '<b>Une implication  pédagogique et ludique…</b><br/>Chaque élève est invité à exprimer sa créativité en dessinant un arbre. En échange de sa <b>contribution  artistique</b>, chaque enfant reçoit un droit à planter arbre dans le monde. Il a la possibilité de choisir un programme  de reforestation  communautaire parmi  une dizaine de programmes  soutenus  par l''association Up2green Reforestation sur la Planète.'
+education.desc.p4: '<b>… pour une action solidaire et partagée au niveau national et international</b><br/>Les dessins sont tous regroupés et exposés sur une page internet du site éducatif de l''association, constituant ainsi une grande « forêt » de dessins. Chaque arbre dessiné représente par ailleurs un arbre réellement planté dans le programme communautaire choisi par l''enfant.'

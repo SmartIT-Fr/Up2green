@@ -24,5 +24,9 @@ class Up2greenEducationExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        foreach( $config as $index => $val ) {
+            $container->setParameter('up2green_education'.'.'.$index, $val);
+        }
     }
 }
