@@ -17,7 +17,7 @@ class Classroom extends BaseClassroom
      */
     public function __construct()
     {
-        $this->year = date('Y');
+        $this->year = (int)date('Y');
     }
 
     /**

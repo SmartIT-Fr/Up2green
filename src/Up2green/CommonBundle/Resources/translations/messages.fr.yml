@@ -34,7 +34,6 @@ contact_email_sent: Votre email a bien été envoyé. Nous vous contacterons dan
 form.order_type.amount: Montant
 optional: Optionnel
 add: Ajouter
-voucher_code_wrong: 'Le code saisi n''existe pas dans la base'
 name: Nom
 address: Adresse
 year: Année

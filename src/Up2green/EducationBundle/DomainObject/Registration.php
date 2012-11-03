@@ -2,16 +2,16 @@
 namespace Up2green\EducationBundle\DomainObject;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Up2green\CommonBundle\Model\Voucher;
 
 use FOS\UserBundle\Propel\User;
+use Up2green\EducationBundle\Model\Classroom;
+use Up2green\EducationBundle\DomainObject\School;
+use Up2green\CommonBundle\Model\Voucher;
+use Up2green\CommonBundle\Model\VoucherQuery;
+
 
 /**
  * Registration domain object
- *
- * @Assert\Callback(methods={
- * 	{"Up2green\CommonBundle\Model\Voucher", "isValid"}
- * })
  */
 class Registration implements DomainObjectInterface
 {
@@ -30,9 +30,6 @@ class Registration implements DomainObjectInterface
      */
     public $school;
 
-    /**
-     * @Assert\Valid()
-     */
     protected $voucher;
 
     /**
@@ -40,12 +37,11 @@ class Registration implements DomainObjectInterface
      * @param Classroom $classroom The classroom
      * @param School    $school    The school
      */
-    public function __construct(User $account = null, $classroom = null, $school = null, Voucher $voucher = null)
+    public function __construct(Voucher $voucher)
     {
-        $this->account   = $account;
-        $this->classroom = $classroom;
-        $this->school    = $school;
-        $this->voucher    = $voucher;
+        $this->voucher   = $voucher;
+        $this->account   = new User();
+        $this->classroom = new Classroom();
     }
 
     /**
@@ -65,7 +61,7 @@ class Registration implements DomainObjectInterface
         $this->classroom->save();
 
         $this->voucher->setIsActive(false);
-        $this->voucher->setUsedByd($this->account->getId());
+        $this->voucher->setUsedBy($this->account->getId());
         $this->voucher->save();
     }
 
@@ -83,5 +79,13 @@ class Registration implements DomainObjectInterface
     public function getVoucher()
     {
         return $this->voucher;
+    }
+
+    /**
+     * @Assert\True(message="voucher_code_wrong")
+     */
+    public function isVoucherValid()
+    {
+        return VoucherQuery::create()->canBeUsed($this->voucher->getCode());
     }
 }

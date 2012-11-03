@@ -28,6 +28,11 @@ class Voucher extends BaseVoucher
         $this->prefix = $prefix;
     }
 
+    /**
+     * @param \PropelPDO $con
+     *
+     * @return boolean
+     */
     public function preInsert(\PropelPDO $con = null)
     {
         if (empty($this->code)) {
@@ -37,15 +42,23 @@ class Voucher extends BaseVoucher
         return parent::preInsert($con);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->code;
     }
 
-    public static function isValid($voucher, ExecutionContext $context)
+    /**
+     * @param Voucher          $voucher
+     * @param ExecutionContext $context
+     */
+    public static function isValid(Voucher $voucher, ExecutionContext $context)
     {
-        $result = VoucherQuery::create()->findOneByCode($voucher->getCode());
-        if (empty($result)) {
+        $isValid = VoucherQuery::create()->canBeUsed($voucher->getCode());
+
+        if (!$isValid) {
             $context->addViolationAtSubPath('code', 'voucher_code_wrong', array(), null);
         }
     }

@@ -12,6 +12,17 @@ class VoucherQuery extends BaseVoucherQuery
     public static $length = 9;
 	public static $acceptedChars = 'ABCDEFGHKLMNOPQRSTWXYZ123456789';
 
+    /**
+     * @param string $code
+     * @return boolean
+     */
+    public function canBeUsed($code)
+    {
+        $result = $this->findOneByCode($code);
+
+        return (!empty($result) && $result->getIsActive());
+    }
+
 	/**
 	 * @param: String $prefix
 	 * @param: Array $exclude liste de code a exclure lors de l'exécution récursive

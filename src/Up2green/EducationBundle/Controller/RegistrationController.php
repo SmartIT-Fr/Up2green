@@ -36,14 +36,15 @@ class RegistrationController extends Controller
      */
     public function newAction(Request $request, Voucher $voucher)
     {
-        $registration = new DomainObject\Registration();
-        $registration->setVoucher($voucher);
+        $registration = new DomainObject\Registration($voucher);
 
         $form = $this->createForm('education_registration', $registration);
 
         if ('POST' === $request->getMethod()) {
+
             $form->bind($request);
-            if (true === $form->isValid()) {
+
+            if ($form->isValid()) {
                 $registration->save();
 
                 // creating the ACL

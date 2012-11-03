@@ -2,9 +2,8 @@ Up2green\EducationBundle\Model\Classroom:
     properties:
         year:
             - NotBlank: ~
-#            FIXME: I dont know why but i never pass with this constraint :
-#            - Type:
-#                type: Integer
+            - Type:
+                type: integer
         description:
             - MaxLength: 2000
         name:
@@ -30,9 +29,3 @@ Up2green\EducationBundle\Model\WaitingList:
             - NotBlank: ~
             - Type:
                 type: integer
-
-Up2green\EducatuinBundle\DomainObject\Registration:
-    constraints:
-        - Callback:
-            methods:
-                - [Up2green\CommonBundle\Model\Voucher, isValid]

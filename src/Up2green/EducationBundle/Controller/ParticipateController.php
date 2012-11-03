@@ -23,7 +23,9 @@ class ParticipateController extends Controller
     public function teacherAction(Request $request)
     {
         $voucher = new EducationVoucher();
-        $form = $this->createForm('education_voucher', $voucher, array('validation_groups' => array('use')));
+        $form = $this->createForm('education_voucher', $voucher, array(
+            'validation_groups' => array('use')
+        ));
 
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
