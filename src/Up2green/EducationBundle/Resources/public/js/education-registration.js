@@ -18,11 +18,11 @@ $(function() {
     }
 
     function showSelectSchool() {
-        $('#education_registration_school_school_list_control_group').show();
+        $('#education_registration_school_schoolList_control_group').show();
     }
 
     function hideSelectSchool() {
-        $('#education_registration_school_school_list_control_group').hide();
+        $('#education_registration_school_schoolList_control_group').hide();
     }
 
     hideSelectSchool();

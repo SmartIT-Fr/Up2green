@@ -22,18 +22,24 @@
 {% endblock %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
-{{ form_widget(form) }}
-<div class"controls">
-    <div class="control-group">
-        <input type="submit" class="btn" value="submit"/>
-    </div>
-</div>
-</form>
-{% endblock %}
 
-{% block javascripts %}
 {{ parent() }}
 
-<script type="text/javascript" src="{{ asset('bundles/up2greeneducation/js/education-registration.js') }}"></script>
+<div class="grey-box">
+    <form method="post" enctype="multipart/form-data">
+    {{ form_widget(form) }}
+    <div class"controls">
+        <div class="control-group">
+            <input type="submit" class="btn" value="submit"/>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script type="text/javascript" src="{{ asset('bundles/up2greeneducation/js/education-registration.js') }}"></script>
+
 {% endblock %}
