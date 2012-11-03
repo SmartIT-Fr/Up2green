@@ -1,5 +1,5 @@
 <?php
-namespace Up2green\EducationBundle\Form\Type;
+namespace Up2green\CommonBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,7 +16,7 @@ class VoucherType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('voucher', 'common_voucher');
+        $builder->add('code');
     }
 
     /**
@@ -25,7 +25,7 @@ class VoucherType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\EducationVoucher'
+            'data_class' => 'Up2green\CommonBundle\Model\Voucher'
         ));
     }
 
@@ -34,6 +34,6 @@ class VoucherType extends AbstractType
      */
     public function getName()
     {
-        return 'education_voucher';
+        return 'common_voucher';
     }
 }

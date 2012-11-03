@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="default" namespace="Up2green\ReforestationBundle\Model" defaultIdMethod="native">
 
+    <table name="reforestation_voucher">
+
+        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="category_id" type="INTEGER" required="true" />
+        <column name="voucher_id" type="INTEGER" required="true" />
+
+        <foreign-key foreignTable="voucher">
+            <reference local="voucher_id" foreign="id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="voucher_category">
+            <reference local="category_id" foreign="id" />
+        </foreign-key>
+
+        <behavior name="delegate">
+            <parameter name="to" value="voucher" />
+        </behavior>
+
+    </table>
+
     <table name="organization">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
         <column name="url" type="VARCHAR" size="128" />

@@ -2,12 +2,12 @@
 
 namespace Up2green\EducationBundle\Controller;
 
-use Up2green\CommonBundle\Model\EducationVoucher;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+use Up2green\EducationBundle\Model\EducationVoucher;
 
 /**
  * Participate controller
@@ -30,7 +30,7 @@ class ParticipateController extends Controller
 
             if ($form->isValid()) {
                 return $this->redirect($this->generateUrl('education.registration.new', array(
-                	'token' => $form->get('code')->getData()
+                	'token' => $form->get('voucher')->get('code')->getData()
                 )));
             }
         }

@@ -5,13 +5,19 @@ up2green_admin_homepage:
 up2green_admin_school:
     resource: "@Up2greenAdminBundle/Controller/School/"
     type:     admingenerator
-    prefix:   /admin/school
+    prefix:   /school
 
 up2green_admin_classroom:
     resource: "@Up2greenAdminBundle/Controller/Classroom/"
     type:     admingenerator
+    prefix:   /classroom
 
 up2green_admin_waitingList:
     resource: "@Up2greenAdminBundle/Controller/WaitingList/"
     type:     admingenerator
-    prefix:   /admin/waiting-list
+    prefix:   /waiting-list
+
+up2green_admin_educationVoucher:
+    resource: "@Up2greenAdminBundle/Controller/EducationVoucher/"
+    type:     admingenerator
+    prefix:   /education-voucher

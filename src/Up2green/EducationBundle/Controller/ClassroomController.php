@@ -46,7 +46,6 @@ class ClassroomController extends Controller
     public function editAction(Request $request, Model\Classroom $classroom)
     {
         $classroomPicture = new Model\ClassroomPicture();
-        $classroomPicture->setClassroom($classroom);
 
         $formGeneral = $this->createForm('education_classroom', $classroom);
         $formPicture = $this->createForm('education_classroom_picture', $classroomPicture);
@@ -66,6 +65,7 @@ class ClassroomController extends Controller
 
                 if ($formPicture->isValid()) {
 
+                    $classroomPicture->setClassroom($classroom);
                     $classroomPicture->save();
 
                     // creating the ACL

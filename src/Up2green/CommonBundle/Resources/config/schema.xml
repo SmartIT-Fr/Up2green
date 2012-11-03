@@ -9,23 +9,15 @@
         <column name="is_partner_only" type="BOOLEAN" defaultValue="false" />
     </table>
 
-    <table name="voucher" abstract="true">
+    <table name="voucher">
 
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="category_id" type="INTEGER" />
         <column name="code" type="VARCHAR" size="128" required="true" />
         <column name="used_by" type="INTEGER" />
         <column name="owner_id" type="INTEGER" />
-        <column name="log_ip" type="VARCHAR" size="15" />
-        <column name="log_email" type="VARCHAR" size="255" />
-        <column name="log_is_newsletter" type="BOOLEAN" required="true" defaultValue="true" />
 
         <behavior name="activatable" />
         <behavior name="timestampable" />
-
-        <foreign-key foreignTable="voucher_category">
-            <reference local="category_id" foreign="id" />
-        </foreign-key>
 
         <foreign-key foreignTable="fos_user" phpName="user">
             <reference local="used_by" foreign="id" />
@@ -37,14 +29,7 @@
 
         <unique>
             <unique-column name="code" />
-            <unique-column name="class_key" />
         </unique>
-
-        <column name="class_key" type="INTEGER" inheritance="single">
-            <inheritance key="1" class="Voucher"/>
-            <inheritance key="2" class="ReforestationVoucher" extends="Voucher"/>
-            <inheritance key="3" class="EducationVoucher" extends="Voucher"/>
-        </column>
 
     </table>
 

@@ -34,6 +34,7 @@ form.account_type.re_password: 'Répéter mot de passe'
 form.classroom_type.name: Nom
 form.classroom_type.picture: 'Photo de classe'
 form.classroom_type.description: Description
+form.classroom_type.year: Année
 form.school_type.school: 'Choisir une école ?'
 form.school_type.school_in: 'Ecole existante'
 form.school_type.school_out: 'Créer une école'

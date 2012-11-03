@@ -2,6 +2,7 @@
 namespace Up2green\EducationBundle\DomainObject;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Up2green\CommonBundle\Model\Voucher;
 
 use FOS\UserBundle\Propel\User;
 
@@ -29,18 +30,22 @@ class Registration implements DomainObjectInterface
      */
     public $school;
 
-    protected $code;
+    /**
+     * @Assert\Valid()
+     */
+    protected $voucher;
 
     /**
      * @param User      $account   The account
      * @param Classroom $classroom The classroom
      * @param School    $school    The school
      */
-    public function __construct(User $account = null, $classroom = null, $school = null)
+    public function __construct(User $account = null, $classroom = null, $school = null, Voucher $voucher = null)
     {
         $this->account   = $account;
         $this->classroom = $classroom;
         $this->school    = $school;
+        $this->voucher    = $voucher;
     }
 
     /**
@@ -58,15 +63,25 @@ class Registration implements DomainObjectInterface
         $this->classroom->setUser($user);
         $this->classroom->setSchool($school);
         $this->classroom->save();
+
+        $this->voucher->setIsActive(false);
+        $this->voucher->setUsedByd($this->account->getId());
+        $this->voucher->save();
     }
 
-    public function setCode($code)
+    /**
+     * @param Voucher $voucher
+     */
+    public function setVoucher(Voucher $voucher)
     {
-        $this->code = $code;
+        $this->voucher = $voucher;
     }
 
-    public function getCode()
+    /**
+     * @return Voucher
+     */
+    public function getVoucher()
     {
-        return $this->code;
+        return $this->voucher;
     }
 }

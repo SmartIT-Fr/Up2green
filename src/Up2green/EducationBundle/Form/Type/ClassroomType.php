@@ -20,12 +20,16 @@ class ClassroomType extends AbstractType
             ->add('name', 'text', array(
                 'label' => 'form.classroom_type.name'
             ))
+            ->add('year', 'integer', array(
+                'label' => 'form.classroom_type.year'
+            ))
             ->add('uploadedFile', 'file', array(
                 'label'    => 'form.classroom_type.picture',
                 'required' => false,
             ))
             ->add('description', 'textarea', array(
-                'label' => 'form.classroom_type.description'
+                'label' => 'form.classroom_type.description',
+                'required' => false,
             ));
     }
 

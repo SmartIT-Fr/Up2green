@@ -33,6 +33,10 @@
             <dd>{{ classroom.description }}</dd>
             {% endif %}
         </dl>
+
+        {% if is_granted('EDIT', classroom)  %}
+        <a class="btn pull-right btn-primary" href="{{ path('education_classroom_edit', { 'slug': classroom.slug, }) }}"
+        {% endif %}
     </div>
 </div>
 

@@ -20,8 +20,6 @@ Up2green\CommonBundle\Model\Voucher:
     properties:
         code:
             - NotBlank: { groups: [use] }
-        used_by:
-            - 'Null': { groups: [use] }
     constraints:
         - Callback:
             methods:

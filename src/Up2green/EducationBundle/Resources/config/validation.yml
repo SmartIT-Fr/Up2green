@@ -2,14 +2,15 @@ Up2green\EducationBundle\Model\Classroom:
     properties:
         year:
             - NotBlank: ~
-            - Type:
-                type: integer
+#            FIXME: I dont know why but i never pass with this constraint :
+#            - Type:
+#                type: Integer
         description:
             - MaxLength: 2000
         name:
             - NotBlank: ~
             - MaxLength: 30
-        pictureFile:
+        uploadedFile:
             - Image: ~
 
 Up2green\EducationBundle\Model\WaitingList:

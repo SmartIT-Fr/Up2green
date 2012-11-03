@@ -4,6 +4,8 @@ namespace Up2green\EducationBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,9 +14,11 @@ use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
 use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 
-use Up2green\EducationBundle\DomainObject;
-
 use FOS\UserBundle\Model\UserInterface;
+
+use Up2green\EducationBundle\DomainObject;
+use Up2green\EducationBundle\Model\EducationVoucher;
+use Up2green\CommonBundle\Model\Voucher;
 
 /**
  * Registration controller
@@ -25,14 +29,15 @@ class RegistrationController extends Controller
      * @param Request $request
      *
      * @Route("/registration/new/{token}", name="education.registration.new")
+     * @ParamConverter("voucher", class="Up2green\CommonBundle\Model\Voucher", options={"mapping"={"token":"code"}})
      * @Template()
      *
      * @return array
      */
-    public function newAction(Request $request, $token)
+    public function newAction(Request $request, Voucher $voucher)
     {
         $registration = new DomainObject\Registration();
-        $registration->setCode($token);
+        $registration->setVoucher($voucher);
 
         $form = $this->createForm('education_registration', $registration);
 
@@ -55,7 +60,7 @@ class RegistrationController extends Controller
 
                 $this->container->get('fos_user.user_manager')->updateUser($registration->account);
 
-                $this->get('session')->setFlash('fos_user_success', 'registration.flash.user_created');
+                $this->get('session')->setFlash('success', 'registration.flash.user_created');
                 $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
 
                 $this->authenticateUser($registration->account, $response);

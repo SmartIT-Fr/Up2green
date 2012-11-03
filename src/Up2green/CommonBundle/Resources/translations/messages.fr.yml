@@ -40,3 +40,4 @@ address: Adresse
 year: Année
 description: Description
 read_more: Détails
+registration.flash.user_created: Votre compte a été créé avec succès !
