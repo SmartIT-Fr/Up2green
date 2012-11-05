@@ -8,6 +8,16 @@ FOS\UserBundle\Propel\User:
         locked: '0'
         expired: '0'
         credentials_expired: '0'
+    User_2:
+        username: condamine-teacher
+        email: webmaster@up2green.com
+        enabled: '1'
+        salt: '12345'
+        password: up2test
+        locked: '0'
+        expired: '0'
+        credentials_expired: '0'
+        roles: '|ROLE_USER|ROLE_TEACHER|'
 Up2green\BlogBundle\Model\Article:
     Article_1:
         is_active: '1'
@@ -45,27 +55,87 @@ Up2green\BlogBundle\Model\ArticleI18n:
         summary: ''
         description: |
           <p>\r\n\tLe <span>présent</span> site web <span>est</span> accessible via <span>l'adresse</span> URL : <a href="http://www.up2green.com/">http://<span>association.up2green.com</span>/</a></p>\r\n<p>\r\n\tUP2GREEN REFORESTATION est une Association Loi 1901 a but non lucratif.</p>\r\n<p>\r\n\tDate de parution au Journal Officiel : 28/11/2009</p>\r\n<p>\r\n\tN° d'identification R.N.A. : <b><span>W751202385</span></b></p>\r\n<p>\r\n\t<br />\r\n\tNo de <span>parution</span> : <b>20090048</b></p>\r\n<p>\r\n\t<span>Département</span> (<span>Région</span>)<b><span> : </span></b><b>Paris (<span>Île-de-France</span>)</b></p>\r\n
+
 Up2green\ReforestationBundle\Model\Organization:
-    Organization_1:
+    Organization_2:
         url: 'http://www.treesftf.org/'
         title: 'Trees For The Future'
         summary: |
           <p>\r\n\t<span style="font-size: 11px;">Since 1989, Trees for the Future has been helping communities around the world plant trees. Through seed distribution, agroforestry training, and our country programs, we have empowered rural groups to restore tree cover to their lands. Planting trees protects the environment and helps to preserve traditional livelihoods and cultures for generations.</span></p>\r\n
         description: |
           <p>\r\n\t<span style="font-size: 11px;">Our mission and history demonstrate how dedicated we are to sustainable agroforestry.</span></p>\r\n
+        is_active: '0'
+    Organization_5:
+        url: 'http://www.calamada.org/'
         is_active: '1'
+    Organization_6:
+        url: 'http://www.oceanium.org/'
+        is_active: '1'
+    Organization_7:
+        url: 'http://www.projetsplusactions.org/'
+        is_active: '1'
+    Organization_8:
+        url: 'http://www.up2green.com/'
+        is_active: '1'
+    Organization_9:
+        url: 'http://www.onf.fr/'
+        is_active: '1'
+    Organization_10:
+        url: 'http://www.ishpingo.org/'
+        is_active: '1'
+    Organization_11:
+        url: 'http://ecopreservationsociety.org/site/'
+        is_active: '1'
+    Organization_12:
+        url: 'http://www.latitudsur.org/'
+        is_active: '1'
+    Organization_13:
+        url: 'http://www.pattfoundation.org/'
+        is_active: '1'
+
 Up2green\ReforestationBundle\Model\Program:
-    Program_1:
-        organization_id: Organization_1
-        title: 'Burkina Faso'
+    Program_8:
+        organization_id: Organization_2
+        title: Burkina Faso
+        added_trees: 5000
         summary: |
           <p>\r\n\tSahel, Nord du Burkina Faso. Lutte contre la d&eacute;sertification et reboisements des parcelles touaregs et peules.</p>\r\n
         description: |
           <p>\r\n\t<img alt="" src="/uploads/ck/images/Plants-2.jpg" style="width: 230px; height: 173px;" /><img alt="" src="/uploads/ck/images/IMG_0191.jpg" style="width: 230px; height: 173px;" /><img alt="" src="/uploads/ck/images/IMG_0496.jpg" style="width: 230px; height: 153px;" /><img alt="" src="/uploads/ck/images/IMG_0255.jpg" style="width: 230px; height: 153px;" /></p>\r\n<p>\r\n\t<strong>Enjeux</strong> : lutter contre l&#39;avanc&eacute;e du d&eacute;sert, lutter contre la pauvret&eacute;</p>\r\n<p>\r\n\t<strong>Partenaire</strong> : Projets plus actions</p>\r\n<p>\r\n\t<strong>Programme</strong> : Developpement du sahel burkinabais</p>\r\n<p>\r\n\t<strong>Localisation </strong>: Gandefabou, province de l&#39;Oudalan, sahel du Burkina Faso</p>\r\n<p>\r\n\t<strong>B&eacute;n&eacute;ficiaires</strong> : Les villageois du campement touareg de Gandefabou</p>\r\n<p>\r\n\t<strong>Implication Up2Green </strong>: contribuer aux activit&eacute;s de reboisement. Former les villageois pour le d&eacute;veloppement de leurs propres p&eacute;pini&egrave;res.</p>\r\n<p>\r\n\t&nbsp;</p>\r\n<p>\r\n\t<strong>Description plus d&eacute;taill&eacute;e :</strong></p>\r\n<p>\r\n\t&nbsp;</p>\r\n<p>\r\n\t<u><em>Contexte</em></u>:</p>\r\n<p style="text-align: justify;">\r\n\tL&#39;association Projets plus Action poursuit, g&egrave;re et coordonne un programme de d&eacute;veloppement &eacute;conomique dans le Sahel Burkinabais et plus particuli&egrave;rement du campement de Gand&eacute;fabou Ce campement d&rsquo;accueil est de type solidaire, car en effet, son but est de permettre le d&eacute;veloppement local, d&rsquo;am&eacute;liorer les conditions de vie des villageois, de limiter l&rsquo;exode vers la C&ocirc;te d&rsquo;Ivoire pour travailler dans les champs de coton et les exploitations banani&egrave;res, de cr&eacute;er des emplois et donc de la richesse, de prot&eacute;ger la faune et la flore. Pour se faire, l&rsquo;association m&egrave;ne dif&eacute;rentes actions aupr&egrave;s de la population du village de Gandefabou et reverse une partie des b&eacute;n&eacute;fices g&eacute;n&eacute;r&eacute;s par l&rsquo;activit&eacute; touristique pour le d&eacute;veloppement local. Cette r&eacute;gion du Burkina Faso est en effet particuli&egrave;rement aride, difficile et soumise aux variations climatiques d&#39;o&ugrave; l&#39;importance de reverdir la zone.</p>\r\n<p style="text-align: justify;">\r\n\t&nbsp;</p>\r\n<p style="text-align: justify;">\r\n\t<u><em>Objectifs:</em></u></p>\r\n<p style="text-align: justify;">\r\n\t- appuyer financi&egrave;rement les populations nomades</p>\r\n<p style="text-align: justify;">\r\n\t- limiter l&#39;&eacute;rosion des sols par la plantations d&#39;arbres</p>\r\n<p style="text-align: justify;">\r\n\t- fournir du fourrage par la plantaion de l&eacute;gumineuses</p>\r\n<p style="text-align: justify;">\r\n\t- cr&eacute;er une activit&eacute; &eacute;conomique durable par la plantation d&#39;esp&egrave;ces valorisables</p>\r\n<p style="text-align: justify;">\r\n\t- am&eacute;ilorer la qualit&eacute; du site &eacute;cotouristique</p>\r\n
         max_tree: '15000'
-        added_trees: '5000'
-        is_active: '1'
-
+        is_active: 1
+    Program_10:
+        title: Madagascar
+        added_trees: 8000
+        is_active: 1
+    Program_11:
+        title: Sénégal
+        added_trees: 0
+        is_active: 1
+    Program_12:
+        title: Bénin
+        added_trees: 3102
+        is_active: 1
+    Program_13:
+        title: Equateur
+        added_trees: 9112
+        is_active: 1
+    Program_14:
+        title: Pérou
+        added_trees: 5627
+        is_active: 1
+    Program_15:
+        title: Colombie
+        added_trees: 6582
+        is_active: 1
+    Program_20:
+        title: Costa Rica
+        added_trees: 4512
+        is_active: 1
+    Program_21:
+        title: Thailande
+        added_trees: 18000
+        is_active: 1
 Up2green\ReforestationBundle\Model\Partner:
     Partner_1:
         user_id: User_1
@@ -74,40 +144,160 @@ Up2green\ReforestationBundle\Model\Partner:
           <p>\r\n\t<span style="font-size: 14px;"><strong>DYRUP </strong>vous offre <strong>un arbre &agrave; planter </strong>sur la Plan&egrave;te parmi les programmes d&#39;<strong>agroforesterie</strong><strong> </strong>qu&#39;elle soutient en 2012 !</span></p>\r\n
         url: 'http://dyrup.fr/'
 
+Up2green\CommonBundle\Model\Voucher:
+    Voucher_1:
+        code: EDUCTEST1
+        used_by: User_2
+        is_active: 0
+    Voucher_2:
+        code: EDUCTEST2
+        is_active: 1
+    Voucher_3:
+        code: EDUCTEST3
+        is_active: 1
+    Voucher_4:
+        code: EDUCTEST4
+        is_active: 1
+    Voucher_5:
+        code: EDUCTEST5
+        is_active: 1
+    Voucher_6:
+        code: EDUCTEST6
+        is_active: 1
+    Voucher_7:
+        code: EDUCTEST7
+        is_active: 1
+    Voucher_8:
+        code: EDUCTEST8
+        is_active: 1
+    Voucher_9:
+        code: EDUCTEST9
+        is_active: 1
+
+Up2green\EducationBundle\Model\EducationVoucher:
+    EducationVoucher_1:
+        voucher_id: Voucher_1
+    EducationVoucher_2:
+        voucher_id: Voucher_2
+    EducationVoucher_3:
+        voucher_id: Voucher_3
+    EducationVoucher_4:
+        voucher_id: Voucher_4
+    EducationVoucher_5:
+        voucher_id: Voucher_5
+    EducationVoucher_6:
+        voucher_id: Voucher_6
+    EducationVoucher_7:
+        voucher_id: Voucher_7
+    EducationVoucher_8:
+        voucher_id: Voucher_8
+    EducationVoucher_9:
+        voucher_id: Voucher_9
+
 Up2green\EducationBundle\Model\School:
     School_1:
-        name: Ecole des fans
-        address: "55 rue des enfants, Paris, France"
-    School_2:
-        name: Ecole des clubs
-        address: "55 rue des clubs, Paris, France"
+        name: |
+          Ecole primaire "Les Condamines"
+        address: "Versailles, France"
+
 Up2green\EducationBundle\Model\Classroom:
     Classroom_1:
-        name: CE1 A
-        year: 2012
-        description: "La classe de bidule c'est trop beau la vie, nous sommes to cool ! youpi pouet"
+        name: CE1
+        year: 2011
+        description: |
+          La classe de CE1 de l'école des Condamines a étudié cette année (2011/2012) la forêt et les écosystèmes forestiers. Chaque élève a dessiné un arbre selon différentes techniques. Les dessins correspondants sont présentés ici. En échange de leur contribution artistique, chaque enfant a pu choisir où planter un "vrai" arbre sur la Planète, dans l'un des 9 programmes de reforestation co-développés et soutenus par l'association Up2green Reforestation. Les élèves se sont ainsi connectés en classe sur la plate-forme de plantation en ligne de l'association et ont sélectionné sur la mapmonde intéractive le programme de leur choix, avant de recevoir une attestation à leur nom. Dans le cadre du projet, chaque enfant a également pris en photo un arbre de son choix en indiquant son essence et sa localisation. Ces photos ont été imprimées sur des T-shirt, puis ces derniers ont été mis en vente. Les quelques fonds ainsi collectés ont été reversés aux associations du WWF et GoodPlanet qui ont fourni pendant l'année des posters pédagogiques.
         school_id: School_1
-        picture: /images/placeholder.jpg
-        user_id: User_1
-    Classroom_2:
-        name: CE1 B
-        year: 2012
-        description: "La classe de toto, c'est trop beau la vie, nous sommes to cool ! youpi pouet"
-        school_id: School_1
-        picture: /images/placeholder.jpg
-        user_id: User_1
+        picture: /uploads/classrooms/1/photo.jpg
+        user_id: User_2
+
 Up2green\EducationBundle\Model\ClassroomPicture:
     ClassroomPicture_1:
         classroom_id: Classroom_1
-        program_id: Program_1
-        picture: images/placeholder.jpg
-        student: Girawyr Ethilawyn
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/1.jpg
+        student: Adam
     ClassroomPicture_2:
         classroom_id: Classroom_1
-        program_id: Program_1
-        picture: images/placeholder.jpg
-        student: Seron Wiciratlan
-Up2green\ReforestationBundle\Model\Program:
-    Program_1:
-        title: Mali
-        added_trees: 0
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/2.jpg
+        student: Agathe
+    ClassroomPicture_3:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/3.jpg
+        student: Alix
+    ClassroomPicture_4:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/4.jpg
+        student: Beatrice
+    ClassroomPicture_5:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/5.jpg
+        student: Camille
+    ClassroomPicture_6:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/6.jpg
+        student: Capucine
+    ClassroomPicture_7:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/7.jpg
+        student: Esteban
+    ClassroomPicture_8:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/8.jpg
+        student: Evaelle
+    ClassroomPicture_9:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/9.jpg
+        student: Ilame
+    ClassroomPicture_10:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/10.jpg
+        student: Ines
+    ClassroomPicture_11:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/11.jpg
+        student: Jean
+    ClassroomPicture_12:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/12.jpg
+        student: Julien
+    ClassroomPicture_13:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/13.jpg
+        student: Juliette
+    ClassroomPicture_14:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/14.jpg
+        student: Luna
+    ClassroomPicture_15:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/15.jpg
+        student: Paul
+    ClassroomPicture_16:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/16.jpg
+        student: Rémi
+    ClassroomPicture_17:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/17.jpg
+        student: Yohan
+    ClassroomPicture_18:
+        classroom_id: Classroom_1
+        program_id: Program_8
+        picture: /uploads/classrooms/1/pictures/18.jpg
+        student: Zoé

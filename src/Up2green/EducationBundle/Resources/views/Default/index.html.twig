@@ -4,28 +4,12 @@
 
 {{ parent() }}
 
-<div class="container classroom-pictures">
-{% for picture in pictures %}
-<span>
-    <a href="#myModal-{{ picture.id }}" role="button" class="btn" data-toggle="modal" data-target="#myModal-{{ picture.id }}">
-        <img class="classroom-picture img-polaroid" src="{{ asset(picture.picture) }}" />
-    </a>
-</span>
-<div class="modal hide" id="myModal-{{ picture.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3>{{ picture.classroom.school.name }} {{ picture.classroom.name }}</h3>
-  </div>
-  <div class="modal-body">
-    <p>
-        <img class="classroom-picture img-polaroid" src="{{ asset(picture.picture) }}" />
-    </p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
-{% endfor %}
-</div>
+<ul class="classroom-pictures thumbnails">
+    {% for picture in pictures %}
+        <li class="span1">
+            <img class="classroom-picture img-polaroid" src="{{ asset(picture.picture) | imagine_filter('thumb_75x75_outbound')  }}" />
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

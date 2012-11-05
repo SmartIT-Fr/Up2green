@@ -3,7 +3,7 @@
     {% for picture in pictures %}
         <li class="span2">
             <div class="thumbnail">
-                <img src="{{ asset(picture.picture) }}" alt="">
+                <img src="{{ asset(picture.picture) | imagine_filter('thumb_130x130_outbound') }}" alt="">
                 <h5>{{ picture.student|capitalize }}</h5>
                 <p>{{ picture.program|capitalize }}</p>
                 {% if withActions is defined and withActions %}

@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Craue\TwigExtensionsBundle\CraueTwigExtensionsBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
 
             // Payment
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),

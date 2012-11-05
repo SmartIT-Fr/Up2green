@@ -35,7 +35,7 @@
         </dl>
 
         {% if is_granted('EDIT', classroom)  %}
-        <a class="btn pull-right btn-primary" href="{{ path('education_classroom_edit', { 'slug': classroom.slug, }) }}">
+        <a class="btn pull-right btn-primary" href="{{ path('education_classroom_edit', { 'id': classroom.id, }) }}">
             {{ 'classroom.edit'|trans }}
         </a>
         {% endif %}

@@ -40,9 +40,12 @@ class Classroom extends BaseClassroom
      * @param PropelPDO $con
      *
      * @return int
+     * FIXME We are doing 2 save to use the id in the filepath
      */
     public function save(\PropelPDO $con = null)
     {
+        parent::save($con);
+
         $this->upload();
 
         return parent::save($con);
@@ -64,7 +67,8 @@ class Classroom extends BaseClassroom
             @unlink($webDirectory . $this->picture);
         }
 
-        $path      = sprintf('/uploads/classrooms/%d/', $this->getClassroom()->getId());
+        $path      = sprintf('/uploads/classrooms/%d/', $this->getId());
+
         $extension = $this->uploadedFile->guessExtension();
 
         if (!$extension) {

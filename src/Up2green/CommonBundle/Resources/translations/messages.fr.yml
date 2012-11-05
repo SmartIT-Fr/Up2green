@@ -19,7 +19,7 @@ lastname: Nom de famille
 email: Email
 telephone: Numéro de téléphone
 kits_number: Nombre de kits
-title: Titre
+form.address.title: Nom
 street_line_1: Adresse 1
 street_line_2: Adresse 2
 zipcode: Code postal

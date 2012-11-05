@@ -45,7 +45,8 @@
         "doctrine/dbal": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.0.*",
         "ornicar/gravatar-bundle" : "dev-master",
-        "craue/twigextensions-bundle": "dev-master"
+        "craue/twigextensions-bundle": "dev-master",
+        "liip/imagine-bundle": "dev-master"
     },
     "repositories": [
         {

@@ -68,7 +68,7 @@ class RegistrationController extends Controller
 
                 // Todo Redirect to an other place
                 return $this->redirect($this->generateUrl('education_classroom_edit', array(
-                    'slug' => $registration->classroom->getSlug()
+                    'id' => $registration->classroom->getId()
                 )));
             }
         }

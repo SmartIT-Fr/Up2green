@@ -35,6 +35,10 @@ up2green_common:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
+_imagine:
+    resource: .
+    type:     imagine
+
 _assetic:
     resource: .
     type:     assetic

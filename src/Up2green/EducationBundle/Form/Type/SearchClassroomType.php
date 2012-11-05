@@ -12,6 +12,8 @@ use Symfony\Component\Form\AbstractType;
  */
 class SearchClassroomType extends AbstractType
 {
+    const FIRST_SEARCHABLE_YEAR = 2011;
+
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -23,7 +25,7 @@ class SearchClassroomType extends AbstractType
         $years = array('' => '');
         $currentYear = date('Y');
 
-        for ($i = 2012; $i <= $currentYear; $i++) {
+        for ($i = static::FIRST_SEARCHABLE_YEAR; $i <= $currentYear; $i++) {
             $years[$i] = $i;
         }
 

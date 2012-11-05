@@ -15,7 +15,12 @@ use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use JMS\SecurityExtraBundle\Annotation\SecureParam;
 
+use Pagerfanta\Adapter\PropelAdapter;
+use Pagerfanta\Pagerfanta;
+
 use Up2green\EducationBundle\Model;
+use Up2green\EducationBundle\Model\ClassroomQuery;
+use Up2green\EducationBundle\Form\Type\SearchClassroomType;
 
 /**
  * Classroom controller
@@ -38,7 +43,7 @@ class ClassroomController extends Controller
     /**
      * @param Model\Classroom $classroom
      *
-     * @Route("/classroom/{slug}/edit", name="education_classroom_edit")
+     * @Route("/classroom/{id}/edit", name="education_classroom_edit")
      * @Secure(roles="ROLE_TEACHER")
      * @SecureParam(name="classroom", permissions="EDIT")
      * @Template
@@ -85,6 +90,38 @@ class ClassroomController extends Controller
             'classroom'   => $classroom,
             'formGeneral' => $formGeneral->createView(),
             'formPicture' => $formPicture->createView(),
+        );
+    }
+
+    /**
+     * Search page
+     *
+     * @param Request $request
+     *
+     * @Route("/classrooms", name="education_classroom_list")
+     * @Template()
+     * @return array
+     */
+    public function listAction(Request $request)
+    {
+        $form = $this->createForm(new SearchClassroomType());
+
+        $query = ClassroomQuery::create();
+
+        $form->bind($request);
+
+        if ($form->isValid()) {
+            $query->filterSearch($form->getData());
+        }
+
+        $pager = new Pagerfanta(new PropelAdapter($query));
+        $pager
+            ->setMaxPerPage(12)
+            ->setCurrentPage($request->get('page', 1));
+
+        return array(
+            'form' => $form->createView(),
+            'pager' => $pager,
         );
     }
 }

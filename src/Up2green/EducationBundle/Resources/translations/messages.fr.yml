@@ -25,7 +25,7 @@ participate.teacher.kit.content.6: '35 attestations de plantation, à personnali
 participate.teacher.description.2: 'Votre code sécurisé vous donne accès à un espace personnalisé qui vous permet de :'
 participate.teacher.goal.1: 'Référencer votre classe'
 participate.teacher.goal.2: 'Mettre en ligne les dessins de vos élèves qui seront accessibles dans la forêt de dessins et sur la page dédiée à votre classe.'
-buy.a.kit: Acheter
+buy.a.kit: Acheter (Bientôt disponible)
 get.free.kit: 'Bénéficiez d''un don'
 participate.teacher.voucher: 'Vous disposez de votre code d’accès'
 form.account_type.username: Pseudonyme
@@ -56,6 +56,9 @@ form.donation_type.email: Email
 form.donation_type.url: Site
 form.donation_type.comment_public: Commentaire visible
 form.donation_type.comment_private: Commentaire invisible
+form.registration.school: Informations sur l'école
+form.registration.account: Vos informations
+form.registration.classroom: Informations sur la classe
 make.a.donation: Faire un don
 no.donation: Pas encore de don, devenez notre premier sponsor !
 donation.list.title: Merci à vous !
