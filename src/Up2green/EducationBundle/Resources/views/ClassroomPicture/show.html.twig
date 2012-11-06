@@ -1,0 +1,40 @@
+<div class="row-fluid">
+
+    <div class="span8">
+        <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
+    </div>
+
+    <div class="span4">
+
+        <h5>{{ 'school.informations'|trans }}</h5>
+
+        <dl class="dl-horizontal">
+            <dt>{{ 'name'|trans }}</dt>
+            <dd>{{ picture.classroom.school.name }}</dd>
+            <dt>{{ 'address'|trans }}</dt>
+            <dd>{{ picture.classroom.school.address }}</dd>
+        </dl>
+
+        <hr />
+
+        <h5>{{ 'classroom.informations'|trans }}</h5>
+
+        <dl class="dl-horizontal">
+            <dt>{{ 'name'|trans }}</dt>
+            <dd>{{ picture.classroom.name }}</dd>
+            <dt>{{ 'year'|trans }}</dt>
+            <dd>{{ picture.classroom.year }}</dd>
+        </dl>
+
+        <hr />
+
+        <h5>{{ 'student'|trans }}</h5>
+
+        <dl class="dl-horizontal">
+            <dt>{{ 'name'|trans }}</dt>
+            <dd>{{ picture.student }}</dd>
+            <dt>{{ 'program'|trans }}</dt>
+            <dd>{{ picture.program }}</dd>
+        </dl>
+    </div>
+</div>

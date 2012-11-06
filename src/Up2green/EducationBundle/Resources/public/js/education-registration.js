@@ -57,7 +57,6 @@ $(function() {
             },
             dataType: 'json',
             success: function(data) {
-                console.log(data);
                 map.setCenter(new google.maps.LatLng(data.latitude, data.longitude));
                 if (null !== data.streetName) {
                     map.setZoom(17);
