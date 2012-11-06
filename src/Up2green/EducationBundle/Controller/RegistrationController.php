@@ -45,6 +45,7 @@ class RegistrationController extends Controller
             $form->bind($request);
 
             if ($form->isValid()) {
+
                 $registration->save();
 
                 // creating the ACL
@@ -55,9 +56,6 @@ class RegistrationController extends Controller
                 // grant owner access
                 $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_EDIT);
                 $aclProvider->updateAcl($acl);
-
-                $registration->account->setEnabled(true);
-                $registration->account->setLastLogin(new \DateTime());
 
                 $this->container->get('fos_user.user_manager')->updateUser($registration->account);
 

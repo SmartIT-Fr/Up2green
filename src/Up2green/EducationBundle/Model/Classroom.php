@@ -13,14 +13,6 @@ class Classroom extends BaseClassroom
     public $uploadedFile;
 
     /**
-     * When a school is created, we set the year property to the actual year
-     */
-    public function __construct()
-    {
-        $this->year = (int)date('Y');
-    }
-
-    /**
      * @return UploadedFile
      */
     public function getUploadedFile()
@@ -40,15 +32,26 @@ class Classroom extends BaseClassroom
      * @param PropelPDO $con
      *
      * @return int
-     * FIXME We are doing 2 save to use the id in the filepath
      */
     public function save(\PropelPDO $con = null)
     {
-        parent::save($con);
-
-        $this->upload();
+        if (!$this->isNew()) {
+            $this->upload();
+        }
 
         return parent::save($con);
+    }
+
+    /**
+     * Code to be run after deleting the object in database
+     * @param PropelPDO $con
+     */
+    public function preDelete(\PropelPDO $con = null)
+    {
+        // Purge picture file
+        if (!empty($this->picture)) {
+            @unlink(__DIR__.'/../../../../web' . $this->picture);
+        }
     }
 
     /**
@@ -67,8 +70,7 @@ class Classroom extends BaseClassroom
             @unlink($webDirectory . $this->picture);
         }
 
-        $path      = sprintf('/uploads/classrooms/%d/', $this->getId());
-
+        $path      = '/uploads/classrooms/';
         $extension = $this->uploadedFile->guessExtension();
 
         if (!$extension) {
@@ -76,7 +78,7 @@ class Classroom extends BaseClassroom
             $extension = 'bin';
         }
 
-        $filename = sprintf('photo.%s', $extension);
+        $filename = sprintf('%s.%s', uniqid(), $extension);
 
         $this->uploadedFile->move($webDirectory . $path, $filename);
 

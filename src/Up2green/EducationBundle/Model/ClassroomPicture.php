@@ -41,6 +41,18 @@ class ClassroomPicture extends BaseClassroomPicture
     }
 
     /**
+     * Code to be run after deleting the object in database
+     * @param PropelPDO $con
+     */
+    public function preDelete(\PropelPDO $con = null)
+    {
+        // Purge picture file
+        if (!empty($this->picture)) {
+            @unlink(__DIR__.'/../../../../web' . $this->picture);
+        }
+    }
+
+    /**
      * @return null
      */
     public function upload()
@@ -64,7 +76,7 @@ class ClassroomPicture extends BaseClassroomPicture
             $extension = 'bin';
         }
 
-        $filename = sprintf('%d.%s', $this->getId(), $extension);
+        $filename = sprintf('%s.%s', uniqid(), $extension);
 
         $this->uploadedFile->move($webDirectory . $path, $filename);
 

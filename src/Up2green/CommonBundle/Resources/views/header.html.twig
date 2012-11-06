@@ -39,7 +39,7 @@
                         <li class="divider-vertical"></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-flag icon-white"></i> {{ "Language"|trans }}
+                                <i class="icon-flag icon-black"></i> {{ "Language"|trans }}
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -49,7 +49,7 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-user icon-white"></i>
+                                <i class="icon-user icon-black"></i>
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     {{ app.user.username }}
                                 {% else %}

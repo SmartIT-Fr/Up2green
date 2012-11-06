@@ -53,7 +53,10 @@ class Registration implements DomainObjectInterface
         $school = $this->school->getSchoolModel();
 
         $this->account->addRole('ROLE_TEACHER');
+        $this->account->setEnabled(true);
+        $this->account->setLastLogin(new \DateTime());
         $this->account->save();
+
         $user = $this->account;
 
         $this->classroom->setUser($user);
