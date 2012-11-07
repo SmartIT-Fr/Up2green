@@ -35,16 +35,17 @@ class Classroom extends BaseClassroom
      */
     public function save(\PropelPDO $con = null)
     {
-        if (!$this->isNew()) {
-            $this->upload();
-        }
+        $this->upload();
 
         return parent::save($con);
     }
 
     /**
      * Code to be run after deleting the object in database
+     *
      * @param PropelPDO $con
+     *
+     * @return boolean
      */
     public function preDelete(\PropelPDO $con = null)
     {
@@ -52,6 +53,8 @@ class Classroom extends BaseClassroom
         if (!empty($this->picture)) {
             @unlink(__DIR__.'/../../../../web' . $this->picture);
         }
+
+        return true;
     }
 
     /**
@@ -81,6 +84,7 @@ class Classroom extends BaseClassroom
         $filename = sprintf('%s.%s', uniqid(), $extension);
 
         $this->uploadedFile->move($webDirectory . $path, $filename);
+        $this->uploadedFile = null;
 
         $this->setPicture($path . $filename);
     }
