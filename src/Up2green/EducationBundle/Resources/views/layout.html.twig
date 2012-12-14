@@ -9,16 +9,11 @@
 
 {% endblock %}
 
-
-{% block content %}
-
-    {{ parent() }}
-
-    {% render 'Up2greenEducationBundle:Default:banner' %}
-
-{% endblock %}
-
 {% block body %}
+
+    {% block header %}
+        {% render 'Up2greenEducationBundle:Default:banner' %}
+    {% endblock %}
 
     {{ parent() }}
 

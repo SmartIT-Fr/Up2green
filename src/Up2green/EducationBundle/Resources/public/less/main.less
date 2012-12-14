@@ -1,23 +1,70 @@
 @import "../../../../CommonBundle/Resources/public/less/main.less";
 
-header {
+@padding_top: 50px;
+
+#sub-header {
 
   h1.logo {
 
-    background: url("/bundles/up2greencommon/images/background/header_650x115.png") no-repeat scroll center top transparent;
-    height: 115px;
+    background: url("/bundles/up2greeneducation/images/layout/header.png") no-repeat scroll center center transparent;
+    height: 250px;
 
     a {
-      background: url("/bundles/up2greencommon/images/logo/up2green_350x115.png") repeat scroll 0 0 transparent;
+      background: url("/bundles/up2greeneducation/images/layout/logo.png") repeat scroll 0 0 transparent;
       color: transparent;
       display: block;
       margin: 0 auto;
-      width: 350px;
-      height: 115px;
+      width: 230px;
+      height: 292px;
+      z-index:500;
+      position: relative;
     }
 
   }
 
+}
+
+#sub-header {
+    position: relative;
+    z-index:1000;
+}
+
+div.content-top {
+    background: url("/bundles/up2greeneducation/images/layout/background-top.png") no-repeat scroll center center transparent;
+    position: relative;
+    height: 371px;
+    width: 100%;
+    z-index:500;
+}
+
+#content {
+    position: relative;
+    z-index:700;
+    margin-top: -265px;
+    min-height: 525px;
+}
+
+div.content-wrapper {
+    background: url("/bundles/up2greeneducation/images/layout/background-middle.png") repeat-y scroll center center transparent;
+    position: relative;
+    z-index:500;
+    margin-top: -55px;
+}
+
+div.content-bottom {
+    background: url("/bundles/up2greeneducation/images/layout/background-bottom.png") no-repeat scroll center center transparent;
+    bottom: 0;
+    height: 520px;
+    position: relative;
+    width: 100%;
+    z-index:500;
+    margin-top: -260px;
+}
+
+footer, footer a {
+    margin: 0;
+    padding: 470px 0 20px;
+    color: #ddd;
 }
 
 div.row-fluid {
@@ -40,12 +87,6 @@ table.donations {
             max-height: 50px;
         }
     }
-}
-
-#overview {
-
-  margin-bottom: 20px;
-
 }
 
 .classroom-player {

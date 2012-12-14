@@ -14,20 +14,24 @@
 
 {% block body %}
 
-{% include 'Up2greenCommonBundle::header.html.twig' %}
+    {% include 'Up2greenCommonBundle::header.html.twig' %}
 
-<div class="container">
+    <div class="content-wrapper">
 
-    <div id="content" role="main" class="container">
-        <div id="content-inner">
-            {% include ('Up2greenCommonBundle::notice.html.twig') %}
-            {% block content %}{% endblock %}
+        <div class="content-top"></div>
+
+        <div id="content" role="main" class="container">
+            <div id="content-inner">
+                {% include ('Up2greenCommonBundle::notice.html.twig') %}
+                {% block content %}{% endblock %}
+            </div>
         </div>
+
+        <div class="content-bottom">
+            {% include 'Up2greenCommonBundle::footer.html.twig' %}
+        </div>
+
     </div>
-
-{% include 'Up2greenCommonBundle::footer.html.twig' %}
-
-</div>
 
 {% endblock %}
 
