@@ -10,7 +10,6 @@
     height: 250px;
 
     a {
-      background: url("/bundles/up2greeneducation/images/layout/logo.png") repeat scroll 0 0 transparent;
       color: transparent;
       display: block;
       margin: 0 auto;
@@ -22,6 +21,76 @@
 
   }
 
+  .navbar-inner {
+    background: url("/bundles/up2greeneducation/images/layout/menu.png") repeat-x scroll center center transparent;
+    border: 0;
+    box-shadow: none;
+    font-size: 17px;
+    padding: 0;
+
+    .nav li.dropdown.open > .dropdown-toggle,
+    .nav li.dropdown.active > .dropdown-toggle {
+      background-color: transparent;
+    }
+
+    li {
+      line-height: 50px;
+
+      a {
+        color: #026430;
+      }
+    }
+
+    ul.nav a:hover {
+      text-decoration: underline;
+    }
+
+    ul.pull-right {
+      padding-right: 90px;
+
+      b.caret {
+        margin-top: 23px;
+        border-color: none;
+      }
+    }
+
+    a.brand {
+      background: url("/bundles/up2greeneducation/images/layout/btn-home.png") no-repeat scroll center center transparent;
+      height: 97px;
+      width: 104px;
+      padding:0;
+    }
+
+    li.donation {
+      z-index: 200;
+      position: relative;
+    }
+
+    li.plantation-count {
+      background: url("/bundles/up2greeneducation/images/layout/btn-plantation.png") no-repeat scroll center center transparent;
+      height: 97px;
+      width: 232px;
+      position: absolute;
+      right: 0;
+      z-index: 100;
+
+        a {
+          color: #ddd;
+          padding: 0;
+          height: 100%;
+          width: 210px;
+
+          span {
+            float: right;
+            position: relative;
+            top: 58px;
+            font-style: italic;
+            line-height: 34px;
+            padding-right: 20px;
+          }
+        }
+    }
+  }
 }
 
 #sub-header {
@@ -48,7 +117,7 @@ div.content-wrapper {
     background: url("/bundles/up2greeneducation/images/layout/background-middle.png") repeat-y scroll center center transparent;
     position: relative;
     z-index:500;
-    margin-top: -55px;
+    margin-top: -100px;
 }
 
 div.content-bottom {

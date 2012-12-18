@@ -1,12 +1,18 @@
 {% extends 'Up2greenCommonBundle::layout.html.twig' %}
 
 {% block stylesheets %}
+
 {% stylesheets filter='less,cssrewrite,?yui_css' output='css/education_all.css'
     '@Up2greenEducationBundle/Resources/public/less/main.less'
 %}
 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
 {% endstylesheets %}
 
+<style>
+    #sub-header h1.logo a {
+      background: url("/bundles/up2greeneducation/images/layout/{{ app.request.locale|slice(0, 2) }}/logo.png") repeat scroll 0 0 transparent;
+    }
+</style>
 {% endblock %}
 
 {% block body %}

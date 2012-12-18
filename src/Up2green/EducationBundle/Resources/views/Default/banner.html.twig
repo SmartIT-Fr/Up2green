@@ -3,22 +3,36 @@
       <a href="{{ path('education_homepage') }}">Up2green</a>
     </h1>
 
-    <div id="main-menu" class="subnav">
-        <ul class="nav nav-pills">
-            <li><a href="{{ path('education_homepage') }}">{{ "home"|trans }}</a></li>
-            <li><a href="{{ path('education_the_project') }}">{{ "the.project"|trans }}</a></li>
-            <li><a href="{{ path('education_classroom_list') }}">{{ "find.your.classroom"|trans }}</a></li>
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    {{ "participate.in.the.project"|trans }} <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ path('education_participate_teacher') }}">{{ "are.you.a.teacher"|trans }}</a></li>
-                    <li><a href="{{ path('education_participate_donation') }}">{{ "whant.to.sponsor.a.school"|trans }}</a></li>
+    <div id="main-menu" class="navbar">
+         <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="{{ path('education_homepage') }}"></a>
+
+                <ul class="nav">
+                    <li><a href="{{ path('education_the_project') }}">{{ "the.project"|trans }}</a></li>
+                    <li><a href="{{ path('education_classroom_list') }}">{{ "find.your.classroom"|trans }}</a></li>
                 </ul>
-            </li>
-            <li><a href="{{ path('up2green_education_donation_list') }}">{{ "donations"|trans }}</a></li>
-            <li class="pull-right"><span style="line-height: 34px; padding: 0 10px">{{ "counter.tree"|transchoice(count, {'%count%': count}) }}</span></li>
-        </ul>
+
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <b class="caret"></b> {{ "participate.in.the.project"|trans }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('education_participate_teacher') }}">{{ "are.you.a.teacher"|trans }}</a></li>
+                            <li><a href="{{ path('education_participate_donation') }}">{{ "whant.to.sponsor.a.school"|trans }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="donation"><a href="{{ path('up2green_education_donation_list') }}">{{ "donations"|trans }}</a></li>
+                    <li class="plantation-count">
+                        <a href="{{ path('education_the_project') }}">
+                            <span>
+                                {{ "counter.tree"|transchoice(count, {'%count%': count}) }}
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
