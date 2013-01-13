@@ -1,4 +1,10 @@
 <div id="sub-header" class="container">
+    <style>
+        #sub-header h1.logo a {
+            background: url("/bundles/up2greeneducation/images/layout/{{ app.request.locale|slice(0, 2) }}/logo.png") repeat scroll 0 0 transparent;
+        }
+    </style>
+
     <h1 class="logo">
       <a href="{{ path('education_homepage') }}">Up2green</a>
     </h1>

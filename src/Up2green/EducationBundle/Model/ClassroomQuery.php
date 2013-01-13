@@ -25,7 +25,7 @@ class ClassroomQuery extends BaseClassroomQuery
                 $this->useSchoolQuery()->filterSearch($value)->endUse();
             } else {
                 $columnKey = ucwords($key);
-                $this->filterBy($columnKey, $value);
+                $this->filterBy($columnKey, "%".$value."%", \Criteria::LIKE);
             }
         }
 

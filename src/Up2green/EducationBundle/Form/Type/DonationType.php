@@ -31,10 +31,7 @@ class DonationType extends AbstractType
                 'label'    => 'form.donation_type.url',
                 'required' => false,
             ))
-            ->add('order', 'common_order', array(
-                'payment_return_route' => $options['payment_return_route'],
-                'payment_cancel_route' => $options['payment_cancel_route'],
-            ))
+            ->add('order', 'common_simple_order')
             ->add('comment_public', 'textarea', array(
                 'label'      => 'form.donation_type.comment_public',
                 'max_length' => 1000,
@@ -52,13 +49,9 @@ class DonationType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver
-            ->setRequired(array(
-                'payment_return_route', 'payment_cancel_route',
-            ))
-            ->setDefaults(array(
-                'data_class' => 'Up2green\EducationBundle\Model\Donation'
-            ));
+        $resolver->setDefaults(array(
+            'data_class' => 'Up2green\EducationBundle\Model\Donation'
+        ));
     }
 
     /**

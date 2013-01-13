@@ -1,6 +1,7 @@
 submit: Soumettre
 administration: Administration
-Home: Accueil
+search_engine: Recherche
+search: Rechercher
 Blog: Blog
 Reforestation: Reforestation
 Education: Education
@@ -18,7 +19,6 @@ integration: Intégration
 lastname: Nom de famille
 email: Email
 telephone: Numéro de téléphone
-kits_number: Nombre de kits
 form.address.title: Nom
 street_line_1: Adresse 1
 street_line_2: Adresse 2
@@ -26,13 +26,13 @@ zipcode: Code postal
 city: Ville
 country: Pays
 captcha: Recopiez le code
-delivery_address: Adresse de livraison
+delivery_address: 'Adresse d''envoi de la malette'
 message: Message
 subject: Sujet
 contact_us: Contactez-nous pour toute demande ou renseignement
 contact_email_sent: Votre email a bien été envoyé. Nous vous contacterons dans les plus brefs délais.
 form.order_type.amount: Montant
-optional: Optionnel
+(optional): (facultatif)
 add: Ajouter
 name: Nom
 address: Adresse
@@ -40,3 +40,5 @@ year: Année
 description: Description
 read_more: Détails
 registration.flash.user_created: Votre compte a été créé avec succès !
+buy: Acheter
+confirm_email: Confirmez votre email

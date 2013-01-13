@@ -20,7 +20,7 @@ class SchoolQuery extends BaseSchoolQuery
 
         foreach($datas as $key => $value) {
             $columnKey = ucwords($key);
-            $this->filterBy($columnKey, $value);
+            $this->filterBy($columnKey, "%".$value."%", \Criteria::LIKE);
         }
 
         return $this;

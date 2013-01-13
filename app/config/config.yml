@@ -148,5 +148,5 @@ liip_imagine:
                 thumbnail: { size: [250, 250], mode: outbound }
 
 up2green_education:
-    trees_by_kit: 30
+    trees_by_kit: 35
     kit_price: 150

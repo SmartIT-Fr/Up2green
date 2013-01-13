@@ -6,8 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-use JMS\Payment\CoreBundle\PluginController\Result;
 use JMS\Payment\CoreBundle\Plugin\Exception\ActionRequiredException;
 use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;
 
@@ -28,10 +28,7 @@ class DonationController extends Controller
     {
         $donation = new Donation();
 
-        $form = $this->createForm('education_donation', $donation, array(
-            'payment_return_route' => 'up2green_education_donation_complete',
-            'payment_cancel_route' => 'up2green_education_donation_cancel',
-        ));
+        $form = $this->createForm('education_donation', $donation);
 
         if ('POST' === $request->getMethod()) {
             $form->bind($request);
@@ -40,15 +37,31 @@ class DonationController extends Controller
 
                 $donation->save();
 
-                // We have to regenerate the form to includ the donation id to
-                // the payment_instruction routes
-                $form = $this->createForm('education_donation', $donation, array(
-                    'payment_return_route' => 'up2green_education_donation_complete',
-                    'payment_cancel_route' => 'up2green_education_donation_cancel',
-                ));
-                $form->bind($request);
+                // Form that generate payment instruction
+                $paymentInstructionForm = $this->createForm('jms_choose_payment_method', null, array(
+                    'csrf_protection' => false,
+                    'amount'   => $donation->getOrder()->getAmount(),
+                    'currency' => 'EUR',
+                    'default_method' => 'payment_paypal',
+                    'predefined_data' => array(
+                        'paypal_express_checkout' => array(
+                            'return_url' => $this->generateUrl('up2green_education_donation_complete', array(
+                                'id' => $donation->getOrder()->getId(),
+                            ), true),
+                            'cancel_url' => $this->generateUrl('up2green_education_donation_cancel', array(
+                                'id' => $donation->getOrder()->getId(),
+                            ), true)
+                        ),
+                    ))
+                );
 
-                $instruction = $form->get('order')->get('payment_instruction')->getData();
+                $paymentInstructionForm->bind(array('method' => 'paypal_express_checkout'));
+
+                if (!$paymentInstructionForm->isValid()) {
+                    throw new HttpException(500, "The order shoul be valid at this point");
+                }
+
+                $instruction = $paymentInstructionForm->getData();
                 $this->get('payment.plugin_controller')->createPaymentInstruction($instruction);
 
                 $donation->setPaymentInstruction($instruction);
@@ -70,58 +83,27 @@ class DonationController extends Controller
      */
     public function completeAction(Request $request, Order $order)
     {
-        $ppc = $this->get('payment.plugin_controller');
-
-        $instruction = $order->getPaymentInstruction();
-        if (null === $pendingTransaction = $instruction->getPendingTransaction()) {
-            $payment = $ppc->createPayment($instruction->getId(), $instruction->getAmount() - $instruction->getDepositedAmount());
-        } else {
-            $payment = $pendingTransaction->getPayment();
-        }
-
-        $result = $ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
-
-        if (Result::STATUS_PENDING === $result->getStatus()) {
-            $ex = $result->getPluginException();
-
-            if ($ex instanceof ActionRequiredException) {
-                $action = $ex->getAction();
-
-                if ($action instanceof VisitUrl) {
-                    return $this->redirect($action->getUrl());
-                }
-
-                throw $ex;
-            }
-        } elseif (Result::STATUS_SUCCESS !== $result->getStatus()) {
-            throw new \RuntimeException('Transaction was not successful: '.$result->getReasonCode());
-        }
-
         $this->get('session')->setFlash('success', "donation_success");
 
-        return $this->redirect($this->generateUrl('up2green_education_donation_list'));
+        return $this->forward(
+            'Up2greenEducationBundle:Order:complete',
+            array('order' => $order),
+            array('redirect_url' => $this->generateUrl('up2green_education_donation_list'))
+        );
     }
 
     /**
      * @Route("/{id}/cancel", name="up2green_education_donation_cancel")
      */
-    public function cancelAction(Request $request, Order $order)
+    public function cancelAction(Order $order)
     {
-        $instruction = $order->getPaymentInstruction();
-
-        $instruction->setState(\JMS\Payment\CoreBundle\Model\PaymentInstructionInterface::STATE_CLOSED);
-        $instruction->save();
-
-        $transaction = $instruction->getPendingTransaction();
-
-        if (null !== $transaction) {
-            $transaction->setState(\JMS\Payment\CoreBundle\Model\FinancialTransactionInterface::STATE_CANCELED);
-            $transaction->getPayment()->getPayment()->setState(\JMS\Payment\CoreBundle\Model\PaymentInterface::STATE_CANCELED);
-        }
-
         $this->get('session')->setFlash('warning', "donation_canceled");
 
-        return $this->redirect($this->generateUrl('up2green_education_donation_list'));
+        return $this->forward(
+            'Up2greenEducationBundle:Order:cancel',
+            array('order' => $order),
+            array('redirect_url' => $this->generateUrl('up2green_education_donation_list'))
+        );
     }
 
     /**
@@ -130,10 +112,8 @@ class DonationController extends Controller
      */
     public function listAction()
     {
-        $donations = DonationQuery::create()->findGreatestValid();
-
         return array(
-            'donations' => $donations
+            'donations' => DonationQuery::create()->findGreatestValid()
         );
     }
 }

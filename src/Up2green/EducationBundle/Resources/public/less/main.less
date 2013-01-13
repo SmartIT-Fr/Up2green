@@ -28,9 +28,13 @@
     font-size: 17px;
     padding: 0;
 
+    .dropdow-menu li > a:hover,
+    .dropdow-menu li > a:focus,
+    .dropdow-submenu:hover > a,
     .nav li.dropdown.open > .dropdown-toggle,
     .nav li.dropdown.active > .dropdown-toggle {
       background-color: transparent;
+      background-image: none;
     }
 
     li {
@@ -188,4 +192,8 @@ table.donations {
 .modal.big .modal-body img.classroom-picture{
   max-height: 500px;
   max-width: 500px;
+}
+
+.pagination ul {
+    background-color: #FFFFFF;
 }

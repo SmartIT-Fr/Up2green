@@ -3,11 +3,14 @@
 namespace Up2green\EducationBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Up2green\EducationBundle\Model\EducationVoucher;
+use Up2green\EducationBundle\Model\OrderKit;
+use Up2green\CommonBundle\Model\Order;
 
 /**
  * Participate controller

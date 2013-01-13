@@ -13,6 +13,7 @@
         <parameter key="up2green_education.form.type.classroom_picture.class">Up2green\EducationBundle\Form\Type\ClassroomPictureType</parameter>
         <parameter key="up2green_education.form.type.voucher.class">Up2green\EducationBundle\Form\Type\VoucherType</parameter>
         <parameter key="up2green_education.form.type.donation.class">Up2green\EducationBundle\Form\Type\DonationType</parameter>
+        <parameter key="up2green_education.form.type.order_kit.class">Up2green\EducationBundle\Form\Type\OrderKitType</parameter>
 
         <!-- GeoCoder -->
         <parameter key="geocoder.class">Geocoder\Geocoder</parameter>
@@ -42,6 +43,9 @@
         </service>
         <service id="form.type.education.donation" class="%up2green_education.form.type.donation.class%">
             <tag name="form.type" alias="education_donation" />
+        </service>
+        <service id="form.type.education.order_kit" class="%up2green_education.form.type.order_kit.class%">
+            <tag name="form.type" alias="education_order_kit" />
         </service>
 
         <!-- GeoCoder -->

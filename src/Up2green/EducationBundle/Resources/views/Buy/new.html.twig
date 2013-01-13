@@ -1,0 +1,22 @@
+{% extends 'Up2greenEducationBundle::layout.html.twig' %}
+
+{% block content %}
+
+{{ parent() }}
+
+<div class="grey-box">
+    <h2>{{ 'buy.a.kit'|trans }}</h2>
+
+    <form action="{{ path('up2green_education_buy_new') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">
+
+        <div class="error">
+            {{ form_errors(form) }}
+        </div>
+
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-primary">{{ 'buy'|trans }}</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -12,6 +12,7 @@
         <parameter key="test.client.class">Up2green\CommonBundle\Test\Client</parameter>
         <parameter key="up2green_common.form.type.address.class">Up2green\CommonBundle\Form\Type\AddressType</parameter>
         <parameter key="up2green_common.form.type.order.class">Up2green\CommonBundle\Form\Type\OrderType</parameter>
+        <parameter key="up2green_common.form.type.simple_order.class">Up2green\CommonBundle\Form\Type\SimpleOrderType</parameter>
         <parameter key="up2green_common.form.type.voucher.class">Up2green\CommonBundle\Form\Type\VoucherType</parameter>
 
         <parameter key="up2green_common.form.event_listener.order_payment_instruction.class">Up2green\CommonBundle\Form\EventListener\OrderPaymentInstructionSubsciber</parameter>
@@ -31,6 +32,9 @@
         <service id="form.type.common.order" class="%up2green_common.form.type.order.class%">
             <argument type="service" id="form.event_listener.common.order_payment_instruction" />
             <tag name="form.type" alias="common_order" />
+        </service>
+        <service id="form.type.common.simple_order" class="%up2green_common.form.type.simple_order.class%">
+            <tag name="form.type" alias="common_simple_order" />
         </service>
         <service id="form.type.common.voucher" class="%up2green_common.form.type.voucher.class%">
             <tag name="form.type" alias="common_voucher" />

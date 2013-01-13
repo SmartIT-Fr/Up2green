@@ -26,14 +26,19 @@ class WaitingListType extends AbstractType
             ->add('last_name', 'text', array(
                 'label' => 'lastname'
             ))
-            ->add('email', 'email', array(
-                'label' => 'email'
+            ->add('email', 'repeated', array(
+                'first_name' => 'email',
+                'second_name' => 'confirm_email',
+                'first_options'  => array('label' => 'email'),
+                'second_options' => array('label' => 'confirm_email'),
+                'type' => 'email',
             ))
             ->add('phone_number', 'text', array(
                 'label' => 'telephone'
             ))
             ->add('kits_number', 'integer', array(
-                'label' => 'kits_number'
+                'label' => 'kits_number',
+                'help_block'  => 'kits_number.help'
             ))
             ->add('address', 'common_address', array(
                 'label' => 'delivery_address'

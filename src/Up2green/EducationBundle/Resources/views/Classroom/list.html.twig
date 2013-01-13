@@ -25,14 +25,14 @@
 
         {{ form_rest(form) }}
 
-        <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'search'|trans }}</button>
     </form>
 </div>
 
 <ul class="thumbnails">
     {% for classroom in pager.currentPageResults %}
         <li class="span4">
-            <div class="thumbnail">
+            <div class="thumbnail grey-box">
                 {% if classroom.picture is not empty %}
                     <img src="{{ asset(classroom.picture) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ 'classroom.picture.alt'|trans }}" />
                 {% endif %}

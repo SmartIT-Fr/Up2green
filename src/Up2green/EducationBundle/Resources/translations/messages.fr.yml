@@ -10,13 +10,13 @@ submit: Soumettre
 project.description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet lectus dapibus enim sollicitudin tristique. Curabitur vel augue ligula. Aliquam erat volutpat. Praesent urna lacus, dictum nec laoreet hendrerit, volutpat auctor diam. Nullam elit est, condimentum at scelerisque et, blandit nec velit. Aenean rhoncus nibh aliquet enim imperdiet euismod. In sed nunc sed felis consequat interdum ut quis eros. Curabitur vel ligula orci. Nulla eu viverra neque. Suspendisse tincidunt dui molestie elit sollicitudin feugiat. Proin aliquet suscipit felis sit amet aliquam.'
 participate.donation.title: 'Vous souhaitez sponsoriser une ou plusieurs classes ?'
 participate.donation.paragraph.1: 'Vous êtes un particulier, une entreprise ou une collectivité et vous souhaitez participez au projet en soutenant une ou plusieurs classes ?'
-participate.donation.paragraph.2: 'Vous pouvez financer un ou plusieurs kit(s) complet(s) ou y participer en faisant un don (tous les 150 euros, un kit est attribué à l’une des classes candidates).'
-make.donation: 'Financer un ou plusieurs kits pédagogiques'
-participate.donation.paragraph.3: 'Pour plusieurs kits pédagogiques à livrer à différentes écoles (différentes adresses), nous vous invitons à nous contacter directement :'
+participate.donation.paragraph.2: 'Vous pouvez financer une ou plusieurs malette(s) complete(s) ou y participer en faisant un don (tous les 150 euros, une malette est attribué à l’une des classes candidates).'
+make.donation: 'Financer une ou plusieurs malettes pédagogiques'
+participate.donation.paragraph.3: 'Pour plusieurs malettes pédagogiques à livrer à différentes écoles (différentes adresses), nous vous invitons à nous contacter directement :'
 contact: Contactez-nous
-participate.teacher.leading: 'Up2green met à votre disposition un kit pédagogique'
-participate.teacher.description.1: 'La mallette pédagogique « Une classe, une forêt » comprend :'
-participate.teacher.kit.content.1: 'La présentation du projet « Une classe – une forêt » et le mode d''emploi de l''interface en ligne dédiée à l''instituteur.'
+participate.teacher.leading: 'Up2green met à votre disposition une malette pédagogique'
+participate.teacher.description.1: 'La mallette pédagogique « Ma classe, ma forêt » comprend :'
+participate.teacher.kit.content.1: 'La présentation du projet « Ma classe, ma forêt » et le mode d''emploi de l''interface en ligne dédiée à l''instituteur.'
 participate.teacher.kit.content.2: 'La présentation des programmes de reforestation communautaire soutenus par le projet'
 participate.teacher.kit.content.3: 'Une affiche présentant la mappemonde et les programmes de reforestation, et permettant aux élèves de choisir leur programme de façon interactive avec une figurine d''arbre à coller.'
 participate.teacher.kit.content.4: 'Un code sécurisé pour valider la réception de la mallette et assurer l''accès de l''instituteur à son espace en ligne de saisie des dessins et d''administration de la page de sa classe.'
@@ -25,12 +25,12 @@ participate.teacher.kit.content.6: '35 attestations de plantation, à personnali
 participate.teacher.description.2: 'Votre code sécurisé vous donne accès à un espace personnalisé qui vous permet de :'
 participate.teacher.goal.1: 'Référencer votre classe'
 participate.teacher.goal.2: 'Mettre en ligne les dessins de vos élèves qui seront accessibles dans la forêt de dessins et sur la page dédiée à votre classe.'
-buy.a.kit: Acheter (Bientôt disponible)
+buy.a.kit: Acheter une malette
 get.free.kit: 'Bénéficiez d''un don'
 participate.teacher.voucher: 'Vous disposez de votre code d’accès'
 form.account_type.username: Pseudonyme
 form.account_type.fistname: Prénom
-form.account_type.lastname: 'Nom de famille'
+form.account_type.lastname: 'Nom'
 form.account_type.email: Email
 form.account_type.password: 'Mot de passe'
 form.account_type.re_password: 'Répéter mot de passe'
@@ -48,7 +48,7 @@ form.school_type.address: Adresse
 form.validation.school_new: 'Vous devez remplire des champs de création d''un école'
 form.validation.school_name: 'Le nom est obligatoire'
 form.validation.school_address: 'L''adresse est obligatoire'
-waitinglist.join: 'Rejoignez la liste d''attente en remplissant le formulaire ci-dessous !'
+waitinglist.join: 'Vous êtes instituteur ou représentez une école ? Rejoignez la liste d''attente en remplissant le formulaire ci-dessous !'
 waiting_list_joined: 'Vous avez bien été inscrit sur la liste d''attente. Vous serez contacté dès que votre tour sera arrivé.'
 form.donation_type.name: Nom
 form.donation_type.is_anonymous: Rester anonyme (votre nom n'apparaitra pas sur le site)
@@ -64,6 +64,9 @@ no.donation: Pas encore de don, devenez notre premier sponsor !
 donation.list.title: Merci à vous !
 up2green.need.donation: Pour aider les écoles à participer au projet, faites un don !
 donation_success: Votre don a bien été prit en compte, merci !
+donation_canceled: Votre don a été annulé.
+buy_success: Votre commande a bien été prise en compte, merci !
+buy_canceled: Votre commande a été annulé.
 anonymous: Anonyme
 form.classroom_picture_type.student: Nom de l'élève
 form.classroom_picture_type.picture: Dessin
@@ -86,15 +89,17 @@ search_school: 'Chercher une école'
 schoolname: 'Nom de l''école'
 classname: Classe
 classroom.edit: Modifier cette classe
-education.slogan: 'Opération « Une Classe, une forêt »'
+education.slogan: 'Opération « Ma classe, ma forêt »'
 education.slogan2: 'Une forêt de dessins pour des miliers d''arbres plantés sur la planète'
 education.goal: 'Objectif : sensibiliser et faire participer les élèves des écoles primaires à la préservation des forêts et la reforestation dans le monde.'
 education.children.actors: 'Nos enfants deviennent des acteurs de la reforestation dans le monde'
 education.desc.p1: 'Le fonctionnement des écosystèmes forestiers et leurs interactions avec la biodiversité, les cycles de l''eau et du carbone font partie des programmes pédagogiques des classes de primaire (du CP au CM2).'
-education.desc.p2: 'L’association Up2green Reforestation a élaboré pour les classes du primaire un <b>kit pédagogique «clé en main»</b> permettant à l’enseignant d’intéresser ses élèves et de les impliquer concrètement.'
+education.desc.p2: 'L’association Up2green Reforestation a élaboré pour les classes du primaire une <b>malette pédagogique «clé en main»</b> permettant à l’enseignant d’intéresser ses élèves et de les impliquer concrètement.'
 education.desc.p3: '<b>Une implication  pédagogique et ludique…</b><br/>Chaque élève est invité à exprimer sa créativité en dessinant un arbre. En échange de sa <b>contribution  artistique</b>, chaque enfant reçoit un droit à planter arbre dans le monde. Il a la possibilité de choisir un programme  de reforestation  communautaire parmi  une dizaine de programmes  soutenus  par l''association Up2green Reforestation sur la Planète.'
 education.desc.p4: '<b>… pour une action solidaire et partagée au niveau national et international</b><br/>Les dessins sont tous regroupés et exposés sur une page internet du site éducatif de l''association, constituant ainsi une grande « forêt » de dessins. Chaque arbre dessiné représente par ailleurs un arbre réellement planté dans le programme communautaire choisi par l''enfant.'
 close: Fermer
 details: Détails
 student: Ecolier
 program: Programme
+kits_number: Nombre de malettes
+kits_number.help: Une malette contient le matériel pédagogique nécessaire pour une classe de 35 élèves.

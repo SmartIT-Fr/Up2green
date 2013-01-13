@@ -1,2 +1,2 @@
-layout.logout: __layout.logout
-layout.login: __layout.login
+layout.logout: Se déconnecter
+layout.login: Se connecter

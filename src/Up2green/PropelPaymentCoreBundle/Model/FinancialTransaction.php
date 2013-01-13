@@ -10,10 +10,10 @@ use Up2green\PropelPaymentCoreBundle\Model\om\BaseFinancialTransaction;
  */
 class FinancialTransaction extends BaseFinancialTransaction implements FinancialTransactionInterface
 {
-    public function getExtendedData(PropelPDO $con = null)
+    public function getExtendedData(PropelPDO $con = null, $doQuery = true)
     {
 
-        if (null !== ($data = parent::getExtendedData($con = null))) {
+        if (null !== ($data = parent::getExtendedData($con, $doQuery))) {
             return $data;
         }
 
