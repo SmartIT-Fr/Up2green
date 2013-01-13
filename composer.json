@@ -25,7 +25,6 @@
         "white-october/pagerfanta-bundle": "dev-master",
         "pagerfanta/pagerfanta": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
-        "mopa/composer-bridge": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
         "propel-behaviors/TypehintableBehavior": "dev-master",
         "propel-behaviors/ActivatableBehavior": "dev-master",
