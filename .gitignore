@@ -1,8 +1,8 @@
 # Bootstrap
 app/bootstrap.php.cache
 
-# Composer
-composer.lock
+# Assetic
+web/assetic/*
 
 # Symfony directories
 vendor/*

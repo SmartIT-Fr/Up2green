@@ -1,0 +1,20 @@
+{% extends 'MopaBootstrapBundle:Form:fields.html.twig' %}
+
+{% block _education_registration_school_address_widget %}
+    <div class="google-map-preview">
+        <div class="address">
+            {{ block('textarea_widget') }}
+        </div>
+        <div class="preview">
+            {# GoogleMaps #}
+            <style type="text/css">
+            #googlemap {
+                height : 300px;
+                width  : 300px;
+            }
+            </style>
+            <div id="googlemap"></div>
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        </div>
+    </div>
+{% endblock %}
