@@ -1,0 +1,44 @@
+submit: Submit
+administration: Administration
+search_engine: Search
+search: Search
+Blog: Blog
+Reforestation: Reforestation
+Education: Education
+Language: Language
+French: French
+English: English
+'Your account': 'Your account'
+Profile: Profile
+Register: Register
+privacy: Privacy
+legal: Legal
+dev: Developement
+graphism: Graphics
+integration: Integration
+lastname: Last name
+email: Email
+telephone: Phone number
+form.address.title: Name
+street_line_1: Address 1
+street_line_2: Address 2
+zipcode: Zipcode
+city: City
+country: Country
+captcha: Copy the code
+delivery_address: 'Delivery address'
+message: Message
+subject: Subject
+contact_us: Contact us for any request or information
+contact_email_sent: Your email has been successfully sent. We will contact you as soon as possible.
+form.order_type.amount: Amount
+(optional): (optional)
+add: Add
+name: Name
+address: Address
+year: Year
+description: Description
+read_more: Details
+registration.flash.user_created: Your account has been successfully created!
+buy: Buy
+confirm_email: Confirm your email

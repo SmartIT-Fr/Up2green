@@ -1,0 +1,105 @@
+home: Home
+the.project: 'The project'
+find.your.classroom: 'Find your class'
+participate.in.the.project: 'Participate in the project'
+are.you.a.teacher: 'Are you a teacher?'
+whant.to.sponsor.a.school: 'You wish to sponsor a class?'
+donations: Sponsors
+counter.tree: 'Already a tree planted!|Already %count% trees planted!'
+submit: Submit
+project.description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet lectus dapibus enim sollicitudin tristique. Curabitur vel augue ligula. Aliquam erat volutpat. Praesent urna lacus, dictum nec laoreet hendrerit, volutpat auctor diam. Nullam elit est, condimentum at scelerisque et, blandit nec velit. Aenean rhoncus nibh aliquet enim imperdiet euismod. In sed nunc sed felis consequat interdum ut quis eros. Curabitur vel ligula orci. Nulla eu viverra neque. Suspendisse tincidunt dui molestie elit sollicitudin feugiat. Proin aliquet suscipit felis sit amet aliquam.'
+participate.donation.title: 'You want to sponsor one or more classes?'
+participate.donation.paragraph.1: 'You are an individual, company or community and you want to participate in the project by supporting one or more classes?'
+participate.donation.paragraph.2: 'You can finance one or more complete kits or participate by making a donation (every 150 euros, a kit is assigned to one of the registered classes).'
+make.donation: 'Finance one or more educational kits'
+participate.donation.paragraph.3: 'For several educational kits to be delivered to different addresses please contact us directly:'
+contact: Contact us
+participate.teacher.leading: 'Up2Green offers you a kit'
+participate.teacher.description.1: 'The educational kit "My class, my forest" includes:'
+participate.teacher.kit.content.1: 'The presentation of the project "My class, my forest" and the user''s guide of the online interface dedicated to the teacher.'
+participate.teacher.kit.content.2: 'The presentation of programs supported by the community reforestation project.'
+participate.teacher.kit.content.3: 'A poster showing a world map and our reforestation programs, and enabling students to choose their program interactively with a figurine of a tree to paste.'
+participate.teacher.kit.content.4: 'A secure code to confirm receipt of the kit and to ensure teacher''s access to his/her online page where he/she can upload the drawings and manage classes.'
+participate.teacher.kit.content.5: 'The guide "Building the Forest" of the World Forest Association prefaced by Philippe Meirieu.'
+participate.teacher.kit.content.6: '35 certificates of planting, to be customized for each child simply by entering their first names, last names and the reforestation programs that they have chosen.'
+participate.teacher.description.2: 'Your secure code gives you access to a personalised page where you can:'
+participate.teacher.goal.1: 'Register your class'
+participate.teacher.goal.2: 'Post online your students drawings, that will be available in the forest of drawings on the page dedicated to your class.'
+buy.a.kit: Buy a kit
+get.free.kit: 'Benefit from a donation'
+participate.teacher.voucher: 'You have an access code'
+form.account_type.username: Username
+form.account_type.fistname: First name
+form.account_type.lastname: 'Last name'
+form.account_type.email: Email
+form.account_type.password: 'Password'
+form.account_type.re_password: 'Repeat the password'
+form.classroom_type.name: Name
+form.classroom_type.picture: 'Photo of the class'
+form.classroom_type.description: Description
+form.classroom_type.year: Year
+form.school_type.school: 'Choose a school?'
+form.school_type.school_in: 'Existing school'
+form.school_type.school_out: 'Create a new school'
+form.school_type.school_list: 'Schools list'
+form.school_type.school_list_choice.empty_value: 'Choose a school'
+form.school_type.name: Name
+form.school_type.address: Address
+form.validation.school_new: 'You have to fill in all the fields to create a school'
+form.validation.school_name: 'The name is mandatory'
+form.validation.school_address: 'The address is mandatory'
+waitinglist.join: 'You are a teahcer or you represent a school? Join the waiting list by completing the form below!'
+waiting_list_joined: 'You have successfully joined the waiting list. We will contact you as soon as your turn comes.'
+form.donation_type.name: Name
+form.donation_type.is_anonymous: Remain anonymous (your name will not appear on the site)
+form.donation_type.email: Email
+form.donation_type.url: Site
+form.donation_type.comment_public: Public comment
+form.donation_type.comment_private: Private Comment
+form.registration.school: School information
+form.registration.account: Personal information
+form.registration.classroom: Class information
+make.a.donation: Make a donation
+no.donation: No donations yet, be our first sponsor!
+donation.list.title: Thank you!
+up2green.need.donation: Help schools participate in the project, make a donation!
+donation_success: Your donation has been registered, thank you!
+donation_canceled: Your donation has been canceled.
+buy_success: Your order has been registered, thank you!
+buy_canceled: Your order has been canceled.
+anonymous: Anonymous
+form.classroom_picture_type.student: Student name
+form.classroom_picture_type.picture: Drawing
+form.classroom_picture_type.program: Chosen program
+pictures: Drawings
+no.picture: No drawings
+classroom.edit.general: Edit class information
+classroom.edit.add.picture: Or add drawings
+classroom.view.public: Visit the public page of the class
+classroom.updated: Class information has been edited
+classroom.picture.added: The drawing has been posted
+classroom.picture.deleted: The drawing has been deleted
+school.informations: School information
+classroom.informations: Class information
+classroom.picture.alt: Class photo
+classroom_picture.picture.alt: Drawing
+school.picture.alt: 'School photo'
+search_classroom: 'Find a class'
+search_school: 'Find a school'
+schoolname: 'School name'
+classname: Class
+classroom.edit: Edit class information
+education.slogan: 'Oparation "My class, my forest"'
+education.slogan2: 'A forest of drawings for thousands of trees planted on the planet'
+education.goal: 'Goal: educate and engage elementary school students in forest conservation and reforestation in the world.'
+education.children.actors: 'Our children become involved in reforestation in the world'
+education.desc.p1: 'The functioning of forest ecosystems and their interactions with biodiversity, cycles of carbon and water are part of the curricula of primary classes.'
+education.desc.p2: 'The association Up2green Reforestation developed for primary classes an <b>educational kit</ b> for teachers to engage their students and involve them in practice.'
+education.desc.p3: '<b>An entertaing and teaching implication…</b><br/>Each student is invited to express their creativity by drawing a tree. In exchange for his/her <b>artistic contribution</ b>, each child receives the right to plant a tree in the world. He or she can choose a program of community reforestation among those supported by the association Up2Green Reforestation around the world.'
+education.desc.p4: '<b>… for a solidarity action shared at national and international levels</b><br/>The drawings are grouped and displayed on a web page of this site, thus forming a large "forest" of drawings. Each drawing represents a tree actually planted on the program chosen by the child.'
+close: Close
+details: Details
+student: Student
+program: Program
+kits_number: Number of kits
+kits_number.help: A kit contains enough material for 35 students.
