@@ -2,21 +2,23 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Classroom controller test
  */
-class ClassroomControllerTest extends WebTestCase
+class ClassroomControllerTest extends IsolatedWebTestCase
 {
     /**
      * Test the show action
      */
     public function testShow()
     {
-        $this->client->request('GET', '/education/school/ecole-des-fans/ce1-a');
+        $client = static::createClient();
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $client->request('GET', '/education/school/ecole-primaire-les-condamines/ce2');
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
     /**
@@ -24,8 +26,10 @@ class ClassroomControllerTest extends WebTestCase
      */
     public function testShowClassroomNotFound()
     {
-        $this->client->request('GET', '/education/school/titi/classroom_from_nowhere');
+        $client = static::createClient();
 
-        $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
+        $client->request('GET', '/education/school/titi/classroom_from_nowhere');
+
+        $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }
 }

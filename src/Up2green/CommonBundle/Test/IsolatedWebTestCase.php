@@ -2,50 +2,42 @@
 
 namespace Up2green\CommonBundle\Test;
 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
 /**
  * Isolated Web Test Case
  */
 class IsolatedWebTestCase extends WebTestCase
 {
-    protected $_application;
+    private static $application;
 
     /**
-     * @see http://www.phpunit.de/manual/3.0/en/fixtures.html#fixtures.more-setup-than-teardown
+     * For each test class, it will build everthing before to execute test methods
      */
-    protected function setUp()
+    public static function setUpBeforeClass()
     {
-        parent::setUp();
+        \Propel::disableInstancePooling();
 
-        $this->_application = new \Symfony\Bundle\FrameworkBundle\Console\Application(static::$kernel);
-        $this->_application->setAutoExit(false);
-
-        // FIXME : https://github.com/propelorm/PropelBundle/issues/177
-//        $this->runConsole("propel:database:drop", array("--force" => true));
-//        $this->runConsole("propel:database:create");
-//        $this->runConsole("propel:build", array("--insert-sql" => true));
-//        $this->runConsole("propel:fixtures:load");
+        self::runCommand('propel:build --insert-sql');
+        self::runCommand('propel:fixtures:load');
     }
 
-    /**
-     * @param string $command
-     * @param array  $options
-     *
-     * @return mixed
-     */
-    protected function runConsole($command, array $options = array())
+    protected static function getApplication()
     {
-        $options["-e"] = "test";
-        $options["-q"] = null;
-        $options = array_merge($options, array('command' => $command));
+        if (null === self::$application) {
+            $client = static::createClient();
 
-        return $this->_application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
+            self::$application = new \Symfony\Bundle\FrameworkBundle\Console\Application($client->getKernel());
+            self::$application->setAutoExit(false);
+        }
+
+        return self::$application;
     }
 
-    /**
-     * @see http://www.phpunit.de/manual/3.0/en/fixtures.html#fixtures.more-setup-than-teardown
-     */
-    protected function tearDown()
+    protected static function runCommand($command)
     {
-        parent::tearDown();
+        $command = sprintf('%s --quiet', $command);
+
+        return self::getApplication()->run(new \Symfony\Component\Console\Input\StringInput($command));
     }
 }

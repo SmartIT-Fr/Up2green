@@ -12,42 +12,36 @@ use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 class WaitingListControllerTest extends IsolatedWebTestCase
 {
     /**
-     * @return array
-     */
-    public function waitingListProvider()
-    {
-        return array(
-            array(
-                array(
-                    'first_name'     => 'Marie',
-                    'last_name'      => 'Minassyan',
-                    'email'          => 'marie.minassyan@up2green.com',
-                    'phone_number'   => '0667075579',
-                    'kits_number'    => '2',
-                    'address'		 => array(
-                        'name'   		 => 'Maison',
-                        'street_line_1'  => '12 bd Edgar Quinet',
-                        'street_line_2'  => ' ',
-                        'zipcode'   	 => '75014',
-                        'city'   		 => 'Paris',
-                        'country'        => 'France'
-                    ),
-                    'captcha'        => ''
-                )
-            )
-        );
-    }
-
-    /**
      * Test defultAction of contact
      *
      * @param array $data Post datas
-     *
-     * @dataProvider waitingListProvider
      */
-    public function testJoin(array $data)
+    public function testJoin()
     {
-        $this->client->request('POST', '/education/waitinglist/join', $data);
-        $this->assertRegExp('/Bad code value/', $this->client->getResponse()->getContent());
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/education/waitinglist/join');
+
+        $form = $crawler
+            ->selectButton('Soumettre')
+            ->form(array(
+                'join_waiting_list[first_name]'             => 'Marie',
+                'join_waiting_list[last_name]'              => 'Minassyan',
+                'join_waiting_list[email][email]'           => 'marie.minassyan@up2green.com',
+                'join_waiting_list[email][confirm_email]'   => 'marie.minassyan@up2green.com',
+                'join_waiting_list[phone_number]'           => '0667075579',
+                'join_waiting_list[kits_number]'            => '2',
+                'join_waiting_list[address][name]'   		=> 'Maison',
+                'join_waiting_list[address][street_line_1]' => '12 bd Edgar Quinet',
+                'join_waiting_list[address][street_line_2]' => ' ',
+                'join_waiting_list[address][zipcode]'   	=> '75014',
+                'join_waiting_list[address][city]'   		=> 'Paris',
+                'join_waiting_list[address][country]'       => 'France',
+                'join_waiting_list[captcha]'                => ''
+            ));
+
+        $client->submit($form);
+
+        $this->assertRegExp('/Mauvaise valeur pour le code visuel/', $client->getResponse()->getContent());
     }
 }

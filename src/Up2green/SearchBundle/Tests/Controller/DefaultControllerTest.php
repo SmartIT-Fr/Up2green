@@ -14,8 +14,11 @@ class DefaultControllerTest extends IsolatedWebTestCase
      */
     public function testIndex()
     {
-        $this->client->request('GET', '/');
-        $this->assertTrue($this->client->getResponse()->isSuccessful());
+        $client = static::createClient();
+
+        $client->request('GET', '/');
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
     /**
@@ -27,11 +30,13 @@ class DefaultControllerTest extends IsolatedWebTestCase
      */
     public function testSearch()
     {
-        $this->client->request('POST', '/', array(
+        $client = static::createClient();
+
+        $client->request('POST', '/', array(
             'type' => 0,
             'q' => 'test',
         ));
 
-        $this->assertTrue($this->client->getResponse()->isSuccessful());
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }

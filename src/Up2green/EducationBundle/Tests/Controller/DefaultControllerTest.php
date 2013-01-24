@@ -2,21 +2,23 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Default controller test
  */
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends IsolatedWebTestCase
 {
     /**
      * Test the index action
      */
     public function testIndex()
     {
-        $this->client->request('GET', '/education/');
+        $client = static::createClient();
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $client->request('GET', '/education/');
+
+        $this->assertTrue($client->getResponse()->isOk());
     }
 
     /**
@@ -24,8 +26,10 @@ class DefaultControllerTest extends WebTestCase
      */
     public function testTheProject()
     {
-        $this->client->request('GET', '/education/the-project');
+        $client = static::createClient();
+        
+        $client->request('GET', '/education/the-project');
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->assertTrue($client->getResponse()->isOk());
     }
 }

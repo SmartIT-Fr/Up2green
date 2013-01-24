@@ -22,7 +22,7 @@
         <column name="address" type="VARCHAR" size="255" required="true" />
 
         <behavior name="sluggable" />
-        <behavior name="sortable" />
+        <behavior name="timestampable" />
         <behavior name="geocodable">
             <parameter name="geocode_address" value="true" />
             <parameter name="address_columns" value="address" />
@@ -50,7 +50,7 @@
         </foreign-key>
 
         <behavior name="sluggable" />
-        <behavior name="sortable" />
+        <behavior name="timestampable" />
     </table>
 
     <table name="classroom_picture">
@@ -66,6 +66,8 @@
         <foreign-key foreignTable="program" onDelete="CASCADE" skipSql="true">
             <reference local="program_id" foreign="id"/>
         </foreign-key>
+
+        <behavior name="timestampable" />
     </table>
 
     <table name="waiting_list">

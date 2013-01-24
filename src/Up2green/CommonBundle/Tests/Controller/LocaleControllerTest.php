@@ -2,12 +2,12 @@
 
 namespace Up2green\CommonBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Test the LocaleControllerController of the CommonBundle
  */
-class LocaleControllerTest extends WebTestCase
+class LocaleControllerTest extends IsolatedWebTestCase
 {
     /**
      * @return array
@@ -29,11 +29,13 @@ class LocaleControllerTest extends WebTestCase
      */
     public function testSwitchLocale($language)
     {
-        $crawler = $this->client->request('GET', '/blog/article/1');
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/blog/article/1');
 
         $link    = $crawler->filter('a:contains("' . $language . '")')->eq(0)->link();
-        $crawler = $this->client->click($link);
-        $crawler = $this->client->followRedirect();
+        $crawler = $client->click($link);
+        $crawler = $client->followRedirect();
 
         $this->assertGreaterThan(0, $crawler->filter('h2')->count());
     }

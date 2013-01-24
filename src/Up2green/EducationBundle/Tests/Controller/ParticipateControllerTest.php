@@ -2,21 +2,23 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Participate controller test
  */
-class ParticipateControllerTest extends WebTestCase
+class ParticipateControllerTest extends IsolatedWebTestCase
 {
     /**
      * Test the teacher action
      */
     public function testTeacher()
     {
-        $this->client->request('GET', '/education/participate/teacher');
+        $client = static::createClient();
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $client->request('GET', '/education/participate/teacher');
+
+        $this->assertTrue($client->getResponse()->isOk());
     }
 
     /**
@@ -24,8 +26,10 @@ class ParticipateControllerTest extends WebTestCase
      */
     public function testDonation()
     {
-        $this->client->request('GET', '/education/participate/donation');
+        $client = static::createClient();
+        
+        $client->request('GET', '/education/participate/donation');
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $this->assertTrue($client->getResponse()->isOk());
     }
 }

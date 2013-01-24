@@ -12,34 +12,29 @@ use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 class ContactControllerTest extends IsolatedWebTestCase
 {
     /**
-     * @return array
-     */
-    public function contactProvider()
-    {
-        return array(
-            array(
-                array(
-                    'first_name' => 'Marie',
-                    'last_name'  => 'Minassyan',
-                    'subject'    => 'test',
-                    'email'      => 'marie.minassyan@up2green.com',
-                    'message'    => 'test',
-                    'captcha'    => ''
-                )
-            )
-        );
-    }
-
-    /**
      * Test defultAction of contact
      *
      * @param array $data Post datas
-     *
-     * @dataProvider contactProvider
      */
-    public function testDefault(array $data)
+    public function testDefault()
     {
-        $crawler = $this->client->request('POST', '/contact/', $data);
-        $this->assertRegExp('/Bad code value/', $this->client->getResponse()->getContent());
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/contact/');
+
+        $form = $crawler
+            ->selectButton('Soumettre')
+            ->form(array(
+                'contact[first_name]' => 'Marie',
+                'contact[last_name]' => 'Minassyan',
+                'contact[subject]' => 'Test',
+                'contact[email]' => 'marie.minassyan@up2green.com',
+                'contact[message]' => 'Test message',
+                'contact[captcha]' => '',
+            ));
+
+        $client->submit($form);
+
+        $this->assertRegExp('/Mauvaise valeur pour le code visuel/', $client->getResponse()->getContent());
     }
 }

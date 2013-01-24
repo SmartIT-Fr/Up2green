@@ -11,23 +11,16 @@ use Up2green\EducationBundle\Model\SchoolQuery;
 class RegistrationControllerTest extends IsolatedWebTestCase
 {
     /**
-     * Test the new action
-     */
-    public function testNew()
-    {
-        $this->client->request('GET', '/education/registration/new');
-
-        $this->assertTrue($this->client->getResponse()->isOk());
-    }
-
-    /**
      * Test the new action with a new school
      */
     public function testNewWithNewSchool()
     {
-        $crawler = $this->client->request('GET', '/education/registration/new');
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST8');
+
         $form = $crawler
-            ->selectButton('submit')
+            ->selectButton('Soumettre')
             ->form(array(
                 'education_registration[school][name]'                   => 'School of life',
                 'education_registration[school][address]'                => 'France, Paris',
@@ -40,9 +33,9 @@ class RegistrationControllerTest extends IsolatedWebTestCase
             ));
 
         $form['education_registration[school][school]']->select('school_out');
-        $this->client->submit($form);
+        $client->submit($form);
 
-        $this->assertTrue($this->client->getResponse()->isRedirect());
+        $this->assertTrue($client->getResponse()->isRedirect());
     }
 
     /**
@@ -50,12 +43,14 @@ class RegistrationControllerTest extends IsolatedWebTestCase
      */
     public function testNewExistingSchool()
     {
-        $crawler = $this->client->request('GET', '/education/registration/new');
+        $client = static::createClient();
+        
+        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST9');
 
         $form = $crawler
-            ->selectButton('submit')
+            ->selectButton('Soumettre')
             ->form(array(
-                'education_registration[school][schoolList]'             => SchoolQuery::create()->findOneBySlug('ecole-des-fans')->getId(),
+                'education_registration[school][schoolList]'             => 1,
                 'education_registration[account][username]'              => 'doe.john',
                 'education_registration[account][email]'                 => 'doe.john@wherenofrom.out',
                 'education_registration[account][plainPassword][first]'  => 'ForMemyLiveIsASecret',
@@ -66,8 +61,8 @@ class RegistrationControllerTest extends IsolatedWebTestCase
 
         $form['education_registration[school][school]']->select('school_in');
 
-        $this->client->submit($form);
+        $client->submit($form);
 
-        $this->assertTrue($this->client->getResponse()->isRedirect());
+        $this->assertTrue($client->getResponse()->isRedirect());
     }
 }

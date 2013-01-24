@@ -14,7 +14,12 @@ class DefaultControllerTest extends IsolatedWebTestCase
      */
     public function testIndex()
     {
-        $this->client->request('GET', '/blog/');
-        $this->assertTrue($this->client->getResponse()->isSuccessful());
+        $client = static::createClient();
+
+        $client->request('GET', '/blog/');
+
+        echo $client->getResponse()->getContent();
+
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }

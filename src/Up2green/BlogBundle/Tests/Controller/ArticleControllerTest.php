@@ -30,8 +30,10 @@ class ArticleControllerTest extends IsolatedWebTestCase
      */
     public function testShow($httpStatus, $id)
     {
-        $this->client->request('GET', '/blog/article/' . $id);
-        $this->assertEquals($httpStatus, $this->client->getResponse()->getStatusCode());
+        $client = static::createClient();
+
+        $client->request('GET', '/blog/article/' . $id);
+        $this->assertEquals($httpStatus, $client->getResponse()->getStatusCode());
     }
 
     /**
@@ -39,8 +41,11 @@ class ArticleControllerTest extends IsolatedWebTestCase
      */
     public function testList()
     {
-        $crawler = $this->client->request('GET', '/blog/article/');
-        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/blog/article/');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertGreaterThan(0, $crawler->filter('div.item')->count());
     }
 }

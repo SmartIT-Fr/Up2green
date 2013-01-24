@@ -39,7 +39,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $pictures = Model\ClassroomPictureQuery::create()->find();
+        $pictures = Model\ClassroomPictureQuery::create()
+            ->orderByCreatedAt(\Criteria::DESC)
+            ->find();
 
         return array('pictures' => $pictures);
     }

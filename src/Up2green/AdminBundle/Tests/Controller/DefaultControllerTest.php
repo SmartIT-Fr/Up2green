@@ -2,21 +2,23 @@
 
 namespace Up2green\AdminBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\WebTestCase;
+use Up2green\CommonBundle\Test\IsolatedWebTestCase;
 
 /**
  * Default controller test
  */
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends IsolatedWebTestCase
 {
     /**
      * Test the index action
      */
     public function testIndex()
     {
-        $this->client->connect('admin', 'adminpass');
-        $this->client->request('GET', '/admin/');
+        $client = static::createClient();
 
-        $this->assertTrue($this->client->getResponse()->isOk());
+        $client->connect('admin', 'adminpass');
+        $client->request('GET', '/admin/');
+
+        $this->assertTrue($client->getResponse()->isOk());
     }
 }

@@ -1,5 +1,7 @@
 <?php
+
 namespace Up2green\CommonBundle\Test;
+
 use Symfony\Bundle\FrameworkBundle\Client as BaseClient;
 
 /**
