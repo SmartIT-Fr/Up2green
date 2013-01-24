@@ -1,5 +1,5 @@
 {
-    "hash": "7b576921de3b99de47e0434fcf87a4a8",
+    "hash": "1d24a1e0e78c5779fc218c2c906dbcaf",
     "packages": [
         {
             "name": "cedriclombardot/admingenerator-activeadmintheme-bundle",
@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "0ca487d54d604da7c891bdd3b4358f8f1f3483f3"
+                "reference": "72cfa8d05a09ffeca145c58bb61bb98cb8fcc2ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle/archive/0ca487d54d604da7c891bdd3b4358f8f1f3483f3.zip",
-                "reference": "0ca487d54d604da7c891bdd3b4358f8f1f3483f3",
+                "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle/archive/72cfa8d05a09ffeca145c58bb61bb98cb8fcc2ec.zip",
+                "reference": "72cfa8d05a09ffeca145c58bb61bb98cb8fcc2ec",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
             "suggest": {
                 "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container"
             },
-            "time": "2013-01-08 15:47:38",
+            "time": "2013-01-22 14:15:22",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorOldThemeBundle.git",
-                "reference": "f95b9e3997b39c96203d7c140345e9bac1876db3"
+                "reference": "4cfd686bc6d184c9414741756d685f38a238056c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorOldThemeBundle/archive/f95b9e3997b39c96203d7c140345e9bac1876db3.zip",
-                "reference": "f95b9e3997b39c96203d7c140345e9bac1876db3",
+                "url": "https://github.com/symfony2admingenerator/AdmingeneratorOldThemeBundle/archive/4cfd686bc6d184c9414741756d685f38a238056c.zip",
+                "reference": "4cfd686bc6d184c9414741756d685f38a238056c",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,7 @@
             "suggest": {
                 "cedriclombardot/admingenerator-activeadmintheme-bundle": "The rails admin theme"
             },
-            "time": "2012-12-12 09:19:50",
+            "time": "2013-01-17 16:37:06",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -349,19 +349,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal",
-                "reference": "4c33f633c48eeafe3408b308f6fc51743a21a3b7"
+                "reference": "fd45c6f6baa618d871f3201fabe76df5043abb1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/dbal/archive/4c33f633c48eeafe3408b308f6fc51743a21a3b7.zip",
-                "reference": "4c33f633c48eeafe3408b308f6fc51743a21a3b7",
+                "url": "https://github.com/doctrine/dbal/archive/fd45c6f6baa618d871f3201fabe76df5043abb1e.zip",
+                "reference": "fd45c6f6baa618d871f3201fabe76df5043abb1e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2013-01-07 20:03:43",
+            "time": "2013-01-20 11:50:36",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -481,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle",
-                "reference": "49449cd5ecde0254fdc554068fe8c87470b1057d"
+                "reference": "1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/archive/49449cd5ecde0254fdc554068fe8c87470b1057d.zip",
-                "reference": "49449cd5ecde0254fdc554068fe8c87470b1057d",
+                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/archive/1.1.2.zip",
+                "reference": "1.1.2",
                 "shasum": ""
             },
             "require": {
@@ -495,7 +495,7 @@
                 "symfony/serializer": ">=2.0,<2.3-dev",
                 "symfony/console": ">=2.0,<2.3-dev"
             },
-            "time": "2012-12-22 11:27:51",
+            "time": "2013-01-14 18:53:13",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -535,12 +535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle",
-                "reference": "3ba8988f05a14875f7ab516020fd890e888cca40"
+                "reference": "7bf5d3a1a87e32ce7ff6502386dc5893656d4278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/3ba8988f05a14875f7ab516020fd890e888cca40.zip",
-                "reference": "3ba8988f05a14875f7ab516020fd890e888cca40",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle/archive/7bf5d3a1a87e32ce7ff6502386dc5893656d4278.zip",
+                "reference": "7bf5d3a1a87e32ce7ff6502386dc5893656d4278",
                 "shasum": ""
             },
             "require": {
@@ -561,7 +561,7 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "2013-01-11 15:40:26",
+            "time": "2013-01-22 00:55:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -599,24 +599,74 @@
             ]
         },
         {
+            "name": "gregwar/captcha",
+            "version": "v1.0.1",
+            "target-dir": "Gregwar/Captcha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Captcha",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Gregwar/Captcha/archive/v1.0.1.zip",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "ext-gd": "*"
+            },
+            "time": "2013-01-21 12:59:54",
+            "type": "captcha",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\Captcha": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                },
+                {
+                    "name": "Jeremy Livingston",
+                    "email": "jeremy.j.livingston@gmail.com"
+                }
+            ],
+            "description": "Captcha generator",
+            "homepage": "https://github.com/Gregwar/Captcha",
+            "keywords": [
+                "spam",
+                "captcha",
+                "bot"
+            ]
+        },
+        {
             "name": "gregwar/captcha-bundle",
             "version": "dev-master",
             "target-dir": "Gregwar/CaptchaBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/CaptchaBundle",
-                "reference": "95b28d9cecfff25586e99e7d2ea9596657f3d1f5"
+                "reference": "95342e80a9ff438ca77857e6ef364c56723492b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Gregwar/CaptchaBundle/archive/95b28d9cecfff25586e99e7d2ea9596657f3d1f5.zip",
-                "reference": "95b28d9cecfff25586e99e7d2ea9596657f3d1f5",
+                "url": "https://github.com/Gregwar/CaptchaBundle/archive/95342e80a9ff438ca77857e6ef364c56723492b6.zip",
+                "reference": "95342e80a9ff438ca77857e6ef364c56723492b6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "gregwar/captcha": "v1.0.1"
             },
-            "time": "2013-01-04 07:32:42",
+            "time": "2013-01-23 18:58:45",
             "type": "captcha-bundle",
             "autoload": {
                 "psr-0": {
@@ -652,16 +702,16 @@
         },
         {
             "name": "imagine/Imagine",
-            "version": "v0.4.0",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine",
-                "reference": "v0.4.0"
+                "reference": "v0.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/avalanche123/Imagine/archive/v0.4.0.zip",
-                "reference": "v0.4.0",
+                "url": "https://github.com/avalanche123/Imagine/archive/v0.4.1.zip",
+                "reference": "v0.4.1",
                 "shasum": ""
             },
             "require": {
@@ -670,7 +720,7 @@
             "require-dev": {
                 "sami/sami": "dev-master"
             },
-            "time": "2012-11-21 15:08:19",
+            "time": "2012-12-13 18:31:18",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1252,12 +1302,12 @@
             "source": {
                 "type": "git",
                 "url": "http://github.com/kriswallsmith/Buzz.git",
-                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21"
+                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/kriswallsmith/Buzz/archive/988bf14201ffbed940f23b42f87302e6adec4c21.zip",
-                "reference": "988bf14201ffbed940f23b42f87302e6adec4c21",
+                "url": "https://github.com/kriswallsmith/Buzz/archive/8ff1d1910b9e04ac571bcf6d639559e065093136.zip",
+                "reference": "8ff1d1910b9e04ac571bcf6d639559e065093136",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1316,7 @@
             "suggest": {
                 "ext-curl": "*"
             },
-            "time": "2012-08-17 12:23:33",
+            "time": "2013-01-14 16:07:06",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1298,18 +1348,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/liip/LiipImagineBundle.git",
-                "reference": "5567a0fefc7f562b01eaed85bd87ebb916b3917b"
+                "reference": "c60a954e7afd9da620472885f0b2991d6833c65f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/liip/LiipImagineBundle/archive/5567a0fefc7f562b01eaed85bd87ebb916b3917b.zip",
-                "reference": "5567a0fefc7f562b01eaed85bd87ebb916b3917b",
+                "url": "https://github.com/liip/LiipImagineBundle/archive/c60a954e7afd9da620472885f0b2991d6833c65f.zip",
+                "reference": "c60a954e7afd9da620472885f0b2991d6833c65f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": ">=2.0.14,<2.3-dev",
-                "imagine/imagine": "<=0.4.0"
+                "imagine/imagine": "<=0.4.1"
             },
             "require-dev": {
                 "twig/twig": ">=1.0,<2.0-dev",
@@ -1318,7 +1368,7 @@
             "suggest": {
                 "twig/twig": ">=1.0,<2.0-dev"
             },
-            "time": "2013-01-09 15:43:59",
+            "time": "2013-01-22 10:06:02",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1737,19 +1787,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/propelorm/Propel",
-                "reference": "f3964371fee5c6bbb3c21873e5f83127c9fd6db5"
+                "reference": "f7c98348f4a789af7daaaefc4b418565102b4209"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/propelorm/Propel/archive/f3964371fee5c6bbb3c21873e5f83127c9fd6db5.zip",
-                "reference": "f3964371fee5c6bbb3c21873e5f83127c9fd6db5",
+                "url": "https://github.com/propelorm/Propel/archive/f7c98348f4a789af7daaaefc4b418565102b4209.zip",
+                "reference": "f7c98348f4a789af7daaaefc4b418565102b4209",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "phing/phing": "2.4.12"
             },
-            "time": "2013-01-11 18:29:42",
+            "time": "2013-01-24 18:46:08",
             "bin": [
                 "generator/bin/propel-gen",
                 "generator/bin/propel-gen.bat"
@@ -1798,12 +1848,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioDistributionBundle",
-                "reference": "781e1e585fc57cfaf37dc16275ebcaa19c8279b5"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioDistributionBundle/archive/781e1e585fc57cfaf37dc16275ebcaa19c8279b5.zip",
-                "reference": "781e1e585fc57cfaf37dc16275ebcaa19c8279b5",
+                "url": "https://github.com/sensio/SensioDistributionBundle/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -1844,12 +1894,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "f050aa93cb1aa780f668020dddd6333b5c5d95c3"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/f050aa93cb1aa780f668020dddd6333b5c5d95c3.zip",
-                "reference": "f050aa93cb1aa780f668020dddd6333b5c5d95c3",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -1891,12 +1941,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "74f519a1c4414d4a45dd12c9e86e29efb5a90b2c"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/74f519a1c4414d4a45dd12c9e86e29efb5a90b2c.zip",
-                "reference": "74f519a1c4414d4a45dd12c9e86e29efb5a90b2c",
+                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -1988,12 +2038,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/AsseticBundle",
-                "reference": "f9ccc30b26209ec6c97c346097958599f74c1ede"
+                "reference": "128d3aa1ea65f0615339f20f15f154bd2e7224bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/AsseticBundle/archive/f9ccc30b26209ec6c97c346097958599f74c1ede.zip",
-                "reference": "f9ccc30b26209ec6c97c346097958599f74c1ede",
+                "url": "https://github.com/symfony/AsseticBundle/archive/128d3aa1ea65f0615339f20f15f154bd2e7224bb.zip",
+                "reference": "128d3aa1ea65f0615339f20f15f154bd2e7224bb",
                 "shasum": ""
             },
             "require": {
@@ -2013,7 +2063,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-09 22:35:35",
+            "time": "2013-01-19 21:58:23",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2051,12 +2101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle",
-                "reference": "v2.2.0-BETA1"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/MonologBundle/archive/v2.2.0-BETA1.zip",
-                "reference": "v2.2.0-BETA1",
+                "url": "https://github.com/symfony/MonologBundle/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -2110,12 +2160,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle",
-                "reference": "2bf9cdefd8102e6409ec0762652cf81cb3b4c21a"
+                "reference": "v2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/SwiftmailerBundle/archive/2bf9cdefd8102e6409ec0762652cf81cb3b4c21a.zip",
-                "reference": "2bf9cdefd8102e6409ec0762652cf81cb3b4c21a",
+                "url": "https://github.com/symfony/SwiftmailerBundle/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
                 "shasum": ""
             },
             "require": {
@@ -2164,12 +2214,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "da0b0426efe708447a332e699eac5bc75b448f95"
+                "reference": "bdc7e91865b4633b01e79ff91aadb58efccfa981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/da0b0426efe708447a332e699eac5bc75b448f95.zip",
-                "reference": "da0b0426efe708447a332e699eac5bc75b448f95",
+                "url": "https://github.com/symfony/symfony/archive/bdc7e91865b4633b01e79ff91aadb58efccfa981.zip",
+                "reference": "bdc7e91865b4633b01e79ff91aadb58efccfa981",
                 "shasum": ""
             },
             "require": {
@@ -2218,7 +2268,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": ">=1.0,<1.3-dev"
             },
-            "time": "2013-01-12 20:28:26",
+            "time": "2013-01-22 07:14:57",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -2299,18 +2349,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab"
+                "reference": "93c6a8dedc46c73ccdd61342de3d5e761e4412f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/3111e1265db1026323c589a5bd2d152871d7bbab.zip",
-                "reference": "3111e1265db1026323c589a5bd2d152871d7bbab",
+                "url": "https://github.com/fabpot/Twig/archive/93c6a8dedc46c73ccdd61342de3d5e761e4412f6.zip",
+                "reference": "93c6a8dedc46c73ccdd61342de3d5e761e4412f6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-08 16:56:12",
+            "time": "2013-01-18 09:58:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2402,12 +2452,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Geocoder",
-                "reference": "5f6cc35bba2525ed576eb964e352e32e83aa9287"
+                "reference": "54e64daeb8c572c93c1ef520b8ea01cff46a5d58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/willdurand/Geocoder/archive/5f6cc35bba2525ed576eb964e352e32e83aa9287.zip",
-                "reference": "5f6cc35bba2525ed576eb964e352e32e83aa9287",
+                "url": "https://github.com/willdurand/Geocoder/archive/54e64daeb8c572c93c1ef520b8ea01cff46a5d58.zip",
+                "reference": "54e64daeb8c572c93c1ef520b8ea01cff46a5d58",
                 "shasum": ""
             },
             "require": {
@@ -2424,7 +2474,7 @@
                 "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
                 "zendframework/zend-http": "Enabling Zend_Http allows you to use the ZendHttpAdapter."
             },
-            "time": "2013-01-11 18:30:06",
+            "time": "2013-01-23 22:48:06",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2515,13 +2565,13 @@
         "white-october/pagerfanta-bundle": 20,
         "pagerfanta/pagerfanta": 20,
         "mopa/bootstrap-bundle": 20,
-        "twitter/bootstrap": 20,
         "friendsofsymfony/user-bundle": 20,
         "propel-behaviors/typehintablebehavior": 20,
         "propel-behaviors/activatablebehavior": 20,
         "juliendidier/buzz-profiler-bundle": 20,
         "kriswallsmith/buzz": 20,
         "kriswallsmith/assetic": 20,
+        "twitter/bootstrap": 20,
         "gregwar/captcha-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
         "willdurand/geocoder": 20,
