@@ -2,12 +2,12 @@
 
 namespace Up2green\BlogBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Test the ProgramController of the BlogBundle
  */
-class ProgramControllerTest extends IsolatedWebTestCase
+class ProgramControllerTest extends WebTestCase
 {
     /**
      * @return array

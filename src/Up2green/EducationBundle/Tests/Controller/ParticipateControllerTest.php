@@ -2,12 +2,12 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Participate controller test
  */
-class ParticipateControllerTest extends IsolatedWebTestCase
+class ParticipateControllerTest extends WebTestCase
 {
     /**
      * Test the teacher action
@@ -27,7 +27,7 @@ class ParticipateControllerTest extends IsolatedWebTestCase
     public function testDonation()
     {
         $client = static::createClient();
-        
+
         $client->request('GET', '/education/participate/donation');
 
         $this->assertTrue($client->getResponse()->isOk());

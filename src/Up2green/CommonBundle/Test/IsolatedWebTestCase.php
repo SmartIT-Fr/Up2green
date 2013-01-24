@@ -12,9 +12,10 @@ class IsolatedWebTestCase extends WebTestCase
     private static $application;
 
     /**
-     * For each test class, it will build everthing before to execute test methods
+     * For each test class, it will re build everthing after to insure that
+     * the test will not alter database for next tests
      */
-    public static function setUpBeforeClass()
+    public static function tearDownAfterClass()
     {
         \Propel::disableInstancePooling();
 

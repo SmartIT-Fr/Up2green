@@ -2,12 +2,12 @@
 
 namespace Up2green\SearchBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Test the Default controller
  */
-class DefaultControllerTest extends IsolatedWebTestCase
+class DefaultControllerTest extends WebTestCase
 {
     /**
      * Test the index action

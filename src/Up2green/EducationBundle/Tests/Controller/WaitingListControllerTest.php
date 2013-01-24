@@ -2,14 +2,14 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Test the WaitingListControllerTest of the EducationBundle
  *
  * @todo Find a way to pass the captcha validation
  */
-class WaitingListControllerTest extends IsolatedWebTestCase
+class WaitingListControllerTest extends WebTestCase
 {
     /**
      * Test defultAction of contact

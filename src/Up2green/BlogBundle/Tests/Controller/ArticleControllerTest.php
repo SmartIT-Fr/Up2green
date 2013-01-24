@@ -2,12 +2,12 @@
 
 namespace Up2green\BlogBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Test the ArticleController of the BlogBundle
  */
-class ArticleControllerTest extends IsolatedWebTestCase
+class ArticleControllerTest extends WebTestCase
 {
     /**
      * @return array

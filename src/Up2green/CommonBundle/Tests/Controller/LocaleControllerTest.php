@@ -2,12 +2,12 @@
 
 namespace Up2green\CommonBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Test the LocaleControllerController of the CommonBundle
  */
-class LocaleControllerTest extends IsolatedWebTestCase
+class LocaleControllerTest extends WebTestCase
 {
     /**
      * @return array

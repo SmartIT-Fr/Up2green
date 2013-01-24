@@ -2,12 +2,12 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Classroom controller test
  */
-class ClassroomControllerTest extends IsolatedWebTestCase
+class ClassroomControllerTest extends WebTestCase
 {
     /**
      * Test the show action
@@ -16,7 +16,7 @@ class ClassroomControllerTest extends IsolatedWebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/school/ecole-primaire-les-condamines/ce2');
+        $client->request('GET', '/education/school/ecole-primaire-les-condamines/ce1');
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
