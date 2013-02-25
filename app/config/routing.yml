@@ -5,7 +5,7 @@ up2green_admin:
 up2green_education:
     resource: "@Up2greenEducationBundle/Controller/"
     type:     annotation
-    prefix:   /education
+    prefix:   /
 
 up2green_reforestation:
     resource: "@Up2greenReforestationBundle/Controller/"
@@ -25,7 +25,7 @@ up2green_user:
 up2green_search:
     resource: "@Up2greenSearchBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /search
 
 up2green_common:
     resource: "@Up2greenCommonBundle/Controller/"

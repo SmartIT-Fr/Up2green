@@ -26,3 +26,4 @@ app/config/parameters.yml
 .buildpath
 .project
 .settings/
+.rsync_cache/

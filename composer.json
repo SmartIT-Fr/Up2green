@@ -20,7 +20,6 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "phing/phing": "2.4.*",
-        "propel/propel1": "1.6.*-dev",
         "propel/propel-bundle": "1.1.*",
         "white-october/pagerfanta-bundle": "dev-master",
         "pagerfanta/pagerfanta": "dev-master",
