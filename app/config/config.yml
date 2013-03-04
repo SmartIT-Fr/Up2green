@@ -57,8 +57,8 @@ assetic:
     # java: /usr/bin/java
     filters:
         sass:
-            bin: /var/lib/gems/1.8/gems/sass-3.2.5/bin/sass
-            compass: /var/lib/gems/1.8/gems/compass-0.12.2/bin/compass
+            bin: /var/lib/gems/1.8/bin/sass
+            compass: /var/lib/gems/1.8/bin/compass
         cssrewrite: ~
         yui_js:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
