@@ -20,7 +20,6 @@
                 "cedriclombardot/admingenerator-generator-bundle": "*",
                 "cedriclombardot/admingenerator-oldtheme-bundle": "*"
             },
-            "time": "2012-10-12 18:16:14",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -38,7 +37,8 @@
                 }
             ],
             "description": "The rails admin theme for the symfony2 generator",
-            "homepage": "http://symfony2admingenerator.org/"
+            "homepage": "http://symfony2admingenerator.org/",
+            "time": "2012-10-12 18:16:14"
         },
         {
             "name": "cedriclombardot/admingenerator-generator-bundle",
@@ -71,7 +71,6 @@
             "suggest": {
                 "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container"
             },
-            "time": "2013-01-22 14:15:22",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -98,7 +97,8 @@
                 "admin",
                 "generator",
                 "yaml"
-            ]
+            ],
+            "time": "2013-01-22 14:15:22"
         },
         {
             "name": "cedriclombardot/admingenerator-oldtheme-bundle",
@@ -121,7 +121,6 @@
             "suggest": {
                 "cedriclombardot/admingenerator-activeadmintheme-bundle": "The rails admin theme"
             },
-            "time": "2013-01-17 16:37:06",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -145,7 +144,8 @@
                 "generator",
                 "theme",
                 "yaml"
-            ]
+            ],
+            "time": "2013-01-17 16:37:06"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -162,7 +162,6 @@
                 "reference": "d1c7f4c11f5532aa14e061e0ffef3ecacc76ebc8",
                 "shasum": ""
             },
-            "time": "2012-12-23 12:44:03",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -176,7 +175,8 @@
                     "email": "cedric.lombardot@gmail.com"
                 }
             ],
-            "description": "This package is a part of the Symfony2 Admin Generator based on YAML configuration and Twig templating. But could also work standalone."
+            "description": "This package is a part of the Symfony2 Admin Generator based on YAML configuration and Twig templating. But could also work standalone.",
+            "time": "2012-12-23 12:44:03"
         },
         {
             "name": "cedriclombardot/twig-generator",
@@ -196,7 +196,6 @@
                 "php": ">=5.3.0",
                 "twig/twig": ">=1.1, <2.0-dev"
             },
-            "time": "2012-11-09 23:18:09",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -221,7 +220,8 @@
                 "code generation",
                 "generator",
                 "twig"
-            ]
+            ],
+            "time": "2012-11-09 23:18:09"
         },
         {
             "name": "craue/twigextensions-bundle",
@@ -245,7 +245,6 @@
             "require-dev": {
                 "symfony/symfony": ">=2.0-dev,<2.3-dev"
             },
-            "time": "2013-01-04 16:03:33",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -272,7 +271,8 @@
                 "Symfony2",
                 "extensions",
                 "twig"
-            ]
+            ],
+            "time": "2013-01-04 16:03:33"
         },
         {
             "name": "doctrine/common",
@@ -291,7 +291,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-20 05:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -341,7 +340,8 @@
                 "eventmanager",
                 "persistence",
                 "spl"
-            ]
+            ],
+            "time": "2012-09-20 05:55:18"
         },
         {
             "name": "doctrine/dbal",
@@ -361,7 +361,6 @@
                 "doctrine/common": "2.3.*",
                 "php": ">=5.3.2"
             },
-            "time": "2013-01-20 11:50:36",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -404,7 +403,8 @@
                 "dbal",
                 "persistence",
                 "queryobject"
-            ]
+            ],
+            "time": "2013-01-20 11:50:36"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -435,7 +435,6 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-09-07 14:18:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -472,7 +471,8 @@
                 "dbal",
                 "orm",
                 "persistence"
-            ]
+            ],
+            "time": "2012-09-07 14:18:21"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -495,7 +495,6 @@
                 "symfony/framework-bundle": ">=2.0,<2.3-dev",
                 "symfony/serializer": ">=2.0,<2.3-dev"
             },
-            "time": "2013-01-14 18:53:13",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -526,7 +525,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "Js Routing"
-            ]
+            ],
+            "time": "2013-01-14 18:53:13"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -561,7 +561,6 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "*"
             },
-            "time": "2013-01-22 00:55:42",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -596,7 +595,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "User management"
-            ]
+            ],
+            "time": "2013-01-22 00:55:42"
         },
         {
             "name": "gregwar/captcha",
@@ -617,7 +617,6 @@
                 "ext-gd": "*",
                 "php": ">=5.3.0"
             },
-            "time": "2013-01-21 12:59:54",
             "type": "captcha",
             "autoload": {
                 "psr-0": {
@@ -645,7 +644,8 @@
                 "bot",
                 "captcha",
                 "spam"
-            ]
+            ],
+            "time": "2013-01-21 12:59:54"
         },
         {
             "name": "gregwar/captcha-bundle",
@@ -666,7 +666,6 @@
                 "gregwar/captcha": "v1.0.1",
                 "php": ">=5.3.0"
             },
-            "time": "2013-01-23 18:58:45",
             "type": "captcha-bundle",
             "autoload": {
                 "psr-0": {
@@ -698,7 +697,8 @@
                 "security",
                 "spam",
                 "visual"
-            ]
+            ],
+            "time": "2013-01-23 18:58:45"
         },
         {
             "name": "imagine/Imagine",
@@ -720,7 +720,6 @@
             "require-dev": {
                 "sami/sami": "dev-master"
             },
-            "time": "2012-12-13 18:31:18",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -745,7 +744,8 @@
                 "graphics",
                 "image manipulation",
                 "image processing"
-            ]
+            ],
+            "time": "2012-12-13 18:31:18"
         },
         {
             "name": "jms/aop-bundle",
@@ -766,7 +766,6 @@
                 "jms/cg": "1.0.0",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "2012-01-02 12:50:26",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -789,7 +788,8 @@
             "keywords": [
                 "annotations",
                 "aop"
-            ]
+            ],
+            "time": "2012-01-02 12:50:26"
         },
         {
             "name": "jms/cg",
@@ -808,7 +808,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 12:40:52",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -830,7 +829,8 @@
             "description": "Toolset for generating PHP code",
             "keywords": [
                 "code generation"
-            ]
+            ],
+            "time": "2012-01-02 12:40:52"
         },
         {
             "name": "jms/di-extra-bundle",
@@ -867,7 +867,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2012-09-21 08:56:32",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -891,7 +890,8 @@
             "keywords": [
                 "annotations",
                 "dependency injection"
-            ]
+            ],
+            "time": "2012-09-21 08:56:32"
         },
         {
             "name": "jms/metadata",
@@ -910,7 +910,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 13:32:49",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -935,7 +934,8 @@
                 "metadata",
                 "xml",
                 "yaml"
-            ]
+            ],
+            "time": "2012-01-02 13:32:49"
         },
         {
             "name": "jms/payment-core-bundle",
@@ -946,13 +946,13 @@
                 "url": "https://github.com/SmartIT-Fr/JMSPaymentCoreBundle.git",
                 "reference": "master"
             },
-            "time": "2012-10-29 11:23:28",
             "type": "library",
             "autoload": {
                 "psr-0": {
                     "JMS\\Payment\\CoreBundle": ""
                 }
-            }
+            },
+            "time": "2012-10-29 11:23:28"
         },
         {
             "name": "jms/payment-paypal-bundle",
@@ -977,7 +977,6 @@
             "require-dev": {
                 "symfony/browser-kit": "2.1.x-dev"
             },
-            "time": "2013-01-02 09:29:06",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1001,7 +1000,8 @@
             "keywords": [
                 "payment",
                 "paypal"
-            ]
+            ],
+            "time": "2013-01-02 09:29:06"
         },
         {
             "name": "jms/security-extra-bundle",
@@ -1039,7 +1039,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2012-09-06 16:12:23",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1066,7 +1065,8 @@
                 "expression",
                 "secure",
                 "security"
-            ]
+            ],
+            "time": "2012-09-06 16:12:23"
         },
         {
             "name": "juliendidier/buzz-profiler-bundle",
@@ -1088,7 +1088,6 @@
                 "php": ">=5.3.2",
                 "symfony/symfony": ">=2.0"
             },
-            "time": "2012-11-07 20:55:19",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1106,7 +1105,8 @@
                     "homepage": "http://jdidier.net"
                 }
             ],
-            "description": "A Symfony2 Profiler for Buzz integration"
+            "description": "A Symfony2 Profiler for Buzz integration",
+            "time": "2012-11-07 20:55:19"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1135,7 +1135,6 @@
                 "silex/silex": "for the integration with your silex application",
                 "twig/twig": "for the TwigRenderer and the integration with your templates"
             },
-            "time": "2012-12-27 13:04:16",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1170,7 +1169,8 @@
             "keywords": [
                 "menu",
                 "tree"
-            ]
+            ],
+            "time": "2012-12-27 13:04:16"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -1191,7 +1191,6 @@
                 "knplabs/knp-menu": "2.0.*",
                 "symfony/framework-bundle": ">=2.0,<2.3-dev"
             },
-            "time": "2012-12-29 08:47:58",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1224,7 +1223,8 @@
             "description": "This bundle provides an integration of the KnpMenu library",
             "keywords": [
                 "menu"
-            ]
+            ],
+            "time": "2012-12-29 08:47:58"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1262,7 +1262,6 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "twig/twig": "Assetic provides the integration with the Twig templating engine"
             },
-            "time": "2013-01-12 22:20:24",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1294,7 +1293,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-01-12 22:20:24"
         },
         {
             "name": "kriswallsmith/buzz",
@@ -1316,7 +1316,6 @@
             "suggest": {
                 "ext-curl": "*"
             },
-            "time": "2013-01-14 16:07:06",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1339,7 +1338,8 @@
             "keywords": [
                 "curl",
                 "http client"
-            ]
+            ],
+            "time": "2013-01-14 16:07:06"
         },
         {
             "name": "liip/imagine-bundle",
@@ -1368,7 +1368,6 @@
             "suggest": {
                 "twig/twig": ">=1.0,<2.0-dev"
             },
-            "time": "2013-01-22 10:06:02",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1390,7 +1389,8 @@
             "keywords": [
                 "image",
                 "imagine"
-            ]
+            ],
+            "time": "2013-01-22 10:06:02"
         },
         {
             "name": "monolog/monolog",
@@ -1417,7 +1417,6 @@
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server"
             },
-            "time": "2012-08-29 04:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1446,7 +1445,8 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2012-08-29 04:53:20"
         },
         {
             "name": "mopa/bootstrap-bundle",
@@ -1455,16 +1455,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaBootstrapBundle.git",
-                "reference": "ea4d0840e99bc3f676bf4ae71625b6ebcddecb82"
+                "reference": "3945a3f18c3784cc58ba6d76ab75baf2f50fedb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaBootstrapBundle/archive/ea4d0840e99bc3f676bf4ae71625b6ebcddecb82.zip",
-                "reference": "ea4d0840e99bc3f676bf4ae71625b6ebcddecb82",
+                "url": "https://api.github.com/repos/phiamo/MopaBootstrapBundle/zipball/3945a3f18c3784cc58ba6d76ab75baf2f50fedb8",
+                "reference": "3945a3f18c3784cc58ba6d76ab75baf2f50fedb8",
                 "shasum": ""
             },
             "require": {
-                "mopa/composer-bridge": "dev-master",
+                "mopa/composer-bridge": "1.*",
                 "symfony/symfony": ">=2.1,<2.3-dev"
             },
             "suggest": {
@@ -1474,7 +1474,6 @@
                 "knplabs/knp-paginator-bundle": "dev-master",
                 "twitter/bootstrap": "2.0.*"
             },
-            "time": "2013-01-09 16:27:46",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1508,27 +1507,32 @@
                 "extra form",
                 "form",
                 "template"
-            ]
+            ],
+            "time": "2013-03-06 13:52:47"
         },
         {
             "name": "mopa/composer-bridge",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/phiamo/MopaComposerBridge.git",
-                "reference": "v1.0.0"
+                "url": "https://github.com/phiamo/MopaComposerBridge.git",
+                "reference": "be2f32119e96648252b7a4001a463a7ac17052ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/phiamo/MopaComposerBridge/archive/v1.0.0.zip",
-                "reference": "v1.0.0",
+                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/be2f32119e96648252b7a4001a463a7ac17052ba",
+                "reference": "be2f32119e96648252b7a4001a463a7ac17052ba",
                 "shasum": ""
             },
             "require": {
                 "symfony/console": "2.*"
             },
-            "time": "2012-10-11 18:29:49",
             "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mopa\\Bridge\\Composer": "src/"
@@ -1554,7 +1558,8 @@
             "keywords": [
                 "Symfony2",
                 "composer"
-            ]
+            ],
+            "time": "2013-03-05 22:59:36"
         },
         {
             "name": "oauth/oauth",
@@ -1588,7 +1593,6 @@
             "suggest": {
                 "twig/twig": ">=1.3.0"
             },
-            "time": "2012-09-07 08:20:02",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1617,7 +1621,8 @@
                 "gravatar",
                 "templating",
                 "twig"
-            ]
+            ],
+            "time": "2012-09-07 08:20:02"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1641,7 +1646,6 @@
                 "doctrine/orm": "2.*",
                 "solarium/solarium": "2.*"
             },
-            "time": "2012-08-22 21:56:31",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1663,7 +1667,8 @@
             "keywords": [
                 "page",
                 "paging"
-            ]
+            ],
+            "time": "2012-08-22 21:56:31"
         },
         {
             "name": "phing/phing",
@@ -1682,7 +1687,6 @@
             "require": {
                 "php": ">=5.2.0"
             },
-            "time": "2012-11-29 21:23:47",
             "bin": [
                 "bin/phing"
             ],
@@ -1715,7 +1719,8 @@
                 "build",
                 "task",
                 "tool"
-            ]
+            ],
+            "time": "2012-11-29 21:23:47"
         },
         {
             "name": "propel-behaviors/ActivatableBehavior",
@@ -1725,8 +1730,8 @@
                 "url": "http://github.com/ClementGautier/ActivatableBehavior.git",
                 "reference": "master"
             },
-            "time": "2013-01-28 16:25:03",
-            "type": "library"
+            "type": "library",
+            "time": "2012-03-21 22:52:16"
         },
         {
             "name": "propel-behaviors/TypehintableBehavior",
@@ -1736,8 +1741,8 @@
                 "url": "http://github.com/willdurand/TypehintableBehavior.git",
                 "reference": "master"
             },
-            "time": "2012-07-15 14:03:24",
-            "type": "library"
+            "type": "library",
+            "time": "2012-07-15 14:03:24"
         },
         {
             "name": "propel/propel-bundle",
@@ -1762,7 +1767,6 @@
                 "fzaninotto/faker": "dev-master",
                 "sensio/framework-extra-bundle": ">=2.1,<2.2"
             },
-            "time": "2013-01-11 20:47:45",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1785,7 +1789,8 @@
                 "orm",
                 "persistence",
                 "propel"
-            ]
+            ],
+            "time": "2013-01-11 20:47:45"
         },
         {
             "name": "propel/propel1",
@@ -1805,7 +1810,6 @@
                 "phing/phing": ">=2.4,<3.0",
                 "php": ">=5.2.4"
             },
-            "time": "2013-02-14 20:50:27",
             "bin": [
                 "generator/bin/propel-gen",
                 "generator/bin/propel-gen.bat"
@@ -1845,7 +1849,8 @@
                 "mapping",
                 "orm",
                 "persistence"
-            ]
+            ],
+            "time": "2013-02-14 20:50:27"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -1865,7 +1870,6 @@
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-04 17:11:22",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1891,7 +1895,8 @@
             "keywords": [
                 "configuration",
                 "distribution"
-            ]
+            ],
+            "time": "2013-01-04 17:11:22"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -1912,7 +1917,6 @@
                 "doctrine/common": ">=2.1,<2.4-dev",
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-04 17:06:26",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1938,7 +1942,8 @@
             "keywords": [
                 "annotations",
                 "controllers"
-            ]
+            ],
+            "time": "2013-01-04 17:06:26"
         },
         {
             "name": "sensio/generator-bundle",
@@ -1964,7 +1969,6 @@
                 "symfony/doctrine-bridge": "2.1.*",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
-            "time": "2013-01-04 17:09:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1986,7 +1990,8 @@
                     "email": "fabien@symfony.com"
                 }
             ],
-            "description": "This bundle generates code for you"
+            "description": "This bundle generates code for you",
+            "time": "2013-01-04 17:09:08"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2005,7 +2010,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-10-25 01:30:40",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2035,7 +2039,8 @@
             "keywords": [
                 "mail",
                 "mailer"
-            ]
+            ],
+            "time": "2012-10-25 01:30:40"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2069,7 +2074,6 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-19 21:58:23",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2098,7 +2102,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-01-19 21:58:23"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -2126,7 +2131,6 @@
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-07 10:57:41",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2157,7 +2161,8 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2013-01-07 10:57:41"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2185,7 +2190,6 @@
                 "symfony/http-kernel": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-04 17:04:29",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -2212,7 +2216,8 @@
                 }
             ],
             "description": "Symfony SwiftmailerBundle",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-01-04 17:04:29"
         },
         {
             "name": "symfony/symfony",
@@ -2274,7 +2279,6 @@
                 "monolog/monolog": ">=1.0,<1.3-dev",
                 "propel/propel1": "dev-master"
             },
-            "time": "2013-01-22 07:14:57",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -2300,7 +2304,8 @@
             "homepage": "http://symfony.com",
             "keywords": [
                 "framework"
-            ]
+            ],
+            "time": "2013-01-22 07:14:57"
         },
         {
             "name": "twig/extensions",
@@ -2319,7 +2324,6 @@
             "require": {
                 "twig/twig": "1.*"
             },
-            "time": "2013-01-04 16:55:05",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2347,7 +2351,8 @@
                 "debug",
                 "i18n",
                 "text"
-            ]
+            ],
+            "time": "2013-01-04 16:55:05"
         },
         {
             "name": "twig/twig",
@@ -2366,7 +2371,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-18 09:58:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2396,7 +2400,8 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ]
+            ],
+            "time": "2013-01-18 09:58:04"
         },
         {
             "name": "twitter/bootstrap",
@@ -2406,8 +2411,8 @@
                 "url": "https://github.com/twitter/bootstrap.git",
                 "reference": "master"
             },
-            "time": "2013-02-08 06:13:13",
-            "type": "library"
+            "type": "library",
+            "time": "2012-12-22 02:54:36"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -2428,7 +2433,6 @@
                 "pagerfanta/pagerfanta": "dev-master",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "2012-07-24 12:48:41",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -2450,7 +2454,8 @@
             "keywords": [
                 "page",
                 "paging"
-            ]
+            ],
+            "time": "2012-07-24 12:48:41"
         },
         {
             "name": "willdurand/geocoder",
@@ -2480,7 +2485,6 @@
                 "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
                 "zendframework/zend-http": "Enabling Zend_Http allows you to use the ZendHttpAdapter."
             },
-            "time": "2013-01-23 22:48:06",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2510,7 +2514,8 @@
                 "geocoder",
                 "geocoding",
                 "geoip"
-            ]
+            ],
+            "time": "2013-01-23 22:48:06"
         },
         {
             "name": "willdurand/propel-geocodable-behavior",
@@ -2533,7 +2538,6 @@
             "require-dev": {
                 "willdurand/geocoder": "dev-master"
             },
-            "time": "2013-01-09 20:52:17",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -2557,10 +2561,13 @@
                 "geocodable",
                 "geocoding",
                 "propel"
-            ]
+            ],
+            "time": "2013-01-09 20:52:17"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
@@ -2589,5 +2596,13 @@
         "ornicar/gravatar-bundle": 20,
         "craue/twigextensions-bundle": 20,
         "liip/imagine-bundle": 20
-    }
+    },
+    "platform": {
+        "php": ">=5.3.3",
+        "ext-gd": "*",
+        "ext-curl": "*"
+    },
+    "platform-dev": [
+
+    ]
 }
