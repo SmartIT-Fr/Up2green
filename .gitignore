@@ -10,8 +10,10 @@ vendor/*
 */cache/*
 web/uploads/*
 web/bundles/*
-web/css/
-web/js/
+web/css/*
+web/js/*
+!web/css/.gitkeep
+!web/js/.gitkeep
 
 # Propel 
 src/Up2green/*Bundle/Model/om/*
