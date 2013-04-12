@@ -25,12 +25,12 @@
         "pagerfanta/pagerfanta": "dev-master",
         "mopa/bootstrap-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
-        "propel-behaviors/TypehintableBehavior": "dev-master",
-        "propel-behaviors/ActivatableBehavior": "dev-master",
+        "willdurand/propel-typehintable-behavior": "1.0.3",
+        "clementgautier/propel-activatable-behavior": "dev-master",
         "juliendidier/buzz-profiler-bundle": "dev-master",
         "kriswallsmith/buzz": "dev-master",
         "kriswallsmith/assetic": "1.1.x-dev",
-        "twitter/bootstrap": "dev-master",
+        "twitter/bootstrap": "v2.3.1",
         "gregwar/captcha-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "willdurand/geocoder": "dev-master",
@@ -38,8 +38,8 @@
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "cedriclombardot/admingenerator-user-bundle": "dev-master",
         "cedriclombardot/admingenerator-activeadmintheme-bundle": "dev-master",
-        "jms/payment-core-bundle": "master-dev",
-        "jms/payment-paypal-bundle": "master-dev",
+        "jms/payment-core-bundle": "dev-propel-support",
+        "jms/payment-paypal-bundle": "dev-propel-support",
         "doctrine/dbal": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.0.*",
         "ornicar/gravatar-bundle" : "dev-master",
@@ -48,68 +48,12 @@
     },
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "version": "master",
-                "name": "jms/payment-core-bundle",
-                "source": {
-                    "url": "https://github.com/SmartIT-Fr/JMSPaymentCoreBundle.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-0": { "JMS\\Payment\\CoreBundle": "" }
-                },
-                "target-dir": "JMS/Payment/CoreBundle"
-            }
+            "type": "vcs",
+            "url": "https://github.com/ClementGautier/JMSPaymentCoreBundle"
         },
         {
-            "type": "package",
-            "package": {
-                "version": "master",
-                "name": "twitter/bootstrap",
-                "source": {
-                    "url": "https://github.com/twitter/bootstrap.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "version": "master",
-                "name": "propel-behaviors/TypehintableBehavior",
-                "source": {
-                    "url": "http://github.com/willdurand/TypehintableBehavior.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "version": "master",
-                "name": "propel-behaviors/ActivatableBehavior",
-                "source": {
-                    "url": "http://github.com/ClementGautier/ActivatableBehavior.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "version": "master",
-                "name": "phing/phing",
-                "source": {
-                    "url": "https://github.com/Xosofox/phing",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
         },
         {
             "type": "package",
