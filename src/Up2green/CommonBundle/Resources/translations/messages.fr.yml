@@ -42,3 +42,5 @@ read_more: Détails
 registration.flash.user_created: Votre compte a été créé avec succès !
 buy: Acheter
 confirm_email: Confirmez votre email
+form.label.paypal_express_checkout: Paypal
+form.label.payment_method: Méthode de paiement

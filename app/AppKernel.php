@@ -53,7 +53,6 @@ class AppKernel extends Kernel
             new Up2green\ReforestationBundle\Up2greenReforestationBundle(),
             new Up2green\EducationBundle\Up2greenEducationBundle(),
             new Up2green\AdminBundle\Up2greenAdminBundle(),
-            new Up2green\PropelPaymentCoreBundle\Up2greenPropelPaymentCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

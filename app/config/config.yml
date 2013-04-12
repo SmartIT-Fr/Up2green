@@ -115,6 +115,7 @@ knp_menu:
     twig: true
 
 jms_payment_core:
+    orm: propel
     secret: up2greenSup3erM3GAs2cret
 
 jms_payment_paypal:
