@@ -68,7 +68,8 @@ class SchoolType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\DomainObject\School'
+            'data_class' => 'Up2green\EducationBundle\DomainObject\School',
+            'cascade_validation' => true,
         ));
     }
 

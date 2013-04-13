@@ -4,7 +4,7 @@ imports:
 #propel:
 #    dbal:
 #        driver:               pdo_sqlite
-#        dsn:                  'sqlite::memory:'
+#        dsn:                  sqlite::in_memory
 
 framework:
     test: ~

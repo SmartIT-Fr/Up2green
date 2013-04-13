@@ -20,7 +20,7 @@ class VoucherQuery extends BaseVoucherQuery
     {
         $result = $this->findOneByCode($code);
 
-        return (!empty($result) && $result->getIsActive());
+        return (!empty($result) && $result->isActive());
     }
 
 	/**

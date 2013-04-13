@@ -50,7 +50,8 @@ class DonationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\Donation'
+            'data_class' => 'Up2green\EducationBundle\Model\Donation',
+            'cascade_validation' => true,
         ));
     }
 

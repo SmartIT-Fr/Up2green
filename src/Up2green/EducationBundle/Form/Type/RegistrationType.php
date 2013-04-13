@@ -20,8 +20,9 @@ class RegistrationType extends AbstractType
             ->add('school', 'education_school', array(
                 'label' => 'form.registration.school'
             ))
-            ->add('account', 'education_account', array(
-                'label' => 'form.registration.account'
+            ->add('account', 'fos_user_registration', array(
+                'label' => 'form.registration.account',
+                'validation_groups' => array('Registration'),
             ))
             ->add('classroom', 'education_classroom', array(
                 'label' => 'form.registration.classroom'
@@ -34,7 +35,8 @@ class RegistrationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\DomainObject\Registration'
+            'data_class' => 'Up2green\EducationBundle\DomainObject\Registration',
+            'cascade_validation' => true,
         ));
     }
 

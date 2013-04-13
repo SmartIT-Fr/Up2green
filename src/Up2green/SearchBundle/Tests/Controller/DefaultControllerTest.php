@@ -16,7 +16,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/');
+        $client->request('GET', '/search/');
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
@@ -32,7 +32,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('POST', '/', array(
+        $client->request('POST', '/search/', array(
             'type' => 0,
             'q' => 'test',
         ));

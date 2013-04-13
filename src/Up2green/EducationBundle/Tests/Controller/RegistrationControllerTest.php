@@ -36,6 +36,10 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $client->submit($form);
 
         $this->assertTrue($client->getResponse()->isRedirect());
+
+        $client->followRedirect();
+
+        $this->assertRegExp('/Votre compte a été créé avec succès !/', $client->getResponse()->getContent());
     }
 
     /**
@@ -44,7 +48,7 @@ class RegistrationControllerTest extends IsolatedWebTestCase
     public function testNewExistingSchool()
     {
         $client = static::createClient();
-        
+
         $crawler = $client->request('GET', '/education/registration/new/EDUCTEST9');
 
         $form = $crawler
@@ -64,5 +68,39 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $client->submit($form);
 
         $this->assertTrue($client->getResponse()->isRedirect());
+
+        $client->followRedirect();
+
+        $this->assertRegExp('/Votre compte a été créé avec succès !/', $client->getResponse()->getContent());
+    }
+
+    /**
+     * test the new action with an existing school
+     */
+    public function testExistingUsernameAndEmailDoNotGenerateAnException()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST7');
+
+        $form = $crawler
+            ->selectButton('Soumettre')
+            ->form(array(
+                'education_registration[school][schoolList]'             => 1,
+                'education_registration[account][username]'              => 'doe.john',
+                'education_registration[account][email]'                 => 'doe.john@wherenofrom.out',
+                'education_registration[account][plainPassword][first]'  => 'ForMemyLiveIsASecret',
+                'education_registration[account][plainPassword][second]' => 'ForMemyLiveIsASecret',
+                'education_registration[classroom][name]'                => '1PC',
+                'education_registration[classroom][description]'         => 'This is no one of the classroom'
+            ));
+
+        $form['education_registration[school][school]']->select('school_in');
+
+        $client->submit($form);
+
+        $this->assertTrue($client->getResponse()->isOk());
+        $this->assertRegExp('/utilisateur est déjà utilisé/', $client->getResponse()->getContent());
+        $this->assertRegExp('/adresse e-mail est déjà utilisée/', $client->getResponse()->getContent());
     }
 }

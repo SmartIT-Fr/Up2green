@@ -36,7 +36,8 @@ class ClassroomPictureType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\ClassroomPicture'
+            'data_class' => 'Up2green\EducationBundle\Model\ClassroomPicture',
+            'cascade_validation' => true,
         ));
     }
 

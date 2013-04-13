@@ -58,7 +58,8 @@ class SearchClassroomType extends AbstractType
     {
         $resolver
             ->setDefaults(array(
-                'csrf_protection' => false
+                'csrf_protection' => false,
+                'cascade_validation' => true,
             ));
     }
 

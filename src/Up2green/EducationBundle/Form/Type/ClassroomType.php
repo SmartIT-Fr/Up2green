@@ -40,7 +40,8 @@ class ClassroomType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\Classroom'
+            'data_class' => 'Up2green\EducationBundle\Model\Classroom',
+            'cascade_validation' => true,
         ));
     }
 
