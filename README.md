@@ -36,9 +36,18 @@ configured for Symfony. To do this, execute the following:
 php app/check.php
 ```
 
-### d) Access the Application via the Browser and check the config
+### d) Add apache  Virtual hosts and check the web configuration
 
-    http://localhost/Symfony/web/config.php
+You will have to create multiple virtual hosts to work and precise your domain
+name in the parameters.yml file. You will have to create :
+
+* www.yourdomain
+* reforestation.yourdomain
+* education.yourdomain
+* admin.yourdomain
+* association.yourdomain
+
+Then, check the configuration : http://www.yourdomain/config.php
 
 ### e) Install tools for assetic
 
