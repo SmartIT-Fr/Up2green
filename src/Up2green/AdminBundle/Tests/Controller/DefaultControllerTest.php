@@ -15,9 +15,10 @@ class DefaultControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
+        $client->setSubDomain('admin');
 
         $client->connect('admin', 'adminpass');
-        $client->request('GET', '/admin/');
+        $client->request('GET', '/');
 
         $this->assertTrue($client->getResponse()->isOk());
     }

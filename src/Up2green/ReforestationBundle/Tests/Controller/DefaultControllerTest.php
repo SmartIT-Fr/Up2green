@@ -16,7 +16,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/reforestation/');
+        $client->setSubDomain('reforestation');
+        $client->request('GET', '/');
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }

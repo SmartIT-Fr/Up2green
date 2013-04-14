@@ -21,11 +21,11 @@
 </div>
 
 <div style="width: 300px; float: right" id="ajax_article">
-{% render 'Up2greenBlogBundle:Article:listAjax' with {
+{% render(controller('Up2greenBlogBundle:Article:listAjax', {
     'limit': 1,
     'routeName': app.request.get('_route'),
     'routeParams': app.request.get('_route_params')
-} %}
+})) %}
 </div>
 
 {% endblock %}

@@ -16,7 +16,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/');
+        $client->setSubDomain('education');
+        $client->request('GET', '/');
 
         $this->assertTrue($client->getResponse()->isOk());
     }
@@ -28,7 +29,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/the-project');
+        $client->setSubDomain('education');
+        $client->request('GET', '/the-project');
 
         $this->assertTrue($client->getResponse()->isOk());
     }

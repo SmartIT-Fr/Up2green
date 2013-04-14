@@ -31,7 +31,8 @@ class LocaleControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/blog/article/1');
+        $client->setSubDomain('association');
+        $crawler = $client->request('GET', '/article/1');
 
         $link    = $crawler->filter('a:contains("' . $language . '")')->eq(0)->link();
         $crawler = $client->click($link);

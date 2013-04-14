@@ -16,7 +16,8 @@ class ParticipateControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/participate/teacher');
+        $client->setSubDomain('education');
+        $client->request('GET', '/participate/teacher');
 
         $this->assertTrue($client->getResponse()->isOk());
     }
@@ -28,7 +29,8 @@ class ParticipateControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/participate/donation');
+        $client->setSubDomain('education');
+        $client->request('GET', '/participate/donation');
 
         $this->assertTrue($client->getResponse()->isOk());
     }

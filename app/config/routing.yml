@@ -1,21 +1,33 @@
 up2green_admin:
     resource: "@Up2greenAdminBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /
+    host:     admin.{domain}
+    requirements:
+        domain: %domain%
 
 up2green_education:
     resource: "@Up2greenEducationBundle/Controller/"
     type:     annotation
-    prefix:   /education
+    prefix:   /
+    host:     education.{domain}
+    requirements:
+        domain: %domain%
 
 up2green_reforestation:
     resource: "@Up2greenReforestationBundle/Controller/"
     type:     annotation
-    prefix:   /reforestation
+    prefix:   /
+    host:     reforestation.{domain}
+    requirements:
+        domain: %domain%
 
 up2green_blog:
     resource: "@Up2greenBlogBundle/Controller/"
     type:     annotation
-    prefix:   /blog
+    prefix:   /
+    host:     association.{domain}
+    requirements:
+        domain: %domain%
 
 up2green_user:
     resource: "@Up2greenUserBundle/Controller/"
@@ -25,7 +37,10 @@ up2green_user:
 up2green_search:
     resource: "@Up2greenSearchBundle/Controller/"
     type:     annotation
-    prefix:   /search
+    prefix:   /
+    host:     www.{domain}
+    requirements:
+        domain: %domain%
 
 up2green_common:
     resource: "@Up2greenCommonBundle/Controller/"
@@ -62,8 +77,3 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
-
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal

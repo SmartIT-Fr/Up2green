@@ -10,15 +10,25 @@
 
     <parameters>
         <parameter key="test.client.class">Up2green\CommonBundle\Test\Client</parameter>
+
         <parameter key="up2green_common.form.type.address.class">Up2green\CommonBundle\Form\Type\AddressType</parameter>
         <parameter key="up2green_common.form.type.order.class">Up2green\CommonBundle\Form\Type\OrderType</parameter>
         <parameter key="up2green_common.form.type.simple_order.class">Up2green\CommonBundle\Form\Type\SimpleOrderType</parameter>
         <parameter key="up2green_common.form.type.voucher.class">Up2green\CommonBundle\Form\Type\VoucherType</parameter>
 
         <parameter key="up2green_common.form.event_listener.order_payment_instruction.class">Up2green\CommonBundle\Form\EventListener\OrderPaymentInstructionSubsciber</parameter>
+
+        <parameter key="up2green_common.event_listener.request_context.class">Up2green\CommonBundle\EventListener\RequestContextListener</parameter>
     </parameters>
 
     <services>
+        <!-- EventListener -->
+        <service id="up2green_common.event_listener.request_context" class="%up2green_common.event_listener.request_context.class%">
+            <argument type="service" id="router.request_context" />
+            <argument>%domain%</argument>
+            <tag name="kernel.event_subscriber" />
+        </service>
+
         <!-- Form EventListener -->
         <service id="form.event_listener.common.order_payment_instruction" class="%up2green_common.form.event_listener.order_payment_instruction.class%">
             <argument type="service" id="form.factory" />

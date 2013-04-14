@@ -17,3 +17,6 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+parameters:
+    domain: localhost

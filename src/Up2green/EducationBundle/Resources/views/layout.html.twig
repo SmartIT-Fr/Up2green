@@ -13,7 +13,7 @@
 {% block body %}
 
     {% block header %}
-        {% render 'Up2greenEducationBundle:Default:banner' %}
+        {% render(controller('Up2greenEducationBundle:Default:banner')) %}
     {% endblock %}
 
     {{ parent() }}

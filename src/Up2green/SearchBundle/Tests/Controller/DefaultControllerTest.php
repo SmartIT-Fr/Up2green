@@ -16,7 +16,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/search/');
+        $client->setSubDomain('www');
+        $client->request('GET', '/');
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
@@ -32,7 +33,8 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('POST', '/search/', array(
+        $client->setSubDomain('www');
+        $client->request('POST', '/', array(
             'type' => 0,
             'q' => 'test',
         ));

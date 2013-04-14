@@ -20,7 +20,8 @@ class WaitingListControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/education/waitinglist/join');
+        $client->setSubDomain('education');
+        $crawler = $client->request('GET', '/waitinglist/join');
 
         $form = $crawler
             ->selectButton('Soumettre')

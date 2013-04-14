@@ -16,7 +16,8 @@ class ClassroomControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/school/ecole-primaire-les-condamines/ce1');
+        $client->setSubDomain('education');
+        $client->request('GET', '/school/ecole-primaire-les-condamines/ce1');
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
@@ -28,7 +29,8 @@ class ClassroomControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/education/school/titi/classroom_from_nowhere');
+        $client->setSubDomain('education');
+        $client->request('GET', '/school/titi/classroom_from_nowhere');
 
         $this->assertEquals(404, $client->getResponse()->getStatusCode());
     }

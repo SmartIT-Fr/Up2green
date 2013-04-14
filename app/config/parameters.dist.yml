@@ -12,7 +12,7 @@ parameters:
   mailer_password:    ~
 
   locale:             fr
-
+  domain:             up2green.localhost
   secret:             up2green2TokenSecret
 
   yahoo_oauth_key:            dj0yJmk9b3RGeE84YjBrTldnJmQ9WVdrOVUxSjZXR1ZtTlRJbWNHbzlNVFF4TmpZeU5EVTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYQ--

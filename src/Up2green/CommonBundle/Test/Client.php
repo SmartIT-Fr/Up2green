@@ -29,4 +29,12 @@ class Client extends BaseClient
 
         return $this;
     }
+
+    /**
+     * Set the sub domain part of the host for the routing
+     */
+    public function setSubDomain($domain)
+    {
+        $this->server['HTTP_HOST'] = sprintf('%s.localhost', $domain);
+    }
 }

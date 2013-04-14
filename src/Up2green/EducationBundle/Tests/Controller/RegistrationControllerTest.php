@@ -17,7 +17,8 @@ class RegistrationControllerTest extends IsolatedWebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST8');
+        $client->setSubDomain('education');
+        $crawler = $client->request('GET', '/registration/new/EDUCTEST8');
 
         $form = $crawler
             ->selectButton('Soumettre')
@@ -49,7 +50,8 @@ class RegistrationControllerTest extends IsolatedWebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST9');
+        $client->setSubDomain('education');
+        $crawler = $client->request('GET', '/registration/new/EDUCTEST9');
 
         $form = $crawler
             ->selectButton('Soumettre')
@@ -81,7 +83,8 @@ class RegistrationControllerTest extends IsolatedWebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/education/registration/new/EDUCTEST7');
+        $client->setSubDomain('education');
+        $crawler = $client->request('GET', '/registration/new/EDUCTEST7');
 
         $form = $crawler
             ->selectButton('Soumettre')

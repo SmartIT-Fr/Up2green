@@ -32,7 +32,9 @@ class ArticleControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/blog/article/' . $id);
+        $client->setSubDomain('association');
+        $client->request('GET', sprintf('/article/%d', $id));
+
         $this->assertEquals($httpStatus, $client->getResponse()->getStatusCode());
     }
 
@@ -43,7 +45,8 @@ class ArticleControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/blog/article/');
+        $client->setSubDomain('association');
+        $crawler = $client->request('GET', '/article/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertGreaterThan(0, $crawler->filter('div.item')->count());

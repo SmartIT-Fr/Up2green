@@ -22,6 +22,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        domain: %domain%
     form:
         resources:
             - 'MopaBootstrapBundle:Form:fields.html.twig'

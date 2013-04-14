@@ -32,7 +32,8 @@ class PartnerControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/blog/partner/' . $id);
+        $client->setSubDomain('association');
+        $client->request('GET', sprintf('/partner/%d', $id));
 
         $this->assertEquals($httpStatus, $client->getResponse()->getStatusCode());
     }
@@ -44,7 +45,8 @@ class PartnerControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/blog/partner/');
+        $client->setSubDomain('association');
+        $crawler = $client->request('GET', '/partner/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertGreaterThan(0, $crawler->filter('div.item')->count());
