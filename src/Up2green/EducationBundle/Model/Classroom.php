@@ -46,6 +46,7 @@ class Classroom extends BaseClassroom
      * @param PropelPDO $con
      *
      * @return boolean
+     * @todo We should remove all the directory, not only the image here
      */
     public function preDelete(\PropelPDO $con = null)
     {

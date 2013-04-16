@@ -39,7 +39,7 @@
                 {% endif %}
                 <h3>{{ classroom.name }}</h3>
                 <p><i>{{ classroom.school.name }}<br/>{{ classroom.school.address }}</i></p>
-                <p>{{ classroom.description |raw }}</p>
+                <p>{{ classroom.description|raw|truncate(300) }}</p>
                 <p>
                     <a class="btn btn-primary" href="{{ path('education_classroom_show', {'classroom_slug': classroom.slug, 'school_slug': classroom.school.slug }) }}">
                         {{ 'read_more'|trans }}

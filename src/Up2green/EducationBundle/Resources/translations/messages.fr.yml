@@ -27,7 +27,7 @@ participate.teacher.goal.1: 'Référencer votre classe'
 participate.teacher.goal.2: 'Mettre en ligne les dessins de vos élèves qui seront accessibles dans la forêt de dessins et sur la page dédiée à votre classe.'
 buy.a.kit: Acheter une mallette
 get.free.kit: 'Bénéficiez d''un don'
-participate.teacher.voucher: 'Vous disposez de votre code d’accès'
+participate.teacher.voucher: 'Saisissez le code d''accès fournis avec votre mallette'
 form.account_type.username: Pseudonyme
 form.account_type.fistname: Prénom
 form.account_type.lastname: 'Nom'
@@ -103,3 +103,8 @@ student: Ecolier
 program: Programme
 kits_number: Nombre de mallettes
 kits_number.help: Une mallette contient le matériel pédagogique nécessaire pour une classe de 35 élèves.
+school.description: '<b>Ecole:</b> %name% (%address%)'
+classroom.description: '<b>Classe:</b> %name% (%year%)'
+student.description: '<b>%student%</b> a choisi de planter son arbre dans le programme de reforestation <b>%program%</b>'
+classroom.link: 'Voir la page de la classe'
+teacher.registration.submit: 'Accéder à mon espace'

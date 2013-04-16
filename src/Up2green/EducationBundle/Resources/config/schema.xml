@@ -36,7 +36,7 @@
         <column name="name" type="VARCHAR" size="255" required="true" primaryString="true" />
         <column name="year" type="INTEGER" required="true" />
         <column name="picture" type="VARCHAR" size="255" />
-        <column name="description" type="VARCHAR" size="1024" />
+        <column name="description" type="LONGVARCHAR" />
 
         <column name="school_id" type="INTEGER" required="true" />
         <column name="user_id" type="INTEGER" required="true" />

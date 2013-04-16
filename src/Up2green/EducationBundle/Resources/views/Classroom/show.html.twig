@@ -5,51 +5,41 @@
 {{ parent() }}
 
 <div class="row-fluid">
-    <div class="grey-box span4">
-        <h4>{{ 'school.informations'|trans }}</h4>
-
-        <dl class="dl-horizontal">
-            <dt>{{ 'name'|trans }}</dt>
-            <dd>{{ classroom.school.name }}</dd>
-            <dt>{{ 'address'|trans }}</dt>
-            <dd>{{ classroom.school.address }}</dd>
-        </dl>
-    </div>
 
     <div class="grey-box span8">
-        <h4>{{ 'classroom.informations'|trans }}</h4>
 
         {% if classroom.picture is not empty %}
             <img src="{{ asset(classroom.picture) }}" alt="{{ 'classroom.picture.alt'|trans }}" />
         {% endif %}
 
-        <dl class="dl-horizontal">
-            <dt>{{ 'name'|trans }}</dt>
-            <dd>{{ classroom.name }}</dd>
-            <dt>{{ 'year'|trans }}</dt>
-            <dd>{{ classroom.year }}</dd>
-            {% if classroom.description is not empty %}
-            <dt>{{ 'description'|trans }}</dt>
-            <dd>{{ classroom.description }}</dd>
-            {% endif %}
-        </dl>
+        <h3>{{ 'pictures'|trans }}</h3>
+
+        {% include 'Up2greenEducationBundle:ClassroomPicture:_list.html.twig' with {
+            'pictures': classroom.classroomPictures
+        } only %}
+    </div>
+
+    <div class="grey-box span4">
 
         {% if is_granted('EDIT', classroom)  %}
         <a class="btn pull-right btn-primary" href="{{ path('education_classroom_edit', { 'id': classroom.id, }) }}">
             {{ 'classroom.edit'|trans }}
         </a>
         {% endif %}
+
+        <h4>{{ 'school.informations'|trans }}</h4>
+
+        <p><b>{{ 'name'|trans }}:</b> {{ classroom.school.name }}</p>
+        <p><b>{{ 'address'|trans }}:</b> {{ classroom.school.address }}</p>
+
+        <h4>{{ 'classroom.informations'|trans }}</h4>
+
+        <p><b>{{ 'name'|trans }}:</b> {{ classroom.name }}</p>
+        <p><b>{{ 'year'|trans }}:</b> {{ classroom.year }}</p>
+        {% if classroom.description is not empty %}
+        <p><b>{{ 'description'|trans }}:</b> {{ classroom.description }}</p>
+        {% endif %}
     </div>
-</div>
-
-<div class="grey-box">
-
-    <h3>{{ 'pictures'|trans }}</h3>
-
-    {% include 'Up2greenEducationBundle:ClassroomPicture:_list.html.twig' with {
-        'pictures': classroom.classroomPictures
-    } only %}
-
 </div>
 
 {% endblock %}

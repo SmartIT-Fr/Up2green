@@ -12,19 +12,18 @@
     </div>
 
     <div class="row-fluid">
-        <div class="span6 grey-box">
+        <div class="span4 grey-box">
             {{ form_row(form.school) }}
         </div>
-        <div class="span6 grey-box">
+        <div class="span4 grey-box">
             {{ form_row(form.classroom) }}
         </div>
-    </div>
+        <div class="span4 grey-box">
+            {{ form_row(form.account) }}
 
-    <div class="grey-box">
-        {{ form_row(form.account) }}
+            <input type="submit" class="btn btn-primary pull-right" value="{{ 'teacher.registration.submit'|trans }}"/>
+        </div>
         {{ form_rest(form) }}
-
-        <input type="submit" class="btn btn-primary pull-right" value="{{ 'submit'|trans }}"/>
     </div>
 
 </form>

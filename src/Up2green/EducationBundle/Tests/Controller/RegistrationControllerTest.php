@@ -21,7 +21,7 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $crawler = $client->request('GET', '/registration/new/EDUCTEST8');
 
         $form = $crawler
-            ->selectButton('Soumettre')
+            ->selectButton('Accéder à mon espace')
             ->form(array(
                 'education_registration[school][name]'                   => 'School of life',
                 'education_registration[school][address]'                => 'France, Paris',
@@ -54,7 +54,7 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $crawler = $client->request('GET', '/registration/new/EDUCTEST9');
 
         $form = $crawler
-            ->selectButton('Soumettre')
+            ->selectButton('Accéder à mon espace')
             ->form(array(
                 'education_registration[school][schoolList]'             => 1,
                 'education_registration[account][username]'              => 'doe.john',
@@ -87,7 +87,7 @@ class RegistrationControllerTest extends IsolatedWebTestCase
         $crawler = $client->request('GET', '/registration/new/EDUCTEST7');
 
         $form = $crawler
-            ->selectButton('Soumettre')
+            ->selectButton('Accéder à mon espace')
             ->form(array(
                 'education_registration[school][schoolList]'             => 1,
                 'education_registration[account][username]'              => 'doe.john',

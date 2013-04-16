@@ -1,33 +1,31 @@
-<div class="row-fluid">
+<div class="classroom-picture-wrapper pull-left">
+    <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
+</div>
 
-    <div class="span8">
-        <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
-    </div>
+<div class="classroom-picture-description pull-right">
 
-    <div class="span4">
+    <p>{{ 'school.description'|trans({
+        '%name%' : picture.classroom.school.name,
+        '%address%': picture.classroom.school.address
+    })|raw }}</p>
 
-        <h5>{{ 'school.informations'|trans }}</h5>
+    <p>
+        {{ 'classroom.description'|trans({
+            '%name%' : picture.classroom.name,
+            '%year%': picture.classroom.year
+        })|raw }}
+        (<a href="{{ path('education_classroom_show', {'classroom_slug': picture.classroom.slug, 'school_slug': picture.classroom.school.slug }) }}">{{ 'classroom.link'|trans }}</a>)
+    </p>
 
-        <dl class="dl-horizontal">
-            <dd>{{ picture.classroom.school.name }}</dd>
-            <dd>{{ picture.classroom.school.address }}</dd>
-        </dl>
+    <p>
+        {{ 'student.description'|trans({
+            '%student%' : picture.student,
+            '%program%': picture.program
+        })|raw }}
 
-        <hr />
+        {% if picture.program.logo is not empty %}
+            <img class="program" src="{{ asset(picture.program.logo) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ picture.program }}" />
+        {% endif %}
+    </p>
 
-        <h5>{{ 'classroom'|trans }}</h5>
-
-        <p>{{ picture.classroom.name }} ({{ picture.classroom.year }})</p>
-
-        <hr />
-
-        <h5>{{ 'student'|trans }}</h5>
-
-        <dl class="dl-horizontal">
-            <dt>{{ 'name'|trans }}</dt>
-            <dd>{{ picture.student }}</dd>
-            <dt>{{ 'program'|trans }}</dt>
-            <dd>{{ picture.program }}</dd>
-        </dl>
-    </div>
 </div>

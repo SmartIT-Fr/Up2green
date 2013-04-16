@@ -1,2 +1,5 @@
-layout.logout: Logout
-layout.login: Login
+layout:
+  logout: Logout
+  login: Login
+form:
+  password_confirmation: "Repeat Password :"

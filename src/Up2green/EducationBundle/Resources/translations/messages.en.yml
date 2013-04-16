@@ -27,7 +27,7 @@ participate.teacher.goal.1: 'Register your class'
 participate.teacher.goal.2: 'Post online your students drawings, that will be available in the forest of drawings on the page dedicated to your class.'
 buy.a.kit: Buy a kit
 get.free.kit: 'Benefit from a donation'
-participate.teacher.voucher: 'You have an access code'
+participate.teacher.voucher: 'Enter the access code supplied with your kit'
 form.account_type.username: Username
 form.account_type.fistname: First name
 form.account_type.lastname: 'Last name'
@@ -103,3 +103,8 @@ student: Student
 program: Program
 kits_number: Number of kits
 kits_number.help: A kit contains enough material for 35 students.
+school.description: '<b>School:</b> %name% (%address%)'
+classroom.description: '<b>Classroom:</b> %name% (%year%)'
+student.description: '<b>%student%</b> chose to plant a tree in <b>%program%</b>'
+classroom.link: 'View the classroom page'
+teacher.registration.submit: 'Access my space'

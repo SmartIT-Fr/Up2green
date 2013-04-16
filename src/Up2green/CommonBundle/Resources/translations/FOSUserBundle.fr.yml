@@ -1,2 +1,5 @@
-layout.logout: Se déconnecter
-layout.login: Se connecter
+layout:
+  logout: Se déconnecter
+  login: Se connecter
+form:
+  password_confirmation: "Répétez votre mot de passe :"

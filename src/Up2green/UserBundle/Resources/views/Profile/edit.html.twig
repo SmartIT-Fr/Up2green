@@ -1,0 +1,16 @@
+{% extends "Up2greenUserBundle::layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<div class="grey-box">
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.current_password) }}
+
+        {{ form_rest(form) }}
+        <input class="btn btn-primary pull-right" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+    </form>
+</div>
+{% endblock fos_user_content %}
