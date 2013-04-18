@@ -10,7 +10,7 @@
     height: 220px;
 
     a {
-      color: transparent;
+      text-indent: -9999px;
       display: block;
       margin: 0 auto;
       width: 214px;
@@ -22,10 +22,16 @@
 
   }
 
-  .navbar-inner {
+  .up2green-navbar-inner {
+
+    min-height: @navbarHeight;
+    padding-left:  20px;
+    padding-right: 20px;
+
+    // Prevent floats from breaking the navbar
+    .clearfix();
+
     background: url("/bundles/up2greeneducation/images/layout/menu.png") repeat-x scroll center center transparent;
-    border: 0;
-    box-shadow: none;
     font-size: 17px;
     padding: 0;
 
@@ -137,7 +143,7 @@ div.content-bottom {
 
 #footer, #footer a {
     margin: 0;
-    padding: 470px 0 20px;
+    padding-top: 470px;
     color: #ddd;
 }
 
