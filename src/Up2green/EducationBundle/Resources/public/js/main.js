@@ -1,16 +1,17 @@
 $(function() {
     // Wall
-    modal = $('#modal');
+    var modal = $('#modal');
+
+    function resizeModalSize() {
+        $('.modal-body', modal).css('max-height', ($(window).height() * .62)+'px');
+    }
 
     if (modal) {
 
-        $('.modal-body', modal).css('max-height', ($(window).height() * .62)+'px');
+        resizeModalSize();
+        $(window).resize(resizeModalSize);
 
-        $(window).resize(function() {
-            $('.modal-body', modal).css('max-height', ($(window).height() * .62)+'px');
-        });
-
-        modalBody = $('.modal-body', modal);
+        var modalBody = $('.modal-body', modal);
 
         $("a.classroom-picture-modal").click(function(e){
             e.preventDefault();
