@@ -1434,12 +1434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClementGautier/JMSPaymentCoreBundle.git",
-                "reference": "301509e5e46b039cadd5ba3397adfac315c42b8f"
+                "reference": "37840191ae9f5354fe629a8d724f40661a12f12d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClementGautier/JMSPaymentCoreBundle/zipball/301509e5e46b039cadd5ba3397adfac315c42b8f",
-                "reference": "301509e5e46b039cadd5ba3397adfac315c42b8f",
+                "url": "https://api.github.com/repos/ClementGautier/JMSPaymentCoreBundle/zipball/37840191ae9f5354fe629a8d724f40661a12f12d",
+                "reference": "37840191ae9f5354fe629a8d724f40661a12f12d",
                 "shasum": ""
             },
             "require": {
@@ -1493,7 +1493,7 @@
             "support": {
                 "source": "https://github.com/ClementGautier/JMSPaymentCoreBundle/tree/propel-support"
             },
-            "time": "2013-04-12 21:39:57"
+            "time": "2013-05-28 20:49:57"
         },
         {
             "name": "jms/payment-paypal-bundle",
