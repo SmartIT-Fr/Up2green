@@ -49,26 +49,11 @@ name in the parameters.yml file. You will have to create :
 
 Then, check the configuration : http://www.yourdomain/config.php
 
-### e) Install tools for assetic
-
- - npm: (node package manager)
+### e) Permissions
 
 ``` bash
-curl http://npmjs.org/install.sh | sh
-```
-
- - less css and uglify-js:
-
-``` bash
-npm install less -g
-npm install uglify-js -g
-```
-
- - compass and sass gems:
-
-``` bash
-gem install compass
-gem install sass
+sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs web/uploads
+sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs web/uploads
 ```
 
 ### f) Configuration your database and build
