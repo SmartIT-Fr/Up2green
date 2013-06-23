@@ -36,7 +36,15 @@ after "symfony:propel:build:model", "symfony:propel:build:acl"
 
 # Creating symlink for twitter bootstrap
 before "symfony:assetic:dump" do
-  run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} mopa:bootstrap:symlink:less --env=#{symfony_env_prod}'"
+  run "cd #{latest_release} && #{php_bin} #{symfony_console} mopa:bootstrap:symlink:less --env=#{symfony_env_prod}"
+end
+
+# FIXME cache warmup error when propel clases are not already generated
+before "symfony:propel:build:model", :on_error => :continue  do
+  begin
+    run "cd #{latest_release} && #{try_sudo} #{php_bin} #{symfony_console}  propel:model:build --env=prod --no-debug"
+  rescue Exception => error
+  end
 end
 
 after "deploy", "symfony:cache:clear"
