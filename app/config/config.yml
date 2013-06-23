@@ -104,19 +104,35 @@ fos_user:
     firewall_name: main
     user_class: FOS\UserBundle\Propel\User
 
-admingenerator_generator:
-    templates_dirs: [ %kernel.root_dir%/../vendor/cedriclombardot/admingenerator-oldtheme-bundle/Admingenerator/OldThemeBundle/Resources/templates ]
-    base_admin_template: Up2greenAdminBundle::base_admin_assetic_less.html.twig
-    knp_menu_class: Up2green\AdminBundle\Menu\AdminMenu
-    use_propel: true
-    use_doctrine_orm: false
-    use_doctrine_odm: false
+sonata_admin:
+    title:      Up2green administration
+    title_logo: /bundles/sonataadmin/logo_title.png
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::standard_layout.html.twig
+        ajax:    SonataAdminBundle::ajax_layout.html.twig
 
-admingenerator_user:
-     login_template: AdmingeneratorGeneratorBundle::base_login.html.twig
+        # default actions templates, should extend a global templates
+        list:    SonataAdminBundle:CRUD:list.html.twig
+        show:    SonataAdminBundle:CRUD:show.html.twig
+        edit:    SonataAdminBundle:CRUD:edit.html.twig
+
+    dashboard:
+        blocks:
+            # display a dashboard block
+            - { position: left, type: sonata.admin.block.admin_list }
 
 knp_menu:
     twig: true
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.rss:
 
 jms_payment_core:
     orm: propel
