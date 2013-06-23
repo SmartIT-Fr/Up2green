@@ -16,6 +16,7 @@ class SchoolAdmin extends Admin
     {
         $formMapper
             ->add('name')
+            ->add('address')
         ;
     }
 
