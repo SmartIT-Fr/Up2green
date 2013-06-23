@@ -3,240 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bd37da05d6680fc05c48fc2c6e6cad93",
+    "hash": "7fa8089ec78569f75b851cdf7df1b28a",
     "packages": [
-        {
-            "name": "cedriclombardot/admingenerator-activeadmintheme-bundle",
-            "version": "dev-master",
-            "target-dir": "Admingenerator/ActiveAdminThemeBundle",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/symfony2admingenerator/AdmingeneratorActiveAdminThemeBundle.git",
-                "reference": "ae4f837600734b837a1104ec2d29aca82f0186e9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorActiveAdminThemeBundle/archive/ae4f837600734b837a1104ec2d29aca82f0186e9.zip",
-                "reference": "ae4f837600734b837a1104ec2d29aca82f0186e9",
-                "shasum": ""
-            },
-            "require": {
-                "cedriclombardot/admingenerator-generator-bundle": "*",
-                "cedriclombardot/admingenerator-oldtheme-bundle": "*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Admingenerator\\ActiveAdminThemeBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cedric LOMBARDOT",
-                    "email": "cedric.lombardot@gmail.com"
-                }
-            ],
-            "description": "The rails admin theme for the symfony2 generator",
-            "homepage": "http://symfony2admingenerator.org/",
-            "time": "2012-10-12 18:16:14"
-        },
-        {
-            "name": "cedriclombardot/admingenerator-generator-bundle",
-            "version": "dev-master",
-            "target-dir": "Admingenerator/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "507416b5da7c2496c642b5107dc216d86e02a5dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/507416b5da7c2496c642b5107dc216d86e02a5dc",
-                "reference": "507416b5da7c2496c642b5107dc216d86e02a5dc",
-                "shasum": ""
-            },
-            "require": {
-                "cedriclombardot/twig-generator": "1.0.*",
-                "knplabs/knp-menu-bundle": ">1.0,<2.1",
-                "symfony/symfony": ">= 2.2.0",
-                "twig/extensions": "1.0.*",
-                "twig/twig": ">= 1.9.0",
-                "white-october/pagerfanta-bundle": "1.0.*@dev"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.2.3,<2.5-dev",
-                "doctrine/dbal": ">=2.2.3,<2.5-dev",
-                "doctrine/orm": ">=2.2.3,<2.5-dev"
-            },
-            "suggest": {
-                "avalanche123/imagine-bundle": "Image manipulation using Imagine and Twig Filters",
-                "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Admingenerator\\GeneratorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cedric LOMBARDOT",
-                    "email": "cedric.lombardot@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://github.com/cedriclombardot/AdmingeneratorGeneratorBundle/contributors"
-                }
-            ],
-            "description": "Admingenerator for Symfony2 based on YAML configuration and Twig templating",
-            "homepage": "http://symfony2admingenerator.org/",
-            "keywords": [
-                "admin",
-                "generator",
-                "yaml"
-            ],
-            "time": "2013-06-22 10:56:01"
-        },
-        {
-            "name": "cedriclombardot/admingenerator-oldtheme-bundle",
-            "version": "dev-master",
-            "target-dir": "Admingenerator/OldThemeBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorOldThemeBundle.git",
-                "reference": "4cfd686bc6d184c9414741756d685f38a238056c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorOldThemeBundle/archive/4cfd686bc6d184c9414741756d685f38a238056c.zip",
-                "reference": "4cfd686bc6d184c9414741756d685f38a238056c",
-                "shasum": ""
-            },
-            "require": {
-                "cedriclombardot/admingenerator-generator-bundle": "*"
-            },
-            "suggest": {
-                "cedriclombardot/admingenerator-activeadmintheme-bundle": "The rails admin theme"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Admingenerator\\OldThemeBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cedric LOMBARDOT",
-                    "email": "cedric.lombardot@gmail.com"
-                }
-            ],
-            "description": "This bundle is the old theme for cedriclombardot/admingenerator-generator-bundle",
-            "homepage": "http://symfony2admingenerator.org/",
-            "keywords": [
-                "admin",
-                "generator",
-                "theme",
-                "yaml"
-            ],
-            "time": "2013-01-17 16:37:06"
-        },
-        {
-            "name": "cedriclombardot/admingenerator-user-bundle",
-            "version": "dev-master",
-            "target-dir": "Admingenerator/UserBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony2admingenerator/AdmingeneratorUserBundle.git",
-                "reference": "46beba0d25c87b478c61ce033ab0d0a7999aa3c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorUserBundle/zipball/46beba0d25c87b478c61ce033ab0d0a7999aa3c5",
-                "reference": "46beba0d25c87b478c61ce033ab0d0a7999aa3c5",
-                "shasum": ""
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Admingenerator\\UserBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cedric LOMBARDOT",
-                    "email": "cedric.lombardot@gmail.com"
-                }
-            ],
-            "description": "This package is a part of the Symfony2 Admin Generator based on YAML configuration and Twig templating. But could also work standalone.",
-            "homepage": "http://symfony2admingenerator.org/",
-            "time": "2013-03-21 16:27:41"
-        },
-        {
-            "name": "cedriclombardot/twig-generator",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cedriclombardot/TwigGenerator.git",
-                "reference": "v1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cedriclombardot/TwigGenerator/zipball/v1.0.0",
-                "reference": "v1.0.0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "twig/twig": ">=1.1, <2.0-dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "TwigGenerator": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Cédric Lombardot",
-                    "email": "cedric.lombardot@gmail.com"
-                },
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "A generator for PHP code based on Twig template engine",
-            "keywords": [
-                "code generation",
-                "generator",
-                "twig"
-            ],
-            "time": "2012-11-09 23:18:09"
-        },
         {
             "name": "clementgautier/propel-activatable-behavior",
             "version": "dev-master",
@@ -1668,23 +1436,23 @@
         },
         {
             "name": "knplabs/knp-menu",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "6e3d276aef1d621249c23e0321f9737b45dc5084"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/6e3d276aef1d621249c23e0321f9737b45dc5084",
-                "reference": "6e3d276aef1d621249c23e0321f9737b45dc5084",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "pimple/pimple": "1.0.*",
+                "pimple/pimple": "*",
                 "silex/silex": "1.0.*",
                 "twig/twig": ">=1.2,<2.0-dev"
             },
@@ -1696,7 +1464,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1728,33 +1496,28 @@
                 "menu",
                 "tree"
             ],
-            "time": "2013-05-20 16:52:41"
+            "time": "2012-06-10 16:20:40"
         },
         {
             "name": "knplabs/knp-menu-bundle",
-            "version": "dev-master",
+            "version": "1.1.x-dev",
             "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "f090ba579745484f73e22877f0b59a6039645f65"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/f090ba579745484f73e22877f0b59a6039645f65",
-                "reference": "f090ba579745484f73e22877f0b59a6039645f65",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
-                "knplabs/knp-menu": "2.0.*",
+                "knplabs/knp-menu": ">=1.1,<2.0",
                 "symfony/framework-bundle": ">=2.0,<3.0"
             },
             "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -1782,7 +1545,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2013-05-25 11:24:09"
+            "time": "2013-05-25 10:20:03"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2687,6 +2450,424 @@
             "time": "2013-06-02 13:07:01"
         },
         {
+            "name": "sonata-project/admin-bundle",
+            "version": "dev-master",
+            "target-dir": "Sonata/AdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataAdminBundle.git",
+                "reference": "498ba3b7c84bc16ddc8924c4bc0dc90343e91fed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/498ba3b7c84bc16ddc8924c4bc0dc90343e91fed",
+                "reference": "498ba3b7c84bc16ddc8924c4bc0dc90343e91fed",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.2,<3.0",
+                "knplabs/knp-menu-bundle": ">=1.1,<2.0",
+                "sonata-project/block-bundle": ">=2.2.1,<3.0",
+                "sonata-project/exporter": "1.*",
+                "sonata-project/jquery-bundle": "1.8.*",
+                "symfony/config": ">=2.2,<2.4-dev",
+                "symfony/console": ">=2.2,<2.4-dev",
+                "symfony/form": ">=2.2,<2.4-dev",
+                "symfony/http-foundation": ">=2.2,<2.4-dev",
+                "symfony/routing": ">=2.2,<2.4-dev",
+                "symfony/security-bundle": ">=2.2,<2.4-dev",
+                "symfony/twig-bridge": ">=2.2,<2.4-dev",
+                "symfony/validator": ">=2.2,<2.4-dev",
+                "twig/twig": ">=1.12,<2.0-dev"
+            },
+            "require-dev": {
+                "jms/translation-bundle": "*@dev",
+                "sonata-project/intl-bundle": "2.1.*"
+            },
+            "suggest": {
+                "sonata-project/doctrine-orm-admin-bundle": "2.2.*@dev",
+                "sonata-project/intl-bundle": "2.1.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\AdminBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataAdminBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataAdminBundle",
+            "homepage": "http://sonata-project.org/bundles/admin",
+            "keywords": [
+                "Admin Generator",
+                "admin",
+                "bootstrap",
+                "sonata"
+            ],
+            "time": "2013-06-20 12:43:32"
+        },
+        {
+            "name": "sonata-project/block-bundle",
+            "version": "dev-master",
+            "target-dir": "Sonata/BlockBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataBlockBundle.git",
+                "reference": "0a54d14984eb9871c46f14072dacab5a5fdf66b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/0a54d14984eb9871c46f14072dacab5a5fdf66b3",
+                "reference": "0a54d14984eb9871c46f14072dacab5a5fdf66b3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.3,<2.5-dev",
+                "symfony/form": ">=2.2,<2.4-dev",
+                "symfony/http-foundation": ">=2.2,<2.4-dev"
+            },
+            "require-dev": {
+                "sonata-project/admin-bundle": "2.2.*@dev",
+                "sonata-project/cache-bundle": "2.1.*"
+            },
+            "suggest": {
+                "sonata-project/admin-bundle": "2.2.*@dev",
+                "sonata-project/cache-bundle": "2.1.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0": "2.0.x-dev",
+                    "dev-2.1": "2.1.x-dev",
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\BlockBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataBlockBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataBlockBundle",
+            "homepage": "http://sonata-project.org/bundles/block",
+            "keywords": [
+                "block",
+                "sonata"
+            ],
+            "time": "2013-06-06 13:48:02"
+        },
+        {
+            "name": "sonata-project/cache-bundle",
+            "version": "dev-master",
+            "target-dir": "Sonata/CacheBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataCacheBundle.git",
+                "reference": "1fc80ca2e9b44dabc4191f820c252717d614aad6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataCacheBundle/zipball/1fc80ca2e9b44dabc4191f820c252717d614aad6",
+                "reference": "1fc80ca2e9b44dabc4191f820c252717d614aad6",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/http-foundation": ">=2.1,<2.4-dev",
+                "symfony/process": ">=2.1,<2.4-dev",
+                "symfony/routing": ">=2.1,<2.4-dev",
+                "symfony/security": ">=2.1,<2.4-dev"
+            },
+            "require-dev": {
+                "doctrine/orm": ">=2.2.0"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "ORM support",
+                "doctrine/orm": "ORM support",
+                "doctrine/phpcr-bundle": "PHPCR ODM support",
+                "doctrine/phpcr-odm": "PHPCR ODM support",
+                "ext-apc": "Caching with ext/apc",
+                "ext-memcached": "Caching with ext/memcached"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0": "2.0.x-dev",
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\CacheBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataCacheBundle/contributors"
+                }
+            ],
+            "description": "This bundle provides caching services",
+            "homepage": "https://github.com/sonata-project/SonataCacheBundle",
+            "keywords": [
+                "cache block"
+            ],
+            "time": "2013-05-21 16:17:14"
+        },
+        {
+            "name": "sonata-project/exporter",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/exporter.git",
+                "reference": "1.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/exporter/zipball/1.3.0",
+                "reference": "1.3.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "php": ">=5.3.0",
+                "symfony/property-access": ">=2.2, <3.0.0-dev",
+                "symfony/routing": "*"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "symfony/routing": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Exporter": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@gmail.com",
+                    "homepage": "http://sonata-project.org/"
+                }
+            ],
+            "description": "Lightweight Exporter library",
+            "homepage": "https://github.com/sonata-project/Exporter",
+            "keywords": [
+                "client",
+                "csv",
+                "data",
+                "export",
+                "xls"
+            ],
+            "time": "2013-06-06 20:59:26"
+        },
+        {
+            "name": "sonata-project/intl-bundle",
+            "version": "dev-master",
+            "target-dir": "Sonata/IntlBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataIntlBundle.git",
+                "reference": "e28da8308fc718902cb50bd0079ab0a27ee4b41f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/e28da8308fc718902cb50bd0079ab0a27ee4b41f",
+                "reference": "e28da8308fc718902cb50bd0079ab0a27ee4b41f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "symfony/dependency-injection": ">=2.2,<2.4-dev",
+                "symfony/http-kernel": ">=2.2,<2.4-dev",
+                "symfony/locale": ">=2.2,<2.4-dev",
+                "symfony/templating": ">=2.2,<2.4-dev",
+                "twig/twig": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\IntlBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataIntlBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataIntlBundle",
+            "homepage": "http://sonata-project.org/bundles/intl",
+            "keywords": [
+                "date",
+                "intl",
+                "number",
+                "sonata",
+                "time"
+            ],
+            "time": "2013-06-10 10:56:32"
+        },
+        {
+            "name": "sonata-project/jquery-bundle",
+            "version": "1.8.x-dev",
+            "target-dir": "Sonata/jQueryBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonatajQueryBundle.git",
+                "reference": "1.8.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonatajQueryBundle/zipball/1.8.3",
+                "reference": "1.8.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\jQueryBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonatajQueryBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonatajQueryBundle",
+            "homepage": "http://sonata-project.org/bundles/jquery",
+            "keywords": [
+                "jquery",
+                "sonata"
+            ],
+            "time": "2013-03-01 17:24:02"
+        },
+        {
+            "name": "sonata-project/propel-admin-bundle",
+            "version": "dev-develop",
+            "target-dir": "Sonata/PropelAdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ClementGautier/SonataPropelAdminBundle.git",
+                "reference": "8f9c5e05f9f02818746f9103381197216d79e19b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ClementGautier/SonataPropelAdminBundle/zipball/8f9c5e05f9f02818746f9103381197216d79e19b",
+                "reference": "8f9c5e05f9f02818746f9103381197216d79e19b",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/knp-menu-bundle": "1.1.x-dev",
+                "propel/propel1": ">=1.6,<2.0",
+                "sonata-project/admin-bundle": "2.2.*@dev",
+                "sonata-project/block-bundle": "2.2.*@dev",
+                "symfony/symfony": ">=2.2,<2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Sonata\\PropelAdminBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataPropelAdminBundle/contributors"
+                }
+            ],
+            "description": "Symfony Sonata / Integrate Propel into the SonataAdminBundle",
+            "homepage": "http://sonata-project.org/bundles/admin",
+            "keywords": [
+                "Admin Generator",
+                "admin",
+                "bootstrap",
+                "generator",
+                "sonata"
+            ],
+            "support": {
+                "source": "https://github.com/ClementGautier/SonataPropelAdminBundle/tree/develop"
+            },
+            "time": "2013-06-23 07:57:19"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.0.1",
             "source": {
@@ -2917,12 +3098,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "5b14665964b6f17412aa8343f7f39dc2a5616e21"
+                "reference": "c875d0aae19629e63046f74c0d951466646c2a6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/5b14665964b6f17412aa8343f7f39dc2a5616e21",
-                "reference": "5b14665964b6f17412aa8343f7f39dc2a5616e21",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/c875d0aae19629e63046f74c0d951466646c2a6c",
+                "reference": "c875d0aae19629e63046f74c0d951466646c2a6c",
                 "shasum": ""
             },
             "require": {
@@ -3008,7 +3189,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-06-19 13:03:30"
+            "time": "2013-06-23 07:35:41"
         },
         {
             "name": "twig/extensions",
@@ -3363,14 +3544,16 @@
         "friendsofsymfony/jsrouting-bundle": 20,
         "willdurand/geocoder": 20,
         "willdurand/propel-geocodable-behavior": 20,
-        "cedriclombardot/admingenerator-generator-bundle": 20,
-        "cedriclombardot/admingenerator-user-bundle": 20,
-        "cedriclombardot/admingenerator-activeadmintheme-bundle": 20,
         "jms/payment-core-bundle": 20,
         "jms/payment-paypal-bundle": 20,
         "ornicar/gravatar-bundle": 20,
         "craue/twigextensions-bundle": 20,
-        "liip/imagine-bundle": 20
+        "liip/imagine-bundle": 20,
+        "sonata-project/admin-bundle": 20,
+        "sonata-project/intl-bundle": 20,
+        "sonata-project/cache-bundle": 20,
+        "sonata-project/propel-admin-bundle": 20,
+        "knplabs/knp-menu-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3",

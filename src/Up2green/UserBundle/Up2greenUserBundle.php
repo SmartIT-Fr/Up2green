@@ -15,6 +15,6 @@ class Up2greenUserBundle extends Bundle
      */
     public function getParent()
     {
-        return 'AdmingeneratorUserBundle';
+        return 'FOSUserBundle';
     }
 }

@@ -38,16 +38,19 @@
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "willdurand/geocoder": "dev-master",
         "willdurand/propel-geocodable-behavior": "dev-master",
-        "cedriclombardot/admingenerator-generator-bundle": "dev-master",
-        "cedriclombardot/admingenerator-user-bundle": "dev-master",
-        "cedriclombardot/admingenerator-activeadmintheme-bundle": "dev-master",
         "jms/payment-core-bundle": "dev-propel-support",
         "jms/payment-paypal-bundle": "dev-propel-support",
         "doctrine/dbal": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.2.*",
         "ornicar/gravatar-bundle" : "dev-master",
         "craue/twigextensions-bundle": "dev-master",
-        "liip/imagine-bundle": "dev-master"
+        "liip/imagine-bundle": "dev-master",
+        
+        "sonata-project/admin-bundle": "2.2.*@dev",
+        "sonata-project/intl-bundle": "2.2.*@dev",
+        "sonata-project/cache-bundle": "2.1.*@dev",
+        "sonata-project/propel-admin-bundle": "dev-develop",
+        "knplabs/knp-menu-bundle": "1.1.x-dev"
     },
     "repositories": [
         {
@@ -57,6 +60,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ClementGautier/SonataPropelAdminBundle"
         },
         {
             "type": "package",
