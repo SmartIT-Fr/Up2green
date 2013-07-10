@@ -10,17 +10,27 @@
       <argument>Up2green\EducationBundle\Model\School</argument>
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
-        <argument>Up2greenEducationBundle</argument>
+        <argument>admin</argument>
       </call>
     </service>
-      
+
     <service id="up2green_education.admin.classroom" class="Up2green\EducationBundle\Admin\ClassroomAdmin">
       <tag name="sonata.admin" manager_type="propel" group="Education" label="Classrooms"/>
       <argument />
       <argument>Up2green\EducationBundle\Model\Classroom</argument>
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
-        <argument>Up2greenEducationBundle</argument>
+        <argument>admin</argument>
+      </call>
+    </service>
+
+    <service id="up2green_education.admin.voucher" class="Up2green\EducationBundle\Admin\VoucherAdmin">
+      <tag name="sonata.admin" manager_type="propel" group="Education" label="Vouchers"/>
+      <argument />
+      <argument>Up2green\EducationBundle\Model\EducationVoucher</argument>
+      <argument>SonataAdminBundle:CRUD</argument>
+      <call method="setTranslationDomain">
+        <argument>admin</argument>
       </call>
     </service>
   </services>

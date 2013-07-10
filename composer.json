@@ -49,21 +49,13 @@
         "sonata-project/admin-bundle": "2.2.*@dev",
         "sonata-project/intl-bundle": "2.2.*@dev",
         "sonata-project/cache-bundle": "2.1.*@dev",
-        "sonata-project/propel-admin-bundle": "dev-develop",
+        "sonata-project/propel-admin-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "1.1.x-dev"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/ClementGautier/JMSPaymentCoreBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/ClementGautier/SonataPropelAdminBundle"
         },
         {
             "type": "package",

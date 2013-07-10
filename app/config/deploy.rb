@@ -49,3 +49,24 @@ end
 
 after "deploy", "symfony:cache:clear"
 after "deploy", "deploy:cleanup"
+
+namespace :deploy do
+    desc "Add .htaccess protection"
+    task :htaccess_protect do
+        capifony_pretty_print "--> Securing the application"
+        _cset(:htaccess_username) { abort "Please specify an htaccess username, set :htaccess_username, 'foo'" }
+        unless exists?(:htaccess_password_hashed)
+        _cset(:htaccess_password) { abort "Please specify htaccess_password or htaccess_password_hashed" }
+        set :htaccess_password_hashed, "#{htaccess_password}".crypt('httpauth')
+        end
+
+        # This appends to the end of the file, so don't run it multiple times!
+
+        run "echo '#{htaccess_username}:#{htaccess_password_hashed}' >> #{File.join(current_path, '.htpasswd')}"
+        run "echo 'AuthType Basic' >> #{File.join(current_path, '.htaccess')}"
+        run "echo 'AuthName \"Restricted\"' >> #{File.join(current_path, '.htaccess')}"
+        run "echo 'AuthUserFile #{File.join(current_path, '.htpasswd')}' >> #{File.join(current_path, '.htaccess')}"
+        run "echo 'Require valid-user' >> #{File.join(current_path, '.htaccess')}"
+        capifony_puts_ok
+    end
+end

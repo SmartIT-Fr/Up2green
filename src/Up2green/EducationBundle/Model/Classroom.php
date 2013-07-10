@@ -97,4 +97,9 @@ class Classroom extends BaseClassroom
     {
         return (string)$this->name;
     }
+    
+    public function getFosUser()
+    {
+        return $this->getUser();
+    }
 }

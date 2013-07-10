@@ -32,10 +32,7 @@ class ClassroomAdmin extends Admin
                 'label' => 'form.classroom_type.description',
             ))
             ->add('school')
-            // FIXME : This field should have been guessed
-            ->add('user', 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('fos_user')
         ;
     }
 
@@ -47,13 +44,8 @@ class ClassroomAdmin extends Admin
         $datagridMapper
             ->add('name')
             ->add('year')
-//            FIXME
-//            ->add('school', 'model', array(), array(
-//                'class' => 'Up2green\EducationBundle\Model\School'
-//            ))
-//            ->add('user', 'model', array(), array(
-//                'class' => 'FOS\UserBundle\Propel\User'
-//            ))
+            ->add('school')
+            ->add('fos_user')
         ;
     }
 
@@ -67,7 +59,7 @@ class ClassroomAdmin extends Admin
             ->add('name')
             ->add('year')
             ->add('school.name')
-            ->add('user.username')
+            ->add('fos_user')
         ;
     }
 }

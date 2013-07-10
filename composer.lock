@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7fa8089ec78569f75b851cdf7df1b28a",
+    "hash": "f31ecdaaea3ebae2b1bd4594b531b2f1",
     "packages": [
         {
             "name": "clementgautier/propel-activatable-behavior",
@@ -154,7 +154,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2225,7 +2225,7 @@
                 "shasum": ""
             },
             "require": {
-                "phing/phing": ">=2.4,<3.0",
+                "phing/phing": "~2.4",
                 "php": ">=5.2.4"
             },
             "bin": [
@@ -2818,17 +2818,17 @@
         },
         {
             "name": "sonata-project/propel-admin-bundle",
-            "version": "dev-develop",
+            "version": "dev-master",
             "target-dir": "Sonata/PropelAdminBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ClementGautier/SonataPropelAdminBundle.git",
-                "reference": "8f9c5e05f9f02818746f9103381197216d79e19b"
+                "url": "https://github.com/sonata-project/SonataPropelAdminBundle.git",
+                "reference": "301ef74b3d2386c28e0fee03328e266f0432f02d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClementGautier/SonataPropelAdminBundle/zipball/8f9c5e05f9f02818746f9103381197216d79e19b",
-                "reference": "8f9c5e05f9f02818746f9103381197216d79e19b",
+                "url": "https://api.github.com/repos/sonata-project/SonataPropelAdminBundle/zipball/301ef74b3d2386c28e0fee03328e266f0432f02d",
+                "reference": "301ef74b3d2386c28e0fee03328e266f0432f02d",
                 "shasum": ""
             },
             "require": {
@@ -2844,6 +2844,7 @@
                     "Sonata\\PropelAdminBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2862,10 +2863,7 @@
                 "generator",
                 "sonata"
             ],
-            "support": {
-                "source": "https://github.com/ClementGautier/SonataPropelAdminBundle/tree/develop"
-            },
-            "time": "2013-06-23 07:57:19"
+            "time": "2013-07-10 21:20:09"
         },
         {
             "name": "swiftmailer/swiftmailer",

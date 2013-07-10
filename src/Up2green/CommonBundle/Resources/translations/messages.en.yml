@@ -44,3 +44,4 @@ buy: Buy
 confirm_email: Confirm your email
 form.label.paypal_express_checkout: Paypal
 form.label.payment_method: Payment method
+form.label.owner: Owner

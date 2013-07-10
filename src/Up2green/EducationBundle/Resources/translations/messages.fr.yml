@@ -108,3 +108,4 @@ classroom.description: '<b>Classe:</b> %name% (%year%)'
 student.description: '<b>%student%</b> a choisi de planter son arbre dans le programme de reforestation <b>%program%</b>'
 classroom.link: 'Voir la page de la classe'
 teacher.registration.submit: 'Accéder à mon espace'
+form.label.voucher: Coupon

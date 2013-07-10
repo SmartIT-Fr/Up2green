@@ -108,3 +108,4 @@ classroom.description: '<b>Classroom:</b> %name% (%year%)'
 student.description: '<b>%student%</b> chose to plant a tree in <b>%program%</b>'
 classroom.link: 'View the classroom page'
 teacher.registration.submit: 'Access my space'
+form.label.voucher: Voucher

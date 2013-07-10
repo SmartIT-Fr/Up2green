@@ -11,6 +11,10 @@ class EducationVoucher extends BaseEducationVoucher
      */
     public function __toString()
     {
+        if (null === $this->getVoucher()){
+            return '';
+        }
+
         return $this->getVoucher()->__toString();
     }
 }
