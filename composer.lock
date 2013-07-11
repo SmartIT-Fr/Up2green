@@ -2823,12 +2823,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataPropelAdminBundle.git",
-                "reference": "301ef74b3d2386c28e0fee03328e266f0432f02d"
+                "reference": "6fcf9bd2d545349f6bbc62083ee4e032203febf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataPropelAdminBundle/zipball/301ef74b3d2386c28e0fee03328e266f0432f02d",
-                "reference": "301ef74b3d2386c28e0fee03328e266f0432f02d",
+                "url": "https://api.github.com/repos/sonata-project/SonataPropelAdminBundle/zipball/6fcf9bd2d545349f6bbc62083ee4e032203febf8",
+                "reference": "6fcf9bd2d545349f6bbc62083ee4e032203febf8",
                 "shasum": ""
             },
             "require": {
@@ -2863,7 +2863,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2013-07-10 21:20:09"
+            "time": "2013-07-11 23:35:41"
         },
         {
             "name": "swiftmailer/swiftmailer",
