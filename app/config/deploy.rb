@@ -24,6 +24,9 @@ set :shared_files,      [app_path + "/config/parameters.yml"]
 set :shared_children,   [app_path + "/logs", web_path + "/uploads"]
 set :use_composer,      true
 
+# FIXME we should not use prefere-source, it was an easy solution for Github API limit
+set :composer_options,  "--no-scripts --no-dev --verbose --prefer-source --optimize-autoloader"
+
 set :writable_dirs,       [app_path + "/cache", app_path + "/logs", web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
