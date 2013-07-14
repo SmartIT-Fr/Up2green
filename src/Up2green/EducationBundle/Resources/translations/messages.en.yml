@@ -48,6 +48,8 @@ form.school_type.address: Address
 form.validation.school_new: 'You have to fill in all the fields to create a school'
 form.validation.school_name: 'The name is mandatory'
 form.validation.school_address: 'The address is mandatory'
+form.generate_voucher.owner.label: Owner
+form.generate_voucher.quantity.label: Quantity
 waitinglist.join: 'You are a teahcer or you represent a school? Join the waiting list by completing the form below!'
 waiting_list_joined: 'You have successfully joined the waiting list. We will contact you as soon as your turn comes.'
 form.donation_type.name: Name

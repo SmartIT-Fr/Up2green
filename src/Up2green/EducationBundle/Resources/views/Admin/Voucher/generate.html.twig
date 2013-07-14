@@ -1,0 +1,46 @@
+{% extends base_template %}
+
+{% block title %}
+    {{ "title_generate_voucher"|trans({}, 'admin') }}
+{% endblock%}
+
+{% block actions %}
+    <div class="sonata-actions btn-group">
+        <a class="btn sonata-action-element" href="{{ admin.generateUrl('generate') }}">
+            <i class="icon-plus-sign"></i>
+            {{ 'link_action_generate'|trans({}, 'admin') }}
+        </a>
+        {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+        {% include 'SonataAdminBundle:Button:list_button.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block form %}
+    <form class="form-horizontal" action="{{ admin.generateUrl('generate') }}" {{ form_enctype(form) }} method="POST">
+        {% if form.vars.errors|length > 0 %}
+            <div class="sonata-ba-form-error">
+                {{ form_errors(form) }}
+            </div>
+        {% endif %}
+
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <fieldset>
+                    <div class="sonata-ba-collapsed-fields">
+                        <div class="control-group">
+                            <legend>{{ "title_generate_voucher"|trans({}, 'admin') }}</legend>
+                            {{ form_rest(form) }}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        {% block formactions %}
+            <div class="well form-actions">
+                <input class="btn btn-primary" type="submit" name="btn_generate" value="{{ 'btn_generate'|trans({}, 'admin') }}"/>
+            </div>
+        {% endblock formactions %}
+    </form>
+{% endblock %}

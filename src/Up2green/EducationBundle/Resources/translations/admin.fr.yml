@@ -2,8 +2,11 @@ Classrooms: Classes
 Vouchers: Coupons
 Schools: Ecoles
 Education Voucher List: Liste des coupons
-
+title_generate_voucher: Générer des coupons
 Delete: Supprimer
 Voucher Code: Code du coupon
 Voucher Used By: Utilisateur du coupon
 Voucher Owner: Propriétaire du coupon
+link_action_generate: Générer
+btn_generate: Générer
+voucher_generated: "Les codes coupon suivant on bien été générés : %vouchers%"

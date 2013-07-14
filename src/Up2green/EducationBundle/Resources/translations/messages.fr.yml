@@ -48,6 +48,8 @@ form.school_type.address: Adresse
 form.validation.school_new: 'Vous devez remplir des champs de création d''une école'
 form.validation.school_name: 'Le nom est obligatoire'
 form.validation.school_address: 'L''adresse est obligatoire'
+form.generate_voucher.owner.label: Propriétaire
+form.generate_voucher.quantity.label: Quantité
 waitinglist.join: 'Vous êtes instituteur ou représentez une école ? Rejoignez la liste d''attente en remplissant le formulaire ci-dessous !'
 waiting_list_joined: 'Vous avez bien été inscrit sur la liste d''attente. Vous serez contacté dès que votre tour sera arrivé.'
 form.donation_type.name: Nom

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="up2green_education.form.type.registration.class">Up2green\EducationBundle\Form\Type\RegistrationType</parameter>
+        <parameter key="up2green_education.form.type.school.class">Up2green\EducationBundle\Form\Type\SchoolType</parameter>
+        <parameter key="up2green_education.form.type.classroom.class">Up2green\EducationBundle\Form\Type\ClassroomType</parameter>
+        <parameter key="up2green_education.form.type.classroom_picture.class">Up2green\EducationBundle\Form\Type\ClassroomPictureType</parameter>
+        <parameter key="up2green_education.form.type.voucher.class">Up2green\EducationBundle\Form\Type\VoucherType</parameter>
+        <parameter key="up2green_education.form.type.donation.class">Up2green\EducationBundle\Form\Type\DonationType</parameter>
+        <parameter key="up2green_education.form.type.order_kit.class">Up2green\EducationBundle\Form\Type\OrderKitType</parameter>
+        <parameter key="up2green_education.form.type.admin.generate_voucher.class">Up2green\EducationBundle\Form\Type\Admin\GenerateVoucherType</parameter>
+    </parameters>
+
+    <services>
+        <service id="form.type.education.registration" class="%up2green_education.form.type.registration.class%">
+            <tag name="form.type" alias="education_registration" />
+        </service>
+        <service id="form.type.education.school" class="%up2green_education.form.type.school.class%">
+            <tag name="form.type" alias="education_school" />
+        </service>
+        <service id="form.type.education.classroom" class="%up2green_education.form.type.classroom.class%">
+            <tag name="form.type" alias="education_classroom" />
+        </service>
+        <service id="form.type.education.classroom_picture" class="%up2green_education.form.type.classroom_picture.class%">
+            <tag name="form.type" alias="education_classroom_picture" />
+        </service>
+        <service id="form.type.education.voucher" class="%up2green_education.form.type.voucher.class%">
+            <tag name="form.type" alias="education_voucher" />
+        </service>
+        <service id="form.type.education.donation" class="%up2green_education.form.type.donation.class%">
+            <tag name="form.type" alias="education_donation" />
+        </service>
+        <service id="form.type.education.order_kit" class="%up2green_education.form.type.order_kit.class%">
+            <tag name="form.type" alias="education_order_kit" />
+        </service>
+        <service id="up2green_education.form.type.admin.generate_voucher" class="%up2green_education.form.type.admin.generate_voucher.class%">
+            <tag name="form.type" alias="education_admin_generate_voucher" />
+        </service>
+    </services>
+
+</container>

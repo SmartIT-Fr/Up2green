@@ -1,0 +1,4 @@
+title_generate_voucher: Generate vouchers
+link_action_generate: Generate
+btn_generate: Generate
+voucher_generated: "The folowing voucher codes have been successfuly generated: %vouchers%"

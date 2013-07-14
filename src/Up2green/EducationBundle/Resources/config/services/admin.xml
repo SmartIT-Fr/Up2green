@@ -2,7 +2,7 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
-    
+
   <services>
     <service id="up2green_education.admin.school" class="Up2green\EducationBundle\Admin\SchoolAdmin">
       <tag name="sonata.admin" manager_type="propel" group="Education" label="Schools"/>
@@ -28,7 +28,7 @@
       <tag name="sonata.admin" manager_type="propel" group="Education" label="Vouchers"/>
       <argument />
       <argument>Up2green\EducationBundle\Model\EducationVoucher</argument>
-      <argument>SonataAdminBundle:CRUD</argument>
+      <argument>Up2greenEducationBundle:Admin\Voucher</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>
       </call>

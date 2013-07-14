@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:base_list.html.twig' %}
+
+{% block actions %}
+    <div class="sonata-actions btn-group">
+        <a class="btn sonata-action-element" href="{{ admin.generateUrl('generate') }}">
+            <i class="icon-plus-sign"></i>
+            {{ 'link_action_generate'|trans({}, 'admin') }}
+        </a>
+        {% include 'SonataAdminBundle:Core:create_button.html.twig' %}
+    </div>
+{% endblock %}
