@@ -88,4 +88,12 @@ class ClassroomPicture extends BaseClassroomPicture
 
         $this->setPicture($path . $filename);
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getStudent();
+    }
 }

@@ -30,7 +30,11 @@ class VoucherController extends CRUDController
                     $form->get('quantity')->getData()
                 );
 
-                $message = $this->get('translator')->trans('voucher_generated', array('%vouchers%' => join(', ', $codes)), 'admin');
+                $message = $this->get('translator')->trans(
+                    'voucher_generated',
+                    array('%vouchers%' => join(', ', $codes)),
+                    'admin'
+                );
 
                 $this->addFlash('sonata_flash_success', $message);
 
