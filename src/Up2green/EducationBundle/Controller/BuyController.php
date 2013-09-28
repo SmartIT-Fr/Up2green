@@ -90,7 +90,7 @@ class BuyController extends Controller
      */
     public function completeAction(Order $order)
     {
-        $this->get('session')->setFlash('success', "buy_success");
+        $this->get('session')->getFlashBag()->add('success', "buy_success");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:complete',
@@ -104,7 +104,7 @@ class BuyController extends Controller
      */
     public function cancelAction(Order $order)
     {
-        $this->get('session')->setFlash('warning', "buy_canceled");
+        $this->get('session')->getFlashBag()->add('warning', "buy_canceled");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:cancel',

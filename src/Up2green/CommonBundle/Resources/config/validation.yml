@@ -4,9 +4,11 @@ Up2green\CommonBundle\Model\Address:
             - NotBlank: ~
         street_line_1:
             - NotBlank: ~
-            - MaxLength: 50
+            - Length:
+                max: 50
         street_line_2:
-            - MaxLength: 50
+            - Length:
+                max: 50
         zipcode:
             - NotBlank: ~
             - Type:

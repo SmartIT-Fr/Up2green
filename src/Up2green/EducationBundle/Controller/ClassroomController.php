@@ -61,7 +61,7 @@ class ClassroomController extends Controller
 
                 if ($formGeneral->isValid()) {
                     $classroom->save();
-                    $this->get('session')->setFlash('success', "classroom.updated");
+                    $this->get('session')->getFlashBag()->add('success', "classroom.updated");
                 }
             }
 
@@ -81,7 +81,7 @@ class ClassroomController extends Controller
                     $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_DELETE);
                     $aclProvider->updateAcl($acl);
 
-                    $this->get('session')->setFlash('success', "classroom.picture.added");
+                    $this->get('session')->getFlashBag()->add('success', "classroom.picture.added");
                 }
             }
         }

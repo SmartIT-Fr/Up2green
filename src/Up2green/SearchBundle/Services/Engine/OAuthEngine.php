@@ -79,6 +79,7 @@ class OAuthEngine implements OAuthEngineInterface
 
         if (
             !empty($response)
+            && isset($response['bossresponse'])
             && $response['bossresponse']['responsecode'] == '200'
             && $response['bossresponse']['web']['totalresults'] > 0
         ) {

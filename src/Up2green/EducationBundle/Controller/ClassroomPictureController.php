@@ -30,7 +30,7 @@ class ClassroomPictureController extends Controller
     {
         $picture->delete();
 
-        $this->get('session')->setFlash('success', "classroom.picture.deleted");
+        $this->get('session')->getFlashBag()->add('success', "classroom.picture.deleted");
 
         return $this->redirect($request->headers->get('referer'));
     }

@@ -44,7 +44,7 @@ class ContactController extends Controller
 
                 $this->get('mailer')->send($message);
 
-                $this->get('session')->setFlash('success', "contact_email_sent");
+                $this->get('session')->getFlashBag()->add('success', "contact_email_sent");
 
                 return $this->redirect($this->generateUrl('contact'));
             }

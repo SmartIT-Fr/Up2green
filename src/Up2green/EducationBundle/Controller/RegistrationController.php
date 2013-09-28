@@ -59,7 +59,7 @@ class RegistrationController extends Controller
 
                 $this->container->get('fos_user.user_manager')->updateUser($registration->account);
 
-                $this->get('session')->setFlash('success', 'registration.flash.user_created');
+                $this->get('session')->getFlashBag()->add('success', 'registration.flash.user_created');
                 $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
 
                 $this->authenticateUser($registration->account, $response);

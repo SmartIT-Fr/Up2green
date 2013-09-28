@@ -34,11 +34,11 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->setSubDomain('www');
-        $client->request('POST', '/', array(
+        $client->request('POST', '/', array('search_form' => array(
             'type' => 0,
             'q' => 'test',
-        ));
+        )));
 
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertTrue($client->getResponse()->isSuccessful(), $client->getResponse()->getContent());
     }
 }

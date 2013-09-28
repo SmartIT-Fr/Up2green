@@ -15,7 +15,6 @@ framework:
 #      FIXME asset version seems to broke the LiipImagineBundle => open an issue => do a PR
 #      assets_version: 2
     default_locale:  fr
-    trust_proxy_headers: false
     session:         ~
 
 # Twig Configuration
@@ -45,17 +44,6 @@ services:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
         @arguments:
             - { defaultLocale: %default_locale% }
-
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver: %database_driver%
-        host: %database_host%
-        port: %database_port%
-        dbname: %database_name%
-        user: %database_user%
-        password: %database_password%
-        charset: UTF8
 
 # Assetic Configuration
 assetic:

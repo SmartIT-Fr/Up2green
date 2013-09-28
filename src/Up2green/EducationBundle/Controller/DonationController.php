@@ -83,7 +83,7 @@ class DonationController extends Controller
      */
     public function completeAction(Request $request, Order $order)
     {
-        $this->get('session')->setFlash('success', "donation_success");
+        $this->get('session')->getFlashBag()->add('success', "donation_success");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:complete',
@@ -97,7 +97,7 @@ class DonationController extends Controller
      */
     public function cancelAction(Order $order)
     {
-        $this->get('session')->setFlash('warning', "donation_canceled");
+        $this->get('session')->getFlashBag()->add('warning', "donation_canceled");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:cancel',

@@ -5,10 +5,12 @@ Up2green\EducationBundle\Model\Classroom:
             - Type:
                 type: integer
         description:
-            - MaxLength: 2000
+            - Length:
+                max: 2000
         name:
             - NotBlank: ~
-            - MaxLength: 30
+            - Length:
+                max: 30
         uploadedFile:
             - Image: ~
 
