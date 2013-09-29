@@ -25,6 +25,14 @@ class PartnerAdmin extends Admin
             ->add('user', 'model', array(
                 'class' => 'FOS\UserBundle\Propel\User'
             ))
+            // TODO
+            //->add('partnerLogos', 'sonata_type_collection', array(
+            //    'by_reference' => false,
+            //), array(
+            //    'edit' => 'inline',
+            //    'inline' => 'table',
+            //    'sortable' => 'id',
+            //))
         ;
     }
 
