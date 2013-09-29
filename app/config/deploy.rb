@@ -36,6 +36,7 @@ set  :use_sudo,  false
 
 # Building ACL classes
 after "symfony:propel:build:model", "symfony:propel:build:acl"
+after "symfony:propel:build:acl", "symfony:propel:migrate"
 
 # Creating symlink for twitter bootstrap
 before "symfony:assetic:dump" do
@@ -71,5 +72,15 @@ namespace :deploy do
         run "echo 'AuthUserFile #{File.join(current_path, '.htpasswd')}' >> #{File.join(current_path, '.htaccess')}"
         run "echo 'Require valid-user' >> #{File.join(current_path, '.htaccess')}"
         capifony_puts_ok
+    end
+end
+
+
+namespace :symfony do
+    namespace :propel do
+        desc "Migrates database to current version"
+        task :migrate do
+            run "#{try_sudo} #{php_bin} #{latest_release}/symfony propel:migration:migrate --env=#{symfony_env_prod}"
+        end
     end
 end
