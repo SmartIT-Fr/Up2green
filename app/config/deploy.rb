@@ -36,7 +36,6 @@ set  :use_sudo,  false
 
 # Building ACL classes
 after "symfony:propel:build:model", "symfony:propel:build:acl"
-after "symfony:propel:build:acl", "symfony:propel:migrate"
 
 # Creating symlink for twitter bootstrap
 before "symfony:assetic:dump" do
@@ -53,6 +52,7 @@ end
 
 after "deploy", "symfony:cache:clear"
 after "deploy", "deploy:cleanup"
+after "deploy", "symfony:propel:migrate"
 
 namespace :deploy do
     desc "Add .htaccess protection"
