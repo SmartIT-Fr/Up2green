@@ -1723,12 +1723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClementGautier/PropelBundle.git",
-                "reference": "772a4c1c81b72ba05946a94acace5b515147d408"
+                "reference": "8044aca0072d1b2322a7e752e62ef4478a7c274b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClementGautier/PropelBundle/zipball/772a4c1c81b72ba05946a94acace5b515147d408",
-                "reference": "772a4c1c81b72ba05946a94acace5b515147d408",
+                "url": "https://api.github.com/repos/ClementGautier/PropelBundle/zipball/8044aca0072d1b2322a7e752e62ef4478a7c274b",
+                "reference": "8044aca0072d1b2322a7e752e62ef4478a7c274b",
                 "shasum": ""
             },
             "require": {
@@ -1763,7 +1763,7 @@
             "support": {
                 "source": "https://github.com/ClementGautier/PropelBundle/tree/symfony-2-3"
             },
-            "time": "2013-09-21 09:56:06"
+            "time": "2013-09-28 13:37:18"
         },
         {
             "name": "propel/propel1",
