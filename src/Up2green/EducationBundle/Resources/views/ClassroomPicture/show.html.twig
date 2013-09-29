@@ -26,6 +26,20 @@
         {% if picture.program.logo is not empty %}
             <img class="program" src="{{ asset(picture.program.logo) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ picture.program }}" />
         {% endif %}
+
     </p>
+
+    {% if picture.classroom.partner %}
+        <hr />
+        <div class="centerize">
+            <p>
+                <b>{{ 'classroom.sponsorized_by.partner'|trans({'%partner%': picture.classroom.partner.title}) }}</b>
+            </p>
+
+            {% include 'Up2greenReforestationBundle:PartnerLogo:_list.html.twig' with {
+                'partner': picture.classroom.partner
+            } only %}
+        </div>
+    {% endif %}
 
 </div>

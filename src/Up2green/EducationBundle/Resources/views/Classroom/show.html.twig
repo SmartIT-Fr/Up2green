@@ -39,6 +39,19 @@
         {% if classroom.description is not empty %}
         <p><b>{{ 'description'|trans }}:</b> {{ classroom.description }}</p>
         {% endif %}
+
+        {% if classroom.partner %}
+            <hr />
+            <div class="centerize">
+                <p>
+                    <b>{{ 'classroom.sponsorized_by.partner'|trans({'%partner%': classroom.partner.title}) }}</b>
+                </p>
+
+                {% include 'Up2greenReforestationBundle:PartnerLogo:_list.html.twig' with {
+                    'partner': classroom.partner
+                } only %}
+            </div>
+        {% endif %}
     </div>
 </div>
 

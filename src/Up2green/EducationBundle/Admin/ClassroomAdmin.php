@@ -22,10 +22,14 @@ class ClassroomAdmin extends Admin
             ->add('year', null, array(
                 'data' => (int) date('Y'),
             ))
-            ->add('uploadedFile', 'file')
+            ->add('uploadedFile', 'file', array(
+                'required' => false
+            ))
             ->add('description')
             ->add('school')
-            ->add('partner')
+            ->add('partner', null, array(
+                'required' => false
+            ))
             ->add('user', 'model', array(
                 'class' => 'FOS\UserBundle\Propel\User'
             ))

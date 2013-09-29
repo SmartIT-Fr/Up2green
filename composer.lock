@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "177bcd22391c5b36214601ab53736907",
+    "hash": "1b0f85d3bf86d1510141d7d9f9e6edd1",
     "packages": [
         {
             "name": "clementgautier/propel-activatable-behavior",
@@ -2381,13 +2381,13 @@
             "target-dir": "Sonata/PropelAdminBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sonata-project/SonataPropelAdminBundle.git",
-                "reference": "61e64bb0fbf6676e574c71193cf41cc1715c85d2"
+                "url": "https://github.com/ClementGautier/SonataPropelAdminBundle.git",
+                "reference": "ee4cf80384c8c0e078114428b9b0e7998a831d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataPropelAdminBundle/zipball/61e64bb0fbf6676e574c71193cf41cc1715c85d2",
-                "reference": "61e64bb0fbf6676e574c71193cf41cc1715c85d2",
+                "url": "https://api.github.com/repos/ClementGautier/SonataPropelAdminBundle/zipball/ee4cf80384c8c0e078114428b9b0e7998a831d53",
+                "reference": "ee4cf80384c8c0e078114428b9b0e7998a831d53",
                 "shasum": ""
             },
             "require": {
@@ -2407,7 +2407,6 @@
                     "Sonata\\PropelAdminBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2426,7 +2425,10 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2013-09-21 09:28:13"
+            "support": {
+                "source": "https://github.com/ClementGautier/SonataPropelAdminBundle/tree/master"
+            },
+            "time": "2013-09-29 17:38:24"
         },
         {
             "name": "swiftmailer/swiftmailer",

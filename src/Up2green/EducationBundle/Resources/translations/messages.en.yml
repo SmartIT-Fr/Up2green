@@ -111,3 +111,4 @@ student.description: '<b>%student%</b> chose to plant a tree in <b>%program%</b>
 classroom.link: 'View the classroom page'
 teacher.registration.submit: 'Access my space'
 form.label.voucher: Voucher
+classroom.sponsorized_by.partner: 'This class room have been sponsorized by %partner%'

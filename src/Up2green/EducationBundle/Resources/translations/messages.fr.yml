@@ -111,3 +111,4 @@ student.description: '<b>%student%</b> a choisi de planter son arbre dans le pro
 classroom.link: 'Voir la page de la classe'
 teacher.registration.submit: 'Accéder à mon espace'
 form.label.voucher: Coupon
+classroom.sponsorized_by.partner: 'Cette classe a été sponsorisée par %partner%'

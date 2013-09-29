@@ -62,6 +62,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/ClementGautier/SonataPropelAdminBundle"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
         },
         {
