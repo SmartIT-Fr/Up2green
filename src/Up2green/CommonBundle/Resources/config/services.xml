@@ -17,6 +17,9 @@
         <parameter key="up2green_common.form.type.simple_order.class">Up2green\CommonBundle\Form\Type\SimpleOrderType</parameter>
         <parameter key="up2green_common.form.type.voucher.class">Up2green\CommonBundle\Form\Type\VoucherType</parameter>
 
+        <parameter key="up2green_common.form.type.propel1_translation_collection.class">Symfony\Bridge\Propel1\Form\Type\TranslationCollectionType</parameter>
+        <parameter key="up2green_common.form.type.propel1_translation.class">Symfony\Bridge\Propel1\Form\Type\TranslationType</parameter>
+
         <parameter key="up2green_common.form.event_listener.order_payment_instruction.class">Up2green\CommonBundle\Form\EventListener\OrderPaymentInstructionSubsciber</parameter>
 
         <parameter key="up2green_common.event_listener.request_context.class">Up2green\CommonBundle\EventListener\RequestContextListener</parameter>
@@ -50,5 +53,13 @@
         <service id="form.type.common.voucher" class="%up2green_common.form.type.voucher.class%">
             <tag name="form.type" alias="common_voucher" />
         </service>
+
+        <service id="form.type.common.propel1_translation_collection" class="%up2green_common.form.type.propel1_translation_collection.class%">
+            <tag name="form.type" alias="propel1_translation_collection" />
+        </service>
+        <service id="form.type.common.propel1_translation" class="%up2green_common.form.type.propel1_translation.class%">
+            <tag name="form.type" alias="propel1_translation" />
+        </service>
+
     </services>
 </container>

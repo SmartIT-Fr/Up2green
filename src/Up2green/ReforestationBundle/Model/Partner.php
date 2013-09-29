@@ -9,4 +9,11 @@ use Up2green\ReforestationBundle\Model\om\BasePartner;
  */
 class Partner extends BasePartner
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

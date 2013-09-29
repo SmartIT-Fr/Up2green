@@ -9,4 +9,11 @@ use Up2green\ReforestationBundle\Model\om\BaseOrganizationI18n;
  */
 class OrganizationI18n extends BaseOrganizationI18n
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

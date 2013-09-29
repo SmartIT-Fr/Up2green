@@ -1,6 +1,6 @@
 <?php
 
-namespace Up2green\EducationBundle\Admin;
+namespace Up2green\ReforestationBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -8,9 +8,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Classroom admin class
+ * Organization admin class
  */
-class ClassroomAdmin extends Admin
+class OrganizationAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Form\FormMapper $formMapper
@@ -18,16 +18,15 @@ class ClassroomAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
-            ->add('year', null, array(
-                'data' => (int) date('Y'),
-            ))
-            ->add('uploadedFile', 'file')
-            ->add('description')
-            ->add('school')
-            ->add('partner')
-            ->add('user', 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
+            ->add('url')
+            ->add('active', 'checkbox')
+            ->add('organizationI18ns', 'propel1_translation_collection', array(
+                'languages' => array('en_US', 'fr'),
+                'label' => 'Translations',
+                'options' => array(
+                    'data_class' => 'Up2green\ReforestationBundle\Model\OrganizationI18n',
+                    'columns' => array('title', 'summary', 'description')
+                )
             ))
         ;
     }
@@ -38,12 +37,9 @@ class ClassroomAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
-            ->add('year')
-            ->add('school')
-            ->add('user', null, array(), 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('title')
+            ->add('url')
+            ->add('is_active')
         ;
     }
 
@@ -54,10 +50,9 @@ class ClassroomAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('name')
-            ->add('year')
-            ->add('school.name')
-            ->add('user')
+            ->add('title')
+            ->add('url')
+            ->add('is_active')
         ;
     }
 }

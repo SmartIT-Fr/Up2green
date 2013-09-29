@@ -1,0 +1,38 @@
+<!-- MyBundle/Resources/config/admin.xml -->
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="up2green_reforestation.admin.partner" class="Up2green\ReforestationBundle\Admin\PartnerAdmin">
+            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Partners"/>
+            <argument />
+            <argument>Up2green\ReforestationBundle\Model\Partner</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>admin</argument>
+            </call>
+        </service>
+
+        <service id="up2green_reforestation.admin.organization" class="Up2green\ReforestationBundle\Admin\OrganizationAdmin">
+            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Organizations"/>
+            <argument />
+            <argument>Up2green\ReforestationBundle\Model\Organization</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>admin</argument>
+            </call>
+        </service>
+
+        <service id="up2green_reforestation.admin.program" class="Up2green\ReforestationBundle\Admin\ProgramAdmin">
+            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Programs"/>
+            <argument />
+            <argument>Up2green\ReforestationBundle\Model\Program</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>admin</argument>
+            </call>
+        </service>
+    </services>
+
+</container>

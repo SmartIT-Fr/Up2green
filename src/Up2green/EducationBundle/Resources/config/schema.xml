@@ -40,6 +40,7 @@
 
         <column name="school_id" type="INTEGER" required="true" />
         <column name="user_id" type="INTEGER" required="true" />
+        <column name="partner_id" type="INTEGER" required="false" />
 
         <foreign-key foreignTable="school" onDelete="CASCADE" skipSql="true">
             <reference local="school_id" foreign="id"/>
@@ -47,6 +48,10 @@
 
         <foreign-key foreignTable="fos_user" onDelete="CASCADE" skipSql="true">
             <reference local="user_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="partner" onDelete="SET NULL" skipSql="true">
+            <reference local="partner_id" foreign="id"/>
         </foreign-key>
 
         <behavior name="sluggable" />

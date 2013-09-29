@@ -9,4 +9,17 @@ use Up2green\ReforestationBundle\Model\om\BaseOrganization;
  */
 class Organization extends BaseOrganization
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $string = "#".$this->getId();
+
+        if ($title = $this->getTitle()) {
+            $string .= " - " . $title;
+        }
+
+        return (string) $string;
+    }
 }

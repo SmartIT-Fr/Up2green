@@ -1,6 +1,6 @@
 <?php
 
-namespace Up2green\EducationBundle\Admin;
+namespace Up2green\ReforestationBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -8,9 +8,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Classroom admin class
+ * Program admin class
  */
-class ClassroomAdmin extends Admin
+class ProgramAdmin extends Admin
 {
     /**
      * @param \Sonata\AdminBundle\Form\FormMapper $formMapper
@@ -18,17 +18,12 @@ class ClassroomAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
-            ->add('year', null, array(
-                'data' => (int) date('Y'),
-            ))
-            ->add('uploadedFile', 'file')
-            ->add('description')
-            ->add('school')
-            ->add('partner')
-            ->add('user', 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('organization')
+            ->add('geoaddress')
+            ->add('logo')
+            ->add('maxTree')
+            ->add('addedTrees')
+            ->add('active')
         ;
     }
 
@@ -38,12 +33,11 @@ class ClassroomAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
-            ->add('year')
-            ->add('school')
-            ->add('user', null, array(), 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('organization')
+            ->add('geoaddress')
+            ->add('maxTree')
+            ->add('addedTrees')
+            ->add('active')
         ;
     }
 
@@ -54,10 +48,11 @@ class ClassroomAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('name')
-            ->add('year')
-            ->add('school.name')
-            ->add('user')
+            ->add('organization')
+            ->add('geoaddress')
+            ->add('maxTree')
+            ->add('addedTrees')
+            ->add('active')
         ;
     }
 }
