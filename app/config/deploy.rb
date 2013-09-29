@@ -80,7 +80,7 @@ namespace :symfony do
     namespace :propel do
         desc "Migrates database to current version"
         task :migrate do
-            run "#{try_sudo} #{php_bin} #{latest_release}/symfony propel:migration:migrate --env=#{symfony_env_prod}"
+            run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} propel:migration:migrate #{console_options}'"
         end
     end
 end
