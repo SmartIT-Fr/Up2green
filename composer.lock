@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1b0f85d3bf86d1510141d7d9f9e6edd1",
+    "hash": "0dc666cd05b1d5bff6687beed4448148",
     "packages": [
         {
             "name": "clementgautier/propel-activatable-behavior",
@@ -2382,12 +2382,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClementGautier/SonataPropelAdminBundle.git",
-                "reference": "ee4cf80384c8c0e078114428b9b0e7998a831d53"
+                "reference": "95d46044b555e990d85049fd5d69527c8d5210dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClementGautier/SonataPropelAdminBundle/zipball/ee4cf80384c8c0e078114428b9b0e7998a831d53",
-                "reference": "ee4cf80384c8c0e078114428b9b0e7998a831d53",
+                "url": "https://api.github.com/repos/ClementGautier/SonataPropelAdminBundle/zipball/95d46044b555e990d85049fd5d69527c8d5210dc",
+                "reference": "95d46044b555e990d85049fd5d69527c8d5210dc",
                 "shasum": ""
             },
             "require": {
@@ -2428,7 +2428,7 @@
             "support": {
                 "source": "https://github.com/ClementGautier/SonataPropelAdminBundle/tree/master"
             },
-            "time": "2013-09-29 17:38:24"
+            "time": "2013-10-02 22:05:35"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -69,10 +69,6 @@
             "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
         },
         {
-            "type": "vcs",
-            "url": "https://github.com/ClementGautier/PropelBundle"
-        },
-        {
             "type": "package",
             "package": {
                 "version": "master",
