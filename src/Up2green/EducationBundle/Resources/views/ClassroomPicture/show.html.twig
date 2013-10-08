@@ -1,5 +1,7 @@
 <div class="classroom-picture-wrapper pull-left">
-    <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
+    {% if picture.picture is not empty %}
+        <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
+    {% endif %}
 </div>
 
 <div class="classroom-picture-description pull-right">
