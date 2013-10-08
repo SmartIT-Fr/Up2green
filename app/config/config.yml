@@ -65,13 +65,20 @@ assetic:
 propel:
     path:       "%kernel.root_dir%/../vendor/propel/propel1"
     phing_path: "%kernel.root_dir%/../vendor/phing/phing"
+    build_properties:
+        propel.useDateTimeClass: true
+        propel.dateTimeClass: DateTime
+        propel.defaultTimeStampFormat: ~
+        propel.defaultTimeFormat: ~
+        propel.defaultDateFormat: ~
+        propel.behavior.activatable.class: vendor.clementgautier.propel-activatable-behavior.src.ActivatableBehavior
+        propel.behavior.typehintable.class: vendor.willdurand.propel-typehintable-behavior.src.TypehintableBehavior
+        propel.behavior.geocodable.class: vendor.willdurand.propel-geocodable-behavior.src.GeocodableBehavior
     dbal:
         driver:               mysql
         user:                 %database_user%
         password:             %database_password%
         dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
-        options:              {}
-        attributes:           {}
 
 mopa_bootstrap:
     form:
