@@ -2,22 +2,36 @@
 
 {% block content %}
 
-{{ parent() }}
+    {{ parent() }}
 
-<div style="width: 300px; float: left" id="ajax_article">
-{% render(controller('Up2greenBlogBundle:Article:listAjax', {
-    'limit': 1,
-    'routeName': app.request.get('_route'),
-    'routeParams': app.request.get('_route_params')
-})) %}
-</div>
-
-<div style="width: 300px; float: right" id="ajax_program">
-{% render(controller('Up2greenBlogBundle:Program:listAjax', {
-    'limit': 1,
-    'routeName': app.request.get('_route'),
-    'routeParams': app.request.get('_route_params')
-})) %}
-</div>
+    <ul class="thumbnails">
+        <li class="span4">
+            <div class="thumbnail grey-box" id="ajax_article">
+                {% render(controller('Up2greenBlogBundle:Article:listAjax', {
+                    'limit': 1,
+                    'routeName': app.request.get('_route'),
+                    'routeParams': app.request.get('_route_params')
+                })) %}
+            </div>
+        </li>
+        <li class="span4">
+            <div class="thumbnail grey-box" id="ajax_program">
+                {% render(controller('Up2greenBlogBundle:Program:listAjax', {
+                    'limit': 1,
+                    'routeName': app.request.get('_route'),
+                    'routeParams': app.request.get('_route_params')
+                })) %}
+            </div>
+        </li>
+        <li class="span4">
+            <div class="thumbnail grey-box" id="ajax_partner">
+                {% render(controller('Up2greenBlogBundle:Partner:listAjax', {
+                    'limit': 1,
+                    'routeName': app.request.get('_route'),
+                    'routeParams': app.request.get('_route_params')
+                })) %}
+            </div>
+        </li>
+    </ul>
 
 {% endblock %}

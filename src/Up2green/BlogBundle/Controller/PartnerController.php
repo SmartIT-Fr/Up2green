@@ -2,6 +2,7 @@
 
 namespace Up2green\BlogBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Up2green\ReforestationBundle\Model\PartnerQuery;
 use Up2green\ReforestationBundle\Model\Partner;
 
@@ -36,13 +37,38 @@ class PartnerController extends Controller
      * @Template()
      * @return array
      */
-    public function listAction()
+    public function listAction(Request $request)
+    {
+        $adapter = new PropelAdapter(PartnerQuery::create());
+
+        $pager = new Pagerfanta($adapter);
+        $pager->setCurrentPage($request->get('page', 1));
+
+        return array('pager' => $pager);
+    }
+
+    /**
+     * Displays list of partners in ajax
+     *
+     * @param integer $page
+     *
+     * @Route("/partner/listAjax/{page}", name="blog_partner_list_ajax", defaults={"page"= 1}, options={"expose"=true})
+     * @Template()
+     * @return array
+     */
+    public function listAjaxAction(Request $request, $page = 1)
     {
         $adapter = new PropelAdapter(PartnerQuery::create());
 
         $pager = new Pagerfanta($adapter);
         $pager->setCurrentPage($this->getRequest()->get('page', 1));
 
-        return array('pager' => $pager);
+        return array(
+            'pager' => $pager,
+            'options' => array(
+                'routeName' => $request->get('routeName', ''),
+                'routeParams' => $request->get('routeParams', ''),
+            )
+        );
     }
 }
