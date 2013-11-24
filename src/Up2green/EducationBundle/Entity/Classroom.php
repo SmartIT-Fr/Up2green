@@ -5,7 +5,7 @@ namespace Up2green\EducationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Classroom entity
@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Entity(repositoryClass="Up2green\EducationBundle\Repository\ClassroomRepository")
  * @ORM\Table(name="classroom")
  *
- * @DoctrineAssert\UniqueEntity("name")
  * @Gedmo\Uploadable(path="/uploads/classrooms")
  */
 class Classroom
@@ -81,7 +80,7 @@ class Classroom
     protected $updatedAt;
 
     /**
-     * @Gedmo\Mapping\Annotation\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=30, unique=true)
      */
     protected $slug;

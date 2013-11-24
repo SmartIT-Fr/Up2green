@@ -39,7 +39,7 @@ class Address
 
     /**
      * @Assert\NotBlank
-     * @Assert\Type(type=integer)
+     * @Assert\Type(type="integer")
      * @ORM\Column()
      */
     protected $zipcode;

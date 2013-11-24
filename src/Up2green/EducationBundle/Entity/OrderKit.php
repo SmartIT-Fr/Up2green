@@ -3,6 +3,7 @@
 namespace Up2green\EducationBundle\Entity;
 
 use Up2green\CommonBundle\Entity\Order;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class OrderKit

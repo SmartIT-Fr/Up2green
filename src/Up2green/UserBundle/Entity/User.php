@@ -19,10 +19,10 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
-     * @JoinTable(name="user_tree",
-     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="tree_id", referencedColumnName="id")}
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
+     * @ORM\JoinTable(name="user_tree",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tree_id", referencedColumnName="id")}
      * )
      */
     protected $trees;

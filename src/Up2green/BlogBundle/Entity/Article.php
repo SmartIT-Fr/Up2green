@@ -4,6 +4,8 @@ namespace Up2green\BlogBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Article entity
@@ -48,7 +50,7 @@ class Article
     protected $logo;
 
     /**
-     * @Gedmo\Mapping\Annotation\Slug(fields={"title"})
+     * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(unique=true)
      */
     protected $slug;

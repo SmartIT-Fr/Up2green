@@ -3,6 +3,8 @@
 namespace Up2green\ReforestationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PartnerLogo entity
@@ -28,7 +30,7 @@ class PartnerLogo
     protected $src;
 
     /**
-     * @ORM\Column(length="128", nullable=true)
+     * @ORM\Column(length=128, nullable=true)
      */
     protected $href;
 

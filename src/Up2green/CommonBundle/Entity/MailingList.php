@@ -20,7 +20,7 @@ class MailingList
     protected $id;
 
     /**
-     * @ORM\Column(name="email_address", unique="true")
+     * @ORM\Column(name="email_address", unique=true)
      */
     protected $email;
 

@@ -61,10 +61,10 @@ class Partner extends User
     protected $url;
 
     /**
-     * @ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\ReforestationVoucher")
-     * @JoinTable(name="partner_voucher",
-     *      joinColumns={@JoinColumn(name="partner_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voucher_id", referencedColumnName="id")}
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\ReforestationVoucher")
+     * @ORM\JoinTable(name="partner_voucher",
+     *      joinColumns={@ORM\JoinColumn(name="partner_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="voucher_id", referencedColumnName="id")}
      * )
      */
     protected $vouchers;

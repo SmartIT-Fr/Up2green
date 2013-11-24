@@ -25,7 +25,7 @@ class Newsletter
     protected $title;
 
     /**
-     * @ORM\Column(type=text)
+     * @ORM\Column(type="text")
      */
     protected $content;
 

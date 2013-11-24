@@ -2,6 +2,8 @@
 
 namespace Up2green\ReforestationBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * PartnerProgram entity
  *

@@ -25,7 +25,7 @@ class Gallery
     protected $title;
 
     /**
-     * @ORM\Column(type=text, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
 }

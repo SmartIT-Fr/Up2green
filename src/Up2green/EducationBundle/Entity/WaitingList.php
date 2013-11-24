@@ -36,7 +36,7 @@ class WaitingList
     /**
      * @ORM\Column()
      * @Assert\NotBlank
-     * @Assert\Email(message='The email "{{ value }}" is not a valid email.', checkMX=true)
+     * @Assert\Email(checkMX=true)
      */
     protected $email;
 

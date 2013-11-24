@@ -21,10 +21,10 @@ class ReforestationVoucher extends Voucher
     protected $category;
 
     /**
-     * @ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
-     * @JoinTable(name="voucher_tree",
-     *      joinColumns={@JoinColumn(name="voucher_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="tree_id", referencedColumnName="id")}
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
+     * @ORM\JoinTable(name="voucher_tree",
+     *      joinColumns={@ORM\JoinColumn(name="voucher_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tree_id", referencedColumnName="id")}
      * )
      */
     protected $trees;

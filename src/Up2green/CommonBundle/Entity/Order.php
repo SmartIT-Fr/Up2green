@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="order")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discriminator", type="string")
- * @ORM\DiscriminatorMap({"education_donation" = "Donation", "education_kit" = "OrderKit"})
+ * @ORM\DiscriminatorMap({"education_donation" = "Up2green\EducationBundle\Entity\Donation", "education_kit" = "Up2green\EducationBundle\Entity\OrderKit"})
  */
 class Order
 {
@@ -23,12 +23,12 @@ class Order
     protected $id;
 
     /**
-     * @ORM\Column(type="decimal", size="10", scale=2)
+     * @ORM\Column(type="decimal", length=10, scale=2)
      */
     protected $amount;
 
     /**
-     * @ORM\OneToOne(targetEntity="JMS\PaymentCoreBundle\Entity\PaymentInstruction")
+     * @ORM\OneToOne(targetEntity="JMS\Payment\CoreBundle\Entity\PaymentInstruction")
      * @ORM\JoinColumn(name="payment_instruction_id")
      */
     protected $paymentInstruction;
