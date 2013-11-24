@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="default" namespace="Up2green\BlogBundle\Model" defaultIdMethod="native">
 
-    <table name="category">
-        <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="name" type="VARCHAR" size="255" required="true" />
-
-        <behavior name="activatable" />
-        <behavior name="sluggable" />
-        <behavior name="sortable" />
-        <behavior name="nested_set" />
-    </table>
-
     <table name="article">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="category_id" type="INTEGER" />
-
         <column name="title" type="VARCHAR" size="255" required="true" />
         <column name="summary" type="LONGVARCHAR" required="true" />
         <column name="description" type="LONGVARCHAR" required="true" />
         <column name="logo" type="VARCHAR" size="255" />
-
-        <foreign-key foreignTable="category">
-            <reference local="category_id" foreign="id" />
-        </foreign-key>
 
         <behavior name="activatable" />
         <behavior name="sluggable" />
@@ -32,31 +16,20 @@
         </behavior>
     </table>
 
-    <table name="mail">
+    <table name="newsletter">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="category_id" type="INTEGER" />
-
         <column name="title" type="VARCHAR" required="true" />
         <column name="content" type="LONGVARCHAR" required="true" />
         <column name="sender" type="VARCHAR" required="true" defaultValue="Up2green" />
         <column name="reply" type="VARCHAR" required="true" defaultValue="no-reply@up2green.com" />
         <column name="sent_at" type="TIMESTAMP" required="true" />
         <column name="is_forced" type="BOOLEAN" required="true" defaultValue="false" />
-
-        <foreign-key foreignTable="category">
-            <reference local="category_id" foreign="id" />
-        </foreign-key>
     </table>
 
     <table name="gallery">
         <column name="id" type="INTEGER" required="true" primaryKey="true" autoIncrement="true" />
-        <column name="category_id" type="INTEGER" />
         <column name="title" type="VARCHAR" size="255" required="true" />
         <column name="description" type="LONGVARCHAR" />
-
-        <foreign-key foreignTable="category">
-            <reference local="category_id" foreign="id" />
-        </foreign-key>
     </table>
 
     <table name="picture">
