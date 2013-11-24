@@ -30,7 +30,7 @@ class ContactController extends Controller
         $form = $this->createForm(new ContactType());
 
         if ($request->getMethod() == 'POST') {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
 

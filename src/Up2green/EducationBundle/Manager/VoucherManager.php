@@ -2,9 +2,8 @@
 
 namespace Up2green\EducationBundle\Manager;
 
-use FOS\UserBundle\Propel\User;
-use Up2green\EducationBundle\Model\EducationVoucher;
-use Up2green\CommonBundle\Model\Voucher;
+use Up2green\EducationBundle\Entity\EducationVoucher;
+use Up2green\UserBundle\Entity\User;
 
 /**
  * Voucher manager class
@@ -12,7 +11,20 @@ use Up2green\CommonBundle\Model\Voucher;
 class VoucherManager
 {
     /**
-     * @return UploadedFile
+     * @var ObjectManager
+     */
+    protected $manager;
+
+    /**
+     * @param ObjectManager $manager
+     */
+    public function __construct(ObjectManager $manager)
+    {
+        $this->manager = $manager;
+    }
+
+    /**
+     * @return array
      */
     public function generate(User $owner, $number)
     {
@@ -23,12 +35,11 @@ class VoucherManager
         $codes = array();
 
         for ($index = 0; $index < $number; $index++) {
-            $commonVoucher = new Voucher();
-            $commonVoucher->setowner($owner);
-
             $voucher = new EducationVoucher();
-            $voucher->setVoucher($commonVoucher);
-            $voucher->save();
+            $voucher->setowner($owner);
+
+            $this->manager->persist($voucher);
+            $this->manager->flush($voucher);
 
             $codes[] = $voucher->getVoucher()->getCode();
         }

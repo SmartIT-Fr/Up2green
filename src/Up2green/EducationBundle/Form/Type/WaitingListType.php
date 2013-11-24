@@ -65,7 +65,7 @@ class WaitingListType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\WaitingList',
+            'data_class' => 'Up2green\EducationBundle\Entity\WaitingList',
             'cascade_validation' => true
         ));
     }

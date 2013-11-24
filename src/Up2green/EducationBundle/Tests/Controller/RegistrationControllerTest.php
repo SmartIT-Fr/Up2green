@@ -2,13 +2,12 @@
 
 namespace Up2green\EducationBundle\Tests\Controller;
 
-use Up2green\CommonBundle\Test\IsolatedWebTestCase;
-use Up2green\EducationBundle\Model\SchoolQuery;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Registration controller test
  */
-class RegistrationControllerTest extends IsolatedWebTestCase
+class RegistrationControllerTest extends WebTestCase
 {
     /**
      * Test the new action with a new school

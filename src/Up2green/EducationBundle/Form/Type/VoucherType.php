@@ -25,7 +25,7 @@ class VoucherType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class'         => 'Up2green\EducationBundle\Model\EducationVoucher',
+            'data_class'         => 'Up2green\EducationBundle\Entity\EducationVoucher',
             'cascade_validation' => true,
         ));
     }

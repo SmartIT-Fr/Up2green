@@ -11,9 +11,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use JMS\Payment\CoreBundle\Plugin\Exception\ActionRequiredException;
 use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;
 
-use Up2green\CommonBundle\Model\Order;
-use Up2green\EducationBundle\Model\Donation;
-use Up2green\EducationBundle\Model\DonationQuery;
+use Up2green\CommonBundle\Entity\Order;
+use Up2green\EducationBundle\Entity\Donation;
 
 /**
  * @Route("/donation")
@@ -31,11 +30,12 @@ class DonationController extends Controller
         $form = $this->createForm('education_donation', $donation);
 
         if ('POST' === $request->getMethod()) {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
 
-                $donation->save();
+                $this->getDoctrine()->getManager()->persist($donation);
+                $this->getDoctrine()->getManager()->flush();
 
                 // Form that generate payment instruction
                 $paymentInstructionForm = $this->createForm('jms_choose_payment_method', null, array(
@@ -46,16 +46,16 @@ class DonationController extends Controller
                     'predefined_data' => array(
                         'paypal_express_checkout' => array(
                             'return_url' => $this->generateUrl('up2green_education_donation_complete', array(
-                                'id' => $donation->getOrder()->getId(),
+                                'id' => $donation->getId(),
                             ), true),
                             'cancel_url' => $this->generateUrl('up2green_education_donation_cancel', array(
-                                'id' => $donation->getOrder()->getId(),
+                                'id' => $donation->getId(),
                             ), true)
                         ),
                     ))
                 );
 
-                $paymentInstructionForm->bind(array('method' => 'paypal_express_checkout'));
+                $paymentInstructionForm->submit(array('method' => 'paypal_express_checkout'));
 
                 if (!$paymentInstructionForm->isValid()) {
                     throw new HttpException(500, "The order shoul be valid at this point");
@@ -65,7 +65,7 @@ class DonationController extends Controller
                 $this->get('payment.plugin_controller')->createPaymentInstruction($instruction);
 
                 $donation->setPaymentInstruction($instruction);
-                $donation->save();
+                $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirect($this->generateUrl('up2green_education_donation_complete', array(
                     'id' => $donation->getOrder()->getId(),
@@ -113,7 +113,7 @@ class DonationController extends Controller
     public function listAction()
     {
         return array(
-            'donations' => DonationQuery::create()->findGreatestValid()
+            'donations' => $this->getDoctrine()->getRepository('Up2greenEducationBundle:Donation')->findGreatestValid()
         );
     }
 }

@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Up2green\EducationBundle\Model\ClassroomPicture;
 
 /**
  * Classroom picture admin class
@@ -18,30 +17,27 @@ class ClassroomPictureAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $uploadedFileOptions = array(
+        $pictureOptions = array(
             'label'    => 'form.classroom_picture_type.picture',
             'required' => false,
         );
 
-        /** @var ClassroomPicture $subject */
+        /** @var \Up2green\EducationBundle\Entity\ClassroomPicture $subject */
         if (($subject = $this->getSubject()) && $subject->getPicture()) {
-            $path                               = $subject->getPicture();
-            $uploadedFileOptions['help_inline'] = '<img style="max-width:200px; max-height: 200px;" src="' . $path . '" />';
+            $pictureOptions['help_inline'] = '<img style="max-width:200px; max-height: 200px;" src="' . $subject->getPicture() . '" />';
         }
 
         $formMapper
             ->add('student', null, array(
                 'label' => 'form.classroom_picture_type.student'
             ))
-            ->add('program', 'model', array(
-                'class' => 'Up2green\ReforestationBundle\Model\Program',
+            ->add('program', null, array(
                 'label' => 'form.classroom_picture_type.program',
             ))
-            ->add('classroom', 'model', array(
-                'class' => 'Up2green\EducationBundle\Model\Classroom',
+            ->add('classroom', null, array(
                 'label' => 'form.classroom_picture_type.program'
             ))
-            ->add('uploadedFile', 'file', $uploadedFileOptions);
+            ->add('picture', 'file', $pictureOptions);
     }
 
     /**
@@ -52,10 +48,7 @@ class ClassroomPictureAdmin extends Admin
         $datagridMapper
             ->add('student')
             ->add('program')
-            // FIXME this field should have been guessed
-            ->add('classroom.school', 'model', array(), null, array(
-                'class' => 'Up2green\EducationBundle\Model\School',
-            ))
+            ->add('classroom.school')
             ->add('classroom')
             ->add('classroom.year');
     }

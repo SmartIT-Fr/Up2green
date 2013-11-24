@@ -20,19 +20,19 @@ class OrderKitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('first_name', 'text', array(
+            ->add('firstName', 'text', array(
                 'label' => 'firstname'
             ))
-            ->add('last_name', 'text', array(
+            ->add('lastName', 'text', array(
                 'label' => 'lastname'
             ))
             ->add('email', 'email', array(
                 'label' => 'email'
             ))
-            ->add('phone_number', 'text', array(
+            ->add('phoneNumber', 'text', array(
                 'label' => 'telephone'
             ))
-            ->add('kits_number', 'integer', array(
+            ->add('kitsNumber', 'integer', array(
                 'label' => 'kits_number'
             ))
             ->add('address', 'common_address', array(
@@ -49,7 +49,7 @@ class OrderKitType extends AbstractType
      */
     public function getName()
     {
-        return 'education_order_kit';
+        return 'order_kit';
     }
 
     /**
@@ -60,7 +60,7 @@ class OrderKitType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\OrderKit',
+            'data_class' => 'Up2green\EducationBundle\Entity\OrderKit',
             'cascade_validation' => true,
         ));
     }

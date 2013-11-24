@@ -3,10 +3,9 @@
 namespace Up2green\BlogBundle\Controller;
 
 use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\PropelAdapter;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
-use Up2green\ReforestationBundle\Model\OrganizationQuery;
-use Up2green\ReforestationBundle\Model\Organization;
+use Up2green\ReforestationBundle\Entity\Organization;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -42,8 +41,8 @@ class OrganizationController extends Controller
      */
     public function listAction()
     {
-        $adapter = new PropelAdapter(OrganizationQuery::create()
-            ->joinWithI18n($this->getRequest()->getLocale()));
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Organization')->createQueryBuilder();
+        $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);
         $pager->setCurrentPage($this->getRequest()->get('page', 1));

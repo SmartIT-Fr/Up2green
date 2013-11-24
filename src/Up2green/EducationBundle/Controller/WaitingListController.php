@@ -3,7 +3,7 @@
 namespace Up2green\EducationBundle\Controller;
 
 use Up2green\EducationBundle\Form\Type\WaitingListType;
-use Up2green\EducationBundle\Model\WaitingList;
+use Up2green\EducationBundle\Entity\WaitingList;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,10 +32,12 @@ class WaitingListController extends Controller
         $form = $this->createForm(new WaitingListType(), $waitingList);
 
         if ($request->getMethod() == 'POST') {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
-                $waitingList->save();
+                $this->getDoctrine()->getManager()->persist($waitingList);
+                $this->getDoctrine()->getManager()->flush();
+
                 $this->get('session')->getFlashBag()->add('success', "waiting_list_joined");
 
                 return $this->redirect($this->generateUrl('education_homepage'));

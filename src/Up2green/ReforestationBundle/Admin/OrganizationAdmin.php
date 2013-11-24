@@ -19,15 +19,8 @@ class OrganizationAdmin extends Admin
     {
         $formMapper
             ->add('url')
-            ->add('active', 'checkbox')
-            ->add('organizationI18ns', 'propel1_translation_collection', array(
-                'languages' => array('en_US', 'fr'),
-                'label' => 'Translations',
-                'options' => array(
-                    'data_class' => 'Up2green\ReforestationBundle\Model\OrganizationI18n',
-                    'columns' => array('title', 'summary', 'description')
-                )
-            ))
+            ->add('isActive', 'checkbox')
+            ->add('translations', 'a2lix_translations')
         ;
     }
 
@@ -39,7 +32,7 @@ class OrganizationAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('url')
-            ->add('is_active')
+            ->add('isActive')
         ;
     }
 
@@ -52,7 +45,7 @@ class OrganizationAdmin extends Admin
             ->addIdentifier('id')
             ->add('title')
             ->add('url')
-            ->add('is_active')
+            ->add('isActive')
         ;
     }
 }

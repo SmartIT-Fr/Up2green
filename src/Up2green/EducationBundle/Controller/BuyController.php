@@ -11,9 +11,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use JMS\Payment\CoreBundle\Plugin\Exception\ActionRequiredException;
 use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;
 
-use Up2green\EducationBundle\Model\EducationVoucher;
-use Up2green\EducationBundle\Model\OrderKit;
-use Up2green\CommonBundle\Model\Order;
+use Up2green\EducationBundle\Entity\EducationVoucher;
+use Up2green\EducationBundle\Entity\OrderKit;
+use Up2green\CommonBundle\Entity\Order;
 
 /**
  * Participate controller
@@ -31,17 +31,18 @@ class BuyController extends Controller
     public function newAction(Request $request)
     {
         $orderKit = new OrderKit();
-        $form = $this->createForm('education_order_kit', $orderKit);
+        $form = $this->createForm('order_kit', $orderKit);
 
         if ($request->getMethod() == 'POST') {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
 
                 $amount = $form->get('kits_number')->getData() * $this->container->getParameter('up2green_education.kit_price');
-                $commonOrder = new Order();
-                $commonOrder->setAmount($amount);
-                $commonOrder->save();
+
+                $orderKit->setAmount($amount);
+                $this->getDoctrine()->getManager()->persist($orderKit);
+                $this->getDoctrine()->getManager()->flush();
 
                 // Form that generate payment instruction
                 $paymentInstructionForm = $this->createForm('jms_choose_payment_method', null, array(
@@ -52,16 +53,16 @@ class BuyController extends Controller
                     'predefined_data' => array(
                         'paypal_express_checkout' => array(
                             'return_url' => $this->generateUrl('up2green_education_buy_complete', array(
-                                'id' => $commonOrder->getId(),
+                                'id' => $orderKit->getId(),
                             ), true),
                             'cancel_url' => $this->generateUrl('up2green_education_buy_cancel', array(
-                                'id' => $commonOrder->getId(),
+                                'id' => $orderKit->getId(),
                             ), true)
                         ),
                     ))
                 );
 
-                $paymentInstructionForm->bind(array('method' => 'paypal_express_checkout'));
+                $paymentInstructionForm->submit(array('method' => 'paypal_express_checkout'));
 
                 if (!$paymentInstructionForm->isValid()) {
                     throw new HttpException(500, "The order shoul be valid at this point");
@@ -70,12 +71,11 @@ class BuyController extends Controller
                 $instruction = $paymentInstructionForm->getData();
                 $this->get('payment.plugin_controller')->createPaymentInstruction($instruction);
 
-                $commonOrder->setPaymentInstruction($instruction);
-                $orderKit->setOrder($commonOrder);
-                $orderKit->save();
+                $orderKit->setPaymentInstruction($instruction);
+                $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirect($this->generateUrl('up2green_education_buy_complete', array(
-                    'id' => $orderKit->getOrder()->getId(),
+                    'id' => $orderKit->getId(),
                 )));
             }
         }

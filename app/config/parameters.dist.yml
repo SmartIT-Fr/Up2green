@@ -1,10 +1,15 @@
 parameters:
   database_driver:    pdo_mysql
   database_host:      localhost
-  database_port:      ~
   database_name:      up2green2
   database_user:      root
   database_password:  ~
+
+  old_database_driver:    pdo_mysql
+  old_database_host:      localhost
+  old_database_name:      up2green
+  old_database_user:      root
+  old_database_password:  ~
 
   mailer_transport:   smtp
   mailer_host:        localhost

@@ -1,11 +1,11 @@
 <?php
 namespace Up2green\EducationBundle\Form\Type;
 
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Up2green\EducationBundle\DomainObject;
-use Up2green\EducationBundle\Model\SchoolQuery;
 
 /**
  * School type
@@ -18,13 +18,10 @@ class SchoolType extends AbstractType
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(Registry $doctrine)
     {
         $this->schoolChoices = DomainObject\School::$schoolChoices;
-
-        $schools = SchoolQuery::create()
-            ->orderByName('ASC')
-            ->find();
+        $schools = $doctrine->getRepository('Up2greenEducationBundle:School')->findAll();
 
         $this->schoolList = array();
         foreach ($schools as $school) {

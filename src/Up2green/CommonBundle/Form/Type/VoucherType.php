@@ -25,7 +25,7 @@ class VoucherType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\CommonBundle\Model\Voucher'
+            'data_class' => 'Up2green\CommonBundle\Entity\Voucher'
         ));
     }
 

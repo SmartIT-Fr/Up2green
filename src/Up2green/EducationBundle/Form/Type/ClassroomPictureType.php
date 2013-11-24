@@ -25,7 +25,7 @@ class ClassroomPictureType extends AbstractType
                 'required' => false,
             ))
             ->add('program', 'model', array(
-                'class'    => 'Up2green\ReforestationBundle\Model\Program',
+                'class'    => 'Up2green\ReforestationBundle\Entity\Program',
                 'label'    => 'form.classroom_picture_type.program'
             ));
     }
@@ -36,7 +36,7 @@ class ClassroomPictureType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\ClassroomPicture',
+            'data_class' => 'Up2green\EducationBundle\Entity\ClassroomPicture',
             'cascade_validation' => true,
         ));
     }

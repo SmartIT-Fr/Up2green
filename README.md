@@ -12,22 +12,13 @@ Run the following commands:
 git clone git@github.com:SmartIT-Fr/Up2green.git
 ```
 
-### b) Install Composer
+### b) Install the Vendor Libraries
 
 ``` bash
-sudo su
-cd /usr/bin/
-curl -s http://getcomposer.org/installer | php
-chmod a+x composer.phar
+composer.phar install --dev
 ```
 
-### c) Install the Vendor Libraries
-
-``` bash
-composer.phar install
-```
-
-### d) Check your System Configuration
+### c) Check your System Configuration
 
 After installing vendors, make sure that your local system is properly
 configured for Symfony. To do this, execute the following:
@@ -61,8 +52,7 @@ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs web/uplo
 ``` bash
 cp app/config/parameters.dist.yml app/config/parameters.yml
 vim app/config/parameters.yml
-php app/console propel:database:create
-php app/console propel:build --insert-sql
+php app/console doctrine:build --all --and-load
 ```
 
 ### g) Add bootstrap symlinks

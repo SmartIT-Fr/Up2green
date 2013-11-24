@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use JMS\SecurityExtraBundle\Annotation\SecureParam;
 
-use Up2green\EducationBundle\Model\ClassroomPicture;
+use Up2green\EducationBundle\Entity\ClassroomPicture;
 
 /**
  * Classroom picture controller
@@ -28,7 +28,8 @@ class ClassroomPictureController extends Controller
      */
     public function deleteAction(Request $request, ClassroomPicture $picture)
     {
-        $picture->delete();
+        $this->getDoctrine()->getManager()->remove($picture);
+        $this->getDoctrine()->getManager()->flush();
 
         $this->get('session')->getFlashBag()->add('success', "classroom.picture.deleted");
 

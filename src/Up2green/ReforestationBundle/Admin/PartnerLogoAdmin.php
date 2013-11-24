@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Up2green\ReforestationBundle\Model\PartnerLogo;
 
 /**
  * Partner logo admin class
@@ -18,17 +17,16 @@ class PartnerLogoAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $uploadedFileOptions = array('required' => false);
+        $fileOptions = array('required' => false);
 
-        /** @var PartnerLogo $subject */
+        /** @var \Up2green\ReforestationBundle\Entity\PartnerLogo $subject */
         if (($subject = $this->getSubject()) && $subject->getSrc()) {
-            $path                               = $subject->getSrc();
-            $uploadedFileOptions['help_inline'] = '<img style="max-width:200px; max-height: 200px;" src="' . $path . '" />';
+            $fileOptions['help_inline'] = '<img style="max-width:200px; max-height: 200px;" src="' . $subject->getSrc() . '" />';
         }
 
         $formMapper
             ->add('partner')
-            ->add('uploadedFile', 'file', $uploadedFileOptions)
+            ->add('src', 'file', $fileOptions)
             ->add('href')
         ;
     }

@@ -20,6 +20,7 @@
             <tag name="form.type" alias="education_registration" />
         </service>
         <service id="form.type.education.school" class="%up2green_education.form.type.school.class%">
+            <argument type="service" id="doctrine" />
             <tag name="form.type" alias="education_school" />
         </service>
         <service id="form.type.education.classroom" class="%up2green_education.form.type.classroom.class%">
@@ -35,7 +36,7 @@
             <tag name="form.type" alias="education_donation" />
         </service>
         <service id="form.type.education.order_kit" class="%up2green_education.form.type.order_kit.class%">
-            <tag name="form.type" alias="education_order_kit" />
+            <tag name="form.type" alias="order_kit" />
         </service>
         <service id="up2green_education.form.type.admin.generate_voucher" class="%up2green_education.form.type.admin.generate_voucher.class%">
             <tag name="form.type" alias="education_admin_generate_voucher" />

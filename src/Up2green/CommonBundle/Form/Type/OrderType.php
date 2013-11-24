@@ -70,7 +70,7 @@ class OrderType extends AbstractType
                 'payment_return_route', 'payment_cancel_route',
             ))
             ->setDefaults(array(
-                'data_class' => 'Up2green\CommonBundle\Model\Order'
+                'data_class' => 'Up2green\CommonBundle\Entity\Order'
             ));
     }
 }

@@ -22,10 +22,7 @@ class LocaleController extends Controller
     {
         $request = $this->get('request');
         $referer = $request->headers->get('referer');
-        if ($referer == null) {
-            return new RedirectResponse($this->generateUrl('homepage'));
-        }
 
-        return new RedirectResponse($referer);
+        return $this->redirect($referer ?: $this->generateUrl('homepage'));
     }
 }

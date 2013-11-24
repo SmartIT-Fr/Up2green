@@ -9,7 +9,7 @@
         "ext-gd": "*",
         "ext-curl": "*",
         "oauth/oauth": "dev-master",
-        "leafo/lessphp": "dev-master",
+        "leafo/lessphp": "0.4.*",
 
         "symfony/symfony": "2.3.*",
         "doctrine/common": ">=2.2.3,<2.4-dev",
@@ -25,45 +25,35 @@
         "jms/security-extra-bundle": "1.5.*",
         "jms/di-extra-bundle": "1.4.*",
 
-        "phing/phing": "2.4.*",
-        "propel/propel-bundle": "dev-symfony-2-3 as 1.2.8",
-        "willdurand/propel-typehintable-behavior": "1.0.3",
-        "clementgautier/propel-activatable-behavior": "dev-master",
-        "willdurand/propel-geocodable-behavior": "dev-master",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "stof/doctrine-extensions-bundle": "1.1.*",
+        "willdurand/geocoder-bundle": "1.4.*",
+        "a2lix/translation-form-bundle": "@stable",
 
-        "white-october/pagerfanta-bundle": "dev-master",
-        "pagerfanta/pagerfanta": "dev-master",
-        "mopa/bootstrap-bundle": "2.3.x-dev",
+        "white-october/pagerfanta-bundle": "1.0.*",
+        "mopa/bootstrap-bundle": "2.3.*",
         "twbs/bootstrap": "v2.3.2",
 
-        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "1.3.*",
         "juliendidier/buzz-profiler-bundle": "dev-master",
-        "kriswallsmith/buzz": "dev-master",
-        "gregwar/captcha-bundle": "dev-master",
-        "friendsofsymfony/jsrouting-bundle": "dev-master",
-        "willdurand/geocoder": "dev-master",
-        "jms/payment-core-bundle": "dev-propel-support",
-        "jms/payment-paypal-bundle": "dev-propel-support",
-        "ornicar/gravatar-bundle" : "dev-master",
-        "craue/twigextensions-bundle": "dev-master",
-        "liip/imagine-bundle": "dev-master",
+        "kriswallsmith/buzz": "0.*",
+        "gregwar/captcha-bundle": "1.0.*",
+        "friendsofsymfony/jsrouting-bundle": "1.4.*",
+        "jms/payment-core-bundle": "1.0.*",
+        "jms/payment-paypal-bundle": "1.0.*",
+        "ornicar/gravatar-bundle" : "1.0.*",
+        "craue/twigextensions-bundle": "1.0.*",
+        "liip/imagine-bundle": "0.*",
         
-        "sonata-project/admin-bundle": "2.2.*@dev",
-        "sonata-project/intl-bundle": "2.2.*@dev",
-        "sonata-project/cache-bundle": "2.1.*@dev",
-        "sonata-project/propel-admin-bundle": "dev-master",
-        "sonata-project/exporter": "1.3.2",
-        "knplabs/knp-menu-bundle": "1.1.x-dev"
+        "sonata-project/admin-bundle": "2.2.*",
+        "sonata-project/intl-bundle": "2.2.*",
+        "sonata-project/cache-bundle": "2.1.*",
+        "sonata-project/doctrine-orm-admin-bundle": "2.2.*",
+        "sonata-project/exporter": "1.3.*",
+        "knplabs/knp-menu-bundle": "1.1.*"
     },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/ClementGautier/JMSPaymentCoreBundle"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/ClementGautier/JMSPaymentPaypalBundle"
-        },
         {
             "type": "package",
             "package": {
