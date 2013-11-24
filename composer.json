@@ -30,6 +30,7 @@
         "stof/doctrine-extensions-bundle": "1.1.*",
         "willdurand/geocoder-bundle": "1.4.*",
         "a2lix/translation-form-bundle": "@stable",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
 
         "white-october/pagerfanta-bundle": "1.0.*",
         "mopa/bootstrap-bundle": "2.3.*",
