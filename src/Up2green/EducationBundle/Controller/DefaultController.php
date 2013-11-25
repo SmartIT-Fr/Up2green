@@ -19,7 +19,7 @@ class DefaultController extends Controller
     public function bannerAction()
     {
         $kits = $this->getDoctrine()
-            ->getRepository('Up2rgeenEducationBundle:EducationVoucher')
+            ->getRepository('Up2greenEducationBundle:EducationVoucher')
             ->countUsed();
 
         $count = $kits * $this->container->getParameter('up2green_education.trees_by_kit');

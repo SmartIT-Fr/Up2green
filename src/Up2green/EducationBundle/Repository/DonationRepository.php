@@ -16,7 +16,7 @@ class DonationRepository extends EntityRepository
     {
         return $this->createQueryBuilder('v')
             ->innerJoin('v.paymentInstruction', 'pi')
-            ->innerJoin('pi.payment', 'p')
+            ->innerJoin('pi.payments', 'p')
             ->andWhere('pi.state = :valid')
             ->andWhere('p.state = :deposited')
             ->setParameter('deposited', 'deposited')
