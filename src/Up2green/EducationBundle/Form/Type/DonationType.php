@@ -31,7 +31,6 @@ class DonationType extends AbstractType
                 'label'    => 'form.donation_type.url',
                 'required' => false,
             ))
-            ->add('order', 'common_simple_order')
             ->add('commentPublic', 'textarea', array(
                 'label'      => 'form.donation_type.comment_public',
                 'max_length' => 1000,
@@ -61,5 +60,13 @@ class DonationType extends AbstractType
     public function getName()
     {
         return 'education_donation';
+    }
+
+    /**
+     * @return string
+     */
+    public function getParent()
+    {
+        return 'common_simple_order';
     }
 }

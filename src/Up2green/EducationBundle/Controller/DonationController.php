@@ -11,7 +11,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use JMS\Payment\CoreBundle\Plugin\Exception\ActionRequiredException;
 use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;
 
-use Up2green\CommonBundle\Entity\Order;
 use Up2green\EducationBundle\Entity\Donation;
 
 /**
@@ -40,7 +39,7 @@ class DonationController extends Controller
                 // Form that generate payment instruction
                 $paymentInstructionForm = $this->createForm('jms_choose_payment_method', null, array(
                     'csrf_protection' => false,
-                    'amount'   => $donation->getOrder()->getAmount(),
+                    'amount'   => $donation->getAmount(),
                     'currency' => 'EUR',
                     'default_method' => 'payment_paypal',
                     'predefined_data' => array(
@@ -68,7 +67,7 @@ class DonationController extends Controller
                 $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirect($this->generateUrl('up2green_education_donation_complete', array(
-                    'id' => $donation->getOrder()->getId(),
+                    'id' => $donation->getId(),
                 )));
             }
         }
@@ -81,13 +80,13 @@ class DonationController extends Controller
     /**
      * @Route("/{id}/complete", name="up2green_education_donation_complete")
      */
-    public function completeAction(Request $request, Order $order)
+    public function completeAction(Request $request, Donation $donation)
     {
         $this->get('session')->getFlashBag()->add('success', "donation_success");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:complete',
-            array('order' => $order),
+            array('order' => $donation),
             array('redirect_url' => $this->generateUrl('up2green_education_donation_list'))
         );
     }
@@ -95,13 +94,13 @@ class DonationController extends Controller
     /**
      * @Route("/{id}/cancel", name="up2green_education_donation_cancel")
      */
-    public function cancelAction(Order $order)
+    public function cancelAction(Donation $donation)
     {
         $this->get('session')->getFlashBag()->add('warning', "donation_canceled");
 
         return $this->forward(
             'Up2greenEducationBundle:Order:cancel',
-            array('order' => $order),
+            array('order' => $donation),
             array('redirect_url' => $this->generateUrl('up2green_education_donation_list'))
         );
     }
