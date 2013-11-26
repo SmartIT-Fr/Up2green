@@ -22,14 +22,11 @@ class ArticleController extends Controller
      * @param Article $article
      *
      * @Route("/article/{id}", name="blog_article_show", requirements={"id"= "\d+"})
-     * @Template()
+     * @Template(vars={"article"})
      * @return array
      */
     public function showAction(Article $article)
     {
-        $article->setLocale($this->getRequest()->getLocale());
-
-        return array('article' => $article);
     }
 
     /**

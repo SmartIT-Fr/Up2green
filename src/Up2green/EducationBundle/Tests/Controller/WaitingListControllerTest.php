@@ -26,15 +26,15 @@ class WaitingListControllerTest extends WebTestCase
         $form = $crawler
             ->selectButton('Soumettre')
             ->form(array(
-                'join_waiting_list[first_name]'             => 'Marie',
-                'join_waiting_list[last_name]'              => 'Minassyan',
+                'join_waiting_list[firstName]'              => 'Marie',
+                'join_waiting_list[lastName]'               => 'Minassyan',
                 'join_waiting_list[email][email]'           => 'marie.minassyan@up2green.com',
                 'join_waiting_list[email][confirm_email]'   => 'marie.minassyan@up2green.com',
                 'join_waiting_list[phone_number]'           => '0667075579',
                 'join_waiting_list[kits_number]'            => '2',
                 'join_waiting_list[address][name]'   		=> 'Maison',
-                'join_waiting_list[address][street_line_1]' => '12 bd Edgar Quinet',
-                'join_waiting_list[address][street_line_2]' => ' ',
+                'join_waiting_list[address][streetLine1]'   => '12 bd Edgar Quinet',
+                'join_waiting_list[address][streetLine2]'   => ' ',
                 'join_waiting_list[address][zipcode]'   	=> '75014',
                 'join_waiting_list[address][city]'   		=> 'Paris',
                 'join_waiting_list[address][country]'       => 'France',

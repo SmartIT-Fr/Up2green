@@ -62,6 +62,14 @@ class School
     protected $updatedAt;
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getName();
+    }
+
+    /**
      * @param string $address
      */
     public function setAddress($address)

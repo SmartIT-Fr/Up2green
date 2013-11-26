@@ -27,9 +27,6 @@ class OrganizationController extends Controller
      */
     public function showAction(Organization $organization)
     {
-        $organization->setLocale($this->getRequest()->getLocale());
-
-        return array('organization' => $organization);
     }
 
     /**

@@ -27,9 +27,6 @@ class ProgramController extends Controller
      */
     public function showAction(Program $program)
     {
-        $program->setLocale($this->getRequest()->getLocale());
-
-        return array('program' => $program);
     }
 
     /**

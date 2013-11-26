@@ -20,10 +20,10 @@ class WaitingListType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('first_name', 'text', array(
+            ->add('firstName', 'text', array(
                 'label' => 'firstname'
             ))
-            ->add('last_name', 'text', array(
+            ->add('lastName', 'text', array(
                 'label' => 'lastname'
             ))
             ->add('email', 'repeated', array(

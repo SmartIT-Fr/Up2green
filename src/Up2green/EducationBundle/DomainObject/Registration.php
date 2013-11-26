@@ -70,8 +70,9 @@ class Registration implements DomainObjectInterface
         $this->classroom->setSchool($this->school->getSchoolModel());
 
         $this->voucher->setIsActive(false);
-        $this->voucher->setUsedBy($this->account);
+        $this->voucher->setUser($this->account);
 
+        $this->school->setManager($this->manager);
         $this->school->save();
         $this->manager->persist($this->account);
         $this->manager->persist($this->classroom);

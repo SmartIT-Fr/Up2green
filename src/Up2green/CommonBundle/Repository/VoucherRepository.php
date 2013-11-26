@@ -2,7 +2,9 @@
 
 namespace Up2green\CommonBundle\Repository;
 
-class VoucherRepository
+use Doctrine\ORM\EntityRepository;
+
+class VoucherRepository extends EntityRepository
 {
     public static $length = 9;
     public static $acceptedChars = 'ABCDEFGHKLMNOPQRSTWXYZ123456789';
@@ -17,47 +19,49 @@ class VoucherRepository
      */
     public function getCodeUnused($prefix = '', $exclude = array())
     {
-        throw new \LogicException("Method not implemented");
+        if(strlen($prefix) > self::$length) {
+            throw new Exception(sprintf("Prefix size is > to the max (%s)", self::$length));
+        }
 
-//        if(strlen($prefix) > self::$length) {
-//            throw new Exception(sprintf("Prefix size is > to the max (%s)", self::$length));
-//        }
-//
-//        $prefix = self::cleanCode($prefix);
-//
-//        do {
-//            $code = $prefix . self::cleanCode(self::getRandCode(self::$length - strlen($prefix)));
-//        } while (in_array($code, $exclude));
-//
-//        if (! self::create()->findOneByCode($code)) {
-//            // code ok, not found in database
-//            return $code;
-//        }
-//
-//        if(strlen($prefix) >= self::$length) {
-//            // cant generate a valide code
-//            throw new Exception(sprintf("Coupon already exist with code %s", $code));
-//        }
-//
-//        $codes = self::create()
-//            ->select(array('code'))
-//            ->filterByCode($prefix.'%', \Criteria::LIKE)
-//            ->find();
-//
-//        $possibilities = pow(strlen(self::$acceptedChars), self::$length - strlen($prefix));
-//
-//        if($possibilities === sizeof($codes) ) {
-//            // cant generate a valide code
-//            throw new Exception(sprintf("All possibilities with prefix %s are already used", $prefix));
-//        }
-//
-//        return self::getCodeUnused($prefix, $codes);
+        $prefix = self::cleanCode($prefix);
+
+        do {
+            $code = $prefix . self::cleanCode(self::getRandCode(self::$length - strlen($prefix)));
+        } while (in_array($code, $exclude));
+
+        if (! $this->findOneByCode($code)) {
+            // code ok, not found in database
+            return $code;
+        }
+
+        if(strlen($prefix) >= self::$length) {
+            // cant generate a valide code
+            throw new Exception(sprintf("Coupon already exist with code %s", $code));
+        }
+
+        $codes = $this->createQueryBuilder('v')
+            ->select('v.code')
+            ->where('v.code LIKE :prefix')
+            ->setParameter('prefix', $prefix.'%')
+            ->getQuery()
+            ->getArrayResult();
+
+        die(var_dump($codes));
+
+        $possibilities = pow(strlen(self::$acceptedChars), self::$length - strlen($prefix));
+
+        if($possibilities === sizeof($codes) ) {
+            // cant generate a valide code
+            throw new Exception(sprintf("All possibilities with prefix %s are already used", $prefix));
+        }
+
+        return self::getCodeUnused($prefix, $codes);
     }
 
     /**
-     * @param: Integer $length Taille du code aléatoire
-     * @return: String code
-     * @description: génere un code aléatoire
+     * @param integer $length
+     *
+     * @return string
      */
     public static function getRandCode($length) {
         $max = strlen(self::$acceptedChars) - 1;
@@ -70,13 +74,14 @@ class VoucherRepository
     }
 
     /**
-     * @param: String $code la chaine à épurer
-     * @return: String le code épuré
-     * @description: prépare une chaine pour une utilisation comme code coupon
+     * @param string $code
+     *
+     * @return string
      */
     public static function cleanCode($code) {
         // replace non letter or digits
         $code = preg_replace('#[^\\pL\d]+#u', '', $code);
+
         return strtoupper(trim($code));
     }
 }
