@@ -88,7 +88,7 @@ class ClassroomPicture
     }
 
     /**
-     * @param mixed $classroom
+     * @param Classroom $classroom
      */
     public function setClassroom(Classroom $classroom)
     {
@@ -96,7 +96,7 @@ class ClassroomPicture
     }
 
     /**
-     * @return mixed
+     * @return Classroom
      */
     public function getClassroom()
     {
@@ -104,7 +104,7 @@ class ClassroomPicture
     }
 
     /**
-     * @param mixed $createdAt
+     * @param \DateTime $createdAt
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
@@ -112,7 +112,7 @@ class ClassroomPicture
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -120,7 +120,7 @@ class ClassroomPicture
     }
 
     /**
-     * @param mixed $id
+     * @param integer $id
      */
     public function setId($id)
     {
@@ -128,7 +128,7 @@ class ClassroomPicture
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
@@ -152,7 +152,7 @@ class ClassroomPicture
     }
 
     /**
-     * @param mixed $program
+     * @param Program $program
      */
     public function setProgram(Program $program)
     {
@@ -160,7 +160,7 @@ class ClassroomPicture
     }
 
     /**
-     * @return mixed
+     * @return Program
      */
     public function getProgram()
     {
@@ -168,7 +168,7 @@ class ClassroomPicture
     }
 
     /**
-     * @param mixed $student
+     * @param string $student
      */
     public function setStudent($student)
     {
@@ -176,7 +176,7 @@ class ClassroomPicture
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStudent()
     {

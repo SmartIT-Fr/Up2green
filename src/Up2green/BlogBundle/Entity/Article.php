@@ -95,7 +95,7 @@ class Article
      * @var ArrayCollection
      *
      * @ORM\OneToMany(
-     *   targetEntity="Up2green\ReforestationBundle\Entity\OrganizationI18n",
+     *   targetEntity="Up2green\BlogBundle\Entity\ArticleI18n",
      *   mappedBy="object",
      *   cascade={"persist", "remove"}
      * )

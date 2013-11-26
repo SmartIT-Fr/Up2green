@@ -15,4 +15,27 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractTranslation;
  */
 class OrganizationI18n extends AbstractTranslation
 {
+    /**
+     * @var Organization
+     *
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Organization", inversedBy="translations")
+     * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $object;
+
+    /**
+     * @param Organization $object
+     */
+    public function setObject(Organization $object)
+    {
+        $this->object = $object;
+    }
+
+    /**
+     * @return Organization
+     */
+    public function getObject()
+    {
+        return $this->object;
+    }
 }
