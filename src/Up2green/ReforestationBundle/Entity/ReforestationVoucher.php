@@ -27,7 +27,7 @@ class ReforestationVoucher extends Voucher
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
+     * @ORM\ManyToMany(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
      * @ORM\JoinTable(name="voucher_tree",
      *      joinColumns={@ORM\JoinColumn(name="voucher_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tree_id", referencedColumnName="id")}

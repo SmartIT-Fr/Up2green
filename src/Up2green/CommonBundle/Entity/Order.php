@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="order")
+ * @ORM\Table(name="purchase_order")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discriminator", type="string")
  * @ORM\DiscriminatorMap({"education_donation" = "Up2green\EducationBundle\Entity\Donation", "education_kit" = "Up2green\EducationBundle\Entity\OrderKit"})

@@ -73,7 +73,7 @@ class Classroom
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"remove"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="SET NULL")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;
 

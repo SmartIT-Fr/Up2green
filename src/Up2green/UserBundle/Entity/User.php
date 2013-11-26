@@ -24,7 +24,7 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
+     * @ORM\ManyToMany(targetEntity="Up2green\ReforestationBundle\Entity\Tree")
      * @ORM\JoinTable(name="user_tree",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tree_id", referencedColumnName="id")}
