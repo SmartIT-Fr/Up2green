@@ -20,7 +20,7 @@ class ReforestationVoucher extends Voucher
      * @var VoucherCategory
      *
      * @ORM\ManyToOne(targetEntity="Up2green\CommonBundle\Entity\VoucherCategory")
-     * @ORM\JoinColumn(name="partner_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
     protected $category;
 

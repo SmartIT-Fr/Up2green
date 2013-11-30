@@ -66,7 +66,7 @@ class Partner extends User
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\ReforestationVoucher")
+     * @ORM\ManyToMany(targetEntity="Up2green\ReforestationBundle\Entity\ReforestationVoucher")
      * @ORM\JoinTable(name="partner_voucher",
      *      joinColumns={@ORM\JoinColumn(name="partner_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="voucher_id", referencedColumnName="id")}
