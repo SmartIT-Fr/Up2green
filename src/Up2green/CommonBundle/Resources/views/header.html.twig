@@ -12,27 +12,15 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                {% if app.environment == 'dev' %}
-                    <a class="brand" href="{{ path('search_homepage') }}">Up2green</a>
-                {% else %}
-                    <a class="brand" href="http://reforestation.up2green.com">Up2green</a>
-                {% endif %}
+                <a class="brand" href="{{ path('search_homepage') }}">Up2green</a>
 
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li{% if route == 'search_homepage' %} class="active"{% endif %}>
-                            {% if app.environment == 'dev' %}
                             <a href="{{ path('search_homepage') }}">{{ 'search_engine'|trans }}</a>
-                            {% else %}
-                            <a href="http://www.up2green.com">{{ 'search_engine'|trans }}</a>
-                            {% endif %}
                         </li>
                         <li{% if route == 'blog_homepage' %} class="active"{% endif %}>
-                            {% if app.environment == 'dev' %}
                             <a href="{{ path('blog_homepage') }}">{{ 'Blog'|trans }}</a>
-                            {% else %}
-                            <a href="http://association.up2green.com">{{ 'Blog'|trans }}</a>
-                            {% endif %}
                         </li>
                         <li{% if route == 'reforestation_homepage' %} class="active"{% endif %}>
                             {% if app.environment == 'dev' %}
