@@ -1,11 +1,6 @@
 imports:
     - { resource: config_dev.yml }
 
-#propel:
-#    dbal:
-#        driver:               pdo_sqlite
-#        dsn:                  sqlite::in_memory
-
 framework:
     test: ~
     session:

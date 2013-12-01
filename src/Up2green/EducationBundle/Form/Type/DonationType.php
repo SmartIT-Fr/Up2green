@@ -31,13 +31,12 @@ class DonationType extends AbstractType
                 'label'    => 'form.donation_type.url',
                 'required' => false,
             ))
-            ->add('order', 'common_simple_order')
-            ->add('comment_public', 'textarea', array(
+            ->add('commentPublic', 'textarea', array(
                 'label'      => 'form.donation_type.comment_public',
                 'max_length' => 1000,
                 'required' => false,
             ))
-            ->add('comment_private', 'textarea', array(
+            ->add('commentPrivate', 'textarea', array(
                 'label' => 'form.donation_type.comment_private',
                 'max_length' => 1000,
                 'required' => false,
@@ -50,7 +49,7 @@ class DonationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\EducationBundle\Model\Donation',
+            'data_class' => 'Up2green\EducationBundle\Entity\Donation',
             'cascade_validation' => true,
         ));
     }
@@ -61,5 +60,13 @@ class DonationType extends AbstractType
     public function getName()
     {
         return 'education_donation';
+    }
+
+    /**
+     * @return string
+     */
+    public function getParent()
+    {
+        return 'common_simple_order';
     }
 }

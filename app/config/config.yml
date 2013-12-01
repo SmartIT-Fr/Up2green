@@ -17,6 +17,14 @@ framework:
     default_locale:  fr
     session:         ~
 
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            translatable: true
+            sluggable: true
+            uploadable: true
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
@@ -38,13 +46,6 @@ services:
         tags:
             - { name: 'twig.extension' }
 
-    up2green.kernel.event_listener.locale:
-        class: Up2green\CommonBundle\HttpKernel\EventListener\LocaleListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
-        @arguments:
-            - { defaultLocale: %default_locale% }
-
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -59,26 +60,43 @@ assetic:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
         yui_css:
             jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
-        # closure:
-        #     jar: %kernel.root_dir%/java/compiler.jar
 
-propel:
-    path:       "%kernel.root_dir%/../vendor/propel/propel1"
-    phing_path: "%kernel.root_dir%/../vendor/phing/phing"
-    build_properties:
-        propel.useDateTimeClass: true
-        propel.dateTimeClass: DateTime
-        propel.defaultTimeStampFormat: ~
-        propel.defaultTimeFormat: ~
-        propel.defaultDateFormat: ~
-        propel.behavior.activatable.class: vendor.clementgautier.propel-activatable-behavior.src.ActivatableBehavior
-        propel.behavior.typehintable.class: vendor.willdurand.propel-typehintable-behavior.src.TypehintableBehavior
-        propel.behavior.geocodable.class: vendor.willdurand.propel-geocodable-behavior.src.GeocodableBehavior
+doctrine:
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+        mappings:
+            gedmo_translatable:
+                type: annotation
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_translator:
+                type: annotation
+                prefix: Gedmo\Translator\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_loggable:
+                type: annotation
+                prefix: Gedmo\Loggable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_tree:
+                type: annotation
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                is_bundle: false
     dbal:
-        driver:               mysql
-        user:                 %database_user%
-        password:             %database_password%
-        dsn:                  mysql:host=%database_host%;dbname=%database_name%;charset=UTF8
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
 
 mopa_bootstrap:
     form:
@@ -95,9 +113,9 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_user:
-    db_driver: propel
+    db_driver: orm
     firewall_name: main
-    user_class: FOS\UserBundle\Propel\User
+    user_class: Up2green\UserBundle\Entity\User
 
 sonata_admin:
     title:      Up2green administration
@@ -133,7 +151,6 @@ sonata_block:
         sonata.block.service.rss:
 
 jms_payment_core:
-    orm: propel
     secret: up2greenSup3erM3GAs2cret
 
 jms_payment_paypal:
@@ -141,6 +158,11 @@ jms_payment_paypal:
     signature: 'AFbF3MLf8s8cAfgEC3-ZHq3jtLkAAg5billJSDcrHR0jhWshMoGmx3bP'
     password: 'EH6S97W3Q2W7HTWR'
     debug: false
+
+jms_i18n_routing:
+    default_locale: fr
+    locales: [fr, en]
+    strategy: prefix_except_default
 
 craue_twig_extensions: ~
 
@@ -165,6 +187,16 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [250, 250], mode: outbound }
+
+bazinga_geocoder:
+    providers:
+        google_maps: ~
+
+a2lix_translation_form:
+    locales: [fr, en]
+    default_required: true
+    manager_registry: doctrine
+    templating: "A2lixTranslationFormBundle::default.html.twig"
 
 up2green_education:
     trees_by_kit: 35

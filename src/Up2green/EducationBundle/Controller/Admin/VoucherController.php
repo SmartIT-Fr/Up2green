@@ -22,7 +22,7 @@ class VoucherController extends CRUDController
         $form = $this->createForm('education_admin_generate_voucher');
 
         if ('POST' === $request->getMethod()) {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
                 $codes = $this->get('up2green_education.manager.voucher')->generate(

@@ -43,7 +43,7 @@
                 {% endif %}
             </td>
             <td class="amount">
-                {{ donation.order.amount | craue_currency(donation.order.paymentInstruction.currency) }}
+                {{ donation.amount | craue_currency(donation.paymentInstruction.currency|default('EUR')) }}
             </td>
             <td class="comment">
                 {{ donation.commentPublic}}

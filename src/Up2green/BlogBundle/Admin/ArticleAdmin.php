@@ -18,12 +18,7 @@ class ArticleAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('articleI18ns', 'sonata_type_collection', array(
-            ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-            ))
+            ->add('translations', 'a2lix_translations')
         ;
     }
 
@@ -46,9 +41,9 @@ class ArticleAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('articleI18ns.title')
-            ->add('articleI18ns.summary')
-            ->add('articleI18ns.description')
+            ->add('title')
+            ->add('summary')
+            ->add('description')
         ;
     }
 }

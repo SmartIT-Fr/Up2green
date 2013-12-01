@@ -2,16 +2,14 @@
 
 namespace Up2green\BlogBundle\Controller;
 
-use Up2green\BlogBundle\Model\Article;
-
-use Up2green\BlogBundle\Model\ArticleQuery;
+use Up2green\BlogBundle\Entity\Article;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\PropelAdapter;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 /**
  * Article controller
@@ -24,14 +22,11 @@ class ArticleController extends Controller
      * @param Article $article
      *
      * @Route("/article/{id}", name="blog_article_show", requirements={"id"= "\d+"})
-     * @Template()
+     * @Template(vars={"article"})
      * @return array
      */
     public function showAction(Article $article)
     {
-        $article->setLocale($this->getRequest()->getLocale());
-
-        return array('article' => $article);
     }
 
     /**
@@ -76,9 +71,9 @@ class ArticleController extends Controller
      */
     private function getPager($page, $limit)
     {
-        $adapter = new PropelAdapter(ArticleQuery::create()
-            ->joinWithI18n($this->getRequest()->getLocale()));
+        $query = $this->getDoctrine()->getRepository('Up2greenBlogBundle:Article')->createQueryBuilder('a');
 
+        $adapter = new DoctrineORMAdapter($query);
         $pager = new Pagerfanta($adapter);
         $pager
             ->setMaxPerPage($limit)

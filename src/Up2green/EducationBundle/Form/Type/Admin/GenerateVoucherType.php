@@ -19,8 +19,8 @@ class GenerateVoucherType extends AbstractType
             ->add('quantity', 'integer', array(
                 'label'    => 'form.generate_voucher.quantity.label',
             ))
-            ->add('owner', 'model', array(
-                'class'    => 'FOS\UserBundle\Propel\User',
+            ->add('owner', 'entity', array(
+                'class'    => 'Up2green\UserBundle\Entity\User',
                 'label'    => 'form.generate_voucher.owner.label'
             ));
     }

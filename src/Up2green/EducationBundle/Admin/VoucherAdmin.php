@@ -44,12 +44,10 @@ class VoucherAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add(
-                'voucher',
-                'sonata_type_admin',
-                array('label' => 'form.label.voucher'),
-                array('inline' => true)
-            );
+            ->add('code')
+            ->add('user')
+            ->add('owner')
+        ;
     }
 
     /**
@@ -58,15 +56,9 @@ class VoucherAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('voucher.code')
-            // FIXME this field should have been guessed
-            ->add('voucher.used_by', 'model', array(), null, array(
-                'class' => 'FOS\UserBundle\Propel\User',
-            ))
-            // FIXME this field should have been guessed
-            ->add('voucher.owner_id', 'model', array(), null, array(
-                'class' => 'FOS\UserBundle\Propel\User',
-            ));
+            ->add('code')
+            ->add('user')
+            ->add('owner');
     }
 
     /**
@@ -76,8 +68,8 @@ class VoucherAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('voucher')
-            ->add('voucher.user')
-            ->add('voucher.owner');
+            ->add('code')
+            ->add('user')
+            ->add('owner');
     }
 }

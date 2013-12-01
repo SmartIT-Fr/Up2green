@@ -4,18 +4,9 @@
 
     <services>
         <service id="up2green_blog.admin.article" class="Up2green\BlogBundle\Admin\ArticleAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="Association" label="Articles"/>
+            <tag name="sonata.admin" manager_type="orm" group="Association" label="Articles"/>
             <argument />
-            <argument>Up2green\BlogBundle\Model\Article</argument>
-            <argument>SonataAdminBundle:CRUD</argument>
-            <call method="setTranslationDomain">
-                <argument>admin</argument>
-            </call>
-        </service>
-        <service id="up2green_blog.admin.article_i18n" class="Up2green\BlogBundle\Admin\ArticleI18nAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="" label="Articles translations"/>
-            <argument />
-            <argument>Up2green\BlogBundle\Model\ArticleI18n</argument>
+            <argument>Up2green\BlogBundle\Entity\Article</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             <call method="setTranslationDomain">
                 <argument>admin</argument>

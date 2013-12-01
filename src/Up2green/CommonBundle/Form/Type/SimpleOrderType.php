@@ -5,7 +5,6 @@ namespace Up2green\CommonBundle\Form\Type;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
-use Up2green\CommonBundle\Form\EventListener\OrderPaymentInstructionSubsciber;
 
 /**
  * Simple Order form
@@ -47,7 +46,7 @@ class SimpleOrderType extends AbstractType
     {
         $resolver
             ->setDefaults(array(
-                'data_class' => 'Up2green\CommonBundle\Model\Order'
+                'data_class' => 'Up2green\CommonBundle\Entity\Order'
             ));
     }
 }

@@ -1,19 +1,18 @@
 <?php
 namespace Up2green\EducationBundle\DomainObject;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use FOS\UserBundle\Propel\User;
-use Up2green\EducationBundle\Model\Classroom;
+use Up2green\EducationBundle\Entity\Classroom;
 use Up2green\EducationBundle\DomainObject\School;
-use Up2green\CommonBundle\Model\Voucher;
-use Up2green\CommonBundle\Model\VoucherQuery;
-
+use Up2green\CommonBundle\Entity\Voucher;
+use Up2green\UserBundle\Entity\User;
 
 /**
  * Registration domain object
  */
-class Registration implements DomainObjectInterface
+class Registration
 {
     /**
      * @Assert\Valid()
@@ -33,6 +32,11 @@ class Registration implements DomainObjectInterface
     protected $voucher;
 
     /**
+     * @var ObjectManager
+     */
+    protected $manager;
+
+    /**
      * @param User      $account   The account
      * @param Classroom $classroom The classroom
      * @param School    $school    The school
@@ -45,27 +49,32 @@ class Registration implements DomainObjectInterface
     }
 
     /**
+     * @param ObjectManager $manager
+     */
+    public function setManager(ObjectManager $manager)
+    {
+        $this->manager = $manager;
+    }
+
+    /**
      * Save the registration
      */
     public function save()
     {
-        $this->school->save();
-        $school = $this->school->getSchoolModel();
-
         $this->account->addRole('ROLE_TEACHER');
         $this->account->setEnabled(true);
         $this->account->setLastLogin(new \DateTime());
-        $this->account->save();
 
-        $user = $this->account;
+        $this->classroom->setUser($this->account);
+        $this->classroom->setSchool($this->school->getSchool());
 
-        $this->classroom->setUser($user);
-        $this->classroom->setSchool($school);
-        $this->classroom->save();
+        $this->voucher->setIsActive(false);
+        $this->voucher->setUser($this->account);
 
-        $this->voucher->setActive(false);
-        $this->voucher->setUsedBy($this->account->getId());
-        $this->voucher->save();
+        $this->manager->persist($this->account);
+        $this->manager->persist($this->classroom);
+
+        $this->manager->flush();
     }
 
     /**
@@ -82,13 +91,5 @@ class Registration implements DomainObjectInterface
     public function getVoucher()
     {
         return $this->voucher;
-    }
-
-    /**
-     * @Assert\True(message="voucher_code_wrong")
-     */
-    public function isVoucherValid()
-    {
-        return VoucherQuery::create()->canBeUsed($this->voucher->getCode());
     }
 }

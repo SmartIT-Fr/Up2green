@@ -22,17 +22,12 @@ class ClassroomAdmin extends Admin
             ->add('year', null, array(
                 'data' => (int) date('Y'),
             ))
-            ->add('uploadedFile', 'file', array(
-                'required' => false
-            ))
             ->add('description')
             ->add('school')
             ->add('partner', null, array(
                 'required' => false
             ))
-            ->add('user', 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('user')
         ;
     }
 
@@ -45,9 +40,7 @@ class ClassroomAdmin extends Admin
             ->add('name')
             ->add('year')
             ->add('school')
-            ->add('user', null, array(), 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('user')
         ;
     }
 

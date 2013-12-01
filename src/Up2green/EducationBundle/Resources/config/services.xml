@@ -10,27 +10,13 @@
     </imports>
 
     <parameters>
-        <!-- GeoCoder -->
-        <parameter key="geocoder.class">Geocoder\Geocoder</parameter>
-        <parameter key="geocoder.provider.googlemaps.class">Geocoder\Provider\GoogleMapsProvider</parameter>
-        <parameter key="geocoder.adapter.curl.class">Geocoder\HttpAdapter\CurlHttpAdapter</parameter>
-
-        <!-- Manager -->
         <parameter key="up2green_education.manager.voucher.class">Up2green\EducationBundle\Manager\VoucherManager</parameter>
     </parameters>
 
     <services>
-        <!-- GeoCoder -->
-        <service id="geocoder" class="%geocoder.class%">
-            <argument type="service" id="geocoder.provider.googlemaps" />
+        <service id="up2green_education.manager.voucher" class="%up2green_education.manager.voucher.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
-        <service id="geocoder.provider.googlemaps" class="%geocoder.provider.googlemaps.class%">
-            <argument type="service" id="geocoder.adapter.curl" />
-        </service>
-        <service id="geocoder.adapter.curl" class="%geocoder.adapter.curl.class%" />
-
-        <!-- Manager -->
-        <service id="up2green_education.manager.voucher" class="%up2green_education.manager.voucher.class%" />
     </services>
 
 </container>

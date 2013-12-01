@@ -24,11 +24,8 @@
         <whitelist>
             <directory>../src</directory>
             <exclude>
-                <directory>../src/Up2green/OAuthBundle</directory>
                 <directory>../src/*/*Bundle/Resources</directory>
                 <directory>../src/*/*Bundle/Tests</directory>
-                <directory>../src/*/*Bundle/Model/om</directory>
-                <directory>../src/*/*Bundle/Model/map</directory>
             </exclude>
         </whitelist>
     </filter>

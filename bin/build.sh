@@ -1,8 +1,6 @@
 #!/bin/bash
 
-php app/console propel:database:drop --force && \
-php app/console propel:database:create && \
-rm -rf src/Up2green/*Bundle/Model/om/ src/Up2green/*Bundle/Model/map/ && \
-php app/console propel:build --insert-sql && \
-php app/console propel:acl:init --force && \
-php app/console propel:fixtures:load
+php app/console doctrine:database:drop --force && \
+php app/console doctrine:database:create && \
+php app/console doctrine:schema:create && \
+php app/console doctrine:fixtures:load --no-interaction

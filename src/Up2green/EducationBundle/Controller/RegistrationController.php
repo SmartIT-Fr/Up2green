@@ -17,8 +17,8 @@ use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use FOS\UserBundle\Model\UserInterface;
 
 use Up2green\EducationBundle\DomainObject;
-use Up2green\EducationBundle\Model\EducationVoucher;
-use Up2green\CommonBundle\Model\Voucher;
+use Up2green\EducationBundle\Entity\EducationVoucher;
+use Up2green\CommonBundle\Entity\Voucher;
 
 /**
  * Registration controller
@@ -28,8 +28,7 @@ class RegistrationController extends Controller
     /**
      * @param Request $request
      *
-     * @Route("/registration/new/{token}", name="education.registration.new")
-     * @ParamConverter("voucher", class="Up2green\CommonBundle\Model\Voucher", options={"mapping"={"token":"code"}})
+     * @Route("/registration/new/{code}", name="education.registration.new")
      * @Template()
      *
      * @return array
@@ -37,12 +36,13 @@ class RegistrationController extends Controller
     public function newAction(Request $request, Voucher $voucher)
     {
         $registration = new DomainObject\Registration($voucher);
+        $registration->setManager($this->get('doctrine.orm.entity_manager'));
 
         $form = $this->createForm('education_registration', $registration);
 
         if ('POST' === $request->getMethod()) {
 
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
 

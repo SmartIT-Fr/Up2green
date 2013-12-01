@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Up2green\EducationBundle\Model\EducationVoucher;
-use Up2green\EducationBundle\Model\OrderKit;
-use Up2green\CommonBundle\Model\Order;
+use Up2green\EducationBundle\Entity\EducationVoucher;
+use Up2green\EducationBundle\Entity\OrderKit;
+use Up2green\CommonBundle\Entity\Order;
 
 /**
  * Participate controller
@@ -31,11 +31,11 @@ class ParticipateController extends Controller
         ));
 
         if ($request->getMethod() == 'POST') {
-            $form->bind($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
                 return $this->redirect($this->generateUrl('education.registration.new', array(
-                	'token' => $form->get('voucher')->get('code')->getData()
+                	'token' => $form->get('code')->getData()
                 )));
             }
         }

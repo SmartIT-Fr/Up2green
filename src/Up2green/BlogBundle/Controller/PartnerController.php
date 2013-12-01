@@ -3,15 +3,14 @@
 namespace Up2green\BlogBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Up2green\ReforestationBundle\Model\PartnerQuery;
-use Up2green\ReforestationBundle\Model\Partner;
+use Up2green\ReforestationBundle\Entity\Partner;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\PropelAdapter;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 /**
  * Partner controller
@@ -39,7 +38,8 @@ class PartnerController extends Controller
      */
     public function listAction(Request $request)
     {
-        $adapter = new PropelAdapter(PartnerQuery::create());
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder('p');
+        $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);
         $pager->setCurrentPage($request->get('page', 1));
@@ -58,7 +58,8 @@ class PartnerController extends Controller
      */
     public function listAjaxAction(Request $request, $page = 1)
     {
-        $adapter = new PropelAdapter(PartnerQuery::create());
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder('p');
+        $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);
         $pager->setCurrentPage($this->getRequest()->get('page', 1));

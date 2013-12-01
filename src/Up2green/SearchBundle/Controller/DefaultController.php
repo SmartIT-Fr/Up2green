@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Up2green\SearchBundle\Form\Type\SearchType;
+
 /**
  * Default Controller class
  */
@@ -21,17 +22,12 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $form = $this->createForm(new SearchType());
-        $request = $this->getRequest();
 
-        if ($request->getMethod() === 'POST') {
-            $form->bind($request);
-
-            if ($form->isValid()) {
-                return $this->forward('Up2greenSearchBundle:Default:search', $form->getData());
-            }
+        if ('POST' === $request->getMethod()) {
+            $form->submit($request);
         }
 
         return array(
@@ -47,13 +43,13 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function searchAction()
+    public function searchAction(Request $request)
     {
         $form = $this->createForm(new SearchType());
-        $form->bind($this->getRequest());
+        $form->submit($request);
 
         if (!$form->isValid()) {
-            return $this->redirect($this->generateUrl('search_homepage'));
+            return $this->forward('Up2greenSearchBundle:Default:index');
         }
 
         $engine = $this->get('up2green_search.engine_factory')->createEngine(

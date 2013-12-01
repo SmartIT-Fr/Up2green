@@ -5,9 +5,9 @@
 
     <services>
         <service id="up2green_reforestation.admin.partner" class="Up2green\ReforestationBundle\Admin\PartnerAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Partners"/>
+            <tag name="sonata.admin" manager_type="orm" group="Reforestation" label="Partners"/>
             <argument />
-            <argument>Up2green\ReforestationBundle\Model\Partner</argument>
+            <argument>Up2green\ReforestationBundle\Entity\Partner</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             <call method="setTranslationDomain">
                 <argument>admin</argument>
@@ -15,9 +15,9 @@
         </service>
 
         <service id="up2green_reforestation.admin.partner_logo" class="Up2green\ReforestationBundle\Admin\PartnerLogoAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Partners Logos"/>
+            <tag name="sonata.admin" manager_type="orm" group="Reforestation" label="Partners Logos"/>
             <argument />
-            <argument>Up2green\ReforestationBundle\Model\PartnerLogo</argument>
+            <argument>Up2green\ReforestationBundle\Entity\PartnerLogo</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             <call method="setTranslationDomain">
                 <argument>admin</argument>
@@ -25,9 +25,9 @@
         </service>
 
         <service id="up2green_reforestation.admin.organization" class="Up2green\ReforestationBundle\Admin\OrganizationAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Organizations"/>
+            <tag name="sonata.admin" manager_type="orm" group="Reforestation" label="Organizations"/>
             <argument />
-            <argument>Up2green\ReforestationBundle\Model\Organization</argument>
+            <argument>Up2green\ReforestationBundle\Entity\Organization</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             <call method="setTranslationDomain">
                 <argument>admin</argument>
@@ -35,9 +35,9 @@
         </service>
 
         <service id="up2green_reforestation.admin.program" class="Up2green\ReforestationBundle\Admin\ProgramAdmin">
-            <tag name="sonata.admin" manager_type="propel" group="Reforestation" label="Programs"/>
+            <tag name="sonata.admin" manager_type="orm" group="Reforestation" label="Programs"/>
             <argument />
-            <argument>Up2green\ReforestationBundle\Model\Program</argument>
+            <argument>Up2green\ReforestationBundle\Entity\Program</argument>
             <argument>SonataAdminBundle:CRUD</argument>
             <call method="setTranslationDomain">
                 <argument>admin</argument>

@@ -2,12 +2,9 @@
 
 namespace Up2green\EducationBundle\Controller;
 
-use Up2green\EducationBundle\Model\EducationVoucherQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Up2green\EducationBundle\Model;
 
 /**
  * Default controller
@@ -21,13 +18,12 @@ class DefaultController extends Controller
      */
     public function bannerAction()
     {
-        $kits = EducationVoucherQuery::create()
-            ->useVoucherQuery()
-                ->filterByUsedBy(null, \Criteria::ISNOTNULL)
-            ->endUse()
-            ->count();
+        $kits = $this->getDoctrine()
+            ->getRepository('Up2greenEducationBundle:EducationVoucher')
+            ->countUsed();
 
-        $count = $kits*$this->container->getParameter('up2green_education.trees_by_kit');
+        $count = $kits * $this->container->getParameter('up2green_education.trees_by_kit');
+
         return array('count' => $count);
     }
 
@@ -39,9 +35,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $pictures = Model\ClassroomPictureQuery::create()
-            ->orderByCreatedAt(\Criteria::DESC)
-            ->find();
+        $pictures = $this->getDoctrine()->getRepository('Up2greenEducationBundle:ClassroomPicture')->findAll();
 
         return array('pictures' => $pictures);
     }

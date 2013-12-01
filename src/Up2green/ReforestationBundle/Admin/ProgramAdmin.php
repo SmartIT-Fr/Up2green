@@ -24,6 +24,7 @@ class ProgramAdmin extends Admin
             ->add('maxTree')
             ->add('addedTrees')
             ->add('active')
+            ->add('translations', 'a2lix_translations')
         ;
     }
 

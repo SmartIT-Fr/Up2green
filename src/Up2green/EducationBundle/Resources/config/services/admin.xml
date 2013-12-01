@@ -4,9 +4,9 @@
 
   <services>
     <service id="up2green_education.admin.school" class="Up2green\EducationBundle\Admin\SchoolAdmin">
-      <tag name="sonata.admin" manager_type="propel" group="Education" label="Schools"/>
+      <tag name="sonata.admin" manager_type="orm" group="Education" label="Schools"/>
       <argument />
-      <argument>Up2green\EducationBundle\Model\School</argument>
+      <argument>Up2green\EducationBundle\Entity\School</argument>
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>
@@ -14,9 +14,9 @@
     </service>
 
     <service id="up2green_education.admin.classroom" class="Up2green\EducationBundle\Admin\ClassroomAdmin">
-      <tag name="sonata.admin" manager_type="propel" group="Education" label="Classrooms"/>
+      <tag name="sonata.admin" manager_type="orm" group="Education" label="Classrooms"/>
       <argument />
-      <argument>Up2green\EducationBundle\Model\Classroom</argument>
+      <argument>Up2green\EducationBundle\Entity\Classroom</argument>
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>
@@ -24,9 +24,9 @@
     </service>
 
     <service id="up2green_education.admin.classroom_picture" class="Up2green\EducationBundle\Admin\ClassroomPictureAdmin">
-      <tag name="sonata.admin" manager_type="propel" group="Education" label="Classroom Pictures"/>
+      <tag name="sonata.admin" manager_type="orm" group="Education" label="Classroom Pictures"/>
       <argument />
-      <argument>Up2green\EducationBundle\Model\ClassroomPicture</argument>
+      <argument>Up2green\EducationBundle\Entity\ClassroomPicture</argument>
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>
@@ -34,9 +34,9 @@
     </service>
 
     <service id="up2green_education.admin.voucher" class="Up2green\EducationBundle\Admin\VoucherAdmin">
-      <tag name="sonata.admin" manager_type="propel" group="Education" label="Vouchers"/>
+      <tag name="sonata.admin" manager_type="orm" group="Education" label="Vouchers"/>
       <argument />
-      <argument>Up2green\EducationBundle\Model\EducationVoucher</argument>
+      <argument>Up2green\EducationBundle\Entity\EducationVoucher</argument>
       <argument>Up2greenEducationBundle:Admin\Voucher</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>

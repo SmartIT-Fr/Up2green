@@ -4,7 +4,6 @@ jms_security_extra:
 
 security:
     acl:
-        provider: propel.security.acl.provider
         connection: default
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512

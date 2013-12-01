@@ -23,10 +23,10 @@ class AddressType extends AbstractType
             ->add('name', 'text', array(
                 'label' => 'form.address.title'
             ))
-            ->add('street_line_1', 'text', array(
+            ->add('streetLine1', 'text', array(
                 'label' => 'street_line_1'
             ))
-            ->add('street_line_2', 'text', array(
+            ->add('streetLine2', 'text', array(
                 'label' => 'street_line_2',
                 // TODO : the required option seems to be useless but in
                 // the AdminBundle this field is required unless we set it here
@@ -64,7 +64,7 @@ class AddressType extends AbstractType
     {
 
         $resolver->setDefaults(array(
-            'data_class' => 'Up2green\CommonBundle\Model\Address'
+            'data_class' => 'Up2green\CommonBundle\Entity\Address'
         ));
     }
 }

@@ -2,16 +2,14 @@
 
 namespace Up2green\BlogBundle\Controller;
 
-use Up2green\ReforestationBundle\Model\ProgramQuery;
-
-use Up2green\ReforestationBundle\Model\Program;
+use Up2green\ReforestationBundle\Entity\Program;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Pagerfanta\Pagerfanta;
-use Pagerfanta\Adapter\PropelAdapter;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 
 /**
  * Program controller
@@ -29,9 +27,6 @@ class ProgramController extends Controller
      */
     public function showAction(Program $program)
     {
-        $program->setLocale($this->getRequest()->getLocale());
-
-        return array('program' => $program);
     }
 
     /**
@@ -76,8 +71,8 @@ class ProgramController extends Controller
      */
     private function getPager($page, $limit)
     {
-        $adapter = new PropelAdapter(ProgramQuery::create()
-            ->joinWithI18n($this->getRequest()->getLocale()));
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Program')->createQueryBuilder('p');
+        $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);
         $pager

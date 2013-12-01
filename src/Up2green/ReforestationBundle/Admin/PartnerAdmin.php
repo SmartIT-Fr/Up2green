@@ -22,9 +22,7 @@ class PartnerAdmin extends Admin
             ->add('summary')
             ->add('description')
             ->add('url')
-            ->add('user', 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('user')
             // TODO
             //->add('partnerLogos', 'sonata_type_collection', array(
             //    'by_reference' => false,
@@ -44,9 +42,7 @@ class PartnerAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('url')
-            ->add('user', null, array(), 'model', array(
-                'class' => 'FOS\UserBundle\Propel\User'
-            ))
+            ->add('user')
         ;
     }
 

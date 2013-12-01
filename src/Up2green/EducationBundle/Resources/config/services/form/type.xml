@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="up2green_education.form.type.registration.class">Up2green\EducationBundle\Form\Type\RegistrationType</parameter>
+        <parameter key="up2green_education.form.type.school_select.class">Up2green\EducationBundle\Form\Type\SchoolSelectType</parameter>
         <parameter key="up2green_education.form.type.school.class">Up2green\EducationBundle\Form\Type\SchoolType</parameter>
         <parameter key="up2green_education.form.type.classroom.class">Up2green\EducationBundle\Form\Type\ClassroomType</parameter>
         <parameter key="up2green_education.form.type.classroom_picture.class">Up2green\EducationBundle\Form\Type\ClassroomPictureType</parameter>
@@ -18,6 +19,9 @@
     <services>
         <service id="form.type.education.registration" class="%up2green_education.form.type.registration.class%">
             <tag name="form.type" alias="education_registration" />
+        </service>
+        <service id="form.type.education.school_select" class="%up2green_education.form.type.school_select.class%">
+            <tag name="form.type" alias="education_school_select" />
         </service>
         <service id="form.type.education.school" class="%up2green_education.form.type.school.class%">
             <tag name="form.type" alias="education_school" />
@@ -35,7 +39,7 @@
             <tag name="form.type" alias="education_donation" />
         </service>
         <service id="form.type.education.order_kit" class="%up2green_education.form.type.order_kit.class%">
-            <tag name="form.type" alias="education_order_kit" />
+            <tag name="form.type" alias="order_kit" />
         </service>
         <service id="up2green_education.form.type.admin.generate_voucher" class="%up2green_education.form.type.admin.generate_voucher.class%">
             <tag name="form.type" alias="education_admin_generate_voucher" />

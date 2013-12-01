@@ -14,7 +14,7 @@ use JMS\Payment\CoreBundle\Model\FinancialTransactionInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstructionInterface;
 
-use Up2green\CommonBundle\Model\Order;
+use Up2green\CommonBundle\Entity\Order;
 
 /**
  * @Route("/order")
@@ -64,7 +64,6 @@ class OrderController extends Controller
         $instruction = $order->getPaymentInstruction();
 
         $instruction->setState(PaymentInstructionInterface::STATE_CLOSED);
-        $instruction->save();
 
         $transaction = $instruction->getPendingTransaction();
 
@@ -72,6 +71,8 @@ class OrderController extends Controller
             $transaction->setState(FinancialTransactionInterface::STATE_CANCELED);
             $transaction->getPayment()->setState(PaymentInterface::STATE_CANCELED);
         }
+
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirect($request->get('redirect_url', $this->generateUrl('education_homepage')));
     }
