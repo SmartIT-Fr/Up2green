@@ -22,17 +22,12 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $form = $this->createForm(new SearchType());
-        $request = $this->getRequest();
 
-        if ($request->getMethod() === 'POST') {
+        if ('POST' === $request->getMethod()) {
             $form->submit($request);
-
-            if ($form->isValid()) {
-                return $this->forward('Up2greenSearchBundle:Default:search', $form->getData());
-            }
         }
 
         return array(
@@ -48,13 +43,13 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function searchAction()
+    public function searchAction(Request $request)
     {
         $form = $this->createForm(new SearchType());
-        $form->submit($this->getRequest());
+        $form->submit($request);
 
         if (!$form->isValid()) {
-            return $this->redirect($this->generateUrl('search_homepage'));
+            return $this->forward('Up2greenSearchBundle:Default:index');
         }
 
         $engine = $this->get('up2green_search.engine_factory')->createEngine(

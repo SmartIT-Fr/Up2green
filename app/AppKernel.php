@@ -54,6 +54,9 @@ class AppKernel extends Kernel
             new Up2green\SearchBundle\Up2greenSearchBundle(),
             new Up2green\ReforestationBundle\Up2greenReforestationBundle(),
             new Up2green\EducationBundle\Up2greenEducationBundle(),
+
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

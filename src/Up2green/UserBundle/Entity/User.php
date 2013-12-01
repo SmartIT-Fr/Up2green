@@ -51,7 +51,7 @@ class User extends BaseUser
      *
      * @ORM\Column(length=7)
      */
-    protected $locale = 'fr_FR';
+    protected $locale = 'fr';
 
     /**
      * @param boolean $acceptNewsletter

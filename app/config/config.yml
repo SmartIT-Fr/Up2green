@@ -46,13 +46,6 @@ services:
         tags:
             - { name: 'twig.extension' }
 
-    up2green.kernel.event_listener.locale:
-        class: Up2green\CommonBundle\HttpKernel\EventListener\LocaleListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
-        @arguments:
-            - { defaultLocale: %default_locale% }
-
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -165,6 +158,11 @@ jms_payment_paypal:
     signature: 'AFbF3MLf8s8cAfgEC3-ZHq3jtLkAAg5billJSDcrHR0jhWshMoGmx3bP'
     password: 'EH6S97W3Q2W7HTWR'
     debug: false
+
+jms_i18n_routing:
+    default_locale: fr
+    locales: [fr, en]
+    strategy: prefix_except_default
 
 craue_twig_extensions: ~
 

@@ -5,7 +5,7 @@
 {{ parent() }}
 
 <section class="center">
-    <form action="{{ path('search_homepage') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('search_search') }}" method="POST" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
         {{ form_widget(form) }}
         {{ form_rest(form) }}
