@@ -71,7 +71,7 @@ class ProgramController extends Controller
      */
     private function getPager($page, $limit)
     {
-        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Program')->createQueryBuilder();
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Program')->createQueryBuilder('p');
         $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);

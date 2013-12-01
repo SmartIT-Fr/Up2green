@@ -28,8 +28,7 @@ class RegistrationController extends Controller
     /**
      * @param Request $request
      *
-     * @Route("/registration/new/{token}", name="education.registration.new")
-     * @ParamConverter("voucher", class="Up2green\CommonBundle\Entity\Voucher", options={"mapping"={"token":"code"}})
+     * @Route("/registration/new/{code}", name="education.registration.new")
      * @Template()
      *
      * @return array

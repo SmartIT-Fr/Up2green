@@ -38,7 +38,7 @@ class OrganizationController extends Controller
      */
     public function listAction()
     {
-        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Organization')->createQueryBuilder();
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Organization')->createQueryBuilder('p');
         $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);

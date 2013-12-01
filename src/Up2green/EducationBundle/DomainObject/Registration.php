@@ -9,11 +9,10 @@ use Up2green\EducationBundle\DomainObject\School;
 use Up2green\CommonBundle\Entity\Voucher;
 use Up2green\UserBundle\Entity\User;
 
-
 /**
  * Registration domain object
  */
-class Registration implements DomainObjectInterface
+class Registration
 {
     /**
      * @Assert\Valid()
@@ -67,13 +66,11 @@ class Registration implements DomainObjectInterface
         $this->account->setLastLogin(new \DateTime());
 
         $this->classroom->setUser($this->account);
-        $this->classroom->setSchool($this->school->getSchoolModel());
+        $this->classroom->setSchool($this->school->getSchool());
 
         $this->voucher->setIsActive(false);
         $this->voucher->setUser($this->account);
 
-        $this->school->setManager($this->manager);
-        $this->school->save();
         $this->manager->persist($this->account);
         $this->manager->persist($this->classroom);
 

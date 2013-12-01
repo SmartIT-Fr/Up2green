@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="up2green_education.form.type.registration.class">Up2green\EducationBundle\Form\Type\RegistrationType</parameter>
+        <parameter key="up2green_education.form.type.school_select.class">Up2green\EducationBundle\Form\Type\SchoolSelectType</parameter>
         <parameter key="up2green_education.form.type.school.class">Up2green\EducationBundle\Form\Type\SchoolType</parameter>
         <parameter key="up2green_education.form.type.classroom.class">Up2green\EducationBundle\Form\Type\ClassroomType</parameter>
         <parameter key="up2green_education.form.type.classroom_picture.class">Up2green\EducationBundle\Form\Type\ClassroomPictureType</parameter>
@@ -19,8 +20,10 @@
         <service id="form.type.education.registration" class="%up2green_education.form.type.registration.class%">
             <tag name="form.type" alias="education_registration" />
         </service>
+        <service id="form.type.education.school_select" class="%up2green_education.form.type.school_select.class%">
+            <tag name="form.type" alias="education_school_select" />
+        </service>
         <service id="form.type.education.school" class="%up2green_education.form.type.school.class%">
-            <argument type="service" id="doctrine" />
             <tag name="form.type" alias="education_school" />
         </service>
         <service id="form.type.education.classroom" class="%up2green_education.form.type.classroom.class%">

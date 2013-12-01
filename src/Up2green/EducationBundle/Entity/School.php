@@ -26,6 +26,7 @@ class School
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="form.validation.school_name")
      * @ORM\Column(unique=true)
      */
     protected $name;
@@ -33,6 +34,7 @@ class School
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="form.validation.school_address")
      * @ORM\Column()
      */
     protected $address;

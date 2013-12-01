@@ -71,7 +71,7 @@ class ArticleController extends Controller
      */
     private function getPager($page, $limit)
     {
-        $query = $this->getDoctrine()->getRepository('Up2greenBlogBundle:Article')->createQueryBuilder();
+        $query = $this->getDoctrine()->getRepository('Up2greenBlogBundle:Article')->createQueryBuilder('a');
 
         $adapter = new DoctrineORMAdapter($query);
         $pager = new Pagerfanta($adapter);

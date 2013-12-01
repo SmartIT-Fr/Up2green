@@ -15,7 +15,7 @@ class ClassroomRepository extends EntityRepository
      *
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function createFilteredQueryBuilder(array $filters, $key = null)
+    public function createFilteredQueryBuilder(array $filters)
     {
         $query = $this->createQueryBuilder('c');
 
@@ -26,6 +26,14 @@ class ClassroomRepository extends EntityRepository
         return $query;
     }
 
+    /**
+     * @param QueryBuilder $qb
+     * @param string       $root
+     * @param string       $key
+     * @param mixed        $value
+     *
+     * @return QueryBuilder
+     */
     protected function filterQuery(QueryBuilder $qb, $root, $key, $value)
     {
         if (null === $value) {

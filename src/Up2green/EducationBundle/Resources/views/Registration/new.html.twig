@@ -32,6 +32,7 @@
 {% block javascripts %}
     {{ parent() }}
 
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="{{ asset('bundles/up2greeneducation/js/education-registration.js') }}"></script>
 
 {% endblock %}

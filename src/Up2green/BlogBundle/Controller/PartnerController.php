@@ -38,7 +38,7 @@ class PartnerController extends Controller
      */
     public function listAction(Request $request)
     {
-        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder();
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder('p');
         $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);
@@ -58,7 +58,7 @@ class PartnerController extends Controller
      */
     public function listAjaxAction(Request $request, $page = 1)
     {
-        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder();
+        $query = $this->getDoctrine()->getRepository('Up2greenReforestationBundle:Partner')->createQueryBuilder('p');
         $adapter = new DoctrineORMAdapter($query);
 
         $pager = new Pagerfanta($adapter);

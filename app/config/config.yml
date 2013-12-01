@@ -188,7 +188,9 @@ liip_imagine:
             filters:
                 thumbnail: { size: [250, 250], mode: outbound }
 
-bazinga_geocoder: ~
+bazinga_geocoder:
+    providers:
+        google_maps: ~
 
 a2lix_translation_form:
     locales: [fr, en]

@@ -57,7 +57,7 @@ class Classroom
     /**
      * @var string
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @Assert\Length(max=2000)
      */
     protected $description;
@@ -72,7 +72,7 @@ class Classroom
     /**
      * @var School
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\School", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\School", cascade={"remove", "persist"})
      * @ORM\JoinColumn(name="school_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $school;

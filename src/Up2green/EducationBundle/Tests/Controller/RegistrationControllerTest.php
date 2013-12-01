@@ -22,8 +22,8 @@ class RegistrationControllerTest extends WebTestCase
         $form = $crawler
             ->selectButton('Accéder à mon espace')
             ->form(array(
-                'education_registration[school][name]'                   => 'School of life',
-                'education_registration[school][address]'                => 'France, Paris',
+                'education_registration[school][new][name]'              => 'School of life',
+                'education_registration[school][new][address]'           => 'France, Paris',
                 'education_registration[account][username]'              => 'john.doe',
                 'education_registration[account][email]'                 => 'john.doe@fromnowhere.out',
                 'education_registration[account][plainPassword][first]'  => 'myLiveIsASecretForMe',
@@ -32,7 +32,7 @@ class RegistrationControllerTest extends WebTestCase
                 'education_registration[classroom][description]'         => 'This is the classroom of no one'
             ));
 
-        $form['education_registration[school][school]']->select('school_out');
+        $form['education_registration[school][choice]']->select('new');
         $client->submit($form);
 
         $this->assertTrue($client->getResponse()->isRedirect());
@@ -55,7 +55,7 @@ class RegistrationControllerTest extends WebTestCase
         $form = $crawler
             ->selectButton('Accéder à mon espace')
             ->form(array(
-                'education_registration[school][schoolList]'             => 1,
+                'education_registration[school][existing]'               => 1,
                 'education_registration[account][username]'              => 'doe.john',
                 'education_registration[account][email]'                 => 'doe.john@wherenofrom.out',
                 'education_registration[account][plainPassword][first]'  => 'ForMemyLiveIsASecret',
@@ -64,11 +64,11 @@ class RegistrationControllerTest extends WebTestCase
                 'education_registration[classroom][description]'         => 'This is no one of the classroom'
             ));
 
-        $form['education_registration[school][school]']->select('school_in');
+        $form['education_registration[school][choice]']->select('existing');
 
         $client->submit($form);
 
-        $this->assertTrue($client->getResponse()->isRedirect());
+        $this->assertTrue($client->getResponse()->isRedirect(), $client->getResponse()->getContent());
 
         $client->followRedirect();
 
@@ -88,16 +88,16 @@ class RegistrationControllerTest extends WebTestCase
         $form = $crawler
             ->selectButton('Accéder à mon espace')
             ->form(array(
-                'education_registration[school][schoolList]'             => 1,
-                'education_registration[account][username]'              => 'doe.john',
-                'education_registration[account][email]'                 => 'doe.john@wherenofrom.out',
-                'education_registration[account][plainPassword][first]'  => 'ForMemyLiveIsASecret',
-                'education_registration[account][plainPassword][second]' => 'ForMemyLiveIsASecret',
+                'education_registration[school][existing]'               => 1,
+                'education_registration[account][username]'              => 'condamine-teacher',
+                'education_registration[account][email]'                 => 'webmaster@up2green.com',
+                'education_registration[account][plainPassword][first]'  => 'toto',
+                'education_registration[account][plainPassword][second]' => 'toto',
                 'education_registration[classroom][name]'                => '1PC',
                 'education_registration[classroom][description]'         => 'This is no one of the classroom'
             ));
 
-        $form['education_registration[school][school]']->select('school_in');
+        $form['education_registration[school][choice]']->select('existing');
 
         $client->submit($form);
 

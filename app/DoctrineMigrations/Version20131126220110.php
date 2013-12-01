@@ -155,7 +155,7 @@ class Version20131126220110 extends AbstractMigration
         $this->addSql("ALTER TABLE acl_entries ADD CONSTRAINT FK_46C8B8063D9AB4A6 FOREIGN KEY (object_identity_id) REFERENCES acl_object_identities (id) ON UPDATE CASCADE ON DELETE CASCADE");
         $this->addSql("ALTER TABLE acl_entries ADD CONSTRAINT FK_46C8B806DF9183C9 FOREIGN KEY (security_identity_id) REFERENCES acl_security_identities (id) ON UPDATE CASCADE ON DELETE CASCADE");
 
-        $this->addSql("ALTER TABLE classroom CHANGE name name VARCHAR(30) NOT NULL, CHANGE description description LONGTEXT NOT NULL, CHANGE slug slug VARCHAR(30) NOT NULL, CHANGE created_at created_at DATETIME NOT NULL");
+        $this->addSql("ALTER TABLE classroom CHANGE name name VARCHAR(30) NOT NULL, CHANGE description description LONGTEXT DEFAULT NULL, CHANGE slug slug VARCHAR(30) NOT NULL, CHANGE created_at created_at DATETIME NOT NULL");
         $this->addSql("ALTER TABLE program ADD title VARCHAR(128) NOT NULL, ADD summary LONGTEXT DEFAULT NULL, ADD description LONGTEXT DEFAULT NULL, CHANGE added_trees added_trees INT NOT NULL, CHANGE is_active is_active TINYINT(1) NOT NULL");
         $this->addSql("ALTER TABLE partner_logo CHANGE src src VARCHAR(255) DEFAULT NULL");
         $this->addSql("ALTER TABLE school DROP latitude, DROP longitude, CHANGE slug slug VARCHAR(255) NOT NULL, CHANGE created_at created_at DATETIME NOT NULL");
