@@ -12,8 +12,25 @@ use Up2green\UserBundle\Entity\User;
  * @ORM\Entity()
  * @ORM\Table(name="partner")
  */
-class Partner extends User
+class Partner
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var User
+     *
+     * @ORM\OneToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"remove", "persist"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     */
+    protected $user;
+
     /**
      * @var string
      *
@@ -72,7 +89,7 @@ class Partner extends User
      *      inverseJoinColumns={@ORM\JoinColumn(name="voucher_id", referencedColumnName="id")}
      * )
      */
-    protected $partnerVouchers;
+    protected $vouchers;
 
     /**
      * Constructor
@@ -155,19 +172,19 @@ class Partner extends User
     }
 
     /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $partnerVouchers
+     * @param \Doctrine\Common\Collections\ArrayCollection $vouchers
      */
-    public function setPartnerVouchers($partnerVouchers)
+    public function setVouchers($vouchers)
     {
-        $this->partnerVouchers = $partnerVouchers;
+        $this->vouchers = $vouchers;
     }
 
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
-    public function getPartnerVouchers()
+    public function getVouchers()
     {
-        return $this->partnerVouchers;
+        return $this->vouchers;
     }
 
     /**
@@ -216,5 +233,37 @@ class Partner extends User
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param \Up2green\UserBundle\Entity\User $user
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return \Up2green\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

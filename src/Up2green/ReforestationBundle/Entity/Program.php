@@ -89,7 +89,7 @@ class Program
      *
      * @ORM\Column(type="boolean", name="is_active")
      */
-    protected $isActive = 0;
+    protected $isActive = true;
 
     /**
      * @var ArrayCollection

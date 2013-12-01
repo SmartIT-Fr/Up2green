@@ -38,7 +38,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @Gedmo\Translatable
      */
     protected $summary;
@@ -46,7 +46,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      * @Gedmo\Translatable
      */
     protected $description;
@@ -96,7 +96,7 @@ class Article
      *
      * @ORM\OneToMany(
      *   targetEntity="Up2green\BlogBundle\Entity\ArticleI18n",
-     *   mappedBy="object",
+     *   mappedBy="foreignKey",
      *   cascade={"persist", "remove"}
      * )
      */

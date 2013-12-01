@@ -35,7 +35,7 @@ class ParticipateController extends Controller
 
             if ($form->isValid()) {
                 return $this->redirect($this->generateUrl('education.registration.new', array(
-                	'token' => $form->get('voucher')->get('code')->getData()
+                	'token' => $form->get('code')->getData()
                 )));
             }
         }

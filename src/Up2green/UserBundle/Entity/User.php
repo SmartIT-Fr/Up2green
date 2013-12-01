@@ -3,15 +3,12 @@
 namespace Up2green\UserBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discriminator", type="string")
- * @ORM\DiscriminatorMap({"user" = "Up2green\UserBundle\Entity\User", "partner" = "Up2green\ReforestationBundle\Entity\Partner"})
  */
 class User extends BaseUser
 {

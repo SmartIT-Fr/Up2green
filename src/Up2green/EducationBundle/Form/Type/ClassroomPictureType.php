@@ -24,7 +24,7 @@ class ClassroomPictureType extends AbstractType
                 'label'    => 'form.classroom_picture_type.picture',
                 'required' => false,
             ))
-            ->add('program', 'model', array(
+            ->add('program', 'entity', array(
                 'class'    => 'Up2green\ReforestationBundle\Entity\Program',
                 'label'    => 'form.classroom_picture_type.program'
             ));

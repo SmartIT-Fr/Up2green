@@ -15,27 +15,4 @@ use Gedmo\Translatable\Entity\MappedSuperclass\AbstractTranslation;
  */
 class ArticleI18n extends AbstractTranslation
 {
-    /**
-     * @var Article
-     *
-     * @ORM\ManyToOne(targetEntity="Up2green\BlogBundle\Entity\Article", inversedBy="translations")
-     * @ORM\JoinColumn(name="object_id", referencedColumnName="id", onDelete="CASCADE")
-     */
-    protected $object;
-
-    /**
-     * @param Article $object
-     */
-    public function setObject(Article $object)
-    {
-        $this->object = $object;
-    }
-
-    /**
-     * @return Article
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
 }

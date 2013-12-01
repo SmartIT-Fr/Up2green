@@ -17,6 +17,14 @@ framework:
     default_locale:  fr
     session:         ~
 
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            translatable: true
+            sluggable: true
+            uploadable: true
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%

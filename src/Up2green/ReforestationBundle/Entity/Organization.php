@@ -58,7 +58,7 @@ class Organization
     /**
      * @var string
      *
-     * @ORM\Column(length=128)
+     * @ORM\Column(length=128, nullable=true)
      */
     protected $logo;
 

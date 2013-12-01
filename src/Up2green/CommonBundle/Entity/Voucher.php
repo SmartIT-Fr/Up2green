@@ -60,7 +60,7 @@ class Voucher
      * @ORM\Column(name="is_active", type="boolean")
      * @Assert\True(groups={"use"})
      */
-    protected $isActive;
+    protected $isActive = true;
 
     /**
      * @var \DateTime

@@ -2,6 +2,7 @@
 
 namespace Up2green\EducationBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
@@ -62,6 +63,13 @@ class Classroom
     protected $description;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Up2green\EducationBundle\Entity\ClassroomPicture", cascade={"remove"}, mappedBy="classroom")
+     */
+    protected $classroomPictures;
+
+    /**
      * @var School
      *
      * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\School", cascade={"remove"})
@@ -108,6 +116,14 @@ class Classroom
      * @ORM\Column(length=30, unique=true)
      */
     protected $slug;
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->classroomPictures = new ArrayCollection();
+    }
 
     /**
      * @return string
@@ -291,5 +307,24 @@ class Classroom
     public function getYear()
     {
         return $this->year;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getClassroomPictures()
+    {
+        return $this->classroomPictures;
+    }
+
+    /**
+     * @param ClassroomPicture $picture
+     */
+    public function addTranslation(ClassroomPicture $picture)
+    {
+        if (!$this->classroomPictures->contains($picture)) {
+            $this->classroomPictures->add($picture);
+            $picture->setClassroom($this);
+        }
     }
 }
