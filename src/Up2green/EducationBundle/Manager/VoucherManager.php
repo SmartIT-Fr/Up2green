@@ -2,6 +2,7 @@
 
 namespace Up2green\EducationBundle\Manager;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Up2green\EducationBundle\Entity\EducationVoucher;
 use Up2green\UserBundle\Entity\User;
 
@@ -24,24 +25,31 @@ class VoucherManager
     }
 
     /**
+     * @param User   $owner
+     * @param int    $number
+     * @param string $prefix
+     *
      * @return array
+     * @throws \LogicException
      */
-    public function generate(User $owner, $number)
+    public function generate(User $owner, $number, $prefix = '')
     {
         if (!is_int($number)) {
             throw new \LogicException("Number parameter should be an integer");
         }
 
         $codes = array();
+        $repository = $this->manager->getRepository('Up2greenCommonBundle:Voucher');
 
         for ($index = 0; $index < $number; $index++) {
             $voucher = new EducationVoucher();
-            $voucher->setowner($owner);
+            $voucher->setOwner($owner);
+            $voucher->setCode($repository->getCodeUnused($prefix));
 
             $this->manager->persist($voucher);
-            $this->manager->flush($voucher);
+            $this->manager->flush();
 
-            $codes[] = $voucher->getVoucher()->getCode();
+            $codes[] = $voucher->getCode();
         }
 
         return $codes;

@@ -21,6 +21,9 @@
       <call method="setTranslationDomain">
         <argument>admin</argument>
       </call>
+      <call method="setUploader">
+        <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />
+      </call>
     </service>
 
     <service id="up2green_education.admin.classroom_picture" class="Up2green\EducationBundle\Admin\ClassroomPictureAdmin">
@@ -30,6 +33,9 @@
       <argument>SonataAdminBundle:CRUD</argument>
       <call method="setTranslationDomain">
         <argument>admin</argument>
+      </call>
+      <call method="setUploader">
+          <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />
       </call>
     </service>
 

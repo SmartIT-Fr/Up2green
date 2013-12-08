@@ -2,9 +2,12 @@
 
 namespace Up2green\ReforestationBundle\Entity;
 
+use A2lix\TranslationFormBundle\Util\GedmoTranslatable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Program entity
@@ -12,9 +15,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity()
  * @ORM\Table(name="program")
  * @Gedmo\TranslationEntity(class="Up2green\ReforestationBundle\Entity\ProgramI18n")
+ * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true ,pathMethod="getPath")
  */
 class Program
 {
+    use GedmoTranslatable;
+
     /**
      * @var integer
      *
@@ -60,8 +66,21 @@ class Program
      * @var string
      *
      * @ORM\Column(length=128, nullable=true)
+     * @Gedmo\UploadableFileName
      */
     protected $logo;
+
+    /**
+     * @var UploadedFile
+     *
+     * @Assert\Image
+     */
+    protected $logoFile;
+
+    /**
+     * @var boolean
+     */
+    protected $removeLogo;
 
     /**
      * @var string
@@ -96,7 +115,7 @@ class Program
      *
      * @ORM\OneToMany(
      *   targetEntity="Up2green\ReforestationBundle\Entity\ProgramI18n",
-     *   mappedBy="object",
+     *   mappedBy="foreignKey",
      *   cascade={"persist", "remove"}
      * )
      */
@@ -108,25 +127,6 @@ class Program
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
-    /**
-     * @param ProgramI18n $t
-     */
-    public function addTranslation(ProgramI18n $t)
-    {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
-        }
     }
 
     /**
@@ -234,6 +234,38 @@ class Program
     }
 
     /**
+     * @param \Up2green\ReforestationBundle\Entity\UploadedFile $logoFile
+     */
+    public function setLogoFile($logoFile)
+    {
+        $this->logoFile = $logoFile;
+    }
+
+    /**
+     * @return \Up2green\ReforestationBundle\Entity\UploadedFile
+     */
+    public function getLogoFile()
+    {
+        return $this->logoFile;
+    }
+
+    /**
+     * @param boolean $removeLogo
+     */
+    public function setRemoveLogo($removeLogo)
+    {
+        $this->removeLogo = $removeLogo;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getRemoveLogo()
+    {
+        return $this->removeLogo;
+    }
+
+    /**
      * @param int $maxTree
      */
     public function setMaxTree($maxTree)
@@ -295,5 +327,15 @@ class Program
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param $defaultPath
+     *
+     * @return string
+     */
+    public function getPath($defaultPath = '')
+    {
+        return $defaultPath.'/uploads/programs';
     }
 }

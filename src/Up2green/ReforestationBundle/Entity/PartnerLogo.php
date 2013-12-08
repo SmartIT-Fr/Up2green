@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity()
  * @ORM\Table(name="partner_logo")
- * @Gedmo\Uploadable(pathMethod="getPath")
+ * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true, pathMethod="getPath")
  */
 class PartnerLogo
 {
@@ -28,10 +28,21 @@ class PartnerLogo
      * @var mixed
      *
      * @ORM\Column(nullable=true)
-     * @Assert\Image
      * @Gedmo\UploadableFileName
      */
     protected $src;
+
+    /**
+     * @var mixed
+     *
+     * @Assert\Image
+     */
+    protected $srcFile;
+
+    /**
+     * @var boolean
+     */
+    protected $removeSrc;
 
     /**
      * @var string
@@ -43,17 +54,25 @@ class PartnerLogo
     /**
      * @var Partner
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Partner", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Partner")
      * @ORM\JoinColumn(name="partner_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $partner;
 
     /**
-     * @return null
+     * @return int|string
      */
-    public function getPath()
+    public function __toString()
     {
-        return sprintf('/uploads/partners/%d/logos', $this->partner->getId());
+        return $this->getId() ? (string) $this->getId() : 'New';
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath($defaultPath = '')
+    {
+        return sprintf('%s/uploads/partners/logos', $defaultPath);
     }
 
     /**
@@ -118,5 +137,46 @@ class PartnerLogo
     public function getSrc()
     {
         return $this->src;
+    }
+
+    /**
+     * @param boolean $removeSrc
+     */
+    public function setRemoveSrc($removeSrc)
+    {
+        $this->removeSrc = $removeSrc;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getRemoveSrc()
+    {
+        return $this->removeSrc;
+    }
+
+    /**
+     * @param mixed $srcFile
+     */
+    public function setSrcFile($srcFile)
+    {
+        $this->srcFile = $srcFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSrcFile()
+    {
+        return $this->srcFile;
+    }
+
+    /**
+     * @Assert\True(message="Le fichier est obligatoire")
+     * @return boolean
+     */
+    public function isFileOk()
+    {
+        return $this->getSrcFile() || $this->getSrc();
     }
 }

@@ -1,6 +1,6 @@
 <div class="classroom-picture-wrapper pull-left">
     {% if picture.picture is not empty %}
-        <img class="classroom-picture details" src="{{ asset(picture.picture) }}" />
+        <img class="classroom-picture details" src="{{ asset(picture.path ~ '/' ~ picture.picture) }}" />
     {% endif %}
 </div>
 
@@ -26,7 +26,7 @@
         })|raw }}
 
         {% if picture.program.logo is not empty %}
-            <img class="program" src="{{ asset(picture.program.logo) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ picture.program }}" />
+            <img class="program" src="{{ (picture.program.path ~ '/' ~ picture.program.logo) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ picture.program }}" />
         {% endif %}
 
     </p>

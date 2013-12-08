@@ -31,7 +31,7 @@ class LoadClassroomPictureData extends AbstractFixture implements OrderedFixture
             $picture = new ClassroomPicture();
             $picture->setClassroom($this->getReference('classroom-condamine-ce1'));
             $picture->setProgram($this->getReference('program-costa-rica'));
-            $picture->setPicture(sprintf('/uploads/classrooms/1/pictures/%d.jpg', $id + 1));
+            $picture->setPicture(sprintf('%d.jpg', $id + 1));
             $picture->setStudent($name);
 
             $manager->persist($picture);

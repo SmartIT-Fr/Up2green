@@ -7,9 +7,12 @@
             <tag name="sonata.admin" manager_type="orm" group="Association" label="Articles"/>
             <argument />
             <argument>Up2green\BlogBundle\Entity\Article</argument>
-            <argument>SonataAdminBundle:CRUD</argument>
+            <argument />
             <call method="setTranslationDomain">
                 <argument>admin</argument>
+            </call>
+            <call method="setUploader">
+                <argument type="service" id="stof_doctrine_extensions.uploadable.manager" />
             </call>
         </service>
     </services>

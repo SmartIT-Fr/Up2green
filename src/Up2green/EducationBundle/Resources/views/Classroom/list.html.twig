@@ -35,7 +35,7 @@
         <li class="span4">
             <div class="thumbnail grey-box">
                 {% if classroom.picture is not empty %}
-                    <img src="{{ asset(classroom.picture) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ 'classroom.picture.alt'|trans }}" />
+                    <img src="{{ (classroom.path ~ '/' ~ classroom.picture) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ 'classroom.picture.alt'|trans }}" />
                 {% endif %}
                 <h3>{{ classroom.name }}</h3>
                 <p><i>{{ classroom.school.name }}<br/>{{ classroom.school.address }}</i></p>

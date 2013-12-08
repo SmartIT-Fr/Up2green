@@ -24,6 +24,9 @@ class SchoolAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
+            ->add('address')
+            ->add('createdAt')
+            ->add('updatedAt')
         ;
     }
 
@@ -32,6 +35,9 @@ class SchoolAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('name')
+            ->add('address')
+            ->add('createdAt')
+            ->add('updatedAt')
         ;
     }
 }

@@ -5,7 +5,7 @@
 {{ parent() }}
 
 <div style="height: 140px;" class="alert alert-info">
-    <img style="margin-right: 10px; max-height: 140px; float: left;" class="img-rounded" src="{{ asset('images/i-want-you.jpg') | imagine_filter('thumb_130x130_outbound') }}" />
+    <img style="margin-right: 10px; max-height: 140px; float: left;" class="img-rounded" src="{{ 'images/i-want-you.jpg' | imagine_filter('thumb_130x130_outbound') }}" />
     <p class="lead">{{ 'up2green.need.donation'|trans }}</p>
     <p>{{ 'participate.donation.paragraph.2'|trans }}</p>
 

@@ -5,12 +5,14 @@ namespace Up2green\ReforestationBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Up2green\UserBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Partner entity
  *
  * @ORM\Entity()
  * @ORM\Table(name="partner")
+ * @UniqueEntity("user")
  */
 class Partner
 {
@@ -26,7 +28,7 @@ class Partner
     /**
      * @var User
      *
-     * @ORM\OneToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"remove", "persist"})
+     * @ORM\OneToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;
@@ -92,11 +94,19 @@ class Partner
     protected $vouchers;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Up2green\ReforestationBundle\Entity\PartnerLogo", cascade={"persist", "remove"}, mappedBy="partner")
+     */
+    protected $logos;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->vouchers = new ArrayCollection();
+        $this->logos = new ArrayCollection();
     }
 
     /**
@@ -265,5 +275,46 @@ class Partner
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $logos
+     */
+    public function setLogos($logos)
+    {
+        $this->logos = new ArrayCollection();
+
+        foreach ($logos as $logo) {
+            $this->addLogo($logo);
+        }
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getLogos()
+    {
+        return $this->logos;
+    }
+
+    /**
+     * @param PartnerLogo $logo
+     */
+    public function addLogo(PartnerLogo $logo)
+    {
+        if (!$this->logos->contains($logo)) {
+            $this->logos->add($logo);
+            $logo->setPartner($this);
+        }
+    }
+
+    /**
+     * @param PartnerLogo $logo
+     */
+    public function removeLogo(PartnerLogo $logo)
+    {
+        if ($this->logos->contains($logo)) {
+            $this->logos->removeElement($logo);
+        }
     }
 }

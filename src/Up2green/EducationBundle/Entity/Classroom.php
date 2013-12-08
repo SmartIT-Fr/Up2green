@@ -15,8 +15,7 @@ use Up2green\UserBundle\Entity\User;
  *
  * @ORM\Entity(repositoryClass="Up2green\EducationBundle\Repository\ClassroomRepository")
  * @ORM\Table(name="classroom")
- *
- * @Gedmo\Uploadable(path="/uploads/classrooms")
+ * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true ,pathMethod="getPath")
  */
 class Classroom
 {
@@ -49,10 +48,21 @@ class Classroom
      * @var mixed
      *
      * @ORM\Column(nullable=true)
-     * @Assert\Image
      * @Gedmo\UploadableFileName
      */
     protected $picture;
+
+    /**
+     * @var mixed
+     *
+     * @Assert\Image
+     */
+    protected $pictureFile;
+
+    /**
+     * @var boolean
+     */
+    protected $removePictureFile;
 
     /**
      * @var string
@@ -65,7 +75,7 @@ class Classroom
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Up2green\EducationBundle\Entity\ClassroomPicture", cascade={"remove"}, mappedBy="classroom")
+     * @ORM\OneToMany(targetEntity="Up2green\EducationBundle\Entity\ClassroomPicture", cascade={"persist", "remove"}, mappedBy="classroom")
      */
     protected $classroomPictures;
 
@@ -123,6 +133,7 @@ class Classroom
     public function __construct()
     {
         $this->classroomPictures = new ArrayCollection();
+        $this->year = (int) date('Y');
     }
 
     /**
@@ -131,6 +142,16 @@ class Classroom
     public function __toString()
     {
         return (string)$this->name;
+    }
+
+    /**
+     * @param $defaultPath
+     *
+     * @return string
+     */
+    public function getPath($defaultPath = '')
+    {
+        return $defaultPath.'/uploads/classrooms';
     }
 
     /**
@@ -230,6 +251,38 @@ class Classroom
     }
 
     /**
+     * @param mixed $pictureFile
+     */
+    public function setPictureFile($pictureFile)
+    {
+        $this->pictureFile = $pictureFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param boolean $removePictureFile
+     */
+    public function setRemovePictureFile($removePictureFile)
+    {
+        $this->removePictureFile = $removePictureFile;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getRemovePictureFile()
+    {
+        return $this->removePictureFile;
+    }
+
+    /**
      * @param School $school
      */
     public function setSchool(School $school)
@@ -320,11 +373,19 @@ class Classroom
     /**
      * @param ClassroomPicture $picture
      */
-    public function addTranslation(ClassroomPicture $picture)
+    public function addClassroomPicture(ClassroomPicture $picture)
     {
         if (!$this->classroomPictures->contains($picture)) {
             $this->classroomPictures->add($picture);
             $picture->setClassroom($this);
         }
+    }
+
+    /**
+     * @param ClassroomPicture $picture
+     */
+    public function removeClassroomPicture(ClassroomPicture $picture)
+    {
+        $this->classroomPictures->removeElement($picture);
     }
 }

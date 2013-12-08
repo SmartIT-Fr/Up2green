@@ -2,6 +2,7 @@
 
 namespace Up2green\ReforestationBundle\Entity;
 
+use A2lix\TranslationFormBundle\Util\GedmoTranslatable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -11,10 +12,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Entity()
  * @ORM\Table(name="organization")
- * @Gedmo\TranslationEntity(class="Up2green\ReforestationBundle\Entity\OrganizationI18n")
  */
 class Organization
 {
+    use GedmoTranslatable;
+
     /**
      * @var integer
      *
@@ -74,7 +76,7 @@ class Organization
      *
      * @ORM\OneToMany(
      *   targetEntity="Up2green\ReforestationBundle\Entity\OrganizationI18n",
-     *   mappedBy="object",
+     *   mappedBy="foreignKey",
      *   cascade={"persist", "remove"}
      * )
      */
@@ -86,25 +88,6 @@ class Organization
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
-    /**
-     * @param OrganizationI18n $t
-     */
-    public function addTranslation(OrganizationI18n $t)
-    {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
-        }
     }
 
     /**

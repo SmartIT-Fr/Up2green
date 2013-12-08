@@ -18,19 +18,18 @@ class PartnerAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title')
-            ->add('summary')
-            ->add('description')
-            ->add('url')
-            ->add('user')
-            // TODO
-            //->add('partnerLogos', 'sonata_type_collection', array(
-            //    'by_reference' => false,
-            //), array(
-            //    'edit' => 'inline',
-            //    'inline' => 'table',
-            //    'sortable' => 'id',
-            //))
+            ->with('Informations générales')
+                ->add('user')
+                ->add('title')
+                ->add('summary')
+                ->add('description')
+                ->add('url')
+                ->add('certificate')
+            ->end()
+            ->with('Page personalisée')
+                ->add('pageTitle')
+                ->add('page')
+            ->end()
         ;
     }
 
@@ -40,9 +39,9 @@ class PartnerAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('user')
             ->add('title')
             ->add('url')
-            ->add('user')
         ;
     }
 
@@ -53,9 +52,9 @@ class PartnerAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
+            ->add('user')
             ->add('title')
             ->add('url')
-            ->add('user')
         ;
     }
 }

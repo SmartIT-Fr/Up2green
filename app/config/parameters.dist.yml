@@ -17,6 +17,7 @@ parameters:
   mailer_password:    ~
 
   locale:             fr
+  locales:            [fr, en]
   domain:             up2green.localhost
   secret:             up2green2TokenSecret
 

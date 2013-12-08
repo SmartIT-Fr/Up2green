@@ -20,7 +20,22 @@ class OrganizationAdmin extends Admin
         $formMapper
             ->add('url')
             ->add('isActive', 'checkbox')
-            ->add('translations', 'a2lix_translations')
+            ->add('translations', 'a2lix_translations_gedmo', array(
+                'translatable_class' => 'Up2green\ReforestationBundle\Entity\Organization',
+                'fields' => array(
+                    'title' => array(),
+                    'summary' => array(
+                        'attr' => array(
+                            'class' => 'ckeditor'
+                        )
+                    ),
+                    'description' => array(
+                        'attr' => array(
+                            'class' => 'ckeditor'
+                        )
+                    ),
+                )
+            ))
         ;
     }
 

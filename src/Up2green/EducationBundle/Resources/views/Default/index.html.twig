@@ -9,7 +9,7 @@
         {% if picture.picture is not empty %}
             <li class="span1">
                 <a class="classroom-picture-modal" href="{{ path('education_classroom_picture_show', {'id': picture.id}) }}">
-                    <img class="classroom-picture img-polaroid" src="{{ asset(picture.picture) | imagine_filter('thumb_75x75_outbound')  }}" alt="{{ picture.student }}" />
+                    <img class="classroom-picture img-polaroid" src="{{ (picture.path ~ '/' ~ picture.picture) | imagine_filter('thumb_75x75_outbound')  }}" alt="{{ picture.student }}" />
                 </a>
             </li>
         {% endif %}

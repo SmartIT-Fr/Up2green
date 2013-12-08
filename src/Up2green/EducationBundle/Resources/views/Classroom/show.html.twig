@@ -9,7 +9,7 @@
     <div class="grey-box span8">
 
         {% if classroom.picture is not empty %}
-            <img src="{{ asset(classroom.picture) }}" alt="{{ 'classroom.picture.alt'|trans }}" />
+            <img src="{{ (classroom.path ~ '/' ~ classroom.picture) }}" alt="{{ 'classroom.picture.alt'|trans }}" />
         {% endif %}
 
         <h3>{{ 'pictures'|trans }}</h3>

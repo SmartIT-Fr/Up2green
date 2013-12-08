@@ -12,12 +12,14 @@ framework:
     validation:      { enable_annotations: true }
     templating:
       engines: ['twig']
-#      FIXME asset version seems to broke the LiipImagineBundle => open an issue => do a PR
-#      assets_version: 2
-    default_locale:  fr
+      assets_version: 2
+    default_locale:  %locale%
     session:         ~
 
 stof_doctrine_extensions:
+    default_locale: %locale%
+    uploadable:
+        default_file_path: %kernel.root_dir%/../web
     orm:
         default:
             timestampable: true
@@ -119,16 +121,7 @@ fos_user:
 
 sonata_admin:
     title:      Up2green administration
-    title_logo: /bundles/sonataadmin/logo_title.png
-    templates:
-        # default global templates
-        layout:  SonataAdminBundle::standard_layout.html.twig
-        ajax:    SonataAdminBundle::ajax_layout.html.twig
-
-        # default actions templates, should extend a global templates
-        list:    SonataAdminBundle:CRUD:list.html.twig
-        show:    SonataAdminBundle:CRUD:show.html.twig
-        edit:    SonataAdminBundle:CRUD:edit.html.twig
+    title_logo: /favicon.png
 
     dashboard:
         groups:
@@ -160,8 +153,8 @@ jms_payment_paypal:
     debug: false
 
 jms_i18n_routing:
-    default_locale: fr
-    locales: [fr, en]
+    default_locale: %locale%
+    locales: %locales%
     strategy: prefix_except_default
 
 craue_twig_extensions: ~
@@ -193,10 +186,8 @@ bazinga_geocoder:
         google_maps: ~
 
 a2lix_translation_form:
-    locales: [fr, en]
-    default_required: true
-    manager_registry: doctrine
-    templating: "A2lixTranslationFormBundle::default.html.twig"
+    locales: %locales%
+    default_required: false
 
 up2green_education:
     trees_by_kit: 35

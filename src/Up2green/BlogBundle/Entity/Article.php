@@ -2,7 +2,9 @@
 
 namespace Up2green\BlogBundle\Entity;
 
+use A2lix\TranslationFormBundle\Util\GedmoTranslatable;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Util\Debug;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -13,11 +15,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity()
  * @ORM\Table(name="article")
- * @Gedmo\Uploadable(path="/uploads/articles")
  * @Gedmo\TranslationEntity(class="Up2green\BlogBundle\Entity\ArticleI18n")
+ * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true ,pathMethod="getPath")
  */
 class Article
 {
+    use GedmoTranslatable;
+
     /**
      * @var integer
      *
@@ -52,13 +56,24 @@ class Article
     protected $description;
 
     /**
-     * @var UploadedFile
+     * @var string
      *
      * @ORM\Column(nullable=true)
-     * @Assert\Image
      * @Gedmo\UploadableFileName
      */
     protected $logo;
+
+    /**
+     * @var UploadedFile
+     *
+     * @Assert\Image
+     */
+    protected $logoFile;
+
+    /**
+     * @var boolean
+     */
+    protected $removeLogoFile;
 
     /**
      * @var string
@@ -111,30 +126,41 @@ class Article
     }
 
     /**
-     * @return ArrayCollection
-     */
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
-    /**
-     * @param OrganizationI18n $t
-     */
-    public function addTranslation(ArticleI18n $t)
-    {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
-        }
-    }
-
-    /**
      * @return string
      */
     public function __toString()
     {
         return $this->id === null ? "New article" : (string) $this->getTitle();
+    }
+
+    /**
+     * @param boolean $removeLogoFile
+     */
+    public function setRemoveLogoFile($removeLogoFile)
+    {
+        $this->removeLogoFile = $removeLogoFile;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getRemoveLogoFile()
+    {
+        return $this->removeLogoFile;
+    }
+
+    /**
+     * @param ArticleI18n $translation
+     *
+     * @return $this
+     */
+    public function addTranslation(ArticleI18n $translation)
+    {
+        $translation->setForeignKey($this);
+        $translation->setObjectClass('Up2green\BlogBundle\Entity\Article');
+
+        $this->translations[] = $translation;
+        return $this;
     }
 
     /**
@@ -218,6 +244,22 @@ class Article
     }
 
     /**
+     * @param mixed $logoFile
+     */
+    public function setLogoFile($logoFile)
+    {
+        $this->logoFile = $logoFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogoFile()
+    {
+        return $this->logoFile;
+    }
+
+    /**
      * @param string $slug
      */
     public function setSlug($slug)
@@ -281,5 +323,13 @@ class Article
         return $this->updatedAt;
     }
 
-
+    /**
+     * @param $defaultPath
+     *
+     * @return string
+     */
+    public function getPath($defaultPath = '')
+    {
+        return $defaultPath.'/uploads/articles';
+    }
 }

@@ -27,7 +27,8 @@ class VoucherController extends CRUDController
             if ($form->isValid()) {
                 $codes = $this->get('up2green_education.manager.voucher')->generate(
                     $form->get('owner')->getData(),
-                    $form->get('quantity')->getData()
+                    $form->get('quantity')->getData(),
+                    $form->get('prefix')->getData()
                 );
 
                 $message = $this->get('translator')->trans(

@@ -58,7 +58,11 @@ class VoucherAdmin extends Admin
         $datagridMapper
             ->add('code')
             ->add('user')
-            ->add('owner');
+            ->add('owner')
+            ->add('isActive')
+            ->add('createdAt')
+            ->add('updatedAt')
+        ;
     }
 
     /**
@@ -70,6 +74,10 @@ class VoucherAdmin extends Admin
             ->addIdentifier('id')
             ->add('code')
             ->add('user')
-            ->add('owner');
+            ->add('owner')
+            ->add('isActive')
+            ->add('createdAt')
+            ->add('updatedAt')
+        ;
     }
 }

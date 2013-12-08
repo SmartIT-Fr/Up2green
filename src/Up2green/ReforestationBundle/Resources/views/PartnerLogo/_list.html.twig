@@ -1,9 +1,9 @@
-{% for logo in partner.partnerLogos %}
+{% for logo in partner.logos %}
     {% if logo.href is not empty %}
         <a href="{{ logo.href }}" target="_blank">
     {% endif %}
 
-    <img class="partner-logo" src="{{ asset(logo.src) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ partner.title }}" />
+    <img class="partner-logo" src="{{ (logo.path ~ '/' ~ logo.src) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ partner.title }}" />
 
     {% if logo.href is not empty %}
         </a>

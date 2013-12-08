@@ -2,10 +2,12 @@
 
 namespace Up2green\EducationBundle\Admin;
 
+use Doctrine\Common\Util\Debug;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
 
 /**
  * Classroom picture admin class
@@ -13,31 +15,55 @@ use Sonata\AdminBundle\Form\FormMapper;
 class ClassroomPictureAdmin extends Admin
 {
     /**
+     * @var UploadableManager
+     */
+    protected $uploader;
+
+    /**
+     * @param UploadableManager $uploader
+     */
+    public function setUploader(UploadableManager $uploader)
+    {
+        $this->uploader = $uploader;
+    }
+
+    /**
      * @param \Sonata\AdminBundle\Form\FormMapper $formMapper
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $pictureOptions = array(
-            'label'    => 'form.classroom_picture_type.picture',
-            'required' => false,
-        );
+        $pictureOptions = array('required' => false);
 
         /** @var \Up2green\EducationBundle\Entity\ClassroomPicture $subject */
         if (($subject = $this->getSubject()) && $subject->getPicture()) {
-            $pictureOptions['help_inline'] = '<img style="max-width:200px; max-height: 200px;" src="' . $subject->getPicture() . '" />';
+            $pictureOptions['help'] = '<img style="max-width:200px; max-height: 200px;" src="' . $subject->getPath() .'/'. $subject->getPicture() . '" />';
         }
 
         $formMapper
-            ->add('student', null, array(
-                'label' => 'form.classroom_picture_type.student'
-            ))
-            ->add('program', null, array(
-                'label' => 'form.classroom_picture_type.program',
-            ))
-            ->add('classroom', null, array(
-                'label' => 'form.classroom_picture_type.program'
-            ))
-            ->add('picture', 'file', $pictureOptions);
+            ->add('classroom')
+            ->add('student')
+            ->add('program')
+            ->add('pictureFile', 'file', $pictureOptions);
+    }
+
+    /**
+     * @param mixed $object
+     */
+    public function prePersist($object)
+    {
+        if (null !== $object->getPictureFile()) {
+            $this->uploader->markEntityToUpload($object, $object->getPictureFile());
+        }
+    }
+
+    /**
+     * @param mixed $object
+     */
+    public function preUpdate($object)
+    {
+        if (null !== $object->getPictureFile()) {
+            $this->uploader->markEntityToUpload($object, $object->getPictureFile());
+        }
     }
 
     /**
@@ -46,11 +72,10 @@ class ClassroomPictureAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('classroom')
             ->add('student')
             ->add('program')
-            ->add('classroom.school')
-            ->add('classroom')
-            ->add('classroom.year');
+        ;
     }
 
     /**
@@ -60,10 +85,8 @@ class ClassroomPictureAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->add('student')
-            ->add('program')
-            ->add('classroom.school')
             ->add('classroom')
-            ->add('classroom.year');
+            ->add('student')
+            ->add('program');
     }
 }

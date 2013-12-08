@@ -12,7 +12,7 @@ use Up2green\ReforestationBundle\Entity\Program;
  *
  * @ORM\Entity()
  * @ORM\Table(name="classroom_picture")
- * @Gedmo\Uploadable(pathMethod="getPath")
+ * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true, pathMethod="getPath")
  */
 class ClassroomPicture
 {
@@ -34,10 +34,14 @@ class ClassroomPicture
 
     /**
      * @ORM\Column(name="picture")
-     * @Assert\Image
      * @Gedmo\UploadableFileName
      */
     protected $picture;
+
+    /**
+     * @Assert\Image
+     */
+    protected $pictureFile;
 
     /**
      * @var Classroom
@@ -82,9 +86,9 @@ class ClassroomPicture
     /**
      * @return string
      */
-    public function getPath()
+    public function getPath($defaultPath = '')
     {
-        return sprintf("/uploads/classrooms/%d", $this->classroom->getId());
+        return sprintf("%s/uploads/classrooms/pictures", $defaultPath);
     }
 
     /**
@@ -149,6 +153,22 @@ class ClassroomPicture
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * @param mixed $pictureFile
+     */
+    public function setPictureFile($pictureFile)
+    {
+        $this->pictureFile = $pictureFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPictureFile()
+    {
+        return $this->pictureFile;
     }
 
     /**
