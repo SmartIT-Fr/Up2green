@@ -2,7 +2,6 @@
 
 namespace Up2green\BlogBundle\Entity;
 
-use A2lix\TranslationFormBundle\Util\GedmoTranslatable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Util\Debug;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,8 +19,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Article
 {
-    use GedmoTranslatable;
-
     /**
      * @var integer
      *
@@ -161,6 +158,22 @@ class Article
 
         $this->translations[] = $translation;
         return $this;
+    }
+
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    public function setTranslations(\Doctrine\Common\Collections\ArrayCollection $translations)
+    {
+        $this->translations = $translations;
+        return $this;
+    }
+
+    public function removeTranslation($translation)
+    {
+        $this->translations->removeElement($translation);
     }
 
     /**
