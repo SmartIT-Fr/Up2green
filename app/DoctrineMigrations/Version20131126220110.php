@@ -184,7 +184,7 @@ class Version20131126220110 extends AbstractMigration
         $this->addSql("CREATE UNIQUE INDEX UNIQ_497D309D5E237E06 ON classroom (name)");
         $this->addSql("CREATE UNIQUE INDEX UNIQ_F99EDABB5E237E06 ON school (name)");
         $this->addSql("ALTER TABLE waiting_list ADD CONSTRAINT FK_E4F3965BF5B7AF75 FOREIGN KEY (address_id) REFERENCES address (id) ON DELETE CASCADE");
-        $this->addSql("ALTER TABLE classroom_picture ADD CONSTRAINT FK_9C2A8EA16278D5A8 FOREIGN KEY (classroom_id) REFERENCES classroom (id) ON DELETE CASCADE");
+        $this->addSql("ALTER TABLE classroom_picture ADD CONSTRAINT FK_9C2A8EA16278D5A8 FOREIGN KEY (classroom_id) REFERENCES classroom (id)");
         $this->addSql("ALTER TABLE classroom_picture ADD CONSTRAINT FK_9C2A8EA13EB8070A FOREIGN KEY (program_id) REFERENCES program (id)");
         $this->addSql("ALTER TABLE credits ADD CONSTRAINT FK_4117D17E8789B572 FOREIGN KEY (payment_instruction_id) REFERENCES payment_instructions (id) ON DELETE CASCADE");
         $this->addSql("ALTER TABLE credits ADD CONSTRAINT FK_4117D17E4C3A3BB FOREIGN KEY (payment_id) REFERENCES payments (id) ON DELETE CASCADE");
