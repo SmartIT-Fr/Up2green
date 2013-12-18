@@ -112,3 +112,22 @@ classroom.link: 'View the classroom page'
 teacher.registration.submit: 'Access my space'
 form.label.voucher: Voucher
 classroom.sponsorized_by.partner: 'This class room have been sponsorized by %partner%'
+mail.registration.subject: Your account has been created
+mail.registration.body: >
+  Hello% username%
+
+   We confirm the creation of your personal space "My Class My Forest".
+
+   As a reminder:
+   ID:% login%
+   password:% password%
+   link to your classroom: %link%
+
+   This space allows you to download children's drawings indicating for each his name and the chosen reforestation program where the tree will be planted in the coming year.
+   Once downloaded, the drawings appear automatically on the education.up2green.com website.
+
+   Thank you for your contribution to the forest drawings for thousands of trees planted on the Planet!
+
+   Reforestation Association Up2green
+   www.maclassemaforet.org
+   https://www.facebook.com/Up2green

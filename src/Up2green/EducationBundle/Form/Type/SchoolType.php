@@ -4,7 +4,6 @@ namespace Up2green\EducationBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Up2green\EducationBundle\DomainObject;
 
 /**
  * School type

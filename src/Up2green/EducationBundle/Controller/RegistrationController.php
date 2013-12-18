@@ -17,7 +17,6 @@ use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
 use FOS\UserBundle\Model\UserInterface;
 
 use Up2green\EducationBundle\DomainObject;
-use Up2green\EducationBundle\Entity\EducationVoucher;
 use Up2green\CommonBundle\Entity\Voucher;
 
 /**
@@ -35,8 +34,14 @@ class RegistrationController extends Controller
      */
     public function newAction(Request $request, Voucher $voucher)
     {
-        $registration = new DomainObject\Registration($voucher);
-        $registration->setManager($this->get('doctrine.orm.entity_manager'));
+        $registration = new DomainObject\Registration(
+            $voucher,
+            $this->get('mailer'),
+            $this->get('translator'),
+            $this->get('stof_doctrine_extensions.uploadable.manager'),
+            $this->get('router'),
+            $this->get('doctrine.orm.entity_manager')
+        );
 
         $form = $this->createForm('education_registration', $registration);
 

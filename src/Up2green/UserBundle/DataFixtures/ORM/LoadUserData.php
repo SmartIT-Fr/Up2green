@@ -5,35 +5,53 @@ namespace Up2green\UserBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Up2green\UserBundle\Entity\User;
 
 /**
  * Class LoadUserData
  */
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        $userTeacher = new User();
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $userTeacher = $userManager->createUser();
+        $partnerDyrup = $userManager->createUser();
+
         $userTeacher->setUsername('condamine-teacher');
-        $userTeacher->setPassword('up2test');
+        $userTeacher->setPlainPassword('up2test');
         $userTeacher->setEmail('webmaster@up2green.com');
         $userTeacher->setRoles(array('ROLE_USER', 'ROLE_TEACHER'));
         $userTeacher->setEnabled(true);
 
-        $partnerDyrup = new User();
         $partnerDyrup->setUsername('dyrup');
-        $partnerDyrup->setPassword('123456');
+        $partnerDyrup->setPlainPassword('123456');
         $partnerDyrup->setEmail('contact@dyrup.fr');
         $partnerDyrup->setRoles(array('ROLE_USER', 'ROLE_PARTNER'));
         $partnerDyrup->setEnabled(true);
 
-        $manager->persist($userTeacher);
-        $manager->persist($partnerDyrup);
-        $manager->flush();
+
+        $userManager->updateUser($userTeacher, true);
+        $userManager->updateUser($partnerDyrup, true);
 
         $this->addReference('user-teacher', $userTeacher);
         $this->addReference('user-partner-dyrup', $partnerDyrup);

@@ -24,7 +24,7 @@ class ClassroomType extends AbstractType
                 'label' => 'form.classroom_type.year',
                 'data' => (int) date('Y'),
             ))
-            ->add('picture', 'file', array(
+            ->add('pictureFile', 'file', array(
                 'label'    => 'form.classroom_type.picture',
                 'required' => false,
             ))

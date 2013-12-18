@@ -2,8 +2,11 @@
 namespace Up2green\EducationBundle\DomainObject;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
+use Symfony\Component\Routing\Router;
+use Symfony\Component\Translation\Translator;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Up2green\EducationBundle\Entity\Classroom;
 use Up2green\EducationBundle\DomainObject\School;
 use Up2green\CommonBundle\Entity\Voucher;
@@ -29,6 +32,9 @@ class Registration
      */
     public $school;
 
+    /**
+     * @var Voucher
+     */
     protected $voucher;
 
     /**
@@ -37,23 +43,45 @@ class Registration
     protected $manager;
 
     /**
-     * @param User      $account   The account
-     * @param Classroom $classroom The classroom
-     * @param School    $school    The school
+     * @var \Swift_Mailer
      */
-    public function __construct(Voucher $voucher)
-    {
-        $this->voucher   = $voucher;
-        $this->account   = new User();
-        $this->classroom = new Classroom();
-    }
+    protected $mailer;
 
     /**
-     * @param ObjectManager $manager
+     * @var Translator
      */
-    public function setManager(ObjectManager $manager)
+    protected $translator;
+
+    /**
+     * @var UploadableManager
+     */
+    protected $uploader;
+
+    /**
+     * @var Router
+     */
+    protected $router;
+
+    /**
+     * @param User              $account    The account
+     * @param Classroom         $classroom  The classroom
+     * @param School            $school     The school
+     * @param \Swift_Mailer     $mailer     The mailer
+     * @param Translator        $translator The translator service
+     * @param UploadableManager $uploader   The Uploader manager
+     * @param Router            $router     The router
+     * @param ObjectManager     $manager    The persistent manager
+     */
+    public function __construct(Voucher $voucher, \Swift_Mailer $mailer, Translator $translator, UploadableManager $uploader, Router $router, ObjectManager $manager)
     {
-        $this->manager = $manager;
+        $this->uploader   = $uploader;
+        $this->voucher    = $voucher;
+        $this->translator = $translator;
+        $this->mailer     = $mailer;
+        $this->router     = $router;
+        $this->manager    = $manager;
+        $this->account    = new User();
+        $this->classroom  = new Classroom();
     }
 
     /**
@@ -68,6 +96,10 @@ class Registration
         $this->classroom->setUser($this->account);
         $this->classroom->setSchool($this->school->getSchool());
 
+        if ($this->classroom->getPictureFile()) {
+            $this->uploader->markEntityToUpload($this->classroom, $this->classroom->getPictureFile());
+        }
+
         $this->voucher->setIsActive(false);
         $this->voucher->setUser($this->account);
 
@@ -75,21 +107,28 @@ class Registration
         $this->manager->persist($this->classroom);
 
         $this->manager->flush();
+
+        $this->sendEmail();
     }
 
     /**
-     * @param Voucher $voucher
+     * Send the registration email
      */
-    public function setVoucher(Voucher $voucher)
+    protected function sendEmail()
     {
-        $this->voucher = $voucher;
-    }
+        $message = \Swift_Message::newInstance()
+            ->setSubject($this->translator->trans('mail.registration.subject'))
+            ->setFrom('no-reply@up2green.com', 'Up2green reforestation')
+            ->setTo($this->account->getEmail(), (string) $this->account)
+            ->setBody($this->translator->trans('mail.registration.body', array(
+                'username' => $this->account->getUsername(),
+                'password' => $this->account->getPlainPassword(),
+                'login' => $this->account->getUsername(),
+                'link' => $this->router->generate('education_classroom_edit', array(
+                    'id' => $this->classroom->getId()
+                ), UrlGeneratorInterface::ABSOLUTE_URL),
+            )));
 
-    /**
-     * @return Voucher
-     */
-    public function getVoucher()
-    {
-        return $this->voucher;
+        $this->mailer->send($message);
     }
 }

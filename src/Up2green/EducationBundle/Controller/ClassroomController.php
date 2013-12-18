@@ -61,6 +61,11 @@ class ClassroomController extends Controller
                 $formGeneral->submit($request);
 
                 if ($formGeneral->isValid()) {
+
+                    if ($classroom->getPictureFile()) {
+                        $this->get('stof_doctrine_extensions.uploadable.manager')->markEntityToUpload($classroom, $classroom->getPictureFile());
+                    }
+
                     $this->getDoctrine()->getManager()->flush();
                     $this->get('session')->getFlashBag()->add('success', "classroom.updated");
                 }
@@ -71,9 +76,12 @@ class ClassroomController extends Controller
 
                 if ($formPicture->isValid()) {
 
+                    $this->get('stof_doctrine_extensions.uploadable.manager')->markEntityToUpload($classroomPicture, $classroomPicture->getPictureFile());
+
                     $classroomPicture->setClassroom($classroom);
                     $this->getDoctrine()->getManager()->persist($classroomPicture);
                     $this->getDoctrine()->getManager()->flush();
+
 
                     // creating the ACL
                     $aclProvider = $this->get('security.acl.provider');

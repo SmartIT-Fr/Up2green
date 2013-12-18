@@ -112,3 +112,22 @@ classroom.link: 'Voir la page de la classe'
 teacher.registration.submit: 'Accéder à mon espace'
 form.label.voucher: Coupon
 classroom.sponsorized_by.partner: 'Cette classe a été sponsorisée par %partner%'
+mail.registration.subject: Votre compte a été créé
+mail.registration.body: >
+  Bonjour %username%,
+
+  Nous vous confirmons la création de votre espace personnel "Ma Classe Ma Forêt".
+
+  Pour rappel :
+  Identifiant : %login%
+  Mot de passe : %password%
+  Lien vers votre classe : %link%
+
+  Cet espace vous permet notamment de télécharger les dessins des enfants en précisant pour chacun son prénom et le programme de reforestation qu'il a choisi et où sera planté son arbre dans l'année qui vient.
+  Une fois téléchargés, les dessins apparaîtront automatiquement sur le site www.maclassemaforet.org.
+
+  Merci pour votre contribution à cette forêt de dessins pour des milliers d'arbres plantés sur la Planète !
+
+  Association Up2green Reforestation
+  www.maclassemaforet.org
+  https://www.facebook.com/Up2green

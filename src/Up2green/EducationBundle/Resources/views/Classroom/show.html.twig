@@ -22,9 +22,11 @@
     <div class="grey-box span4">
 
         {% if is_granted('EDIT', classroom)  %}
-        <a class="btn pull-right btn-primary" href="{{ path('education_classroom_edit', { 'id': classroom.id, }) }}">
-            {{ 'classroom.edit'|trans }}
-        </a>
+        <p class="text-center">
+            <a class="btn btn-primary" href="{{ path('education_classroom_edit', { 'id': classroom.id, }) }}">
+                {{ 'classroom.edit'|trans }}
+            </a>
+        </p>
         {% endif %}
 
         <h4>{{ 'school.informations'|trans }}</h4>

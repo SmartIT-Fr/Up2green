@@ -40,14 +40,15 @@ class ClassroomPicture
 
     /**
      * @Assert\Image
+     * @Assert\NotNull
      */
     protected $pictureFile;
 
     /**
      * @var Classroom
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\Classroom", cascade={"remove"}, inversedBy="classroomPictures")
-     * @ORM\JoinColumn(name="classroom_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\Classroom", inversedBy="classroomPictures")
+     * @ORM\JoinColumn(name="classroom_id", referencedColumnName="id", nullable=false)
      */
     protected $classroom;
 
