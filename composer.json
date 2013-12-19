@@ -19,6 +19,7 @@
         "symfony/swiftmailer-bundle": "2.3.*",
         "symfony/monolog-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
+        "sensio/distribution-bundle": "2.3.*",
 
         "jms/security-extra-bundle": "1.5.*",
         "jms/di-extra-bundle": "1.4.*",
@@ -38,7 +39,7 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "kriswallsmith/buzz": "0.*",
         "gregwar/captcha-bundle": "1.0.*",
-        "friendsofsymfony/jsrouting-bundle": "1.4.*",
+        "friendsofsymfony/jsrouting-bundle": "1.5.*",
         "jms/payment-core-bundle": "1.0.*",
         "jms/payment-paypal-bundle": "1.0.*",
         "ornicar/gravatar-bundle" : "1.0.*",
@@ -53,7 +54,6 @@
         "knplabs/knp-menu-bundle": "1.1.*"
     },
     "require-dev": {
-        "sensio/distribution-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "juliendidier/buzz-profiler-bundle": "dev-master"
