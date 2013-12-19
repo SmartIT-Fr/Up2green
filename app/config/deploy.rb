@@ -23,9 +23,6 @@ set :shared_files,      [app_path + "/config/parameters.yml"]
 set :shared_children,   [app_path + "/logs", web_path + "/uploads"]
 set :use_composer,      true
 
-# FIXME we should not use prefere-source, it was an easy solution for Github API limit
-set :composer_options,  "--no-scripts --no-dev --verbose --prefer-source --optimize-autoloader"
-
 set :writable_dirs,       [app_path + "/cache", app_path + "/logs", web_path + "/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
@@ -38,8 +35,7 @@ before "symfony:assetic:dump" do
   run "cd #{latest_release} && #{php_bin} #{symfony_console} mopa:bootstrap:symlink:less --env=#{symfony_env_prod}"
 end
 
-after "deploy", "symfony:cache:clear"
-after "deploy", "deploy:migrations"
+before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
 after "deploy", "deploy:cleanup"
 
 namespace :deploy do
