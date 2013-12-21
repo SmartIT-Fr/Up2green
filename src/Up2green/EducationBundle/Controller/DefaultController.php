@@ -18,11 +18,9 @@ class DefaultController extends Controller
      */
     public function bannerAction()
     {
-        $kits = $this->getDoctrine()
-            ->getRepository('Up2greenEducationBundle:EducationVoucher')
-            ->countUsed();
-
-        $count = $kits * $this->container->getParameter('up2green_education.trees_by_kit');
+        $count = $this->getDoctrine()
+            ->getRepository('Up2greenEducationBundle:ClassroomPicture')
+            ->count();
 
         return array('count' => $count);
     }
@@ -35,7 +33,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $pictures = $this->getDoctrine()->getRepository('Up2greenEducationBundle:ClassroomPicture')->findAll();
+        $pictures = $this->getDoctrine()
+            ->getRepository('Up2greenEducationBundle:ClassroomPicture')
+            ->findAllForHomepage();
 
         return array('pictures' => $pictures);
     }

@@ -10,7 +10,7 @@ use Up2green\ReforestationBundle\Entity\Program;
 /**
  * ClassroomPicture entity
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Up2green\EducationBundle\Repository\ClassroomPictureRepository")
  * @ORM\Table(name="classroom_picture")
  * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true, pathMethod="getPath")
  */
