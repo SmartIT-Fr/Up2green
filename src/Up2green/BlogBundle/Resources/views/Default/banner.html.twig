@@ -1,8 +1,40 @@
 <header id="overview" class="jumbotron subhead">
-    <h1>Up2green</h1>
-    <p class="lead">
-        {{ "Devenez acteur de la reforestation."|trans }}
-    </p>
+    <div class="row-fluid">
+        <div class="span4">
+            <a class="logo" href="{{ path('blog_homepage') }}">
+                <img src="/bundles/up2greencommon/images/logo/up2green_350x115.png">
+            </a>
+
+            {{ 'Devenez acteur de la reforestation'|trans }}
+        </div>
+
+        <div id="carousel-banner-programs" class="carousel slide span8">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-banner-programs" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-banner-programs" data-slide-to="1"></li>
+                <li data-target="#carousel-banner-programs" data-slide-to="2"></li>
+                <li data-target="#carousel-banner-programs" data-slide-to="3"></li>
+                <li data-target="#carousel-banner-programs" data-slide-to="4"></li>
+            </ol>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                {% for program in programs %}
+                    <div class="{% if loop.first %}active {% endif %}item row-fluid">
+                        <div class="span8">
+                            <h3>{{ program.title }}</h3>
+                            <h3>{{ program.summary }}</h3>
+                        </div>
+                        <div class="span4">
+                            <img class="program" src="{{ (program.path ~ '/' ~ program.logo) | imagine_filter('thumb_250x250_outbound') }}" alt="{{ program }}" />
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#carousel-banner-programs" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#carousel-banner-programs" data-slide="next">&rsaquo;</a>
+        </div>
+    </div>
 
     <div id="blog-main-menu" class="subnav">
         <ul class="nav nav-pills">

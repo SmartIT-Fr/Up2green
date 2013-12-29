@@ -27,13 +27,12 @@ class DefaultController extends Controller
      *
      * @Template()
      * @return array
-     * FIXME We should limit the request here
      */
     public function bannerAction()
     {
         $programs = $this->getDoctrine()
             ->getRepository('Up2greenReforestationBundle:Program')
-            ->findAll();
+            ->findLatestForHomepage();
 
         return array('programs' => $programs);
     }

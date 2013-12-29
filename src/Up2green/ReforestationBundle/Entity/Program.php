@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Program entity
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Up2green\ReforestationBundle\Repository\ProgramRepository")
  * @ORM\Table(name="program")
  * @Gedmo\TranslationEntity(class="Up2green\ReforestationBundle\Entity\ProgramI18n")
  * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true ,pathMethod="getPath")

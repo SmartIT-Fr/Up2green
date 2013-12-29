@@ -114,14 +114,14 @@ form.label.voucher: Voucher
 classroom.sponsorized_by.partner: 'This class room have been sponsorized by %partner%'
 mail.registration.subject: Your account has been created
 mail.registration.body: >
-  Hello% username%
+  Hello %username%
 
    We confirm the creation of your personal space "My Class My Forest".
 
    As a reminder:
-   ID:% login%
-   password:% password%
-   link to your classroom: %link%
+   ID: %username%
+   Link to your classroom: %link%
+   Public link to your classroom: %publicLink%
 
    This space allows you to download children's drawings indicating for each his name and the chosen reforestation program where the tree will be planted in the coming year.
    Once downloaded, the drawings appear automatically on the education.up2green.com website.

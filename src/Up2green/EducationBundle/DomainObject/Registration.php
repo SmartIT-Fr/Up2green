@@ -121,11 +121,13 @@ class Registration
             ->setFrom('no-reply@up2green.com', 'Up2green reforestation')
             ->setTo($this->account->getEmail(), (string) $this->account)
             ->setBody($this->translator->trans('mail.registration.body', array(
-                'username' => $this->account->getUsername(),
-                'password' => $this->account->getPlainPassword(),
-                'login' => $this->account->getUsername(),
-                'link' => $this->router->generate('education_classroom_edit', array(
+                '%username%' => $this->account->getUsername(),
+                '%link%' => $this->router->generate('education_classroom_edit', array(
                     'id' => $this->classroom->getId()
+                ), UrlGeneratorInterface::ABSOLUTE_URL),
+                '%publicLink%' => $this->router->generate('education_classroom_show', array(
+                    'school_slug' => $this->classroom->getSchool()->getSlug(),
+                    'classroom_slug' => $this->classroom->getSlug(),
                 ), UrlGeneratorInterface::ABSOLUTE_URL),
             )));
 

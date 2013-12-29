@@ -34,8 +34,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         $userManager = $this->container->get('fos_user.user_manager');
 
-        $userTeacher = $userManager->createUser();
+        $userTeacher  = $userManager->createUser();
         $partnerDyrup = $userManager->createUser();
+        $simpleUser   = $userManager->createUser();
 
         $userTeacher->setUsername('condamine-teacher');
         $userTeacher->setPlainPassword('up2test');
@@ -49,9 +50,15 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $partnerDyrup->setRoles(array('ROLE_USER', 'ROLE_PARTNER'));
         $partnerDyrup->setEnabled(true);
 
+        $simpleUser->setUsername('simple-user');
+        $simpleUser->setPlainPassword('123456');
+        $simpleUser->setEmail('simple@user.fr');
+        $simpleUser->setRoles(array('ROLE_USER'));
+        $simpleUser->setEnabled(true);
 
         $userManager->updateUser($userTeacher, true);
         $userManager->updateUser($partnerDyrup, true);
+        $userManager->updateUser($simpleUser, true);
 
         $this->addReference('user-teacher', $userTeacher);
         $this->addReference('user-partner-dyrup', $partnerDyrup);
