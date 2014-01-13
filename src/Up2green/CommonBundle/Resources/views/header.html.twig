@@ -33,8 +33,8 @@
                             <a href="{{ path('education_homepage') }}">{{ 'Education'|trans }}</a>
                         </li>
                         {% if is_granted("ROLE_ADMIN") %}
-                        <li{% if route == 'up2green_admin_homepage' %} class="active"{% endif %}>
-                            <a href="{{ path('up2green_admin_homepage') }}">{{ 'administration'|trans }}</a>
+                        <li>
+                            <a href="{{ path('sonata_admin_dashboard') }}">{{ 'administration'|trans }}</a>
                         </li>
                         {% endif %}
                     </ul>
