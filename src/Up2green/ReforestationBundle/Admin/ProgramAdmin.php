@@ -38,7 +38,7 @@ class ProgramAdmin extends Admin
                     'required' => false,
                     'help'     => '<img style="max-width:200px; max-height: 200px;" src="' . $subject->getPath() .'/'. $subject->getLogo() . '" />'
                 ))
-                ->add('removeLogoFile', 'checkbox', array('required' => false))
+                ->add('removeLogo', 'checkbox', array('required' => false))
             ;
         } else {
             $formMapper->add('logoFile', 'file', array('required' => false));

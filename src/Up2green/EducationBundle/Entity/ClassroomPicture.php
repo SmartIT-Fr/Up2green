@@ -48,7 +48,7 @@ class ClassroomPicture
      * @var Classroom
      *
      * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\Classroom", inversedBy="classroomPictures")
-     * @ORM\JoinColumn(name="classroom_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="classroom_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $classroom;
 

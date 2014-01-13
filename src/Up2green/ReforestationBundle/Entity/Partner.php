@@ -28,7 +28,7 @@ class Partner
     /**
      * @var User
      *
-     * @ORM\OneToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"persist"}, inversedBy="partner")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;

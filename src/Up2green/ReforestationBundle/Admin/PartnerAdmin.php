@@ -17,9 +17,21 @@ class PartnerAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $query = $this->modelManager
+            ->getEntityManager('Up2green\\UserBundle\\Entity\\User')
+            ->createQueryBuilder('u')
+            ->select('u')
+            ->from('Up2greenUserBundle:User', 'u')
+            ->leftJoin('u.partner', 'p')
+            ->where('p IS NULL')
+            ->orderBy('u.username', 'ASC')
+        ;
+
         $formMapper
             ->with('Informations générales')
-                ->add('user')
+                ->add('user', null, array(
+                    'query_builder' => $query
+                ))
                 ->add('title')
                 ->add('summary')
                 ->add('description')

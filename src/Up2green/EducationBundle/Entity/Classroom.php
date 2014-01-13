@@ -82,7 +82,7 @@ class Classroom
     /**
      * @var School
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\School", cascade={"remove", "persist"})
+     * @ORM\ManyToOne(targetEntity="Up2green\EducationBundle\Entity\School", cascade={"persist"})
      * @ORM\JoinColumn(name="school_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $school;
@@ -90,7 +90,7 @@ class Classroom
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\UserBundle\Entity\User", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="Up2green\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $user;

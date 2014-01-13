@@ -54,7 +54,7 @@ class PartnerLogo
     /**
      * @var Partner
      *
-     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Partner")
+     * @ORM\ManyToOne(targetEntity="Up2green\ReforestationBundle\Entity\Partner", inversedBy="logos")
      * @ORM\JoinColumn(name="partner_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     protected $partner;

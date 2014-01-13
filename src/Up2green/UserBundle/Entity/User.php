@@ -5,6 +5,7 @@ namespace Up2green\UserBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Up2green\ReforestationBundle\Entity\Partner;
 
 /**
  * @ORM\Entity
@@ -31,6 +32,13 @@ class User extends BaseUser
      * )
      */
     protected $trees;
+
+    /**
+     * @var Partner
+     *
+     * @ORM\OneToOne(targetEntity="Up2green\ReforestationBundle\Entity\Partner", mappedBy="user")
+     */
+    protected $partner;
 
     /**
      * @var float
@@ -131,5 +139,21 @@ class User extends BaseUser
     public function getTrees()
     {
         return $this->trees;
+    }
+
+    /**
+     * @param Partner $partner
+     */
+    public function setPartner(Partner $partner = null)
+    {
+        $this->partner = $partner;
+    }
+
+    /**
+     * @return Partner
+     */
+    public function getPartner()
+    {
+        return $this->partner;
     }
 }
