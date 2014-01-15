@@ -1,1 +1,2 @@
 form.validation.school_list: Please choose a school from the list
+classroom.already_exist: A classroom already exists with the name, school and year specified

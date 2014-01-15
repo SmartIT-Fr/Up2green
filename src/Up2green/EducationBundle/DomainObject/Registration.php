@@ -1,12 +1,16 @@
 <?php
 namespace Up2green\EducationBundle\DomainObject;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
 use Symfony\Component\Routing\Router;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Translation\Translator;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Validator\ExecutionContextInterface;
 use Up2green\EducationBundle\Entity\Classroom;
 use Up2green\EducationBundle\DomainObject\School;
 use Up2green\CommonBundle\Entity\Voucher;
@@ -14,6 +18,8 @@ use Up2green\UserBundle\Entity\User;
 
 /**
  * Registration domain object
+ *
+ * @Assert\Callback(methods={"isClassroomUnique"})
  */
 class Registration
 {
@@ -63,24 +69,25 @@ class Registration
     protected $router;
 
     /**
-     * @param User              $account    The account
+     * @param Voucher           $voucher    The voucher
+     * @param UserInterface     $account    The account
      * @param Classroom         $classroom  The classroom
      * @param School            $school     The school
      * @param \Swift_Mailer     $mailer     The mailer
      * @param Translator        $translator The translator service
      * @param UploadableManager $uploader   The Uploader manager
      * @param Router            $router     The router
-     * @param ObjectManager     $manager    The persistent manager
+     * @param ManagerRegistry   $manager    The persistent manager
      */
-    public function __construct(Voucher $voucher, \Swift_Mailer $mailer, Translator $translator, UploadableManager $uploader, Router $router, ObjectManager $manager)
+    public function __construct(Voucher $voucher, UserInterface $account = null, \Swift_Mailer $mailer, Translator $translator, UploadableManager $uploader, Router $router, ManagerRegistry $manager)
     {
         $this->uploader   = $uploader;
+        $this->account    = $account === null ? new User() : $account;
         $this->voucher    = $voucher;
         $this->translator = $translator;
         $this->mailer     = $mailer;
         $this->router     = $router;
         $this->manager    = $manager;
-        $this->account    = new User();
         $this->classroom  = new Classroom();
     }
 
@@ -89,9 +96,14 @@ class Registration
      */
     public function save()
     {
-        $this->account->addRole('ROLE_TEACHER');
-        $this->account->setEnabled(true);
-        $this->account->setLastLogin(new \DateTime());
+        if (!$this->account->hasRole('ROLE_TEACHER')) {
+            $this->account->addRole('ROLE_TEACHER');
+        }
+
+        if ($this->account->getId() === null) {
+            $this->account->setEnabled(true);
+            $this->account->setLastLogin(new \DateTime());
+        }
 
         $this->classroom->setUser($this->account);
         $this->classroom->setSchool($this->school->getSchool());
@@ -103,10 +115,12 @@ class Registration
         $this->voucher->setIsActive(false);
         $this->voucher->setUser($this->account);
 
-        $this->manager->persist($this->account);
-        $this->manager->persist($this->classroom);
+        if ($this->account->getId() === null) {
+            $this->manager->getManager()->persist($this->account);
+        }
 
-        $this->manager->flush();
+        $this->manager->getManager()->persist($this->classroom);
+        $this->manager->getManager()->flush();
 
         $this->sendEmail();
     }
@@ -132,5 +146,24 @@ class Registration
             )));
 
         $this->mailer->send($message);
+    }
+
+    /**
+     * FIXME remove this and this domain object by moving the school object form in the classroom form
+     */
+    public function isClassroomUnique(ExecutionContextInterface $context)
+    {
+        $this->classroom->setSchool($this->school->getSchool());
+
+        $contraint = new UniqueEntity(array(
+            'fields' => array('school', 'year', 'name'),
+            'message' => 'classroom.already_exist'
+        ));
+
+        $unique = new UniqueEntityValidator($this->manager);
+        $unique->initialize($context);
+        $unique->validate($this->classroom, $contraint);
+
+        $this->classroom->resetSchool();
     }
 }

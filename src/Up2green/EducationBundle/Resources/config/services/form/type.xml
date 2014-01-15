@@ -18,6 +18,7 @@
 
     <services>
         <service id="form.type.education.registration" class="%up2green_education.form.type.registration.class%">
+            <argument type="service" id="security.context" />
             <tag name="form.type" alias="education_registration" />
         </service>
         <service id="form.type.education.school_select" class="%up2green_education.form.type.school_select.class%">

@@ -7,22 +7,36 @@
 
 <form method="post" enctype="multipart/form-data">
 
-    <div class="error">
+    {% if not form.vars.valid %}
+    <div class="alert alert-error alert-block">
+        <a class="close" data-dismiss="alert" href="#">×</a>
         {{ form_errors(form) }}
     </div>
+    {% endif %}
 
     <div class="row-fluid">
-        <div class="span4 grey-box">
-            {{ form_row(form.school) }}
-        </div>
-        <div class="span4 grey-box">
-            {{ form_row(form.classroom) }}
-        </div>
-        <div class="span4 grey-box">
-            {{ form_row(form.account) }}
+        {% if form.account is defined %}
+            <div class="span4 grey-box">
+                {{ form_row(form.school) }}
+            </div>
+            <div class="span4 grey-box">
+                {{ form_row(form.classroom) }}
+            </div>
+            <div class="span4 grey-box">
+                {{ form_row(form.account) }}
 
-            <input type="submit" class="btn btn-primary pull-right" value="{{ 'teacher.registration.submit'|trans }}"/>
-        </div>
+                <input type="submit" class="btn btn-primary pull-right" value="{{ 'teacher.registration.submit'|trans }}"/>
+            </div>
+        {% else %}
+            <div class="span6 grey-box">
+                {{ form_row(form.school) }}
+            </div>
+            <div class="span6 grey-box">
+                {{ form_row(form.classroom) }}
+
+                <input type="submit" class="btn btn-primary pull-right" value="{{ 'teacher.registration.submit'|trans }}"/>
+            </div>
+        {% endif %}
         {{ form_rest(form) }}
     </div>
 

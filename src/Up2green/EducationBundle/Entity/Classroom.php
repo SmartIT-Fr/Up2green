@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Up2green\ReforestationBundle\Entity\Partner;
 use Up2green\UserBundle\Entity\User;
@@ -14,8 +15,9 @@ use Up2green\UserBundle\Entity\User;
  * Classroom entity
  *
  * @ORM\Entity(repositoryClass="Up2green\EducationBundle\Repository\ClassroomRepository")
- * @ORM\Table(name="classroom")
+ * @ORM\Table(name="classroom", uniqueConstraints={@ORM\UniqueConstraint(name="unique_idx", columns={"school_id", "year", "name"})})
  * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true ,pathMethod="getPath")
+ * @UniqueEntity(fields={"school", "year", "name"}, message="classroom.already_exist")
  */
 class Classroom
 {
@@ -31,7 +33,7 @@ class Classroom
     /**
      * @var string
      *
-     * @ORM\Column(length=30, unique=true)
+     * @ORM\Column(length=30)
      * @Assert\Length(max=30)
      */
     protected $name;
@@ -122,7 +124,7 @@ class Classroom
     /**
      * @var string
      *
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"year", "name"})
      * @ORM\Column(length=30, unique=true)
      */
     protected $slug;
@@ -142,6 +144,14 @@ class Classroom
     public function __toString()
     {
         return (string)$this->name;
+    }
+
+    /**
+     * FIXME to be remove when we delete the DomainObject\Registration
+     */
+    public function resetSchool()
+    {
+        $this->school = null;
     }
 
     /**

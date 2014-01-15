@@ -36,11 +36,12 @@ class RegistrationController extends Controller
     {
         $registration = new DomainObject\Registration(
             $voucher,
+            $this->getUser(),
             $this->get('mailer'),
             $this->get('translator'),
             $this->get('stof_doctrine_extensions.uploadable.manager'),
             $this->get('router'),
-            $this->get('doctrine.orm.entity_manager')
+            $this->get('doctrine')
         );
 
         $form = $this->createForm('education_registration', $registration);
@@ -62,12 +63,13 @@ class RegistrationController extends Controller
                 $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_EDIT);
                 $aclProvider->updateAcl($acl);
 
-                $this->container->get('fos_user.user_manager')->updateUser($registration->account);
+                if ($registration->account->getId() === null) {
+                    $this->container->get('fos_user.user_manager')->updateUser($registration->account);
+                    $this->get('session')->getFlashBag()->add('success', 'registration.flash.user_created');
+                    $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
 
-                $this->get('session')->getFlashBag()->add('success', 'registration.flash.user_created');
-                $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
-
-                $this->authenticateUser($registration->account, $response);
+                    $this->authenticateUser($registration->account, $response);
+                }
 
                 // Todo Redirect to an other place
                 return $this->redirect($this->generateUrl('education_classroom_edit', array(

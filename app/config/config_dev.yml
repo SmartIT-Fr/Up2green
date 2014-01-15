@@ -11,6 +11,7 @@ web_profiler:
 
 swiftmailer:
     delivery_address: clement.gautier.76@gmail.com
+    disable_delivery: true
 
 monolog:
     handlers:
