@@ -63,7 +63,7 @@ class RegistrationController extends Controller
                 $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_EDIT);
                 $aclProvider->updateAcl($acl);
 
-                if ($registration->account->getId() === null) {
+                if ($this->getUser() === null)  {
                     $this->container->get('fos_user.user_manager')->updateUser($registration->account);
                     $this->get('session')->getFlashBag()->add('success', 'registration.flash.user_created');
                     $response = $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
