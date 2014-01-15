@@ -19,11 +19,9 @@ class SchoolType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'form.school_type.name',
-                'required'      => false,
             ))
             ->add('address', 'textarea', array(
                 'label' => 'form.school_type.address',
-                'required'      => false,
             ));
     }
 

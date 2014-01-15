@@ -35,18 +35,43 @@ $(function() {
 
     if ($('#education_registration_school_choice_0').is(":checked")) {
         $('#education_registration_school_new_control_group').hide();
+        removeRequiredOnChilds($('#education_registration_school_new_control_group'));
     } else {
         $('#education_registration_school_existing_control_group').hide();
+        removeRequiredOnChilds($('#education_registration_school_existing_control_group'));
         $('#education_registration_school_new_address').keyup();
     }
 
     $('#education_registration_school_choice_0').click(function() {
         $('#education_registration_school_existing_control_group').show();
+        addRequiredOnChilds($('#education_registration_school_existing_control_group'));
+
         $('#education_registration_school_new_control_group').hide();
+        removeRequiredOnChilds($('#education_registration_school_new_control_group'));
     });
 
     $('#education_registration_school_choice_1').click(function() {
         $('#education_registration_school_new_control_group').show();
+        addRequiredOnChilds($('#education_registration_school_new_control_group'));
+
         $('#education_registration_school_existing_control_group').hide();
+        removeRequiredOnChilds($('#education_registration_school_existing_control_group'));
     });
+
+    function removeRequiredOnChilds(element)
+    {
+        console.log(element.find(':required'));
+        element.find(':required').each(function() {
+            $(this).data('required', true);
+            $(this).removeAttr('required');
+        })
+    }
+
+    function addRequiredOnChilds(element)
+    {
+        element.find("[data-required='required']").each(function() {
+            $(this).removeData('required');
+            $(this).attr('required', 'required');
+        })
+    }
 });

@@ -3,6 +3,8 @@ namespace Up2green\EducationBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Up2green\EducationBundle\DomainObject;
 
@@ -33,13 +35,32 @@ class SchoolSelectType extends AbstractType
             ->add('existing', 'entity', array(
                 'class'       => 'Up2green\EducationBundle\Entity\School',
                 'label'       => 'form.school_type.school_list',
-                'required'    => false,
                 'empty_value' => 'form.school_type.school_list_choice.empty_value'
             ))
             ->add('new', 'education_school', array(
-                'label'    => 'form.school_type.name',
-                'required' => false,
+                'label'    => 'form.school_type.school_out',
             ));
+
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, function(FormEvent $event) {
+            $data = $event->getData();
+            $form = $event->getForm();
+
+            if ($data['choice'] === 'existing') {
+                $form->remove('new');
+                $form->add('new', 'education_school', array(
+                    'label'    => 'form.school_type.school_out',
+                    'required' => false,
+                ));
+            } else {
+                $form->remove('existing');
+                $form->add('existing', 'entity', array(
+                    'required'    => false,
+                    'class'       => 'Up2green\EducationBundle\Entity\School',
+                    'label'       => 'form.school_type.school_list',
+                    'empty_value' => 'form.school_type.school_list_choice.empty_value'
+                ));
+            }
+        });
     }
 
     /**
