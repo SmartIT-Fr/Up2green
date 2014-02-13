@@ -19,16 +19,28 @@
 
             {{ form_rest(formGeneral) }}
 
-            <span class="pull-right">
+            <p class="pull-right">
                 <a class="btn btn-info" href="{{ path('education_classroom_show', {
                     'classroom_slug': classroom.slug,
                     'school_slug': classroom.school.slug
-                }) }}">
-                    {{ 'classroom.view.public'|trans }}
-                </a>
+                }) }}">{{ 'classroom.view.public'|trans }}</a>
                 &nbsp;
                 <button type="submit" class="btn btn-primary">{{ 'submit'|trans }}</button>
-            </span>
+            </p>
+
+            <p class="pull-right">
+                <em>
+                    {{ 'classroom.view.public_link'|trans }} : <a href="{{ path('education_classroom_show', {
+                        'classroom_slug': classroom.slug,
+                        'school_slug': classroom.school.slug
+                    }) }}">
+                        {{ url('education_classroom_show', {
+                            'classroom_slug': classroom.slug,
+                            'school_slug': classroom.school.slug
+                        }) }}
+                    </a>
+                </em>
+            </p>
         </form>
     </div>
 

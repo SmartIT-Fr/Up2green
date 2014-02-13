@@ -78,6 +78,7 @@ no.picture: Aucun dessin
 classroom.edit.general: Modifiez les informations générales de votre classe
 classroom.edit.add.picture: Ou ajoutez les photos de vos élèves
 classroom.view.public: Voir la page publique de la classe
+classroom.view.public_link: Lien à communiquer pour visualiser uniquement la forêt de dessins de votre classe
 classroom.updated: La classe a été mise à jour
 classroom.picture.added: Le dessin a été publié
 classroom.picture.deleted: Le dessin a été supprimé
@@ -113,18 +114,19 @@ teacher.registration.submit: 'Accéder à mon espace'
 form.label.voucher: Coupon
 classroom.sponsorized_by.partner: 'Cette classe a été sponsorisée par %partner%'
 mail.registration.subject: Votre compte a été créé
-mail.registration.body: >
+mail.registration.body: |
   Bonjour %username%,
 
   Nous vous confirmons la création de votre espace personnel "Ma Classe Ma Forêt".
 
   Pour rappel :
-  Identifiant : %login%
-  Lien vers votre classe : %link%
-  Lien public de votre classe : %publicLink%
+  Votre identifiant : %username%
 
+  Lien pour administrer la page et les dessins de votre classe : %link%
   Cet espace vous permet notamment de télécharger les dessins des enfants en précisant pour chacun son prénom et le programme de reforestation qu'il a choisi et où sera planté son arbre dans l'année qui vient.
   Une fois téléchargés, les dessins apparaîtront automatiquement sur le site www.maclassemaforet.org.
+
+  Lien pour visualiser la forêt de dessins uniquement de votre classe : %publicLink%
 
   Merci pour votre contribution à cette forêt de dessins pour des milliers d'arbres plantés sur la Planète !
 
