@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Up2green\ReforestationBundle\Entity\Program;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * ClassroomPicture entity
@@ -13,6 +14,7 @@ use Up2green\ReforestationBundle\Entity\Program;
  * @ORM\Entity(repositoryClass="Up2green\EducationBundle\Repository\ClassroomPictureRepository")
  * @ORM\Table(name="classroom_picture")
  * @Gedmo\Uploadable(filenameGenerator="ALPHANUMERIC", appendNumber=true, pathMethod="getPath")
+ * @Assert\Callback(methods={"isPictureFileValid"})
  */
 class ClassroomPicture
 {
@@ -40,7 +42,6 @@ class ClassroomPicture
 
     /**
      * @Assert\Image
-     * @Assert\NotNull
      */
     protected $pictureFile;
 
@@ -220,5 +221,10 @@ class ClassroomPicture
         return $this->updatedAt;
     }
 
-
+    public function isPictureFileValid(ExecutionContextInterface $context)
+    {
+        if ($this->getId() === null && $this->file === null) {
+            $context->addViolationAt('pictureFile', 'This value should not be null.');
+        }
+    }
 }
