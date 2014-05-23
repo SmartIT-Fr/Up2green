@@ -223,7 +223,7 @@ class ClassroomPicture
 
     public function isPictureFileValid(ExecutionContextInterface $context)
     {
-        if ($this->getId() === null && $this->file === null) {
+        if ($this->getId() === null && $this->pictureFile === null) {
             $context->addViolationAt('pictureFile', 'This value should not be null.');
         }
     }
